@@ -19,4 +19,4 @@ Basic steps:
 6) Edit 'config.json' and put in your Fortnite bot details
 7) Run 'node index.js' to start the bot
 
-Report issues and be descriptive, if your asking for a tutorial there your ticket WILL be closed.
+Report issues, if your asking for a tutorial there your ticket WILL be closed.
