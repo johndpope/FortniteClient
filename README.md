@@ -3,7 +3,6 @@ Uses JavaScript to emulate a Fortnite client and can join parties through HTTP a
 
 Requirements:
 - Node.JS
-- A discord bot application
 - Common sense
 
 Code By:
