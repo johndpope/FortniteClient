@@ -1,7 +1,6 @@
 const EGClient = require('epicgames-client').Client;
 const Fortnite = require('epicgames-fortnite-client');
 const config = require("./config.json");
-const { Launcher } = require('epicgames-client');
 const { EPartyPrivacy } = require('epicgames-client');
 const request = require("request-promise");
 const { ESubGame } = Fortnite;
@@ -30,11 +29,15 @@ console.log(`
   　|　|、＼
   　| 丿 ＼ ⌒)
   　| |　　) /
-  '+ノ ) 　 Lﾉ
+  '+ノ )  Lﾉ
   (_／  
 `)
 sleep(1000)
 console.clear()
+
+console.log('Most commands Made by kekistan')
+console.log('Used syfes or aquas code.')
+console.log('Github: https://github.com/Kekisatan/FortniteBot2/')
 
 var CID = config.cid
 var BID = config.bid // All of this is managed in the config file
@@ -120,46 +123,57 @@ request({
 
         fortnite.communicator.on('party:member:promoted', async (member) => {
             var profile = await eg.getProfile(member.id)
+            if (profile.displayName === eg.account.displayName) {
+              return console.log('The bot has been promoted!')
+            }
+            else {
             console.log(profile.displayName + ', Has been promoted!')
+            }
         });
 
         fortnite.communicator.on('friend:message', async (data) => {
 
           var args = data.message.split(" ");
-		
-		        if(data.message == 'help'){
+          var command = args[0].toLowerCase()
+
+          if(data.message == 'help'){
             fortnite.communicator.sendMessage(data.friend.id, 'Thanks for using this bot, heres the commands, !skin !backling !leave !emote !banner !status !ready !platform !id !playlist !promote !kick !friend !unfriend !invite');
         }
 
-              if(data.message.includes('CID_')){
+              if(data.message.includes == ('CID_')){
                 if(data.message === 'CID_') return fortnite.communicator.sendMessage(data.friend.id, "Please mention a cid.");
                 CID = args[0];
                   fortnite.party.me.setOutfit("/Game/Athena/Items/Cosmetics/Characters/" + args[0] + "." + args[0]);
                   fortnite.communicator.sendMessage(data.friend.id, "Skin set to " + args[0]);
               }
       
-              if(args[0].includes('EID_')){
+              if(data.message.includes('EID_')){
                 if(data.message === 'EID_') return fortnite.communicator.sendMessage(data.friend.id, "Please mention a eid.");
               EID = args[0];
               fortnite.party.me.setEmote("/Game/Athena/Items/Cosmetics/Dances/" + args[0] + "." + args[0]);
               fortnite.communicator.sendMessage(data.friend.id, "Emote set to " + args[0]);
               }
       
-              if(args[0].includes('Pickaxe_ID_')){
+              if(data.message.includes('Pickaxe_ID_')){
                 if(data.message === 'Pickaxe_ID_') return fortnite.communicator.sendMessage(data.friend.id, "Please mention a pickaxe id.");
                 PICKAXE_ID = args[0];
                   fortnite.party.me.setPickaxe("/Game/Athena/Items/Cosmetics/Pickaxes/" + args[0] + "." + args[0]);
                   fortnite.communicator.sendMessage(data.friend.id, "Pickaxe set to " + args[0]);
           }
       
-              if(args[0].includes('BID_')){
+              if(data.message.includes('BID_')){
                 if(data.message === 'BID_') return fortnite.communicator.sendMessage(data.friend.id, "Please mention a bid id.");
                 BID = args[0];
                   fortnite.party.me.setBackpack("/Game/Athena/Items/Cosmetics/Backpacks/" + args[0] + "." + args[0]);
                   fortnite.communicator.sendMessage(data.friend.id, "Backbling set to " + args[0]);
               }
 
-                        if(args[0].toLowerCase() === "!skin") {
+              if(command === '!party') {
+                fortnite.communicator.sendMessage(data.friend.id, "Party Info");
+                fortnite.communicator.sendMessage(data.friend.id, "There is " + fortnite.party.members.length + ', members in the party');
+              }
+
+                        if(command === "!skin") {
                           let skinname = args.slice(1).join(" ");
                           if (!skinname) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a skin name.");
                           request({
@@ -180,7 +194,7 @@ request({
                           });
                         };
       
-                    if(args[0].toLowerCase() === "!backbling") {
+                    if(command === "!backbling") {
                       let backlingname = args.slice(1).join(" ");
                       if (!backlingname) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a backling name.");
                       request({
@@ -201,7 +215,7 @@ request({
                     });
                   }
       
-                        if(args[0].toLowerCase() === "!emote") {
+                          if(command === "!emote") {
                           let emotename = args.slice(1).join(" ");
                           if (!emotename) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a emote name.");
                           request({
@@ -217,7 +231,7 @@ request({
                         });
                       }
 
-                      if(args[0].toLowerCase() == "!banner"){
+                      if(command === "!banner"){
                       if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a banner name.");
                       try {
                       fortnite.party.me.setBanner(100, args[1], args[2]);
@@ -228,14 +242,14 @@ request({
                       }
                     }
 
-                      if (args[0].toLowerCase() == "!status"){
+                        if(command === "!status"){
                         if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a status.");
                         var mess = data.message.replace("!status", "");
                         fortnite.communicator.updateStatus(mess);
                         fortnite.communicator.sendMessage(data.friend.id, 'Status set to ' + mess + "!");
                       }
 
-                      if(args[0].toLowerCase() == "!playlist"){
+                          if(command === "!playlist"){
                         if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a regionId and a playlistName.");
                         try {
                           fortnite.party.setPlaylist(args[1], args[2]);
@@ -245,7 +259,7 @@ request({
                         }
                       }
 
-                      if(args[0].toLowerCase() == "!ready"){
+                        if(command === "!ready"){
                         if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention true/false.");
                         if(args[1].toLowerCase() == "true") {
                           fortnite.party.me.setReady(true);
@@ -257,7 +271,7 @@ request({
                         }
                       }
 
-                      if(args[0].toLowerCase() == "!platform"){
+                      if(command === "!platform"){
                         if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a platform.");
                         try {
                           fortnite.party.me.setPlatform("EPlatform." + args[1]);
@@ -267,7 +281,7 @@ request({
                         }
                       }
 
-                        if(args[0].toLowerCase() == "!id"){
+                            if(command === "!id"){
                           if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a epic display name.");
                           try {
                             let lookup = args.slice(1).join(" ");
@@ -280,7 +294,7 @@ request({
                       }
                     }
 
-                      if(args[0].toLowerCase() == "!promote"){
+                         if(command === "!promote"){
                         if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a party member's name.");
                         try {
                           let lookup = args.slice(1).join(" ");
@@ -297,7 +311,7 @@ request({
                     }
                   }
 
-                      if(args[0].toLowerCase() == "!kick"){
+                          if(command === "!kick"){
                         if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a party member's name.");
                         try {
                           let lookup = args.slice(1).join(" ");
@@ -314,7 +328,7 @@ request({
                     }
                   }
 
-                      if(args[0].toLowerCase() == "!leave"){
+                          if(command === "!leave"){
                         try {
                           fortnite.party.leave()
                           fortnite.communicator.sendMessage(data.friend.id, "The bot has left.");
@@ -324,7 +338,7 @@ request({
                     }
                   }
 
-                    if(args[0].toLowerCase() == "!friend"){
+                        if(command === "!friend"){
                       if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a epic name to add.");
                       try {
                         let lookup = args.slice(1).join(" ");
@@ -343,7 +357,7 @@ request({
                   }
                 }
 
-                  if(args[0].toLowerCase() == "!unfriend"){
+                  if(command === "!unfriend"){
                     if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a epic name to unfriend.");
                     try {
                       let lookup = args.slice(1).join(" ");
@@ -364,7 +378,7 @@ request({
                 }
               }
 
-                    if(args[0].toLowerCase() == "!invite"){
+                    if(command === "!invite"){
                       if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a epic name to invite.");
                       try {
                         let lookup = args.slice(1).join(" ");
