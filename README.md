@@ -6,10 +6,10 @@ Requirements:
 - Common sense
 
 Code By:
-Syfe
-Aqua Plays
+- Syfe
+- Aqua Plays
 Some by
-Kekistan
+- Kekistan
 
 Note:
 - You don't need to put a netcl, it auto updates by using a api
