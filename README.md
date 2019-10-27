@@ -11,6 +11,9 @@ Aqua Plays
 Some by
 Kekistan
 
+Note:
+You don't need to put a netcl, it auto updates by using a api
+
 Basic steps:
 1) Download and unzip
 2) Open CMD in the unzipped folder
