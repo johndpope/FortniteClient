@@ -184,7 +184,7 @@ request({
                               Object.keys(query).forEach(function(key) {
                                 if(query[key].type == "Outfit") {
                                 fortnite.party.me.setOutfit("/Game/Athena/Items/Cosmetics/Characters/" + query[key].id + "." + query[key].id);
-                                fortnite.communicator.sendMessage(data.friend.id, "Found " + query[key].displayName + ', the id is' + query[key].id);
+                                fortnite.communicator.sendMessage(data.friend.id, "Found " + query[key].displayName + ', the id is ' + query[key].id);
                                 }
                               });
                             }
@@ -205,7 +205,7 @@ request({
                         Object.keys(query).forEach(function(key) {
                           if(query[key].type == "Back Bling") {
                           fortnite.party.me.setBackpack("/Game/Athena/Items/Cosmetics/Backpacks/" + query[key].id + "." + query[key].id);
-                          fortnite.communicator.sendMessage(data.friend.id, "Found " + query[key].displayName + ', the id is' + query[key].id);
+                          fortnite.communicator.sendMessage(data.friend.id, "Found " + query[key].displayName + ', the id is ' + query[key].id);
                           }
                         });
                       }
