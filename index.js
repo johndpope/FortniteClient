@@ -16,7 +16,7 @@ function sleep(milliseconds) {
 	}
 }
 
-var a = console.log(`
+console.log(`
 (_＼ヽ
   　 ＼＼ .Λ＿Λ.
   　　 ＼(　ˇωˇ)　
@@ -126,6 +126,10 @@ request({
         fortnite.communicator.on('friend:message', async (data) => {
 
           var args = data.message.split(" ");
+		
+		        if(data.message == 'help'){
+            fortnite.communicator.sendMessage(data.friend.id, 'Thanks for using this bot, heres the commands, !skin !backling !leave !emote !banner !status !ready !platform !id !playlist !promote !kick !friend !unfriend !invite');
+        }
 
               if(data.message.includes('CID_')){
                 if(data.message === 'CID_') return fortnite.communicator.sendMessage(data.friend.id, "Please mention a cid.");
