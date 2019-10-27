@@ -8,7 +8,7 @@ Requirements:
 Code By:
 - Syfe
 - Aqua Plays
-Some by
+- Some by
 - Kekistan
 
 Note:
