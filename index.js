@@ -225,7 +225,7 @@ request({
                           Object.keys(query).forEach(function(key) {
                             if(query[key].type == "Emote") {
                             fortnite.party.me.setEmote("/Game/Athena/Items/Cosmetics/Dances/" + query[key].id + "." + query[key].id);
-                            fortnite.communicator.sendMessage(data.friend.id, "Found " + query[key].displayName + ', the id is' + query[key].id);
+                            fortnite.communicator.sendMessage(data.friend.id, "Found " + query[key].displayName + ', the id is ' + query[key].id);
                             }
                           });
                         });
