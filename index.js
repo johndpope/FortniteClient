@@ -9,19 +9,29 @@ const { EPlatform } = require('epicgames-client');
 function sleep(milliseconds) {
 	var start = new Date().getTime();
 	for (var i = 0; i < 1e7; i++) {
-		if ((new Date().getTime() - start) > milliseconds){
+		if ((new Date().getTime() - start) > milliseconds) {
 			break;
 		}
 	}
 }
 
             console.log(`
-            I had to remove the cat bot,
-for reasons, 
-commands by kekistan
+            (_＼ヽ
+              　 ＼＼ .Λ＿Λ.
+              　　 ＼(　ˇωˇ)　
+              　　　 >　⌒ヽ
+              　　　/ 　 へ＼
+              　　 /　　/　＼＼
+              　　 ﾚ　ノ　　 ヽ_つ    Your welcome
+              　　/　/          Lib by (i have no idea)
+              　 /　/|            Most commands made by
+              　(　(ヽ                 Kekistan
+              　|　|、＼
+              　| 丿 ＼ ⌒)
+              　| |　　) /
+              '+ノ )  Lﾉ
+              (_／  
             `)
-            sleep(1000)
-            console.clear()
 
         console.log('Most commands Made by kekistan')
         console.log('Used syfes or aquas code.')
@@ -69,311 +79,319 @@ commands by kekistan
               partyBuildId: '1:1:' + netcl,
               });
 
-          const br = await fortnite.runSubGame(ESubGame.BattleRoyale);
+              if(!netcl) return console.log(`For some reason the netcl isn't working, check the github maybe.`)
 
-          fortnite.communicator.on('party:member:left', async (member) => {
-            var profile = await eg.getProfile(member.id)
-            if (profile.displayName === eg.account.displayName) return console.log(`[BOT] The bot has been kicked!`)
-          if(fortnite.party.members.length == 1) return {
-          }
-           return console.log(`[PARTY MEMBER] ${profile.displayName} has left the party.`)
-           });  
+              const br = await fortnite.runSubGame(ESubGame.BattleRoyale);
 
-          fortnite.communicator.on('party:member:promoted', async (member) => {
-            var profile = await eg.getProfile(member.id)
-            if(fortnite.party.members.length == 1) {
-              return console.log('[PARTY UNEXPECTED] The bot was either kicked or the party was abandoned.')
-            }
-            if (profile.displayName === eg.account.displayName) {
-              return console.log('[PARTY PROMOTE] The bot has been promoted!')
-            }
-            else {
-            console.log('[PARTY PROMOTED] ' + profile.displayName + ', Has been promoted!')
-            }
-        });
+                  fortnite.communicator.on('party:member:left', async (member) => {
+                    var profile = await eg.getProfile(member.id)
+                    if (profile.displayName === eg.account.displayName) return console.log(`[BOT] The bot has been kicked!`)
+                  if(fortnite.party.members.length == 1) return {
+                  }
+                  return console.log(`[PARTY MEMBER] ${profile.displayName} has left the party.`)
+                  });  
 
-        fortnite.communicator.on('party:invitation', async (invitation) => {
-          await invitation.accept()
-        });
+                  fortnite.communicator.on('party:member:promoted', async (member) => {
+                    var profile = await eg.getProfile(member.id)
+                    if(fortnite.party.members.length == 1) {
+                      return console.log('[PARTY UNEXPECTED] The bot was either kicked or the party was abandoned.')
+                    }
+                    if (profile.displayName === eg.account.displayName) {
+                      return console.log('[PARTY PROMOTE] The bot has been promoted!')
+                    }
+                    else {
+                    console.log('[PARTY PROMOTED] ' + profile.displayName + ', Has been promoted!')
+                    }
+                });
 
-        fortnite.communicator.on('party:member:joined', async (member) => {
-         var profile = await eg.getProfile(member.id)
-         if (profile.displayName === eg.account.name) {
-          fortnite.party.me.setOutfit("/Game/Athena/Items/Cosmetics/Characters/" + CID  + "." + CID);
+                fortnite.communicator.on('party:invitation', async (invitation) => {
+                  await invitation.accept()
+                });
 
-          fortnite.party.me.setBackpack("/Game/Athena/Items/Cosmetics/Backpacks/" + BID + "." + BID);
-  
-          fortnite.party.me.setPickaxe("/Game/Athena/Items/Cosmetics/Pickaxes/" + PICKAXE_ID + "." + PICKAXE_ID); // ALL OF THE THINGS ARE PULLED FROM ABOVE!
-  
-          fortnite.party.me.setEmote("/Game/Athena/Items/Cosmetics/Dances/" + EID + "." + EID);
-  
-          fortnite.party.me.setBattlePass(true, 100, 999999999, 999999999);
-  
-          fortnite.party.me.setBanner(config.level, config.banner, config.banner_color);
-         }
-         else{
-          console.log('[PARTY MEMBER] ' + profile.displayName + ', Has joined!')
-          console.log(`[PARTY COUNT] Members count: ${fortnite.party.members.length}`);
+                fortnite.communicator.on('party:member:joined', async (member) => {
+                var profile = await eg.getProfile(member.id)
+                if (profile.displayName === eg.account.name) {
+                  fortnite.party.me.setOutfit("/Game/Athena/Items/Cosmetics/Characters/" + CID  + "." + CID);
 
-            fortnite.party.me.setOutfit("/Game/Athena/Items/Cosmetics/Characters/" + CID  + "." + CID);
+                  fortnite.party.me.setBackpack("/Game/Athena/Items/Cosmetics/Backpacks/" + BID + "." + BID);
+          
+                  fortnite.party.me.setPickaxe("/Game/Athena/Items/Cosmetics/Pickaxes/" + PICKAXE_ID + "." + PICKAXE_ID); // ALL OF THE THINGS ARE PULLED FROM ABOVE!
+          
+                  fortnite.party.me.setEmote("/Game/Athena/Items/Cosmetics/Dances/" + EID + "." + EID);
+          
+                  fortnite.party.me.setBattlePass(true, 100, 999999999, 999999999);
+          
+                  fortnite.party.me.setBanner(config.level, config.banner, config.banner_color);
+                }
+                else{
+                  console.log('[PARTY MEMBER] ' + profile.displayName + ', Has joined!')
+                  console.log(`[PARTY COUNT] Members count: ${fortnite.party.members.length}`);
 
-            fortnite.party.me.setBackpack("/Game/Athena/Items/Cosmetics/Backpacks/" + BID + "." + BID);
-    
-            fortnite.party.me.setPickaxe("/Game/Athena/Items/Cosmetics/Pickaxes/" + PICKAXE_ID + "." + PICKAXE_ID); // ALL OF THE THINGS ARE PULLED FROM ABOVE!
-    
-              fortnite.party.me.setEmote("/Game/Athena/Items/Cosmetics/Dances/" + EID + "." + EID);
-    
-            fortnite.party.me.setBattlePass(true, 100, 999999999, 999999999);
-    
-            fortnite.party.me.setBanner(config.level, config.banner, config.banner_color);
-         }
-        });
+                    fortnite.party.me.setOutfit("/Game/Athena/Items/Cosmetics/Characters/" + CID  + "." + CID);
+
+                    fortnite.party.me.setBackpack("/Game/Athena/Items/Cosmetics/Backpacks/" + BID + "." + BID);
+            
+                    fortnite.party.me.setPickaxe("/Game/Athena/Items/Cosmetics/Pickaxes/" + PICKAXE_ID + "." + PICKAXE_ID); // ALL OF THE THINGS ARE PULLED FROM ABOVE!
+            
+                      fortnite.party.me.setEmote("/Game/Athena/Items/Cosmetics/Dances/" + EID + "." + EID);
+            
+                    fortnite.party.me.setBattlePass(true, 100, 999999999, 999999999);
+            
+                    fortnite.party.me.setBanner(config.level, config.banner, config.banner_color);
+                }
+                });
 
         fortnite.communicator.on('friend:message', async (data) => {
 
           var args = data.message.split(" ");
           var command = args[0].toLowerCase()
 
-          function members() {
-            if (fortnite.party.members.length > 1) {
-            fortnite.communicator.sendMessage(data.friend.id, `There is ${fortnite.party.members.length} members in the party!`);
-           }
-           else {
-            fortnite.communicator.sendMessage(data.friend.id, `The bot is currently alone, please invite it :(`);
-           }
-          }
-
-          if(data.message == 'help'){
-            fortnite.communicator.sendMessage(data.friend.id, 'Thanks for using this bot, heres the commands, !skin !backling !leave !emote !banner !status !ready !platform !id !playlist !promote !kick !friend !unfriend !invite');
-          }
-
-              if(data.message.includes('CID_')){
-                if(data.message === 'CID_') return fortnite.communicator.sendMessage(data.friend.id, "Please mention a cid.");
-               try {
-                CID = args[0];
-                  fortnite.party.me.setOutfit("/Game/Athena/Items/Cosmetics/Characters/" + args[0] + "." + args[0]);
-                  fortnite.communicator.sendMessage(data.friend.id, "Skin set to " + args[0]);
-                    }
-                    catch(er) {
-                    fortnite.communicator.sendMessage(data.friend.id, er);
-                    }
+                  function members() {
+                    if (fortnite.party.members.length > 1) {
+                    fortnite.communicator.sendMessage(data.friend.id, `There is ${fortnite.party.members.length} members in the party!`);
                   }
-      
-                  if(data.message.includes('EID_')){
-                    if(data.message === 'EID_') return fortnite.communicator.sendMessage(data.friend.id, "Please mention a eid.");
-                    try {
-                    EID = args[0];
-                  fortnite.party.me.setEmote("/Game/Athena/Items/Cosmetics/Dances/" + args[0] + "." + args[0]);
-                  fortnite.communicator.sendMessage(data.friend.id, "Emote set to " + args[0]);
-                }
-                catch(er) {
-                fortnite.communicator.sendMessage(data.friend.id, er);
-                }
-              }
-      
-              if(data.message.includes('Pickaxe_ID_')){
-                if(data.message === 'Pickaxe_ID_') return fortnite.communicator.sendMessage(data.friend.id, "Please mention a pickaxe id.");
-                try {
-                PICKAXE_ID = args[0];
-                  fortnite.party.me.setPickaxe("/Game/Athena/Items/Cosmetics/Pickaxes/" + args[0] + "." + args[0]);
-                  fortnite.communicator.sendMessage(data.friend.id, "Pickaxe set to " + args[0]);
+                  else {
+                    fortnite.communicator.sendMessage(data.friend.id, `The bot is alone :(`);
+                   }
                   }
-                catch(er) {
-                fortnite.communicator.sendMessage(data.friend.id, er);
-              }
-            }
+
+                        if(data.message === 'help') {
+                          fortnite.communicator.sendMessage(data.friend.id, 'Thanks for using this bot, heres the commands, !skin !backling !leave !emote !banner !status !ready !platform !id !playlist !promote !kick !friend !unfriend !invite');
+                        }
+
+                              if(data.message.startsWith('CID_')) {
+                                if(data.message === 'CID_') return fortnite.communicator.sendMessage(data.friend.id, "Please mention a cid.");
+                              try {
+                                CID = args[0];
+                                  fortnite.party.me.setOutfit("/Game/Athena/Items/Cosmetics/Characters/" + args[0] + "." + args[0]);
+                                  fortnite.communicator.sendMessage(data.friend.id, "Skin set to " + args[0]);
+                                    }
+                                    catch(er) {
+                                    fortnite.communicator.sendMessage(data.friend.id, er);
+                                    }
+                                  }
+                      
+                                  if(data.message.startsWith('EID_')) {
+                                    if(data.message === 'EID_') return fortnite.communicator.sendMessage(data.friend.id, "Please mention a eid.");
+                                    try {
+                                    EID = args[0];
+                                  fortnite.party.me.setEmote("/Game/Athena/Items/Cosmetics/Dances/" + args[0] + "." + args[0]);
+                                  fortnite.communicator.sendMessage(data.friend.id, "Emote set to " + args[0]);
+                                }
+                                catch(er) {
+                                fortnite.communicator.sendMessage(data.friend.id, er);
+                                }
+                              }
+                      
+                              if(data.message.startsWith('Pickaxe_ID_')) {
+                                if(data.message === 'Pickaxe_ID_') return fortnite.communicator.sendMessage(data.friend.id, "Please mention a pickaxe id.");
+                                try {
+                                PICKAXE_ID = args[0];
+                                  fortnite.party.me.setPickaxe("/Game/Athena/Items/Cosmetics/Pickaxes/" + args[0] + "." + args[0]);
+                                  fortnite.communicator.sendMessage(data.friend.id, "Pickaxe set to " + args[0]);
+                                  }
+                                catch(err) {
+                                fortnite.communicator.sendMessage(data.friend.id, err);
+                              }
+                            }
       
-              if(data.message.includes('BID_')){
-                if(data.message === 'BID_') return fortnite.communicator.sendMessage(data.friend.id, "Please mention a bid id.");
-                try {
-                BID = args[0];
-                  fortnite.party.me.setBackpack("/Game/Athena/Items/Cosmetics/Backpacks/" + args[0] + "." + args[0]);
-                  fortnite.communicator.sendMessage(data.friend.id, "Backbling set to " + args[0]);
-                }
-                catch(er) {
-                fortnite.communicator.sendMessage(data.friend.id, er);
-              }
-            }
+                            if(data.message.startsWith('BID_')) {
+                              if(data.message === 'BID_') return fortnite.communicator.sendMessage(data.friend.id, "Please mention a bid id.");
+                              try {
+                              BID = args[0];
+                                fortnite.party.me.setBackpack("/Game/Athena/Items/Cosmetics/Backpacks/" + args[0] + "." + args[0]);
+                                fortnite.communicator.sendMessage(data.friend.id, "Backbling set to " + args[0]);
+                              }
+                              catch(err) {
+                              fortnite.communicator.sendMessage(data.friend.id, err);
+                            }
+                          }
 
-              if(command === '!party') {
-                try {
-                fortnite.communicator.sendMessage(data.friend.id, "Party Info");
-                  members();
-                    }
-                    catch(er) {
-                    fortnite.communicator.sendMessage(data.friend.id, er);
-                  }
-                }
+                              if(command === '!party') {
+                                try {
+                                fortnite.communicator.sendMessage(data.friend.id, "Party Info");
+                                  members();
+                                    }
+                                    catch(err) {
+                                    fortnite.communicator.sendMessage(data.friend.id, err);
+                                  }
+                                }
 
-                        if(command === "!skin") {
-                          let skinname = args.slice(1).join(" ");
-                          if (!skinname) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a skin name.");
-                          request({
-                            url: 'http://benbotfn.tk:8080/api/cosmetics/search/multiple?displayName=' + skinname,
-                            json: true
-                        }).then(query => {
-                            try {
-                              Object.keys(query).forEach(function(key) {
-                                if(query[key].type == "Outfit") {
-                                fortnite.party.me.setOutfit("/Game/Athena/Items/Cosmetics/Characters/" + query[key].id + "." + query[key].id);
-                                fortnite.communicator.sendMessage(data.friend.id, "Found " + query[key].displayName + ', the id is' + query[key].id);
+                            if(command === "!skin") {
+                              let skinname = args.slice(1).join(" ");
+                              if (!skinname) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a skin name.");
+                              request({
+                                url: 'http://benbotfn.tk:8080/api/cosmetics/search/multiple?displayName=' + skinname,
+                                json: true
+                            }).then(query => {
+                              if(!query) return afortnite.communicator.sendMessage(data.friend.id, "dddd");
+                                try {
+                                  Object.keys(query).forEach(function(key) {
+                                    if(query[key].type == "Outfit") {
+                                    fortnite.party.me.setOutfit("/Game/Athena/Items/Cosmetics/Characters/" + query[key].id + "." + query[key].id);
+                                    fortnite.communicator.sendMessage(data.friend.id, "Found " + query[key].displayName + ', the id is' + query[key].id);
+                                    }
+                                  });
+                                }
+                                catch(err) {
+                                  console.log(err);
                                 }
                               });
-                            }
-                            catch(err) {
-                              console.log(err);
-                            }
-                          });
-                        };
-      
-                    if(command === "!backbling") {
-                      let backlingname = args.slice(1).join(" ");
-                      if (!backlingname) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a backling name.");
-                      request({
-                        url: 'http://benbotfn.tk:8080/api/cosmetics/search/multiple?displayName=' + backlingname,
-                        json: true
-                    }).then(query => {
-                      try {
-                        Object.keys(query).forEach(function(key) {
-                          if(query[key].type == "Back Bling") {
-                          fortnite.party.me.setBackpack("/Game/Athena/Items/Cosmetics/Backpacks/" + query[key].id + "." + query[key].id);
-                          fortnite.communicator.sendMessage(data.friend.id, "Found " + query[key].displayName + ', the id is' + query[key].id);
+                            };
+          
+                        if(command === "!backbling") {
+                          let backlingname = args.slice(1).join(" ");
+                          if (!backlingname) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a backling name.");
+                          request({
+                            url: 'http://benbotfn.tk:8080/api/cosmetics/search/multiple?displayName=' + backlingname,
+                            json: true
+                        }).then(query => {
+                          try {
+                            Object.keys(query).forEach(function(key) {
+                              if(query[key].type == "Back Bling") {
+                              fortnite.party.me.setBackpack("/Game/Athena/Items/Cosmetics/Backpacks/" + query[key].id + "." + query[key].id);
+                              fortnite.communicator.sendMessage(data.friend.id, "Found " + query[key].displayName + ', the id is' + query[key].id);
+                              }
+                            });
+                          }
+                          catch(err) {
+                            console.log(err);
                           }
                         });
                       }
-                      catch(err) {
-                        console.log(err);
-                      }
-                    });
-                  }
-      
-                          if(command === "!emote") {
-                          let emotename = args.slice(1).join(" ");
-                          if (!emotename) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a emote name.");
-                          request({
-                            url: 'http://benbotfn.tk:8080/api/cosmetics/search/multiple?displayName=' + emotename,
-                            json: true
-                        }).then(query => {
-                          Object.keys(query).forEach(function(key) {
-                            if(query[key].type == "Emote") {
-                            fortnite.party.me.setEmote("/Game/Athena/Items/Cosmetics/Dances/" + query[key].id + "." + query[key].id);
-                            fortnite.communicator.sendMessage(data.friend.id, "Found " + query[key].displayName + ', the id is' + query[key].id);
+          
+                              if(command === "!emote") {
+                              let emotename = args.slice(1).join(" ");
+                              if (!emotename) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a emote name.");
+                              request({
+                                url: 'http://benbotfn.tk:8080/api/cosmetics/search/multiple?displayName=' + emotename,
+                                json: true
+                            }).then(query => {
+                              Object.keys(query).forEach(function(key) {
+                                if(query[key].type == "Emote") {
+                                fortnite.party.me.setEmote("/Game/Athena/Items/Cosmetics/Dances/" + query[key].id + "." + query[key].id);
+                                fortnite.communicator.sendMessage(data.friend.id, "Found " + query[key].displayName + ', the id is' + query[key].id);
+                                }
+                              });
+                            });
+                          }
+
+                          if(command === "!banner") {
+                          if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a banner name.");
+                          try {
+                          fortnite.party.me.setBanner(100, args[1], args[2]);
+                          fortnite.communicator.sendMessage(data.friend.id, "Banner set to " + args[1] + " " + args[2]);
+                          }
+                          catch(err) {
+                          fortnite.communicator.sendMessage(data.friend.id, "There was a error: " + err);
+                          }
+                        }
+
+                            if(command === "!status") {
+                            if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a status.");
+                            try {
+                            var mess = data.message.replace("!status", "");
+                            fortnite.communicator.updateStatus(mess);
+                            fortnite.communicator.sendMessage(data.friend.id, 'Status set to ' + mess + "!");
+                          }
+                          catch(err) {
+                            fortnite.communicator.sendMessage(data.friend.id, "There was a error: " + err);
+                          }
+                        }
+
+                              if(command === "!playlist") {
+                            if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a regionId and a playlistName.");
+                              try {
+                                fortnite.party.setPlaylist(args[1], args[2]);
+                                eg.communicator.sendMessage(data.friend.id, "Set playlist to " + args[1] + " " + args[2]);
+                                  } catch {
+                                    eg.communicator.sendMessage(data.friend.id, "Usage !playlist regionId playlistName");
+                                  }
+                                }
+
+                              if(command === "!ready") {
+                              if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention true/false.");
+                              if(args[1].toLowerCase() == "true") {
+                                fortnite.party.me.setReady(true);
+                                fortnite.communicator.sendMessage(data.friend.id, "Ready!");
+                              }
+                              if(args[1].toLowerCase() == "false") {
+                                fortnite.party.me.setReady(false);
+                                fortnite.communicator.sendMessage(data.friend.id, "Unready!");
+                              }
                             }
-                          });
-                        });
-                      }
 
-                      if(command === "!banner"){
-                      if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a banner name.");
-                      try {
-                      fortnite.party.me.setBanner(100, args[1], args[2]);
-                      fortnite.communicator.sendMessage(data.friend.id, "Banner set to " + args[1] + " " + args[2]);
-                      }
-                      catch(erra){
-                      fortnite.communicator.sendMessage(data.friend.id, "There was a error: " + erra);
-                      }
-                    }
+                            if(command === "!platform") {
+                              if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a platform.");
+                              try {
+                                fortnite.party.me.setPlatform("EPlatform." + args[1]);
+                                eg.communicator.sendMessage(data.friend.id, "Set Platform to " + args[1] + " !");
+                                  } catch {
+                                    eg.communicator.sendMessage(data.friend.id, "Please use !platform PLATFORM");
+                                  }
+                                }
 
-                        if(command === "!status"){
-                        if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a status.");
-                        var mess = data.message.replace("!status", "");
-                        fortnite.communicator.updateStatus(mess);
-                        fortnite.communicator.sendMessage(data.friend.id, 'Status set to ' + mess + "!");
-                      }
+                                  if(command === "!id") {
+                                if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a epic display name.");
+                                try {
+                                  let lookup = args.slice(1).join(" ");
+                                const account = await eg.getProfile(lookup);
+                                if(!account) return fortnite.communicator.sendMessage(data.friend.id, "That epic name must of been wrong.");
+                                  fortnite.communicator.sendMessage(data.friend.id, `${account.name}'s id is: ${account.id}.`);
+                                }
+                                catch(err) {
+                                  fortnite.communicator.sendMessage(data.friend.id, "There was a error: " + err);
+                                }
+                              }
 
-                          if(command === "!playlist"){
-                        if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a regionId and a playlistName.");
-                        try {
-                          fortnite.party.setPlaylist(args[1], args[2]);
-                          eg.communicator.sendMessage(data.friend.id, "Set playlist to " + args[1] + " " + args[2]);
-                        } catch {
-                          eg.communicator.sendMessage(data.friend.id, "Usage !playlist regionId playlistName");
-                        }
-                      }
+                              if(command === "!promote") {
+                              if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a party member's name.");
+                              try {
+                                let lookup = args.slice(1).join(" ");
+                                if(lookup === eg.account.name) return fortnite.communicator.sendMessage(data.friend.id, "You can't promote yourself!");
+                              const account = await eg.getProfile(lookup);
+                              if(!account) return fortnite.communicator.sendMessage(data.friend.id, "That epic name must of been wrong.");
+                              const partymember = fortnite.party.findMember(account.id)
+                              if(!partymember) return fortnite.communicator.sendMessage(data.friend.id, `${account.name} Wasn't found in the party.`);
+                              fortnite.party.promote(account.id)
+                              fortnite.communicator.sendMessage(data.friend.id, "Promoted " + account.name + '!');
+                                  }
+                                catch(err) {
+                                  fortnite.communicator.sendMessage(data.friend.id, "There was a error: " + err);
+                                }
+                              }
 
-                        if(command === "!ready"){
-                        if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention true/false.");
-                        if(args[1].toLowerCase() == "true") {
-                          fortnite.party.me.setReady(true);
-                          fortnite.communicator.sendMessage(data.friend.id, "Ready!");
-                        }
-                        if(args[1].toLowerCase() == "false") {
-                          fortnite.party.me.setReady(false);
-                          fortnite.communicator.sendMessage(data.friend.id, "Unready!");
-                        }
-                      }
+                                if(command === "!kick") {
+                              if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a party member's name.");
+                              try {
+                                let lookup = args.slice(1).join(" ");
+                                if(lookup === eg.account.name) return fortnite.communicator.sendMessage(data.friend.id, "You can't kick yourself!");
+                              const account = await eg.getProfile(lookup);
+                              if(!account) return fortnite.communicator.sendMessage(data.friend.id, "That epic name must of been wrong.");
+                              const partymember = fortnite.party.findMember(account.id)
+                              if(!partymember) return fortnite.communicator.sendMessage(data.friend.id, `${account.name} Wasn't found in the party.`);
+                              fortnite.party.kick(account.id)
+                              fortnite.communicator.sendMessage(data.friend.id, "Kicked " + account.name + '!');
+                                  }
+                                catch(err) {
+                                  fortnite.communicator.sendMessage(data.friend.id, "There was a error: " + err);
+                                }
+                              }
 
-                      if(command === "!platform"){
-                        if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a platform.");
-                        try {
-                          fortnite.party.me.setPlatform("EPlatform." + args[1]);
-                          eg.communicator.sendMessage(data.friend.id, "Set Platform to " + args[1] + " !");
-                        } catch {
-                          eg.communicator.sendMessage(data.friend.id, "Please use !platform PLATFORM");
-                        }
-                      }
-
-				    if(command === "!id"){
-				  if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a epic display name.");
-				  try {
-				    let lookup = args.slice(1).join(" "); //Made by kekistan
-				  const account = await eg.getProfile(lookup);
-				  if(!account) return fortnite.communicator.sendMessage(data.friend.id, "That epic name must of been wrong.");
-				fortnite.communicator.sendMessage(data.friend.id, `${account.name}'s id is: ${account.id}.`);
-			      }
-			      catch(erra){
-				fortnite.communicator.sendMessage(data.friend.id, "There was a error: " + erra);
-			      }
-			    }
-
-                         if(command === "!promote"){ //Made by kekistan
-                        if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a party member's name.");
-                        try {
-                          let lookup = args.slice(1).join(" ");
-                          if(lookup === eg.account.name) return fortnite.communicator.sendMessage(data.friend.id, "You can't promote yourself!");
-                        const account = await eg.getProfile(lookup);
-                        if(!account) return fortnite.communicator.sendMessage(data.friend.id, "That epic name must of been wrong.");
-                        const partymember = fortnite.party.findMember(account.id)
-                        if(!partymember) return fortnite.communicator.sendMessage(data.friend.id, `${account.name} Wasn't found in the party.`);
-                        fortnite.party.promote(account.id)
-                        fortnite.communicator.sendMessage(data.friend.id, "Promoted " + account.name + '!');
-                      }
-                    catch(erra){
-                      fortnite.communicator.sendMessage(data.friend.id, "There was a error: " + erra);
-                    }
-                  }
-
-                          if(command === "!kick"){ //Made by kekistan
-                        if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a party member's name.");
-                        try {
-                          let lookup = args.slice(1).join(" ");
-                          if(lookup === eg.account.name) return fortnite.communicator.sendMessage(data.friend.id, "You can't kick yourself!");
-                        const account = await eg.getProfile(lookup);
-                        if(!account) return fortnite.communicator.sendMessage(data.friend.id, "That epic name must of been wrong.");
-                        const partymember = fortnite.party.findMember(account.id)
-                        if(!partymember) return fortnite.communicator.sendMessage(data.friend.id, `${account.name} Wasn't found in the party.`);
-                        fortnite.party.kick(account.id)
-                        fortnite.communicator.sendMessage(data.friend.id, "Kicked " + account.name + '!');
-                      }
-                    catch(erra){
-                      fortnite.communicator.sendMessage(data.friend.id, "There was a error: " + erra);
-                    }
-                  }
-
-                          if(command === "!leave"){
+                          if(command === "!leave") {
                         try {
                           fortnite.party.leave()
-                          fortnite.communicator.sendMessage(data.friend.id, "The bot has left."); //Made by kekistan
+                          fortnite.communicator.sendMessage(data.friend.id, "The bot has left.");
                             }
-                    catch(erra){
-                      fortnite.communicator.sendMessage(data.friend.id, "There was a error: " + erra);
-                    }
-                  }
+                          catch(err) {
+                            fortnite.communicator.sendMessage(data.friend.id, "There was a error: " + err);
+                          }
+                        }
 
-                        if(command === "!friend"){
+                        if(command === "!friend") {
                       if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a epic name to add.");
                       try {
-                        let lookup = args.slice(1).join(" "); //Made by kekistan
+                        let lookup = args.slice(1).join(" ");
                         if(lookup === eg.account.name) return fortnite.communicator.sendMessage(data.friend.id, "You can't friend yourself!");
                       const account = await eg.getProfile(lookup);
                       if(!account) return fortnite.communicator.sendMessage(data.friend.id, "That epic name must of been wrong.");
@@ -383,13 +401,13 @@ commands by kekistan
                       }
                       eg.inviteFriend(account.id)
                       fortnite.communicator.sendMessage(data.friend.id, "Friended! " + account.name + '!');
-                    }
-                  catch(erra){
-                    fortnite.communicator.sendMessage(data.friend.id, "There was a error: " + erra);
-                  }
-                }
+                          }
+                        catch(err) {
+                          fortnite.communicator.sendMessage(data.friend.id, "There was a error: " + err);
+                        }
+                      }
 
-                  if(command === "!unfriend"){ //Made by kekistan
+                  if(command === "!unfriend") {
                     if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a epic name to unfriend.");
                     try {
                       let lookup = args.slice(1).join(" ");
@@ -403,14 +421,14 @@ commands by kekistan
                     }
                     else{
                       fortnite.communicator.sendMessage(data.friend.id, `${account.name} wasn't even friended.`);
+                        }
+                      }
+                    catch(err) {
+                      fortnite.communicator.sendMessage(data.friend.id, "There was a error: " + err);
                     }
                   }
-                catch(erra){
-                  fortnite.communicator.sendMessage(data.friend.id, "There was a error: " + erra);
-                }
-              }
 
-                    if(command === "!invite"){
+                    if(command === "!invite") {
                       if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a epic name to invite.");
                       try {
                         let lookup = args.slice(1).join(" ");
@@ -424,12 +442,12 @@ commands by kekistan
                       }
                       else{
                         fortnite.communicator.sendMessage(data.friend.id, `${account.name} wasn't even friended.`);
+                          }
+                        }
+                      catch(err) {
+                        fortnite.communicator.sendMessage(data.friend.id, "There was a error: " + err);
                       }
                     }
-                  catch(erra){
-                    fortnite.communicator.sendMessage(data.friend.id, "There was a error: " + erra);
-                  }
-                }
 
 
         });
