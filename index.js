@@ -16,21 +16,9 @@ function sleep(milliseconds) {
 }
 
             console.log(`
-            (_＼ヽ
-              　 ＼＼ .Λ＿Λ.
-              　　 ＼(　ˇωˇ)　
-              　　　 >　⌒ヽ
-              　　　/ 　 へ＼
-              　　 /　　/　＼＼
-              　　 ﾚ　ノ　　 ヽ_つ    Your welcome
-              　　/　/          Lib by (i have no idea)
-              　 /　/|            Most commands made by
-              　(　(ヽ                 Kekistan
-              　|　|、＼
-              　| 丿 ＼ ⌒)
-              　| |　　) /
-              '+ノ )  Lﾉ
-              (_／  
+            I had to remove the cat bot,
+for reasons, 
+commands by kekistan
             `)
             sleep(1000)
             console.clear()
