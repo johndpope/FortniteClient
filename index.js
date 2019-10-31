@@ -14,23 +14,10 @@ function sleep(milliseconds) {
 	}
 }
 
-            console.log(`
-            (_＼ヽ
-              　 ＼＼ .Λ＿Λ.
-              　　 ＼(　ˇωˇ)　
-              　　　 >　⌒ヽ
-              　　　/ 　 へ＼
-              　　 /　　/　＼＼
-              　　 ﾚ　ノ　　 ヽ_つ    Your welcome
-              　　/　/          Lib by (i have no idea)
-              　 /　/|            Most commands made by
-              　(　(ヽ                 Kekistan
-              　|　|、＼
-              　| 丿 ＼ ⌒)
-              　| |　　) /
-              '+ノ )  Lﾉ
-              (_／  
-            `)
+            console.log(`( Updates )`)
+            console.log(`- Added !pickaxe %pickaxename%`)
+            console.log(`- Added Fortnite Info.`)
+            console.log(`- Added !emoteall`)
 
         console.log('Most commands Made by kekistan')
         console.log('Used syfes or aquas code.')
@@ -43,12 +30,23 @@ function sleep(milliseconds) {
         var netclurl = "https://fnapi.terax235.com/api/v1.2/build"
         var benbot = 'http://benbotfn.tk:8080/api/cosmetics/search/multiple?displayName='
 
+        request({
+          url: 'http://benbotfn.tk:8080/api/status',
+          json: true
+        }).then(results => {
+          var version = results.currentFortniteVersionNumber
+          var paks = results.totalPakCount
+          console.log('( Fortnite Info )')
+          console.log('[Fortnite] Pak Ammount: ' + paks)
+          console.log('[Fortnite] Version: ' + version)
+        });
+
           request({
             url: netclurl,
             json: true
           }).then(results => {
             var netcl = results.fortnite.netCL
-            console.log('Newest Netcl: ' + netcl)
+            console.log('[Fortnite] Newest Netcl: ' + netcl)
 
         let eg = new EGClient({ // For this make a new account that has nothing and put the details in here.
           email: config.email, // Remember to add your bot account email in here or it won't work!
@@ -76,7 +74,7 @@ function sleep(milliseconds) {
           if(!await eg.login())
             throw new Error('Cannot login on EpicGames account.');
 
-            const fortnite = await eg.runGame(Fortnite, { // 69 lol
+            const fortnite = await eg.runGame(Fortnite, {
               netCL: netcl,
               partyBuildId: '1:1:' + netcl,
               });
@@ -88,6 +86,7 @@ function sleep(milliseconds) {
               if(!netcl) return console.log(`For some reason the netcl isn't working, check the github maybe.`)
 
               const br = await fortnite.runSubGame(ESubGame.BattleRoyale);
+              console.log('[CLIENT] In the account ' + eg.account.displayName + ', there is only ' + fortnite.vbucks + ' vbucks on that account.')
 
                     fortnite.communicator.on('party:invitation', async (invitation) => {
                       await invitation.accept()
@@ -112,7 +111,8 @@ function sleep(milliseconds) {
                     }
                     if (profile.displayName === eg.account.displayName) {
                       return console.log('[PARTY PROMOTE] The bot has been promoted!'),
-                      fortnite.party.setPlaylist('The End', 'Playlist_Music_High')
+                      fortnite.party.setPlaylist('The End', 'Playlist_Music_High'),
+                      console.log(`[PARTY PLAYLIST] Set the playlist to "The End"`)
                     }
                     else {
                     console.log('[PARTY PROMOTED] ' + profile.displayName + ', Has been promoted!')
@@ -153,18 +153,10 @@ function sleep(milliseconds) {
 
         fortnite.communicator.on('friend:message', async (data) => {
 
+          var prefix = '!'
           var args = data.message.split(" ");
-          var command = args[0].toLowerCase()
-
-          function leave() {
-            if (fortnite.party.members.length > 1) {
-            fortnite.communicator.sendMessage(data.friend.id, `The bot can't leave the party when theres nobody in it!`);
-          }
-          else {
-            fortnite.party.leave()
-            fortnite.communicator.sendMessage(data.friend.id, "The bot has left.");
-            }
-          }
+          var cargs = data.message.slice(prefix.length).split(/ +/);
+          var command = cargs.shift().toLowerCase()
 
           function crash() {
             if (fortnite.party.members.length < 1) {
@@ -173,7 +165,7 @@ function sleep(milliseconds) {
            fortnite.party.me.setOutfit("/Game/Athena/Items/Cosmetics/Characters//./");
            fortnite.communicator.sendMessage(data.friend.id, `Crashed everyone in the party!`);
            console.log('[BOT UNUSEDABLE] The bot now crashes you if you invite it, restart the bot to fix this.')
-           console.log('[BOT UNUSEDABLE] This was caused by the crash command.')
+           console.log('[BOT UNUSEABLE] This was caused by the crash command.')
           }
 
           var partyleader;
@@ -200,9 +192,10 @@ function sleep(milliseconds) {
            }
           }
 
+        
           // Fortnite commands start here
 
-                        if(data.message === 'help') {
+                        if(command === 'help') {
                           fortnite.communicator.sendMessage(data.friend.id, 'Thanks for using this bot, heres the commands, !skin !backling !leave !emote !banner !status !ready !platform !id !playlist !promote !kick !friend !unfriend !invite');
                         }
 
@@ -243,14 +236,41 @@ function sleep(milliseconds) {
                               }
                             }
 
-                            if(command === '!crash') {
+                            if(command === 'crash') {
                               try {
-                                crash();
+                                crash(); // Will make the bot unuseable
                                 }
                               catch(err) {
                               fortnite.communicator.sendMessage(data.friend.id, err);
                             }
                           }
+
+                          // Unused _
+
+                        //   if(command === 'stats') {
+                        //     if(!args[1]) return fortnite.communicator.sendMessage(data.friend.id, 'Mention a username.');
+                        //     try {
+                        //       let stats = await br.getStatsForPlayer(args[1]);
+                        //     fortnite.communicator.sendMessage(data.friend.id, stats);
+                        //     }
+                        //     catch(err){
+                        //       fortnite.communicator.sendMessage(data.friend.id, stats);
+                        //     }
+                        // }
+                         //   Currently trying to find a way to show wins.
+
+                       //        if(command === 'code') {
+                        //        let code = args.slice(1).join(" ");
+                        //        var codeurl = 'https://epicgames.com/fortnite/ajax/redemption/validate-redemption-code?redeem-code=' + code
+                        //         request({
+                        //          url: codeurl,
+                        //          json: true
+                        //          }).then(query => {
+                        //        fortnite.communicator.sendMessage(data.friend.id, "The code is found! The title is " + query.data.title);
+                        //      });
+                        //    }
+                        // Not working currently.
+
       
                             if(data.message.startsWith('BID_')) {
                               if(data.message === 'BID_') return fortnite.communicator.sendMessage(data.friend.id, "Please mention a bid id.");
@@ -264,7 +284,7 @@ function sleep(milliseconds) {
                             }
                           }
 
-                              if(command === '!party') {
+                              if(command === 'party') {
                                 try {
                                   members();
                                     }
@@ -273,7 +293,22 @@ function sleep(milliseconds) {
                                   }
                                 }
 
-                                    if(command === "!skin") {
+                                if(command === 'emoteall') {
+                                  let emoteid = args.slice(5).join(" ");
+                                  request({
+                                    url: 'http://benbotfn.tk:8080/api/cosmetics/search/multiple?displayName=' + emoteid,
+                                    json: true
+                                }).then(query => {
+                                  Object.keys(query).forEach(function(key) {
+                                    if(query[key].type == "Emote") {
+                                    fortnite.party.me.setEmote("/Game/Athena/Items/Cosmetics/Dances/" + query[key].id + "." + query[key].id);
+                                    }
+                                  });
+                                });
+                                }
+                           
+
+                                    if(command === "skin") {
                                       let skinname = args.slice(1).join(" ");
                                       if (!skinname) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a skin name.");
                                       request({
@@ -293,8 +328,29 @@ function sleep(milliseconds) {
                                         }
                                       });
                                     }
+
+                                    if(command === "pickaxe") {
+                                      let pickaxe = args.slice(1).join(" ");
+                                      if (!pickaxe) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a pickaxe name.");
+                                      request({
+                                        url: benbot + pickaxe,
+                                        json: true
+                                    }).then(query => {
+                                        try {
+                                          Object.keys(query).forEach(function(key) {
+                                            if(query[key].type == "Harvesting Tool") {
+                                            fortnite.party.me.setPickaxe("/Game/Athena/Items/Cosmetics/Pickaxes/" + query[key].id + "." + query[key].id);
+                                            fortnite.communicator.sendMessage(data.friend.id, "Found " + query[key].displayName + ', the id is ' + query[key].id);
+                                            }
+                                          });
+                                        }
+                                        catch(err) {
+                                          console.log(err);
+                                        }
+                                      });
+                                    }
                   
-                                if(command === "!backbling") {
+                                if(command === "backbling") {
                                   let backlingname = args.slice(1).join(" ");
                                   if (!backlingname) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a backling name.");
                                   request({
@@ -315,7 +371,7 @@ function sleep(milliseconds) {
                                 });
                               }
           
-                              if(command === "!emote") {
+                              if(command === "emote") {
                               let emotename = args.slice(1).join(" ");
                               if (!emotename) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a emote name.");
                               request({
@@ -332,7 +388,7 @@ function sleep(milliseconds) {
                             });
                           }
 
-                          if(command === "!banner") {
+                          if(command === "banner") {
                           if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a banner name.");
                           try {
                           fortnite.party.me.setBanner(100, args[1], args[2]);
@@ -343,7 +399,7 @@ function sleep(milliseconds) {
                           }
                         }
 
-                            if(command === "!status") {
+                            if(command === "status") {
                             if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a status.");
                             try {
                             var mess = data.message.replace("!status", "");
@@ -355,7 +411,7 @@ function sleep(milliseconds) {
                           }
                         }
 
-                              if(command === "!playlist") {
+                              if(command === "playlist") {
                             if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a regionId and a playlistName.");
                               try {
                                 fortnite.party.setPlaylist(args[1], args[2]);
@@ -365,7 +421,7 @@ function sleep(milliseconds) {
                                   }
                                 }
 
-                              if(command === "!ready") {
+                              if(command === "ready") {
                               if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention true/false.");
                               if(args[1].toLowerCase() == "true") {
                                 fortnite.party.me.setReady(true);
@@ -377,7 +433,7 @@ function sleep(milliseconds) {
                               }
                             }
 
-                            if(command === "!platform") {
+                            if(command === "platform") {
                               if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a platform.");
                               try {
                                 fortnite.party.me.setPlatform("EPlatform." + args[1]);
@@ -387,7 +443,7 @@ function sleep(milliseconds) {
                                   }
                                 }
 
-                                  if(command === "!id") {
+                                  if(command === "id") {
                                 if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a epic display name.");
                                 try {
                                   let lookup = args.slice(1).join(" ");
@@ -400,7 +456,7 @@ function sleep(milliseconds) {
                                 }
                               }
 
-                              if(command === "!promote") {
+                              if(command === "promote") {
                               if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a party member's name.");
                               try {
                                 let lookup = args.slice(1).join(" ");
@@ -417,7 +473,7 @@ function sleep(milliseconds) {
                                 }
                               }
 
-                                if(command === "!kick") {
+                                if(command === "kick") {
                               if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a party member's name.");
                               try {
                                 let lookup = args.slice(1).join(" ");
@@ -434,16 +490,23 @@ function sleep(milliseconds) {
                                 }
                               }
 
-                          if(command === "!leave") {
+                          if(command === "leave") {
                             try {
-                            leave()
+
+                              if (fortnite.party.members.length > 1) {
+                                fortnite.communicator.sendMessage(data.friend.id, `The bot can't leave the party when theres nobody in it!`);
+                              }
+                              else {
+                                fortnite.party.leave()
+                                fortnite.communicator.sendMessage(data.friend.id, "The bot has left.");
+                                }
                                 }
                               catch(err) {
                                 fortnite.communicator.sendMessage(data.friend.id, "There was a error: " + err);
                               }
                             }
 
-                        if(command === "!friend") {
+                        if(command === "friend") {
                       if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a epic name to add.");
                       try {
                         let lookup = args.slice(1).join(" ");
@@ -462,7 +525,17 @@ function sleep(milliseconds) {
                         }
                       }
 
-                  if(command === "!unfriend") {
+                      if(command === "privacy") {
+                        if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a vaild privacy name.");
+                        try {
+                          fortnite.party.setPrivacy(args[1])
+                          fortnite.communicator.sendMessage(data.friend.id, "Privacy set to " + args[1] + '.');
+                        } catch(err) {
+                            fortnite.communicator.sendMessage(data.friend.id, "There was a error: " + err);
+                          }
+                        }
+
+                  if(command === "unfriend") {
                     if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a epic name to unfriend.");
                     try {
                       let lookup = args.slice(1).join(" ");
@@ -483,7 +556,7 @@ function sleep(milliseconds) {
                     }
                   }
 
-                    if(command === "!invite") {
+                    if(command === "invite") {
                       if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a epic name to invite.");
                       try {
                         let lookup = args.slice(1).join(" ");
