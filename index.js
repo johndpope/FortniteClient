@@ -1,84 +1,103 @@
-const EGClient = require('epicgames-client').Client;
-const Fortnite = require('epicgames-fortnite-client');
-const config = require("./config.json");
-const request = require("request-promise");
-const { ESubGame } = Fortnite;
-const { EInputType, EPartyPrivacy, EPlatform, } = require('epicgames-client');
+                  const EGClient = require('epicgames-client').Client;
+                  const Fortnite = require('epicgames-fortnite-client');
+                  const config = require("./config.json");
+                  if(!config.YourAccountName){
+                    console.log(`[CONFIG MISSING PART] You didn't have your epic name in config.`)
+                  }
+                  if(!config.email && !config.password){
+                   return console.log(`[CONFIG MISSING PART] You didn't have your email or password.`)
+                  }
+                  const request = require("request-promise");
+                  const { ESubGame } = Fortnite;
+                  const { EInputType, EPartyPrivacy, EPlatform, } = require('epicgames-client');
 
-function sleep(milliseconds) {
-	var start = new Date().getTime();
-	for (var i = 0; i < 1e7; i++) {
-		if ((new Date().getTime() - start) > milliseconds) {
-			break;
-		}
-	}
-}
+                  function sleep(milliseconds) {
+                    var start = new Date().getTime();
+                    for (var i = 0; i < 1e7; i++) {
+                      if ((new Date().getTime() - start) > milliseconds) {
+                        break;
+                      }
+                    }
+                  }
 
-            console.log(`( Updates )`)
-            console.log(`- Added !pickaxe %pickaxename%`)
-            console.log(`- Added Fortnite Info.`)
-            console.log(`- Added !emoteall`)
+                    console.log(`( Updates )`)
+                    console.log(`- Added !pickaxe %pickaxename%`)
+                    console.log(`- Added Fortnite Info.`)
+                    console.log(`- Added !emoteall`)
 
-        console.log('Most commands Made by kekistan')
-        console.log('Used syfes or aquas code.')
-        console.log('Github: https://github.com/Kekisatan/FortniteBot2/')
+                console.log('Most commands Made by kekistan')
+                console.log('Used syfes or aquas code.')
+                console.log('Github: https://github.com/Kekisatan/FortniteBot2/')
 
-        var CID = config.cid
-        var BID = config.bid // All of this is managed in the config file
-        var EID = config.eid
-        var PICKAXE_ID = config.pickaxe_id
-        var netclurl = "https://fnapi.terax235.com/api/v1.2/build"
-        var benbot = 'http://benbotfn.tk:8080/api/cosmetics/search/multiple?displayName='
+                var CID = config.cid
+                var BID = config.bid // All of this is managed in the config file
+                var EID = config.eid
+                var PICKAXE_ID = config.pickaxe_id
+                var netclurl = "https://fnapi.terax235.com/api/v1.2/build"
+                var benbot = 'http://benbotfn.tk:8080/api/cosmetics/search/multiple?displayName='
 
-        request({
-          url: 'http://benbotfn.tk:8080/api/status',
-          json: true
-        }).then(results => {
-          var version = results.currentFortniteVersionNumber
-          var paks = results.totalPakCount
-          console.log('( Fortnite Info )')
-          console.log('[Fortnite] Pak Ammount: ' + paks)
-          console.log('[Fortnite] Version: ' + version)
-        });
+                request({
+                  url: 'http://benbotfn.tk:8080/api/status',
+                  json: true
+                }).then(results => {
+                  var version = results.currentFortniteVersionNumber
+                  var paks = results.totalPakCount
+                  console.log('( Fortnite Info )')
+                  console.log('[Fortnite] Pak Ammount: ' + paks)
+                  console.log('[Fortnite] Version: ' + version)
+                });
 
-          request({
-            url: netclurl,
-            json: true
-          }).then(results => {
-            var netcl = results.fortnite.netCL
-            console.log('[Fortnite] Newest Netcl: ' + netcl)
+                  request({
+                    url: netclurl,
+                    json: true
+                  }).then(results => {
+                    var netcl = results.fortnite.netCL
+                    console.log('[Fortnite] Newest Netcl: ' + netcl)
 
-        let eg = new EGClient({ // For this make a new account that has nothing and put the details in here.
-          email: config.email, // Remember to add your bot account email in here or it won't work!
-          password: config.password,  // Remember to add your bot account password in here or it won't work!
-          debug: console.log,
-          defaultPartyConfig: {
-            privacy: EPartyPrivacy.PUBLIC,
-            joinConfirmation: false,
-            joinability: 'OPEN', // Opens the party and allows it to be joined
-            maxSize: 16,
-            subType: 'default',
-            type: 'default',
-            inviteTTL: 14400,
-            chatEnabled: true,
-        }
-          });
+                let eg = new EGClient({ // For this make a new account that has nothing and put the details in here.
+                  email: config.email, // Remember to add your bot account email in here or it won't work!
+                  password: config.password,  // Remember to add your bot account password in here or it won't work!
+                  debug: console.log,
+                  defaultPartyConfig: {
+                    privacy: EPartyPrivacy.PUBLIC,
+                    joinConfirmation: false,
+                    joinability: 'OPEN', // Opens the party and allows it to be joined
+                    maxSize: 16,
+                    subType: 'default',
+                    type: 'default',
+                    inviteTTL: 14400,
+                    chatEnabled: true,
+                }
+                  });
 
-        eg.init().then(async (success) => {
+                eg.init().then(async (success) => {
 
-          var current_party;
+                  var current_party;
 
-          if(!success)
-            throw new Error('Cannot initialize EpicGames launcher.');
+                  if(!success)
+                    throw new Error('Cannot initialize EpicGames launcher.');
 
-          if(!await eg.login())
-            throw new Error('Cannot login on EpicGames account.');
+                  if(!await eg.login())
+                    throw new Error('Cannot login on EpicGames account.');
 
-            const fortnite = await eg.runGame(Fortnite, {
-              netCL: netcl,
-              partyBuildId: '1:1:' + netcl,
-              });
+                    const fortnite = await eg.runGame(Fortnite, {
+                      netCL: netcl,
+                      partyBuildId: '1:1:' + netcl,
+                      });
 
+                      var Player = await eg.getProfile(config.YourAccountName);
+
+                      var friendrequest = await eg.getRawFriends(true)
+                      friendrequest.forEach(friendrequest => {
+                        if (friendrequest.status.toLowerCase() === 'pending') {
+                          if(friendrequest.accountId == Player.id) {
+                            eg.acceptFriendRequest(friendrequest.accountId);
+                            console.log('[FRIEND PENDING] You had a request pending to the bot, the bot accepted it.')
+                          }
+                          else{
+                          }
+                      } 
+                      });
                                         //Name of playlist  Playlist ID
              await fortnite.party.setPlaylist('The End', 'Playlist_Music_High')
              // https://jsonstorage.net/api/items/47c6b54c-b978-4122-ad66-e0f8071cf5d9 for playlists
@@ -88,10 +107,27 @@ function sleep(milliseconds) {
               const br = await fortnite.runSubGame(ESubGame.BattleRoyale);
               console.log('[CLIENT] In the account ' + eg.account.displayName + ', there is only ' + fortnite.vbucks + ' vbucks on that account.')
 
+              fortnite.communicator.on('friend:request', async data => {
+                if(!config.YourAccountName) return console.log(`You don't have anyname mentioned in config.`)
+               if(!Player) return console.log('The name you provided ' + `'` + config.YourAccountName + `', isn't right.` )
+                if(data.friend.id == Player.id){
+                    eg.acceptFriendRequest(data.friend.id).then(async (ac_result) => {
+                        console.log('[FRIEND REQUEST] You sent a friend request! Added!')
+                    });
+                }
+                else{
+                  eg.declineFriendRequest(data.friend.id).then(async (ac_result) => {
+                    var UnkownPlayer = await eg.getProfile(data.friend.id);
+                    console.log(`[FRIEND REQUEST] ${UnkownPlayer.displayName} sent a friend request! The bot declined the friend request!`);
+                    console.log('[INFO] If it was you, change your name in config!');
+                });
+                }
+            });        
+
                     fortnite.communicator.on('party:invitation', async (invitation) => {
-                      await invitation.accept()
-                      current_party = invitation.party;
-                      console.log('[PARTY INVITED] A player has invited the bot, the bot will join shortly.')
+                            await invitation.accept()
+                            current_party = invitation.party;
+                            console.log('[PARTY INVITED] A player has invited the bot, the bot will join shortly.')
                       var partym = await eg.getProfile(current_party.leader.id);
                       console.log('[PARTY INFO] The party leader of the party is ' + partym.displayName + `, there is currently ${fortnite.party.members.length} members in the party.`)
                     });
@@ -156,7 +192,8 @@ function sleep(milliseconds) {
           var prefix = '!'
           var args = data.message.split(" ");
           var cargs = data.message.slice(prefix.length).split(/ +/);
-          var command = cargs.shift().toLowerCase()
+          var command = cargs.shift().toLowerCase();
+          var User = await eg.getProfile(data.friend.id);
 
           function crash() {
             if (fortnite.party.members.length < 1) {
@@ -164,7 +201,8 @@ function sleep(milliseconds) {
            }
            fortnite.party.me.setOutfit("/Game/Athena/Items/Cosmetics/Characters//./");
            fortnite.communicator.sendMessage(data.friend.id, `Crashed everyone in the party!`);
-           console.log('[BOT UNUSEDABLE] The bot now crashes you if you invite it, restart the bot to fix this.')
+           console
+           .log('[BOT UNUSEDABLE] The bot now crashes you if you invite it, restart the bot to fix this.')
            console.log('[BOT UNUSEABLE] This was caused by the crash command.')
           }
 
@@ -196,7 +234,7 @@ function sleep(milliseconds) {
           // Fortnite commands start here
 
                         if(command === 'help') {
-                          fortnite.communicator.sendMessage(data.friend.id, 'Thanks for using this bot, heres the commands, !skin !backling !leave !emote !banner !status !ready !platform !id !playlist !promote !kick !friend !unfriend !invite');
+                          fortnite.communicator.sendMessage(data.friend.id, 'Thanks for using this bot ' + User.displayName + ', heres the commands, !skin !backling !leave !emote !banner !status !ready !platform !id !playlist !promote !kick !friend !unfriend !invite');
                         }
 
                               if(data.message.startsWith('CID_')) {
@@ -390,6 +428,9 @@ function sleep(milliseconds) {
 
                           if(command === "banner") {
                           if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a banner name.");
+                          if(args[1].toLowerCase() == "pewdiepie") {
+                            fortnite.party.me.setBanner(config.level, 'InfluencerBanner57', config.banner_color);
+                          }
                           try {
                           fortnite.party.me.setBanner(100, args[1], args[2]);
                           fortnite.communicator.sendMessage(data.friend.id, "Banner set to " + args[1] + " " + args[2]);
@@ -413,13 +454,15 @@ function sleep(milliseconds) {
 
                               if(command === "playlist") {
                             if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a regionId and a playlistName.");
-                              try {
-                                fortnite.party.setPlaylist(args[1], args[2]);
+                            var PartyLeader = await eg.getProfile(current_party.leader.id);
+                              if(PartyLeader.displayName == eg.account.displayName) {
+                                fortnite.party.setPlaylist(args[1], args[2]).catch(err => console.log(err))
                                 eg.communicator.sendMessage(data.friend.id, "Set playlist to " + args[1] + " " + args[2]);
-                                  } catch {
-                                    eg.communicator.sendMessage(data.friend.id, "Usage !playlist regionId playlistName");
-                                  }
                                 }
+                                else {
+                                  eg.communicator.sendMessage(data.friend.id, "The bot isn't party leader!");
+                                }
+                              }
 
                               if(command === "ready") {
                               if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention true/false.");
@@ -443,7 +486,7 @@ function sleep(milliseconds) {
                                   }
                                 }
 
-                                  if(command === "id") {
+                                  if(command === "lookup") {
                                 if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a epic display name.");
                                 try {
                                   let lookup = args.slice(1).join(" ");
@@ -458,8 +501,9 @@ function sleep(milliseconds) {
 
                               if(command === "promote") {
                               if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a party member's name.");
-                              try {
-                                let lookup = args.slice(1).join(" ");
+                              var PartyLeader = await eg.getProfile(current_party.leader.id);
+                              if(PartyLeader.displayName == eg.account.displayName) {  
+                              let lookup = args.slice(1).join(" ");
                                 if(lookup === eg.account.name) return fortnite.communicator.sendMessage(data.friend.id, "You can't promote yourself!");
                               const account = await eg.getProfile(lookup);
                               if(!account) return fortnite.communicator.sendMessage(data.friend.id, "That epic name must of been wrong.");
@@ -467,16 +511,17 @@ function sleep(milliseconds) {
                               if(!partymember) return fortnite.communicator.sendMessage(data.friend.id, `${account.name} Wasn't found in the party.`);
                               fortnite.party.promote(account.id)
                               fortnite.communicator.sendMessage(data.friend.id, "Promoted " + account.name + '!');
-                                  }
-                                catch(err) {
-                                  fortnite.communicator.sendMessage(data.friend.id, "There was a error: " + err);
-                                }
                               }
+                              else {
+                                eg.communicator.sendMessage(data.friend.id, "The bot isn't party leader!");
+                              }
+                            }
 
                                 if(command === "kick") {
                               if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a party member's name.");
-                              try {
-                                let lookup = args.slice(1).join(" ");
+                              var PartyLeader = await eg.getProfile(current_party.leader.id);
+                              if(PartyLeader.displayName == eg.account.displayName) {   
+                              let lookup = args.slice(1).join(" ");
                                 if(lookup === eg.account.name) return fortnite.communicator.sendMessage(data.friend.id, "You can't kick yourself!");
                               const account = await eg.getProfile(lookup);
                               if(!account) return fortnite.communicator.sendMessage(data.friend.id, "That epic name must of been wrong.");
@@ -484,11 +529,11 @@ function sleep(milliseconds) {
                               if(!partymember) return fortnite.communicator.sendMessage(data.friend.id, `${account.name} Wasn't found in the party.`);
                               fortnite.party.kick(account.id)
                               fortnite.communicator.sendMessage(data.friend.id, "Kicked " + account.name + '!');
-                                  }
-                                catch(err) {
-                                  fortnite.communicator.sendMessage(data.friend.id, "There was a error: " + err);
-                                }
-                              }
+                            }
+                            else {
+                              eg.communicator.sendMessage(data.friend.id, "The bot isn't party leader!");
+                            }
+                          }
 
                           if(command === "leave") {
                             try {
