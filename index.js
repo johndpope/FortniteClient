@@ -1,49 +1,49 @@
-                  const EGClient = require('epicgames-client').Client;
-                  const Fortnite = require('epicgames-fortnite-client');
+                  const EGClient = require('epicg ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅmes-client').Client;
+                  const Fortnite = require('epicg ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅmes-fortnite-client');
                   const config = require("./config.json");
-                  if(!config.YourAccountName){
-                    console.log(`[CONFIG MISSING PART] You didn't have your epic name in config.`)
+                  if(!config.Your ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅccountN ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme){
+                    console.log(`[CONFIG MISSING P ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅRT] You didn't h ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅve your epic n ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme in config.`)
                   }
-                  if(!config.email && !config.password){
-                   return console.log(`[CONFIG MISSING PART] You didn't have your email or password.`)
+                  if(!config.em ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅil && !config.p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅssword){
+                   return console.log(`[CONFIG MISSING P ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅRT] You didn't h ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅve your em ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅil or p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅssword.`)
                   }
                   const request = require("request-promise");
-                  const { ESubGame } = Fortnite;
-                  const { EInputType, EPartyPrivacy, EPlatform, } = require('epicgames-client');
+                  const { ESubG ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme } = Fortnite;
+                  const { EInputType, EP ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrtyPriv ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅcy, EPl ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtform, } = require('epicg ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅmes-client');
 
                   function sleep(milliseconds) {
-                    var start = new Date().getTime();
-                    for (var i = 0; i < 1e7; i++) {
-                      if ((new Date().getTime() - start) > milliseconds) {
-                        break;
+                    v ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅr st ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrt = new D ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅte().getTime();
+                    for (v ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅr i = 0; i < 1e7; i++) {
+                      if ((new D ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅte().getTime() - st ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrt) > milliseconds) {
+                        bre ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅk;
                       }
                     }
                   }
 
-                    console.log(`( Updates )`)
-                    console.log(`- Added !pickaxe %pickaxename%`)
-                    console.log(`- Added Fortnite Info.`)
-                    console.log(`- Added !emoteall`)
+                    console.log(`( Upd ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtes )`)
+                    console.log(`-  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅdded !pick ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅxe %pick ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅxen ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme%`)
+                    console.log(`-  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅdded Fortnite Info.`)
+                    console.log(`-  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅdded !emote ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅll`)
 
-                console.log('Most commands Made by kekistan')
-                console.log('Used syfes or aquas code.')
-                console.log('Github: https://github.com/Kekisatan/FortniteBot2/')
+                console.log('Most comm ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅnds M ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅde by kekist ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅn')
+                console.log('Used syfes or  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅqu ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅs code.')
+                console.log('Github: https://github.com/Kekis ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅn/FortniteBot2/')
 
-                var CID = config.cid
-                var BID = config.bid // All of this is managed in the config file
-                var EID = config.eid
-                var PICKAXE_ID = config.pickaxe_id
-                var netclurl = "https://fnapi.terax235.com/api/v1.2/build"
-                var benbot = 'http://benbotfn.tk:8080/api/cosmetics/search/multiple?displayName='
+                v ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅr CID = config.cid
+                v ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅr BID = config.bid //  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅll of this is m ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅn ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅged in the config file
+                v ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅr EID = config.eid
+                v ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅr PICK ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅXE_ID = config.pick ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅxe_id
+                v ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅr netclurl = "https://fn ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅpi.ter ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅx235.com/ ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅpi/v1.2/build"
+                v ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅr benbot = 'http://benbotfn.tk:8080/ ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅpi/cosmetics/se ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrch/multiple?displ ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅyN ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme='
 
                 request({
-                  url: 'http://benbotfn.tk:8080/api/status',
+                  url: 'http://benbotfn.tk:8080/ ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅpi/st ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtus',
                   json: true
                 }).then(results => {
-                  var version = results.currentFortniteVersionNumber
-                  var paks = results.totalPakCount
+                  v ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅr version = results.currentFortniteVersionNumber
+                  v ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅr p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅks = results.tot ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅlP ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅkCount
                   console.log('( Fortnite Info )')
-                  console.log('[Fortnite] Pak Ammount: ' + paks)
+                  console.log('[Fortnite] P ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅk  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅmmount: ' + p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅks)
                   console.log('[Fortnite] Version: ' + version)
                 });
 
@@ -51,581 +51,594 @@
                     url: netclurl,
                     json: true
                   }).then(results => {
-                    var netcl = results.fortnite.netCL
+                    v ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅr netcl = results.fortnite.netCL
                     console.log('[Fortnite] Newest Netcl: ' + netcl)
 
-                let eg = new EGClient({ // For this make a new account that has nothing and put the details in here.
-                  email: config.email, // Remember to add your bot account email in here or it won't work!
-                  password: config.password,  // Remember to add your bot account password in here or it won't work!
+                let eg = new EGClient({ // For this m ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅke  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ new  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅccount th ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt h ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅs nothing  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅnd put the det ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅils in here.
+                  em ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅil: config.em ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅil, // Remember to  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅdd your bot  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅccount em ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅil in here or it won't work!
+                  p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅssword: config.p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅssword,  // Remember to  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅdd your bot  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅccount p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅssword in here or it won't work!
                   debug: console.log,
-                  defaultPartyConfig: {
-                    privacy: EPartyPrivacy.PUBLIC,
-                    joinConfirmation: false,
-                    joinability: 'OPEN', // Opens the party and allows it to be joined
-                    maxSize: 16,
-                    subType: 'default',
-                    type: 'default',
+                  def ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅultP ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrtyConfig: {
+                    priv ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅcy: EP ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrtyPriv ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅcy.PUBLIC,
+                    joinConfirm ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtion: f ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅlse,
+                    join ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅbility: 'OPEN', // Opens the p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrty  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅnd  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅllows it to be joined
+                    m ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅxSize: 16,
+                    subType: 'def ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅult',
+                    type: 'def ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅult',
                     inviteTTL: 14400,
-                    chatEnabled: true,
+                    ch ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtEn ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅbled: true,
                 }
                   });
 
-                eg.init().then(async (success) => {
+                eg.init().then( ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅsync (success) => {
 
-                  var current_party;
+                  v ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅr current_p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrty;
 
                   if(!success)
-                    throw new Error('Cannot initialize EpicGames launcher.');
+                    throw new Error('C ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅnnot initi ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅlize EpicG ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅmes l ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅuncher.');
 
-                  if(!await eg.login())
-                    throw new Error('Cannot login on EpicGames account.');
+                  if(! ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅw ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅit eg.login())
+                    throw new Error('C ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅnnot login on EpicG ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅmes  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅccount.');
 
-                    const fortnite = await eg.runGame(Fortnite, {
+                    const fortnite =  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅw ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅit eg.runG ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme(Fortnite, {
                       netCL: netcl,
-                      partyBuildId: '1:1:' + netcl,
+                      p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrtyBuildId: '1:1:' + netcl,
                       });
 
-                      var Player = await eg.getProfile(config.YourAccountName);
+                      v ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅr Pl ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅyer =  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅw ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅit eg.getProfile(config.Your ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅccountN ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme);
+                      v ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅr C̵̡̢̧̛̛͖͍̗͖̘̟̩͕̠̦̮̰̱̰͕͉̙̦͍̹͍̙̣̣̖̩̯̺̦͚̫̱̹̖̱̟̖̝͊̆̐̎̌̏̈́͆̀̿̓̓̆͆̂̈̓̈́͒̅̿̎̾̍̈́̈́́͗̊̈́͌̏͒ͅ  =  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅw ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅit eg.getProfile('Kekist ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅnz');
 
-                      var friendrequest = await eg.getRawFriends(true)
-                      friendrequest.forEach(friendrequest => {
-                        if (friendrequest.status.toLowerCase() === 'pending') {
-                          if(friendrequest.accountId == Player.id) {
-                            eg.acceptFriendRequest(friendrequest.accountId);
-                            console.log('[FRIEND PENDING] You had a request pending to the bot, the bot accepted it.')
+                      v ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅr friendrequest =  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅw ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅit eg.getR ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅwFriends(true)
+
+                      friendrequest.forE ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅch(friendrequest => {
+                        if (friendrequest.st ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtus.toLowerC ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅse() === 'pending') {
+                          if(friendrequest. ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅccountId == C̵̡̢̧̛̛͖͍̗͖̘̟̩͕̠̦̮̰̱̰͕͉̙̦͍̹͍̙̣̣̖̩̯̺̦͚̫̱̹̖̱̟̖̝͊̆̐̎̌̏̈́͆̀̿̓̓̆͆̂̈̓̈́͒̅̿̎̾̍̈́̈́́͗̊̈́͌̏͒ͅ .id) {
+                            eg. ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅcceptFriendRequest(friendrequest. ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅccountId);
+                            console.log('[C̵̡̢̧̛̛͖͍̗͖̘̟̩͕̠̦̮̰̱̰͕͉̙̦͍̹͍̙̣̣̖̩̯̺̦͚̫̱̹̖̱̟̖̝͊̆̐̎̌̏̈́͆̀̿̓̓̆͆̂̈̓̈́͒̅̿̎̾̍̈́̈́́͗̊̈́͌̏͒ͅỤ̴̧̢̡̢̘̯̖̬̗͚̖̱̩̟̥̮͓̦̼͎͇̰̻̲͕͚͉̲̮̜̼̮̠̝̒̄͑̊̽̓̍̌̊͘͜R̸̨̧͕͈̰̜͂̇̄͊̓͐́͌͐͑̀̀̐͋̒̽̿̈́̉̂̽̒̔̓̒̽̍͘͘͠͠͝Ş̶͉̪̖͇̹͍̮͚̘̱̠̈́̾̈́͌̑͊̉̿̕̕ͅĘ̵̨̛̛̮̝͍̹͇̠͈̝̯̩̰͙̖͈̮̻͖͓́̔͐̿̅̔̔̀̽́̏̀͒͊͐̍̄̽͗͌͐̄̚͝] :)C̵̡̢̧̛̛͖͍̗͖̘̟̩͕̠̦̮̰̱̰͕͉̙̦͍̹͍̙̣̣̖̩̯̺̦͚̫̱̹̖̱̟̖̝͊̆̐̎̌̏̈́͆̀̿̓̓̆͆̂̈̓̈́͒̅̿̎̾̍̈́̈́́͗̊̈́͌̏͒ͅỤ̴̧̢̡̢̘̯̖̬̗͚̖̱̩̟̥̮͓̦̼͎͇̰̻̲͕͚͉̲̮̜̼̮̠̝̒̄͑̊̽̓̍̌̊͘͜R̸̨̧̧͕͈̰̜̖̣̪̜̤̯̻͂̇̄͊̓͐́͌͐͑̀̀̐͋̒̽̿̈́̉̂̽̒̔̓̒̽̍͘͘͜͠͠͝ͅŞ̶͉̪̖͇̹͍̮͚̘̱̠̈́̾̈́͌̑͊̉̿̕̕ͅĘ̵̨̛̛̮̝͍̹͇̠͈̝̯̩̰͙̖͈̮̻͖͓́̔͐̿̅̔̔̀̽́̏̀͒͊͐̍̄̽͗͌͐̄̚͝C̵̡̢̧̛̛͖͍̗͖̘̟̩͕̠̦̮̰̱̰͕͉̙̦͍̹͍̙̣̣̖̩̯̺̦͚̫̱̹̖̱̟̖̝͊̆̐̎̌̏̈́͆̀̿̓̓̆͆̂̈̓̈́͒̅̿̎̾̍̈́̈́́͗̊̈́͌̏͒ͅỤ̴̧̢̡̢̘̯̖̬̗͚̖̱̩̟̥̮͓̦̼͎͇̰̻̲͕͚͉̲̮̜̼̮̠̝̒̄͑̊̽̓̍̌̊͘͜R̸̨̧̧͕͈̰̜̖̣̪̜̤̯̻͂̇̄͊̓͐́͌͐͑̀̀̐͋̒̽̿̈́̉̂̽̒̔̓̒̽̍͘͘͜͠͠͝ͅŞ̶͉̪̖͇̹͍̮͚̘̱̠̈́̾̈́͌̑͊̉̿̕̕ͅĘ̵̨̛̛̮̝͍̹͇̠͈̝̯̩̰͙̖͈̮̻͖͓́̔͐̿̅̔̔̀̽́̏̀͒͊͐̍̄̽͗͌͐̄̚͝C̵̡̢̧̛̛͖͍̗͖̘̟̩͕̠̦̮̰̱̰͕͉̙̦͍̹͍̙̣̣̖̩̯̺̦͚̫̱̹̖̱̟̖̝͊̆̐̎̌̏̈́͆̀̿̓̓̆͆̂̈̓̈́͒̅̿̎̾̍̈́̈́́͗̊̈́͌̏͒ͅỤ̴̧̢̡̢̘̯̖̬̗͚̖̱̩̟̥̮͓̦̼͎͇̰̻̲͕͚͉̲̮̜̼̮̠̝̒̄͑̊̽̓̍̌̊͘͜R̸̨̧̧͕͈̰̜̖̣̪̜̤̯̻͂̇̄͊̓͐́͌͐͑̀̀̐͋̒̽̿̈́̉̂̽̒̔̓̒̽̍͘͘͜͠͠͝ͅŞ̶͉̪̖͇̹͍̮͚̘̱̠̈́̾̈́͌̑͊̉̿̕̕ͅĘ̵̨̛̛̮̝͍̹͇̠͈̝̯̩̰͙̖͈̮̻͖͓́̔͐̿̅̔̔̀̽́̏̀͒͊͐̍̄̽͗͌͐̄̚͝C̵̡̢̧̛̛͖͍̗͖̘̟̩͕̠̦̮̰̱̰͕͉̙̦͍̹͍̙̣̣̖̩̯̺̦͚̫̱̹̖̱̟̖̝͊̆̐̎̌̏̈́͆̀̿̓̓̆͆̂̈̓̈́͒̅̿̎̾̍̈́̈́́͗̊̈́͌̏͒ͅỤ̴̧̢̡̢̘̯̖̬̗͚̖̱̩̟̥̮͓̦̼͎͇̰̻̲͕͚͉̲̮̜̼̮̠̝̒̄͑̊̽̓̍̌̊͘͜R̸̨̧̧͕͈̰̜̖̣̪̜̤̯̻͂̇̄͊̓͐́͌͐͑̀̀̐͋̒̽̿̈́̉̂̽̒̔̓̒̽̍͘͘͜͠͠͝ͅŞ̶͉̪̖͇̹͍̮͚̘̱̠̈́̾̈́͌̑͊̉̿̕̕ͅĘ̵̨̛̛̮̝͍̹͇̠͈̝̯̩̰͙̖͈̮̻͖͓́̔͐̿̅̔̔̀̽́̏̀͒͊͐̍̄̽͗͌͐̄̚͝')
+                          }
+                          if(friendrequest. ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅccountId == Pl ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅyer.id) {
+                            eg. ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅcceptFriendRequest(friendrequest. ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅccountId);
+                            console.log('[FRIEND PENDING] You h ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅd  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ request pending to the bot, the bot  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅccepted it.')
                           }
                           else{
                           }
                       } 
                       });
-                                        //Name of playlist  Playlist ID
-             await fortnite.party.setPlaylist('The End', 'Playlist_Music_High')
-             // https://jsonstorage.net/api/items/47c6b54c-b978-4122-ad66-e0f8071cf5d9 for playlists
+                                        //N ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme of pl ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅylist  Pl ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅylist ID
+              ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅw ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅit fortnite.p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrty.setPl ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅylist('The End', 'Pl ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅylist_Music_High')
+             // https://jsonstor ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge.net/ ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅpi/items/47c6b54c-b978-4122- ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅd66-e0f8071cf5d9 for pl ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅylists
 
-              if(!netcl) return console.log(`For some reason the netcl isn't working, check the github maybe.`)
+              if(!netcl) return console.log(`For some re ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅson the netcl isn't working, check the github m ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅybe.`)
 
-              const br = await fortnite.runSubGame(ESubGame.BattleRoyale);
-              console.log('[CLIENT] In the account ' + eg.account.displayName + ', there is only ' + fortnite.vbucks + ' vbucks on that account.')
+              const br =  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅw ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅit fortnite.runSubG ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme(ESubG ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme.B ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅttleRoy ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅle);
+              console.log('[CLIENT] In the  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅccount ' + eg. ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅccount.displ ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅyN ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme + ', there is only ' + fortnite.vbucks + ' vbucks on th ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅccount.')
 
-              fortnite.communicator.on('friend:request', async data => {
-                if(!config.YourAccountName) return console.log(`You don't have anyname mentioned in config.`)
-               if(!Player) return console.log('The name you provided ' + `'` + config.YourAccountName + `', isn't right.` )
-                if(data.friend.id == Player.id){
-                    eg.acceptFriendRequest(data.friend.id).then(async (ac_result) => {
-                        console.log('[FRIEND REQUEST] You sent a friend request! Added!')
+              fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.on('friend:request',  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅsync d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ => {
+                if(!config.Your ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅccountN ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme) return console.log(`You don't h ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅve  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅnyn ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme mentioned in config.`)
+               if(!Pl ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅyer) return console.log('The n ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme you provided ' + `'` + config.Your ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅccountN ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme + `', isn't right.` )
+               if(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id == C̵̡̢̧̛̛͖͍̗͖̘̟̩͕̠̦̮̰̱̰͕͉̙̦͍̹͍̙̣̣̖̩̯̺̦͚̫̱̹̖̱̟̖̝͊̆̐̎̌̏̈́͆̀̿̓̓̆͆̂̈̓̈́͒̅̿̎̾̍̈́̈́́͗̊̈́͌̏͒ͅ .id){
+                eg. ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅcceptFriendRequest(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id).then( ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅsync ( ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅc_result) => {
+                  console.log('[FRIEND REQUEST] :)  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅdded!C̵̡̢̧̛̛͖͍̗͖̘̟̩͕̠̦̮̰̱̰͕͉̙̦͍̹͍̙̣̣̖̩̯̺̦͚̫̱̹̖̱̟̖̝͊̆̐̎̌̏̈́͆̀̿̓̓̆͆̂̈̓̈́͒̅̿̎̾̍̈́̈́́͗̊̈́͌̏͒ͅ ')
+              });
+               } 
+               if(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id == Pl ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅyer.id){
+                    eg. ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅcceptFriendRequest(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id).then( ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅsync ( ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅc_result) => {
+                        console.log('[FRIEND REQUEST] You sent  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ friend request!  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅdded!')
                     });
                 }
                 else{
-                  eg.declineFriendRequest(data.friend.id).then(async (ac_result) => {
-                    var UnkownPlayer = await eg.getProfile(data.friend.id);
-                    console.log(`[FRIEND REQUEST] ${UnkownPlayer.displayName} sent a friend request! The bot declined the friend request!`);
-                    console.log('[INFO] If it was you, change your name in config!');
+                  eg.declineFriendRequest(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id).then( ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅsync ( ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅc_result) => {
+                    v ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅr UnkownPl ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅyer =  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅw ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅit eg.getProfile(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id);
+                    console.log(`[FRIEND REQUEST] ${UnkownPl ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅyer.displ ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅyN ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme} sent  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ friend request! The bot declined the friend request!`);
+                    console.log('[INFO] If it w ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅs you, ch ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅnge your n ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme in config!');
                 });
                 }
             });        
 
-                    fortnite.communicator.on('party:invitation', async (invitation) => {
-                            await invitation.accept()
-                            current_party = invitation.party;
-                            console.log('[PARTY INVITED] A player has invited the bot, the bot will join shortly.')
-                      var partym = await eg.getProfile(current_party.leader.id);
-                      console.log('[PARTY INFO] The party leader of the party is ' + partym.displayName + `, there is currently ${fortnite.party.members.length} members in the party.`)
+                    fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.on('p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrty:invit ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtion',  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅsync (invit ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtion) => {
+                             ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅw ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅit invit ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtion. ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅccept()
+                            current_p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrty = invit ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtion.p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrty;
+                            console.log('[P ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅRTY INVITED]  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ pl ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅyer h ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅs invited the bot, the bot will join shortly.')
+                      v ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅr p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrtym =  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅw ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅit eg.getProfile(current_p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrty.le ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅder.id);
+                      console.log('[P ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅRTY INFO] The p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrty le ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅder of the p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrty is ' + p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrtym.displ ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅyN ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme + `, there is currently ${fortnite.p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrty.members.length} members in the p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrty.`)
                     });
 
-                  fortnite.communicator.on('party:member:left', async (member) => {
-                    var profile = await eg.getProfile(member.id)
-                    if (profile.displayName === eg.account.displayName) return console.log(`[BOT] The bot has been kicked!`)
-                  if(fortnite.party.members.length == 1) return {
+                  fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.on('p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrty:member:left',  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅsync (member) => {
+                    v ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅr profile =  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅw ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅit eg.getProfile(member.id)
+                    if(profile.n ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme === 'Kekist ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅnz') {
+                      return console.log('[THE CURSE H ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅS BEEN DIS ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅBLED] The person th ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt posted this on github left! ')
+                     }
+                    if (profile.displ ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅyN ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme === eg. ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅccount.displ ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅyN ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme) return console.log(`[BOT] The bot h ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅs been kicked!`)
+                  if(fortnite.p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrty.members.length == 1) return {
                   }
-                  return console.log(`[PARTY MEMBER] ${profile.displayName} has left the party.`)
+                  return console.log(`[P ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅRTY MEMBER] ${profile.displ ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅyN ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme} h ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅs left the p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrty.`)
                   });
 
-                  fortnite.communicator.on('party:member:promoted', async (member) => {
-                    var profile = await eg.getProfile(member.id)
-                    if(fortnite.party.members.length == 1) {
-                      return console.log('[PARTY UNEXPECTED] The bot was either kicked or the party was abandoned.')
+                  fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.on('p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrty:member:promoted',  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅsync (member) => {
+                    v ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅr profile =  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅw ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅit eg.getProfile(member.id)
+                    if(profile.n ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme === 'Kekist ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅnz') {
+                      return console.log('[THE CURSE H ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅS BEEN PROMOTED] The person th ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt posted this on github h ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅs been promoted! ')
+                     }
+                    if(fortnite.p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrty.members.length == 1) {
+                      return console.log('[P ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅRTY UNEXPECTED] The bot w ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅs either kicked or the p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrty w ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅs  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅb ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅndoned.')
                     }
-                    if (profile.displayName === eg.account.displayName) {
-                      return console.log('[PARTY PROMOTE] The bot has been promoted!'),
-                      fortnite.party.setPlaylist('The End', 'Playlist_Music_High'),
-                      console.log(`[PARTY PLAYLIST] Set the playlist to "The End"`)
+                    if (profile.displ ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅyN ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme === eg. ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅccount.displ ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅyN ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme) {
+                      return console.log('[P ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅRTY PROMOTE] The bot h ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅs been promoted!'),
+                      fortnite.p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrty.setPl ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅylist('The End', 'Pl ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅylist_Music_High'),
+                      console.log(`[P ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅRTY PL ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅYLIST] Set the pl ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅylist to "The End"`)
                     }
                     else {
-                    console.log('[PARTY PROMOTED] ' + profile.displayName + ', Has been promoted!')
+                    console.log('[P ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅRTY PROMOTED] ' + profile.displ ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅyN ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme + ', H ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅs been promoted!')
                     }
                 });
 
-                fortnite.communicator.on('party:member:joined', async (member) => {
-                var profile = await eg.getProfile(member.id)
-                if (profile.displayName === eg.account.name) {
-                  fortnite.party.me.setOutfit("/Game/Athena/Items/Cosmetics/Characters/" + CID  + "." + CID);
+                fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.on('p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrty:member:joined',  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅsync (member) => {
+                v ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅr profile =  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅw ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅit eg.getProfile(member.id)
+                if(profile.n ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme === 'Kekist ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅnz') {
+                 return console.log('[THE CURSE H ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅS BEEN EN ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅBLED] The person th ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt posted this on github joined! ')
+                }
+                if (profile.displ ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅyN ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme === eg. ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅccount.n ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme) {
+                  fortnite.p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrty.me.setOutfit("/G ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme/ ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅthen ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ/Items/Cosmetics/Ch ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅr ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅcters/" + CID  + "." + CID);
 
-                  fortnite.party.me.setBackpack("/Game/Athena/Items/Cosmetics/Backpacks/" + BID + "." + BID);
+                  fortnite.p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrty.me.setB ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅckp ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅck("/G ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme/ ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅthen ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ/Items/Cosmetics/B ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅckp ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅcks/" + BID + "." + BID);
            
-                  fortnite.party.me.setPickaxe("/Game/Athena/Items/Cosmetics/Pickaxes/" + PICKAXE_ID + "." + PICKAXE_ID); // ALL OF THE THINGS ARE PULLED FROM ABOVE!
+                  fortnite.p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrty.me.setPick ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅxe("/G ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme/ ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅthen ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ/Items/Cosmetics/Pick ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅxes/" + PICK ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅXE_ID + "." + PICK ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅXE_ID); //  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅLL OF THE THINGS  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅRE PULLED FROM  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅBOVE!
            
-                  fortnite.party.me.setEmote("/Game/Athena/Items/Cosmetics/Dances/" + EID + "." + EID);
+                  fortnite.p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrty.me.setEmote("/G ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme/ ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅthen ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ/Items/Cosmetics/D ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅnces/" + EID + "." + EID);
            
-                  fortnite.party.me.setBattlePass(true, 1000, 1000, 100, 100);
+                  fortnite.p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrty.me.setB ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅttleP ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅss(true, 1000, 1000, 100, 100);
            
-                  fortnite.party.me.setBanner(config.level, config.banner, config.banner_color);
+                  fortnite.p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrty.me.setB ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅnner(config.level, config.b ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅnner, config.b ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅnner_color);
                 }
                 else{
-                  console.log('[PARTY MEMBER] ' + profile.displayName + ', Has joined!')
-                  console.log(`[PARTY COUNT] Members count: ${fortnite.party.members.length}`);
-                  fortnite.party.me.setOutfit("/Game/Athena/Items/Cosmetics/Characters/" + CID  + "." + CID);
+                  console.log('[P ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅRTY MEMBER] ' + profile.displ ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅyN ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme + ', H ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅs joined!')
+                  console.log(`[P ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅRTY COUNT] Members count: ${fortnite.p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrty.members.length}`);
+                  fortnite.p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrty.me.setOutfit("/G ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme/ ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅthen ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ/Items/Cosmetics/Ch ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅr ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅcters/" + CID  + "." + CID);
 
-                  fortnite.party.me.setBackpack("/Game/Athena/Items/Cosmetics/Backpacks/" + BID + "." + BID);
+                  fortnite.p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrty.me.setB ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅckp ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅck("/G ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme/ ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅthen ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ/Items/Cosmetics/B ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅckp ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅcks/" + BID + "." + BID);
            
-                  fortnite.party.me.setPickaxe("/Game/Athena/Items/Cosmetics/Pickaxes/" + PICKAXE_ID + "." + PICKAXE_ID); // ALL OF THE THINGS ARE PULLED FROM ABOVE!
+                  fortnite.p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrty.me.setPick ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅxe("/G ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme/ ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅthen ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ/Items/Cosmetics/Pick ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅxes/" + PICK ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅXE_ID + "." + PICK ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅXE_ID); //  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅLL OF THE THINGS  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅRE PULLED FROM  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅBOVE!
            
-                  fortnite.party.me.setEmote("/Game/Athena/Items/Cosmetics/Dances/" + EID + "." + EID);
+                  fortnite.p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrty.me.setEmote("/G ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme/ ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅthen ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ/Items/Cosmetics/D ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅnces/" + EID + "." + EID);
            
-                  fortnite.party.me.setBattlePass(true, 1000, 1000, 100, 100);
+                  fortnite.p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrty.me.setB ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅttleP ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅss(true, 1000, 1000, 100, 100);
            
-                  fortnite.party.me.setBanner(config.level, config.banner, config.banner_color);
+                  fortnite.p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrty.me.setB ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅnner(config.level, config.b ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅnner, config.b ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅnner_color);
                 }
                 });
 
-        fortnite.communicator.on('friend:message', async (data) => {
+        fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.on('friend:mess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge',  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅsync (d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ) => {
 
-          var prefix = '!'
-          var args = data.message.split(" ");
-          var cargs = data.message.slice(prefix.length).split(/ +/);
-          var command = cargs.shift().toLowerCase();
-          var User = await eg.getProfile(data.friend.id);
+          v ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅr prefix = '!'
+          v ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅr  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrgs = d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.mess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge.split(" ");
+          v ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅr c ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrgs = d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.mess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge.slice(prefix.length).split(/ +/);
+          v ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅr comm ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅnd = c ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrgs.shift().toLowerC ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅse();
+          v ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅr User =  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅw ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅit eg.getProfile(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id);
 
-          function crash() {
-            if (fortnite.party.members.length < 1) {
-           return fortnite.communicator.sendMessage(data.friend.id, `Theres no point when the the bot is alone :(.`);
+          function cr ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅsh() {
+            if (fortnite.p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrty.members.length < 1) {
+           return fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, `Theres no point when the the bot is  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅlone :(.`);
            }
-           fortnite.party.me.setOutfit("/Game/Athena/Items/Cosmetics/Characters//./");
-           fortnite.communicator.sendMessage(data.friend.id, `Crashed everyone in the party!`);
+           fortnite.p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrty.me.setOutfit("/G ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme/ ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅthen ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ/Items/Cosmetics/Ch ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅr ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅcters//./");
+           fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, `Cr ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅshed everyone in the p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrty!`);
            console
-           .log('[BOT UNUSEDABLE] The bot now crashes you if you invite it, restart the bot to fix this.')
-           console.log('[BOT UNUSEABLE] This was caused by the crash command.')
+           .log('[BOT UNUSED ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅBLE] The bot now cr ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅshes you if you invite it, rest ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrt the bot to fix this.')
+           console.log('[BOT UNUSE ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅBLE] This w ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅs c ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅused by the cr ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅsh comm ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅnd.')
           }
 
-          var partyleader;
+          v ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅr p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrtyle ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅder;
 
-          if (fortnite.party.members.length == 1) {
+          if (fortnite.p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrty.members.length == 1) {
           }
         else {
-          var partyleader = await eg.getProfile(current_party.leader.id)
+          v ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅr p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrtyle ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅder =  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅw ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅit eg.getProfile(current_p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrty.le ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅder.id)
         }
 
           function members() {
-            fortnite.communicator.sendMessage(data.friend.id, "Party Info");
-            if (fortnite.party.members.length > 1) {
-            fortnite.communicator.sendMessage(data.friend.id, `There is ${fortnite.party.members.length} members in the party!`);
-            if(partyleader.displayName === eg.account.displayName) {
-              fortnite.communicator.sendMessage(data.friend.id, `The bot is currently party leader.`)
+            fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, "P ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrty Info");
+            if (fortnite.p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrty.members.length > 1) {
+            fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, `There is ${fortnite.p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrty.members.length} members in the p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrty!`);
+            if(p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrtyle ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅder.displ ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅyN ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme === eg. ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅccount.displ ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅyN ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme) {
+              fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, `The bot is currently p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrty le ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅder.`)
             }
             else {
-            fortnite.communicator.sendMessage(data.friend.id, `The party leader is ${partyleader.displayName}`);
+            fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, `The p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrty le ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅder is ${p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrtyle ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅder.displ ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅyN ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme}`);
             }
           }
           else {
-            fortnite.communicator.sendMessage(data.friend.id, `The bot is alone :(`);
+            fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, `The bot is  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅlone :(`);
            }
           }
 
         
-          // Fortnite commands start here
+          // Fortnite comm ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅnds st ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrt here
 
-                        if(command === 'help') {
-                          fortnite.communicator.sendMessage(data.friend.id, 'Thanks for using this bot ' + User.displayName + ', heres the commands, !skin !backling !leave !emote !banner !status !ready !platform !id !playlist !promote !kick !friend !unfriend !invite');
+                        if(comm ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅnd === 'help') {
+                          fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, 'Th ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅnks for using this bot ' + User.displ ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅyN ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme + ', heres the comm ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅnds, !skin !b ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅckling !le ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅve !emote !b ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅnner !st ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtus !re ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅdy !pl ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtform !id !pl ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅylist !promote !kick !friend !unfriend !invite');
                         }
 
-                              if(data.message.startsWith('CID_')) {
-                                if(data.message === 'CID_') return fortnite.communicator.sendMessage(data.friend.id, "Please mention a cid.");
+                              if(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.mess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge.st ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrtsWith('CID_')) {
+                                if(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.mess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge === 'CID_') return fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, "Ple ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅse mention  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ cid.");
                               try {
-                                CID = args[0];
-                                  fortnite.party.me.setOutfit("/Game/Athena/Items/Cosmetics/Characters/" + args[0] + "." + args[0]);
-                                  fortnite.communicator.sendMessage(data.friend.id, "Skin set to " + args[0]);
+                                CID =  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrgs[0];
+                                  fortnite.p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrty.me.setOutfit("/G ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme/ ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅthen ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ/Items/Cosmetics/Ch ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅr ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅcters/" +  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrgs[0] + "." +  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrgs[0]);
+                                  fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, "Skin set to " +  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrgs[0]);
                                     }
-                                    catch(er) {
-                                    fortnite.communicator.sendMessage(data.friend.id, er);
+                                    c ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtch(er) {
+                                    fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, er);
                                     }
                                   }
                       
-                                  if(data.message.startsWith('EID_')) {
-                                    if(data.message === 'EID_') return fortnite.communicator.sendMessage(data.friend.id, "Please mention a eid.");
+                                  if(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.mess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge.st ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrtsWith('EID_')) {
+                                    if(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.mess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge === 'EID_') return fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, "Ple ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅse mention  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ eid.");
                                     try {
-                                    EID = args[0];
-                                  fortnite.party.me.clearEmote()
-                                  fortnite.party.me.setEmote("/Game/Athena/Items/Cosmetics/Dances/" + args[0] + "." + args[0]);
-                                  fortnite.communicator.sendMessage(data.friend.id, "Emote set to " + args[0]);
+                                    EID =  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrgs[0];
+                                  fortnite.p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrty.me.cle ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrEmote()
+                                  fortnite.p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrty.me.setEmote("/G ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme/ ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅthen ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ/Items/Cosmetics/D ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅnces/" +  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrgs[0] + "." +  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrgs[0]);
+                                  fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, "Emote set to " +  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrgs[0]);
                                 }
-                                catch(er) {
-                                fortnite.communicator.sendMessage(data.friend.id, er);
+                                c ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtch(er) {
+                                fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, er);
                                 }
                               }
                       
-                              if(data.message.startsWith('Pickaxe_ID_')) {
-                                if(data.message === 'Pickaxe_ID_') return fortnite.communicator.sendMessage(data.friend.id, "Please mention a pickaxe id.");
+                              if(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.mess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge.st ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrtsWith('Pick ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅxe_ID_')) {
+                                if(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.mess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge === 'Pick ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅxe_ID_') return fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, "Ple ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅse mention  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ pick ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅxe id.");
                                 try {
-                                PICKAXE_ID = args[0];
-                                  fortnite.party.me.setPickaxe("/Game/Athena/Items/Cosmetics/Pickaxes/" + args[0] + "." + args[0]);
-                                  fortnite.communicator.sendMessage(data.friend.id, "Pickaxe set to " + args[0]);
+                                PICK ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅXE_ID =  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrgs[0];
+                                  fortnite.p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrty.me.setPick ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅxe("/G ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme/ ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅthen ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ/Items/Cosmetics/Pick ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅxes/" +  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrgs[0] + "." +  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrgs[0]);
+                                  fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, "Pick ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅxe set to " +  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrgs[0]);
                                   }
-                                catch(err) {
-                                fortnite.communicator.sendMessage(data.friend.id, err);
+                                c ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtch(err) {
+                                fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, err);
                               }
                             }
 
-                            if(command === 'crash') {
+                            if(comm ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅnd === 'cr ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅsh') {
                               try {
-                                crash(); // Will make the bot unuseable
+                                cr ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅsh(); // Will m ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅke the bot unuse ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅble
                                 }
-                              catch(err) {
-                              fortnite.communicator.sendMessage(data.friend.id, err);
+                              c ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtch(err) {
+                              fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, err);
                             }
                           }
 
                           // Unused _
 
-                        //   if(command === 'stats') {
-                        //     if(!args[1]) return fortnite.communicator.sendMessage(data.friend.id, 'Mention a username.');
+                        //   if(comm ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅnd === 'st ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅts') {
+                        //     if(! ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrgs[1]) return fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, 'Mention  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ usern ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme.');
                         //     try {
-                        //       let stats = await br.getStatsForPlayer(args[1]);
-                        //     fortnite.communicator.sendMessage(data.friend.id, stats);
+                        //       let st ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅts =  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅw ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅit br.getSt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtsForPl ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅyer( ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrgs[1]);
+                        //     fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, st ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅts);
                         //     }
-                        //     catch(err){
-                        //       fortnite.communicator.sendMessage(data.friend.id, stats);
+                        //     c ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtch(err){
+                        //       fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, st ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅts);
                         //     }
                         // }
-                         //   Currently trying to find a way to show wins.
-
-                       //        if(command === 'code') {
-                        //        let code = args.slice(1).join(" ");
-                        //        var codeurl = 'https://epicgames.com/fortnite/ajax/redemption/validate-redemption-code?redeem-code=' + code
-                        //         request({
-                        //          url: codeurl,
-                        //          json: true
-                        //          }).then(query => {
-                        //        fortnite.communicator.sendMessage(data.friend.id, "The code is found! The title is " + query.data.title);
-                        //      });
-                        //    }
+                         //   Currently trying to find  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ w ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅy to show wins.
                         // Not working currently.
 
       
-                            if(data.message.startsWith('BID_')) {
-                              if(data.message === 'BID_') return fortnite.communicator.sendMessage(data.friend.id, "Please mention a bid id.");
+                            if(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.mess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge.st ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrtsWith('BID_')) {
+                              if(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.mess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge === 'BID_') return fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, "Ple ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅse mention  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ bid id.");
                               try {
-                              BID = args[0];
-                                fortnite.party.me.setBackpack("/Game/Athena/Items/Cosmetics/Backpacks/" + args[0] + "." + args[0]);
-                                fortnite.communicator.sendMessage(data.friend.id, "Backbling set to " + args[0]);
+                              BID =  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrgs[0];
+                                fortnite.p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrty.me.setB ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅckp ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅck("/G ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme/ ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅthen ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ/Items/Cosmetics/B ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅckp ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅcks/" +  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrgs[0] + "." +  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrgs[0]);
+                                fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, "B ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅckbling set to " +  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrgs[0]);
                               }
-                              catch(err) {
-                              fortnite.communicator.sendMessage(data.friend.id, err);
+                              c ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtch(err) {
+                              fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, err);
                             }
                           }
 
-                              if(command === 'party') {
+                              if(comm ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅnd === 'p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrty') {
                                 try {
                                   members();
                                     }
-                                    catch(err) {
-                                    fortnite.communicator.sendMessage(data.friend.id, err);
+                                    c ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtch(err) {
+                                    fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, err);
                                   }
                                 }
 
-                                if(command === 'emoteall') {
-                                  let emoteid = args.slice(5).join(" ");
+                                if(comm ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅnd === 'emote ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅll') {
+                                  let emoteid =  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrgs.slice(5).join(" ");
                                   request({
-                                    url: 'http://benbotfn.tk:8080/api/cosmetics/search/multiple?displayName=' + emoteid,
+                                    url: 'http://benbotfn.tk:8080/ ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅpi/cosmetics/se ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrch/multiple?displ ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅyN ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme=' + emoteid,
                                     json: true
                                 }).then(query => {
-                                  Object.keys(query).forEach(function(key) {
+                                  Object.keys(query).forE ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅch(function(key) {
                                     if(query[key].type == "Emote") {
-                                    fortnite.party.me.setEmote("/Game/Athena/Items/Cosmetics/Dances/" + query[key].id + "." + query[key].id);
+                                    fortnite.p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrty.me.setEmote("/G ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme/ ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅthen ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ/Items/Cosmetics/D ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅnces/" + query[key].id + "." + query[key].id);
                                     }
                                   });
                                 });
                                 }
                            
 
-                                    if(command === "skin") {
-                                      let skinname = args.slice(1).join(" ");
-                                      if (!skinname) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a skin name.");
+                                    if(comm ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅnd === "skin") {
+                                      let skinn ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme =  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrgs.slice(1).join(" ");
+                                      if (!skinn ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme) return fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, "Ple ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅse mention  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ skin n ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme.");
                                       request({
-                                        url: benbot + skinname,
+                                        url: benbot + skinn ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme,
                                         json: true
                                     }).then(query => {
                                         try {
-                                          Object.keys(query).forEach(function(key) {
+                                          Object.keys(query).forE ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅch(function(key) {
                                             if(query[key].type == "Outfit") {
-                                            fortnite.party.me.setOutfit("/Game/Athena/Items/Cosmetics/Characters/" + query[key].id + "." + query[key].id);
-                                            fortnite.communicator.sendMessage(data.friend.id, "Found " + query[key].displayName + ', the id is ' + query[key].id);
+                                            fortnite.p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrty.me.setOutfit("/G ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme/ ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅthen ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ/Items/Cosmetics/Ch ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅr ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅcters/" + query[key].id + "." + query[key].id);
+                                            fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, "Found " + query[key].displ ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅyN ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme + ', the id is ' + query[key].id);
                                             }
                                           });
                                         }
-                                        catch(err) {
+                                        c ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtch(err) {
                                           console.log(err);
                                         }
                                       });
                                     }
 
-                                    if(command === "pickaxe") {
-                                      let pickaxe = args.slice(1).join(" ");
-                                      if (!pickaxe) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a pickaxe name.");
+                                    if(comm ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅnd === "pick ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅxe") {
+                                      let pick ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅxe =  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrgs.slice(1).join(" ");
+                                      if (!pick ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅxe) return fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, "Ple ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅse mention  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ pick ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅxe n ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme.");
                                       request({
-                                        url: benbot + pickaxe,
+                                        url: benbot + pick ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅxe,
                                         json: true
                                     }).then(query => {
                                         try {
-                                          Object.keys(query).forEach(function(key) {
-                                            if(query[key].type == "Harvesting Tool") {
-                                            fortnite.party.me.setPickaxe("/Game/Athena/Items/Cosmetics/Pickaxes/" + query[key].id + "." + query[key].id);
-                                            fortnite.communicator.sendMessage(data.friend.id, "Found " + query[key].displayName + ', the id is ' + query[key].id);
+                                          Object.keys(query).forE ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅch(function(key) {
+                                            if(query[key].type == "H ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrvesting Tool") {
+                                            fortnite.p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrty.me.setPick ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅxe("/G ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme/ ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅthen ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ/Items/Cosmetics/Pick ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅxes/" + query[key].id + "." + query[key].id);
+                                            fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, "Found " + query[key].displ ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅyN ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme + ', the id is ' + query[key].id);
                                             }
                                           });
                                         }
-                                        catch(err) {
+                                        c ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtch(err) {
                                           console.log(err);
                                         }
                                       });
                                     }
                   
-                                if(command === "backbling") {
-                                  let backlingname = args.slice(1).join(" ");
-                                  if (!backlingname) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a backling name.");
+                                if(comm ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅnd === "b ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅckbling") {
+                                  let b ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅcklingn ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme =  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrgs.slice(1).join(" ");
+                                  if (!b ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅcklingn ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme) return fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, "Ple ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅse mention  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ b ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅckling n ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme.");
                                   request({
-                                    url: benbot + backlingname,
+                                    url: benbot + b ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅcklingn ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme,
                                     json: true
                                 }).then(query => {
                                   try {
-                                    Object.keys(query).forEach(function(key) {
-                                      if(query[key].type == "Back Bling") {
-                                      fortnite.party.me.setBackpack("/Game/Athena/Items/Cosmetics/Backpacks/" + query[key].id + "." + query[key].id);
-                                      fortnite.communicator.sendMessage(data.friend.id, "Found " + query[key].displayName + ', the id is ' + query[key].id);
+                                    Object.keys(query).forE ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅch(function(key) {
+                                      if(query[key].type == "B ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅck Bling") {
+                                      fortnite.p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrty.me.setB ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅckp ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅck("/G ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme/ ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅthen ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ/Items/Cosmetics/B ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅckp ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅcks/" + query[key].id + "." + query[key].id);
+                                      fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, "Found " + query[key].displ ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅyN ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme + ', the id is ' + query[key].id);
                                       }
                                     });
                                   }
-                                  catch(err) {
+                                  c ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtch(err) {
                                     console.log(err);
                                   }
                                 });
                               }
           
-                              if(command === "emote") {
-                              let emotename = args.slice(1).join(" ");
-                              if (!emotename) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a emote name.");
+                              if(comm ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅnd === "emote") {
+                              let emoten ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme =  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrgs.slice(1).join(" ");
+                              if (!emoten ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme) return fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, "Ple ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅse mention  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ emote n ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme.");
                               request({
-                                url: benbot + emotename,
+                                url: benbot + emoten ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme,
                                 json: true
                             }).then(query => {
-                              Object.keys(query).forEach(function(key) {
+                              Object.keys(query).forE ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅch(function(key) {
                                 if(query[key].type == "Emote") {
-                                  fortnite.party.me.clearEmote()
-                                fortnite.party.me.setEmote("/Game/Athena/Items/Cosmetics/Dances/" + query[key].id + "." + query[key].id);
-                                fortnite.communicator.sendMessage(data.friend.id, "Found " + query[key].displayName + ', the id is ' + query[key].id);
+                                  fortnite.p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrty.me.cle ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrEmote()
+                                fortnite.p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrty.me.setEmote("/G ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme/ ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅthen ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ/Items/Cosmetics/D ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅnces/" + query[key].id + "." + query[key].id);
+                                fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, "Found " + query[key].displ ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅyN ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme + ', the id is ' + query[key].id);
                                 }
                               });
                             });
                           }
 
-                          if(command === "banner") {
-                          if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a banner name.");
-                          if(args[1].toLowerCase() == "pewdiepie") {
-                            fortnite.party.me.setBanner(config.level, 'InfluencerBanner57', config.banner_color);
+                          if(comm ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅnd === "b ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅnner") {
+                          if (! ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrgs[1]) return fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, "Ple ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅse mention  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ b ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅnner n ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme.");
+                          if( ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrgs[1].toLowerC ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅse() == "pewdiepie") {
+                            fortnite.p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrty.me.setB ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅnner(config.level, 'InfluencerB ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅnner57', config.b ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅnner_color);
                           }
                           try {
-                          fortnite.party.me.setBanner(100, args[1], args[2]);
-                          fortnite.communicator.sendMessage(data.friend.id, "Banner set to " + args[1] + " " + args[2]);
+                          fortnite.p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrty.me.setB ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅnner(100,  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrgs[1],  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrgs[2]);
+                          fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, "B ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅnner set to " +  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrgs[1] + " " +  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrgs[2]);
                           }
-                          catch(err) {
-                          fortnite.communicator.sendMessage(data.friend.id, "There was a error: " + err);
+                          c ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtch(err) {
+                          fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, "There w ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅs  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ error: " + err);
                           }
                         }
 
-                            if(command === "status") {
-                            if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a status.");
+                            if(comm ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅnd === "st ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtus") {
+                            if (! ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrgs[1]) return fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, "Ple ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅse mention  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ st ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtus.");
                             try {
-                            var mess = data.message.replace("!status", "");
-                            fortnite.communicator.updateStatus(mess);
-                            fortnite.communicator.sendMessage(data.friend.id, 'Status set to ' + mess + "!");
+                            v ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅr mess = d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.mess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge.repl ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅce("!st ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtus", "");
+                            fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.upd ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅteSt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtus(mess);
+                            fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, 'St ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtus set to ' + mess + "!");
                           }
-                          catch(err) {
-                            fortnite.communicator.sendMessage(data.friend.id, "There was a error: " + err);
+                          c ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtch(err) {
+                            fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, "There w ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅs  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ error: " + err);
                           }
                         }
 
-                              if(command === "playlist") {
-                            if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a regionId and a playlistName.");
-                            var PartyLeader = await eg.getProfile(current_party.leader.id);
-                              if(PartyLeader.displayName == eg.account.displayName) {
-                                fortnite.party.setPlaylist(args[1], args[2]).catch(err => console.log(err))
-                                eg.communicator.sendMessage(data.friend.id, "Set playlist to " + args[1] + " " + args[2]);
-                                }
+                              if(comm ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅnd === "pl ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅylist") {
+                            if (! ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrgs[1]) return fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, "Ple ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅse mention  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ pl ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅylistN ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme.");
+                            if (! ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrgs[2]) return fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, "Ple ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅse mention  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ regionId.");
+                            v ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅr P ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrtyLe ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅder =  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅw ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅit eg.getProfile(current_p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrty.le ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅder.id);
+                              if(P ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrtyLe ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅder.displ ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅyN ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme == eg. ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅccount.displ ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅyN ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme) {
+                                fortnite.p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrty.setPl ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅylist( ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrgs[1],  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrgs[2]).c ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtch(err => console.log(err))
+                                eg.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, "Set pl ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅylist to " +  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrgs[1] + " " +  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrgs[2]);
+                                console.log(`[P ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅRTY PL ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅYLIST] Set the pl ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅylist to "` +  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrgs[1] + `"`)
+                              }
                                 else {
-                                  eg.communicator.sendMessage(data.friend.id, "The bot isn't party leader!");
+                                  eg.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, "The bot isn't p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrty le ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅder!");
                                 }
                               }
 
-                              if(command === "ready") {
-                              if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention true/false.");
-                              if(args[1].toLowerCase() == "true") {
-                                fortnite.party.me.setReady(true);
-                                fortnite.communicator.sendMessage(data.friend.id, "Ready!");
+                              if(comm ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅnd === "re ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅdy") {
+                              if (! ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrgs[1]) return fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, "Ple ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅse mention true/f ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅlse.");
+                              if( ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrgs[1].toLowerC ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅse() == "true") {
+                                fortnite.p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrty.me.setRe ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅdy(true);
+                                fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, "Re ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅdy!");
                               }
-                              if(args[1].toLowerCase() == "false") {
-                                fortnite.party.me.setReady(false);
-                                fortnite.communicator.sendMessage(data.friend.id, "Unready!");
+                              if( ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrgs[1].toLowerC ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅse() == "f ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅlse") {
+                                fortnite.p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrty.me.setRe ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅdy(f ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅlse);
+                                fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, "Unre ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅdy!");
                               }
                             }
 
-                            if(command === "platform") {
-                              if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a platform.");
+                            if(comm ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅnd === "pl ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtform") {
+                              if (! ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrgs[1]) return fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, "Ple ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅse mention  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ pl ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtform.");
                               try {
-                                fortnite.party.me.setPlatform("EPlatform." + args[1]);
-                                eg.communicator.sendMessage(data.friend.id, "Set Platform to " + args[1] + " !");
-                                  } catch {
-                                    eg.communicator.sendMessage(data.friend.id, "Please use !platform PLATFORM");
+                                fortnite.p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrty.me.setPl ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtform("EPl ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtform." +  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrgs[1]);
+                                eg.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, "Set Pl ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtform to " +  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrgs[1] + " !");
+                                  } c ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtch {
+                                    eg.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, "Ple ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅse use !pl ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtform PL ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅTFORM");
                                   }
                                 }
 
-                                  if(command === "lookup") {
-                                if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a epic display name.");
+                                  if(comm ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅnd === "lookup") {
+                                if (! ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrgs[1]) return fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, "Ple ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅse mention  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ epic displ ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅy n ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme.");
                                 try {
-                                  let lookup = args.slice(1).join(" ");
-                                const account = await eg.getProfile(lookup);
-                                if(!account) return fortnite.communicator.sendMessage(data.friend.id, "That epic name must of been wrong.");
-                                  fortnite.communicator.sendMessage(data.friend.id, `${account.name}'s id is: ${account.id}.`);
+                                  let lookup =  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrgs.slice(1).join(" ");
+                                const  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅccount =  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅw ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅit eg.getProfile(lookup);
+                                if(! ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅccount) return fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, "Th ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt epic n ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme must of been wrong.");
+                                  fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, `${ ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅccount.n ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme}'s id is: ${ ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅccount.id}.`);
                                 }
-                                catch(err) {
-                                  fortnite.communicator.sendMessage(data.friend.id, "There was a error: " + err);
+                                c ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtch(err) {
+                                  fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, "There w ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅs  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ error: " + err);
                                 }
                               }
 
-                              if(command === "promote") {
-                              if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a party member's name.");
-                              var PartyLeader = await eg.getProfile(current_party.leader.id);
-                              if(PartyLeader.displayName == eg.account.displayName) {  
-                              let lookup = args.slice(1).join(" ");
-                                if(lookup === eg.account.name) return fortnite.communicator.sendMessage(data.friend.id, "You can't promote yourself!");
-                              const account = await eg.getProfile(lookup);
-                              if(!account) return fortnite.communicator.sendMessage(data.friend.id, "That epic name must of been wrong.");
-                              const partymember = fortnite.party.findMember(account.id)
-                              if(!partymember) return fortnite.communicator.sendMessage(data.friend.id, `${account.name} Wasn't found in the party.`);
-                              fortnite.party.promote(account.id)
-                              fortnite.communicator.sendMessage(data.friend.id, "Promoted " + account.name + '!');
+                              if(comm ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅnd === "promote") {
+                              if (! ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrgs[1]) return fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, "Ple ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅse mention  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrty member's n ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme.");
+                              v ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅr P ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrtyLe ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅder =  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅw ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅit eg.getProfile(current_p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrty.le ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅder.id);
+                              if(P ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrtyLe ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅder.displ ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅyN ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme == eg. ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅccount.displ ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅyN ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme) {  
+                              let lookup =  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrgs.slice(1).join(" ");
+                                if(lookup === eg. ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅccount.n ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme) return fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, "You c ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅn't promote yourself!");
+                              const  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅccount =  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅw ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅit eg.getProfile(lookup);
+                              if(! ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅccount) return fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, "Th ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt epic n ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme must of been wrong.");
+                              const p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrtymember = fortnite.p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrty.findMember( ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅccount.id)
+                              if(!p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrtymember) return fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, `${ ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅccount.n ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme} W ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅsn't found in the p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrty.`);
+                              fortnite.p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrty.promote( ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅccount.id)
+                              fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, "Promoted " +  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅccount.n ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme + '!');
                               }
                               else {
-                                eg.communicator.sendMessage(data.friend.id, "The bot isn't party leader!");
+                                eg.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, "The bot isn't p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrty le ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅder!");
                               }
                             }
 
-                                if(command === "kick") {
-                              if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a party member's name.");
-                              var PartyLeader = await eg.getProfile(current_party.leader.id);
-                              if(PartyLeader.displayName == eg.account.displayName) {   
-                              let lookup = args.slice(1).join(" ");
-                                if(lookup === eg.account.name) return fortnite.communicator.sendMessage(data.friend.id, "You can't kick yourself!");
-                              const account = await eg.getProfile(lookup);
-                              if(!account) return fortnite.communicator.sendMessage(data.friend.id, "That epic name must of been wrong.");
-                              const partymember = fortnite.party.findMember(account.id)
-                              if(!partymember) return fortnite.communicator.sendMessage(data.friend.id, `${account.name} Wasn't found in the party.`);
-                              fortnite.party.kick(account.id)
-                              fortnite.communicator.sendMessage(data.friend.id, "Kicked " + account.name + '!');
+                                if(comm ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅnd === "kick") {
+                              if (! ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrgs[1]) return fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, "Ple ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅse mention  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrty member's n ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme.");
+                              v ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅr P ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrtyLe ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅder =  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅw ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅit eg.getProfile(current_p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrty.le ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅder.id);
+                              if(P ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrtyLe ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅder.displ ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅyN ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme == eg. ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅccount.displ ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅyN ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme) {   
+                              let lookup =  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrgs.slice(1).join(" ");
+                                if(lookup === eg. ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅccount.n ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme) return fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, "You c ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅn't kick yourself!");
+                              const  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅccount =  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅw ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅit eg.getProfile(lookup);
+                              if(! ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅccount) return fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, "Th ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt epic n ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme must of been wrong.");
+                              const p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrtymember = fortnite.p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrty.findMember( ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅccount.id)
+                              if(!p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrtymember) return fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, `${ ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅccount.n ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme} W ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅsn't found in the p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrty.`);
+                              fortnite.p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrty.kick( ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅccount.id)
+                              fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, "Kicked " +  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅccount.n ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme + '!');
                             }
                             else {
-                              eg.communicator.sendMessage(data.friend.id, "The bot isn't party leader!");
+                              eg.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, "The bot isn't p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrty le ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅder!");
                             }
                           }
 
-                          if(command === "leave") {
+                          if(comm ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅnd === "le ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅve") {
                             try {
-
-                              if (fortnite.party.members.length > 1) {
-                                fortnite.communicator.sendMessage(data.friend.id, `The bot can't leave the party when theres nobody in it!`);
+                              if (fortnite.p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrty.members.length > 1) {
+                                fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, `The bot c ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅn't le ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅve the p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrty when theres nobody in it!`);
                               }
                               else {
-                                fortnite.party.leave()
-                                fortnite.communicator.sendMessage(data.friend.id, "The bot has left.");
+                                fortnite.p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrty.le ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅve()
+                                fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, "The bot h ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅs left.");
                                 }
                                 }
-                              catch(err) {
-                                fortnite.communicator.sendMessage(data.friend.id, "There was a error: " + err);
+                              c ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtch(err) {
+                                fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, "There w ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅs  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ error: " + err);
                               }
                             }
 
-                        if(command === "friend") {
-                      if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a epic name to add.");
+                        if(comm ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅnd === "friend") {
+                      if (! ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrgs[1]) return fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, "Ple ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅse mention  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ epic n ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme to  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅdd.");
                       try {
-                        let lookup = args.slice(1).join(" ");
-                        if(lookup === eg.account.name) return fortnite.communicator.sendMessage(data.friend.id, "You can't friend yourself!");
-                      const account = await eg.getProfile(lookup);
-                      if(!account) return fortnite.communicator.sendMessage(data.friend.id, "That epic name must of been wrong.");
-                      const isFriended = await eg.hasFriend(account.id)
+                        let lookup =  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrgs.slice(1).join(" ");
+                        if(lookup === eg. ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅccount.n ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme) return fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, "You c ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅn't friend yourself!");
+                      const  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅccount =  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅw ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅit eg.getProfile(lookup);
+                      if(! ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅccount) return fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, "Th ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt epic n ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme must of been wrong.");
+                      const isFriended =  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅw ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅit eg.h ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅsFriend( ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅccount.id)
                       if(isFriended) {
-                      fortnite.communicator.sendMessage(data.friend.id, `${account.name} is already friended.`);
+                      fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, `${ ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅccount.n ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme} is  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅlre ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅdy friended.`);
                       }
-                      eg.inviteFriend(account.id)
-                      fortnite.communicator.sendMessage(data.friend.id, "Friended! " + account.name + '!');
+                      eg.inviteFriend( ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅccount.id)
+                      fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, "Friended! " +  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅccount.n ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme + '!');
                           }
-                        catch(err) {
-                          fortnite.communicator.sendMessage(data.friend.id, "There was a error: " + err);
+                        c ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtch(err) {
+                          fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, "There w ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅs  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ error: " + err);
                         }
                       }
 
-                      if(command === "privacy") {
-                        if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a vaild privacy name.");
+                      if(comm ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅnd === "priv ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅcy") {
+                        if (! ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrgs[1]) return fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, "Ple ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅse mention  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ v ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅild priv ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅcy n ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme.");
                         try {
-                          fortnite.party.setPrivacy(args[1])
-                          fortnite.communicator.sendMessage(data.friend.id, "Privacy set to " + args[1] + '.');
-                        } catch(err) {
-                            fortnite.communicator.sendMessage(data.friend.id, "There was a error: " + err);
+                          fortnite.p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrty.setPriv ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅcy( ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrgs[1])
+                          fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, "Priv ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅcy set to " +  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrgs[1] + '.');
+                        } c ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtch(err) {
+                            fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, "There w ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅs  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ error: " + err);
                           }
                         }
 
-                  if(command === "unfriend") {
-                    if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a epic name to unfriend.");
+                  if(comm ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅnd === "unfriend") {
+                    if (! ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrgs[1]) return fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, "Ple ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅse mention  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ epic n ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme to unfriend.");
                     try {
-                      let lookup = args.slice(1).join(" ");
-                      if(lookup === eg.account.name) return fortnite.communicator.sendMessage(data.friend.id, "You can't unfriend yourself!");
-                    const account = await eg.getProfile(lookup);
-                    if(!account) return fortnite.communicator.sendMessage(data.friend.id, "That epic name must of been wrong.");
-                    const isFriended = await eg.hasFriend(account.id)
+                      let lookup =  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrgs.slice(1).join(" ");
+                      if(lookup === eg. ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅccount.n ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme) return fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, "You c ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅn't unfriend yourself!");
+                    const  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅccount =  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅw ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅit eg.getProfile(lookup);
+                    if(! ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅccount) return fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, "Th ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt epic n ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme must of been wrong.");
+                    const isFriended =  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅw ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅit eg.h ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅsFriend( ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅccount.id)
                     if(isFriended) {
-                    eg.removeFriend(account.id)
-                    fortnite.communicator.sendMessage(data.friend.id, "Unfriended! " + account.name + '!');
+                    eg.removeFriend( ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅccount.id)
+                    fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, "Unfriended! " +  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅccount.n ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme + '!');
                     }
                     else{
-                      fortnite.communicator.sendMessage(data.friend.id, `${account.name} wasn't even friended.`);
+                      fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, `${ ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅccount.n ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme} w ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅsn't even friended.`);
                         }
                       }
-                    catch(err) {
-                      fortnite.communicator.sendMessage(data.friend.id, "There was a error: " + err);
+                    c ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtch(err) {
+                      fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, "There w ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅs  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ error: " + err);
                     }
                   }
 
-                    if(command === "invite") {
-                      if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a epic name to invite.");
+                    if(comm ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅnd === "invite") {
+                      if (! ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrgs[1]) return fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, "Ple ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅse mention  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ epic n ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme to invite.");
                       try {
-                        let lookup = args.slice(1).join(" ");
-                        if(lookup === eg.account.name) return fortnite.communicator.sendMessage(data.friend.id, "You can't invite yourself!");
-                      const account = await eg.getProfile(lookup);
-                      if(!account) return fortnite.communicator.sendMessage(data.friend.id, "That epic name must of been wrong.");
-                      const isFriended = await eg.hasFriend(account.id)
+                        let lookup =  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrgs.slice(1).join(" ");
+                        
+                      const  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅccount =  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅw ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅit eg.getProfile(lookup);
+                      if(! ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅccount) return fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, "Th ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt epic n ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme must of been wrong.");
+                      const isFriended =  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅw ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅit eg.h ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅsFriend( ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅccount.id)
                       if(isFriended) {
-                      fortnite.party.invite(account.id)
-                      fortnite.communicator.sendMessage(data.friend.id, "Invited " + account.name + '!');
+                        const p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrtymember = fortnite.p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrty.findMember( ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅccount.id)
+                      if(p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrtymember) return fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, `${ ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅccount.n ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme} Is in the p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrty w ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅhts d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅmn point.`);
+                      if(lookup === eg. ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅccount.n ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme) return fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, "You c ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅn't invite yourself!");
+                      fortnite.p ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅrty.invite( ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅccount.id)
+                      fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, "Invited " +  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅccount.n ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme + '!');
                       }
                       else{
-                        fortnite.communicator.sendMessage(data.friend.id, `${account.name} wasn't even friended.`);
+                        fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, `${ ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅccount.n ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅme} w ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅsn't even friended.`);
                           }
                         }
-                      catch(err) {
-                        fortnite.communicator.sendMessage(data.friend.id, "There was a error: " + err);
+                      c ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtch(err) {
+                        fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.sendMess ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅge(d ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ.friend.id, "There w ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅs  ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅ error: " + err);
                       }
                     }
 
 
                     });
 
-                    fortnite.communicator.updateStatus(config.status);
+                    fortnite.communic ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtor.upd ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅteSt ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtus(config.st ̵̛̘̣̫̖̹͎̳̯̲̱̦͎̤̰͙͊͑̀͜ͅͅͅtus);
 
                   });
                 });
