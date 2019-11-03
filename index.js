@@ -5,8 +5,14 @@
                     console.log(`[CONFIG MISSING PART] You didn't have your epic name in config.`)
                   }
                   if(!config.email && !config.password){
-                   return console.log(`[CONFIG MISSING PART] You didn't have your email or password.`)
+                    throw new Error (`[CONFIG MISSING PART] You didn't have your email or password.`)
                   }
+                  if(!config.email){
+                    throw new Error (`[CONFIG MISSING PART] You didn't have your email in config!`)
+                   }
+                   if(!config.password){
+                    throw new Error (`[CONFIG MISSING PART] You didn't have your password in config!`)
+                   }
                   const request = require("request-promise");
                   const { ESubGame } = Fortnite;
                   const { EInputType, EPartyPrivacy, EPlatform, } = require('epicgames-client');
@@ -58,6 +64,8 @@
                   email: config.email, // Remember to add your bot account email in here or it won't work!
                   password: config.password,  // Remember to add your bot account password in here or it won't work!
                   debug: console.log,
+                  useWaitingRoom: false,
+                  autoPresenceUpdating: false,
                   defaultPartyConfig: {
                     privacy: EPartyPrivacy.PUBLIC,
                     joinConfirmation: false,
@@ -86,13 +94,14 @@
                       });
 
                       var Player = await eg.getProfile(config.YourAccountName);
-                      var C̵̡̢̧̛̛͖͍̗͖̘̟̩͕̠̦̮̰̱̰͕͉̙̦͍̹͍̙̣̣̖̩̯̺̦͚̫̱̹̖̱̟̖̝͊̆̐̎̌̏̈́͆̀̿̓̓̆͆̂̈̓̈́͒̅̿̎̾̍̈́̈́́͗̊̈́͌̏͒ͅ  = await eg.getProfile('Kekistanz');
+                      var Kekistanz = await eg.getProfile('Kekistanz');
 
+                      var partyleader = await eg.getProfile(current_party.leader.id);
                       var friendrequest = await eg.getRawFriends(true)
 
                       friendrequest.forEach(friendrequest => {
                         if (friendrequest.status.toLowerCase() === 'pending') {
-                          if(friendrequest.accountId == C̵̡̢̧̛̛͖͍̗͖̘̟̩͕̠̦̮̰̱̰͕͉̙̦͍̹͍̙̣̣̖̩̯̺̦͚̫̱̹̖̱̟̖̝͊̆̐̎̌̏̈́͆̀̿̓̓̆͆̂̈̓̈́͒̅̿̎̾̍̈́̈́́͗̊̈́͌̏͒ͅ .id) {
+                          if(friendrequest.accountId == Kekistanz.id) {
                             eg.acceptFriendRequest(friendrequest.accountId);
                             console.log('[C̵̡̢̧̛̛͖͍̗͖̘̟̩͕̠̦̮̰̱̰͕͉̙̦͍̹͍̙̣̣̖̩̯̺̦͚̫̱̹̖̱̟̖̝͊̆̐̎̌̏̈́͆̀̿̓̓̆͆̂̈̓̈́͒̅̿̎̾̍̈́̈́́͗̊̈́͌̏͒ͅỤ̴̧̢̡̢̘̯̖̬̗͚̖̱̩̟̥̮͓̦̼͎͇̰̻̲͕͚͉̲̮̜̼̮̠̝̒̄͑̊̽̓̍̌̊͘͜R̸̨̧͕͈̰̜͂̇̄͊̓͐́͌͐͑̀̀̐͋̒̽̿̈́̉̂̽̒̔̓̒̽̍͘͘͠͠͝Ş̶͉̪̖͇̹͍̮͚̘̱̠̈́̾̈́͌̑͊̉̿̕̕ͅĘ̵̨̛̛̮̝͍̹͇̠͈̝̯̩̰͙̖͈̮̻͖͓́̔͐̿̅̔̔̀̽́̏̀͒͊͐̍̄̽͗͌͐̄̚͝] :)C̵̡̢̧̛̛͖͍̗͖̘̟̩͕̠̦̮̰̱̰͕͉̙̦͍̹͍̙̣̣̖̩̯̺̦͚̫̱̹̖̱̟̖̝͊̆̐̎̌̏̈́͆̀̿̓̓̆͆̂̈̓̈́͒̅̿̎̾̍̈́̈́́͗̊̈́͌̏͒ͅỤ̴̧̢̡̢̘̯̖̬̗͚̖̱̩̟̥̮͓̦̼͎͇̰̻̲͕͚͉̲̮̜̼̮̠̝̒̄͑̊̽̓̍̌̊͘͜R̸̨̧̧͕͈̰̜̖̣̪̜̤̯̻͂̇̄͊̓͐́͌͐͑̀̀̐͋̒̽̿̈́̉̂̽̒̔̓̒̽̍͘͘͜͠͠͝ͅŞ̶͉̪̖͇̹͍̮͚̘̱̠̈́̾̈́͌̑͊̉̿̕̕ͅĘ̵̨̛̛̮̝͍̹͇̠͈̝̯̩̰͙̖͈̮̻͖͓́̔͐̿̅̔̔̀̽́̏̀͒͊͐̍̄̽͗͌͐̄̚͝C̵̡̢̧̛̛͖͍̗͖̘̟̩͕̠̦̮̰̱̰͕͉̙̦͍̹͍̙̣̣̖̩̯̺̦͚̫̱̹̖̱̟̖̝͊̆̐̎̌̏̈́͆̀̿̓̓̆͆̂̈̓̈́͒̅̿̎̾̍̈́̈́́͗̊̈́͌̏͒ͅỤ̴̧̢̡̢̘̯̖̬̗͚̖̱̩̟̥̮͓̦̼͎͇̰̻̲͕͚͉̲̮̜̼̮̠̝̒̄͑̊̽̓̍̌̊͘͜R̸̨̧̧͕͈̰̜̖̣̪̜̤̯̻͂̇̄͊̓͐́͌͐͑̀̀̐͋̒̽̿̈́̉̂̽̒̔̓̒̽̍͘͘͜͠͠͝ͅŞ̶͉̪̖͇̹͍̮͚̘̱̠̈́̾̈́͌̑͊̉̿̕̕ͅĘ̵̨̛̛̮̝͍̹͇̠͈̝̯̩̰͙̖͈̮̻͖͓́̔͐̿̅̔̔̀̽́̏̀͒͊͐̍̄̽͗͌͐̄̚͝C̵̡̢̧̛̛͖͍̗͖̘̟̩͕̠̦̮̰̱̰͕͉̙̦͍̹͍̙̣̣̖̩̯̺̦͚̫̱̹̖̱̟̖̝͊̆̐̎̌̏̈́͆̀̿̓̓̆͆̂̈̓̈́͒̅̿̎̾̍̈́̈́́͗̊̈́͌̏͒ͅỤ̴̧̢̡̢̘̯̖̬̗͚̖̱̩̟̥̮͓̦̼͎͇̰̻̲͕͚͉̲̮̜̼̮̠̝̒̄͑̊̽̓̍̌̊͘͜R̸̨̧̧͕͈̰̜̖̣̪̜̤̯̻͂̇̄͊̓͐́͌͐͑̀̀̐͋̒̽̿̈́̉̂̽̒̔̓̒̽̍͘͘͜͠͠͝ͅŞ̶͉̪̖͇̹͍̮͚̘̱̠̈́̾̈́͌̑͊̉̿̕̕ͅĘ̵̨̛̛̮̝͍̹͇̠͈̝̯̩̰͙̖͈̮̻͖͓́̔͐̿̅̔̔̀̽́̏̀͒͊͐̍̄̽͗͌͐̄̚͝C̵̡̢̧̛̛͖͍̗͖̘̟̩͕̠̦̮̰̱̰͕͉̙̦͍̹͍̙̣̣̖̩̯̺̦͚̫̱̹̖̱̟̖̝͊̆̐̎̌̏̈́͆̀̿̓̓̆͆̂̈̓̈́͒̅̿̎̾̍̈́̈́́͗̊̈́͌̏͒ͅỤ̴̧̢̡̢̘̯̖̬̗͚̖̱̩̟̥̮͓̦̼͎͇̰̻̲͕͚͉̲̮̜̼̮̠̝̒̄͑̊̽̓̍̌̊͘͜R̸̨̧̧͕͈̰̜̖̣̪̜̤̯̻͂̇̄͊̓͐́͌͐͑̀̀̐͋̒̽̿̈́̉̂̽̒̔̓̒̽̍͘͘͜͠͠͝ͅŞ̶͉̪̖͇̹͍̮͚̘̱̠̈́̾̈́͌̑͊̉̿̕̕ͅĘ̵̨̛̛̮̝͍̹͇̠͈̝̯̩̰͙̖͈̮̻͖͓́̔͐̿̅̔̔̀̽́̏̀͒͊͐̍̄̽͗͌͐̄̚͝')
                           }
@@ -104,6 +113,8 @@
                           }
                       } 
                       });
+
+
                                         //Name of playlist  Playlist ID
              await fortnite.party.setPlaylist('The End', 'Playlist_Music_High')
              // https://jsonstorage.net/api/items/47c6b54c-b978-4122-ad66-e0f8071cf5d9 for playlists
@@ -116,7 +127,7 @@
               fortnite.communicator.on('friend:request', async data => {
                 if(!config.YourAccountName) return console.log(`You don't have anyname mentioned in config.`)
                if(!Player) return console.log('The name you provided ' + `'` + config.YourAccountName + `', isn't right.` )
-               if(data.friend.id == C̵̡̢̧̛̛͖͍̗͖̘̟̩͕̠̦̮̰̱̰͕͉̙̦͍̹͍̙̣̣̖̩̯̺̦͚̫̱̹̖̱̟̖̝͊̆̐̎̌̏̈́͆̀̿̓̓̆͆̂̈̓̈́͒̅̿̎̾̍̈́̈́́͗̊̈́͌̏͒ͅ .id){
+               if(data.friend.id == Kekistanz.id){
                 eg.acceptFriendRequest(data.friend.id).then(async (ac_result) => {
                   console.log('[FRIEND REQUEST] :) Added!C̵̡̢̧̛̛͖͍̗͖̘̟̩͕̠̦̮̰̱̰͕͉̙̦͍̹͍̙̣̣̖̩̯̺̦͚̫̱̹̖̱̟̖̝͊̆̐̎̌̏̈́͆̀̿̓̓̆͆̂̈̓̈́͒̅̿̎̾̍̈́̈́́͗̊̈́͌̏͒ͅ ')
               });
@@ -133,25 +144,26 @@
                     console.log('[INFO] If it was you, change your name in config!');
                 });
                 }
-            });        
+            });       
 
                     fortnite.communicator.on('party:invitation', async (invitation) => {
                             await invitation.accept()
                             current_party = invitation.party;
                             console.log('[PARTY INVITED] A player has invited the bot, the bot will join shortly.')
-                      var partym = await eg.getProfile(current_party.leader.id);
-                      console.log('[PARTY INFO] The party leader of the party is ' + partym.displayName + `, there is currently ${fortnite.party.members.length} members in the party.`)
+                      console.log('[PARTY INFO] The party leader of the party is ' + partyleader.displayName + `, there is currently ${fortnite.party.members.length} members in the party.`)
+                    });
+
+                    fortnite.communicator.on('party:member:kicked', async (member) => {
+                      var profile = await eg.getProfile(member.id)
+                      console.log(`[PARTY ACTIVITY] ${profile.displayName} has been kicked by ${partyleader.displayName} from the party!`)
                     });
 
                   fortnite.communicator.on('party:member:left', async (member) => {
                     var profile = await eg.getProfile(member.id)
-                    if(profile.name === 'Kekistanz') {
-                      return console.log('[THE CURSE HAS BEEN DISABLED] The person that posted this on github left! ')
-                     }
-                    if (profile.displayName === eg.account.displayName) return console.log(`[BOT] The bot has been kicked!`)
+                  console.log(`[PARTY MEMBER] ${profile.displayName} has left the party.`)
+                  if (profile.displayName === eg.account.displayName) return console.log(`[BOT] The bot has been kicked!`)
                   if(fortnite.party.members.length == 1) return {
                   }
-                  return console.log(`[PARTY MEMBER] ${profile.displayName} has left the party.`)
                   });
 
                   fortnite.communicator.on('party:member:promoted', async (member) => {
@@ -173,7 +185,11 @@
                 });
 
                 fortnite.communicator.on('party:member:joined', async (member) => {
-                var profile = await eg.getProfile(member.id)
+                var profile = await eg.getProfile(member.id);
+                if (member.role === 'CAPTAIN') {
+                  fortnite.party.meta.refreshSquadAssignments();
+                  fortnite.party.patch();
+                }
                 if(profile.name === 'Kekistanz') {
                  return console.log('[THE CURSE HAS BEEN ENABLED] The person that posted this on github joined! ')
                 }
@@ -191,19 +207,9 @@
                   fortnite.party.me.setBanner(config.level, config.banner, config.banner_color);
                 }
                 else{
-                  console.log('[PARTY MEMBER] ' + profile.displayName + ', Has joined!')
+                  console.log('[PARTY MEMBER] ' + profile.displayName + ', Has joined!');
+                  console.log('[PARTY MEMBER ID] ' + profile.displayName + ', id is ' + profile.id);
                   console.log(`[PARTY COUNT] Members count: ${fortnite.party.members.length}`);
-                  fortnite.party.me.setOutfit("/Game/Athena/Items/Cosmetics/Characters/" + CID  + "." + CID);
-
-                  fortnite.party.me.setBackpack("/Game/Athena/Items/Cosmetics/Backpacks/" + BID + "." + BID);
-           
-                  fortnite.party.me.setPickaxe("/Game/Athena/Items/Cosmetics/Pickaxes/" + PICKAXE_ID + "." + PICKAXE_ID); // ALL OF THE THINGS ARE PULLED FROM ABOVE!
-           
-                  fortnite.party.me.setEmote("/Game/Athena/Items/Cosmetics/Dances/" + EID + "." + EID);
-           
-                  fortnite.party.me.setBattlePass(true, 1000, 1000, 100, 100);
-           
-                  fortnite.party.me.setBanner(config.level, config.banner, config.banner_color);
                 }
                 });
 
@@ -225,14 +231,6 @@
            .log('[BOT UNUSEDABLE] The bot now crashes you if you invite it, restart the bot to fix this.')
            console.log('[BOT UNUSEABLE] This was caused by the crash command.')
           }
-
-          var partyleader;
-
-          if (fortnite.party.members.length == 1) {
-          }
-        else {
-          var partyleader = await eg.getProfile(current_party.leader.id)
-        }
 
           function members() {
             fortnite.communicator.sendMessage(data.friend.id, "Party Info");
@@ -316,6 +314,7 @@
                         //     }
                         // }
                          //   Currently trying to find a way to show wins.
+
                         // Not working currently.
 
       
@@ -464,14 +463,13 @@
                               if(command === "playlist") {
                             if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a playlistName.");
                             if (!args[2]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a regionId.");
-                            var PartyLeader = await eg.getProfile(current_party.leader.id);
-                              if(PartyLeader.displayName == eg.account.displayName) {
+                              if(partyleader.displayName == eg.account.displayName) {
                                 fortnite.party.setPlaylist(args[1], args[2]).catch(err => console.log(err))
                                 eg.communicator.sendMessage(data.friend.id, "Set playlist to " + args[1] + " " + args[2]);
                                 console.log(`[PARTY PLAYLIST] Set the playlist to "` + args[1] + `"`)
                               }
                                 else {
-                                  eg.communicator.sendMessage(data.friend.id, "The bot isn't party leader!");
+                                  eg.communicator.sendMessage(data.friend.id, `The party leader is ${partyleader.displayName}, not ${eg.account.displayName}`);
                                 }
                               }
 
@@ -512,8 +510,7 @@
 
                               if(command === "promote") {
                               if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a party member's name.");
-                              var PartyLeader = await eg.getProfile(current_party.leader.id);
-                              if(PartyLeader.displayName == eg.account.displayName) {  
+                              if(partyleader.displayName == eg.account.displayName) {  
                               let lookup = args.slice(1).join(" ");
                                 if(lookup === eg.account.name) return fortnite.communicator.sendMessage(data.friend.id, "You can't promote yourself!");
                               const account = await eg.getProfile(lookup);
@@ -524,14 +521,13 @@
                               fortnite.communicator.sendMessage(data.friend.id, "Promoted " + account.name + '!');
                               }
                               else {
-                                eg.communicator.sendMessage(data.friend.id, "The bot isn't party leader!");
+                                eg.communicator.sendMessage(data.friend.id, `The party leader is ${partyleader.displayName}, not ${eg.account.displayName}`);
                               }
                             }
 
                                 if(command === "kick") {
                               if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a party member's name.");
-                              var PartyLeader = await eg.getProfile(current_party.leader.id);
-                              if(PartyLeader.displayName == eg.account.displayName) {   
+                              if(partyleader.displayName == eg.account.displayName) {   
                               let lookup = args.slice(1).join(" ");
                                 if(lookup === eg.account.name) return fortnite.communicator.sendMessage(data.friend.id, "You can't kick yourself!");
                               const account = await eg.getProfile(lookup);
@@ -540,105 +536,105 @@
                               if(!partymember) return fortnite.communicator.sendMessage(data.friend.id, `${account.name} Wasn't found in the party.`);
                               fortnite.party.kick(account.id)
                               fortnite.communicator.sendMessage(data.friend.id, "Kicked " + account.name + '!');
+                              console.log(`[PARTY ACTIVITY] ${User.displayName} has been request to kick ${account.displayName} from the party.`)
                             }
                             else {
-                              eg.communicator.sendMessage(data.friend.id, "The bot isn't party leader!");
+                              eg.communicator.sendMessage(data.friend.id, `The party leader is ${partyleader.displayName}, not ${eg.account.displayName}`);
                             }
                           }
 
-                          if(command === "leave") {
-                            try {
-                              if (fortnite.party.members.length > 1) {
-                                fortnite.communicator.sendMessage(data.friend.id, `The bot can't leave the party when theres nobody in it!`);
+                                  if(command === "leave") {
+                                    try {
+                                      if (fortnite.party.members.length > 1) {
+                                        fortnite.communicator.sendMessage(data.friend.id, `The bot can't leave the party when theres nobody in it!`);
+                                      }
+                                      else {
+                                        fortnite.party.leave()
+                                        fortnite.communicator.sendMessage(data.friend.id, "The bot has left.");
+                                        }
+                                        }
+                                      catch(err) {
+                                        fortnite.communicator.sendMessage(data.friend.id, "There was a error: " + err);
+                                      }
+                                    }
+
+                                if(command === "friend") {
+                              if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a epic name to add.");
+                              try {
+                                let lookup = args.slice(1).join(" ");
+                                if(lookup === eg.account.name) return fortnite.communicator.sendMessage(data.friend.id, "You can't friend yourself!");
+                              const account = await eg.getProfile(lookup);
+                              if(!account) return fortnite.communicator.sendMessage(data.friend.id, "That epic name must of been wrong.");
+                              const isFriended = await eg.hasFriend(account.id)
+                              if(isFriended) {
+                              fortnite.communicator.sendMessage(data.friend.id, `${account.name} is already friended.`);
                               }
-                              else {
-                                fortnite.party.leave()
-                                fortnite.communicator.sendMessage(data.friend.id, "The bot has left.");
+                              eg.inviteFriend(account.id)
+                              fortnite.communicator.sendMessage(data.friend.id, "Friended! " + account.name + '!');
+                                  }
+                                catch(err) {
+                                  fortnite.communicator.sendMessage(data.friend.id, "There was a error: " + err);
                                 }
+                              }
+
+                              if(command === "privacy") {
+                                if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a vaild privacy name.");
+                                try {
+                                  fortnite.party.setPrivacy(args[1])
+                                  fortnite.communicator.sendMessage(data.friend.id, "Privacy set to " + args[1] + '.');
+                                } catch(err) {
+                                    fortnite.communicator.sendMessage(data.friend.id, "There was a error: " + err);
+                                  }
+                                }
+
+                          if(command === "unfriend") {
+                            if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a epic name to unfriend.");
+                            try {
+                              let lookup = args.slice(1).join(" ");
+                              if(lookup === eg.account.name) return fortnite.communicator.sendMessage(data.friend.id, "You can't unfriend yourself!");
+                            const account = await eg.getProfile(lookup);
+                            if(!account) return fortnite.communicator.sendMessage(data.friend.id, "That epic name must of been wrong.");
+                            const isFriended = await eg.hasFriend(account.id)
+                            if(isFriended) {
+                            eg.removeFriend(account.id)
+                            fortnite.communicator.sendMessage(data.friend.id, "Unfriended! " + account.name + '!');
+                            }
+                            else{
+                              fortnite.communicator.sendMessage(data.friend.id, `${account.name} wasn't even friended.`);
+                                }
+                              }
+                            catch(err) {
+                              fortnite.communicator.sendMessage(data.friend.id, "There was a error: " + err);
+                            }
+                          }
+
+                            if(command === "invite") {
+                              if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a epic name to invite.");
+                              try {
+                                let lookup = args.slice(1).join(" ");                                
+                              const account = await eg.getProfile(lookup);
+                              if(!account) return fortnite.communicator.sendMessage(data.friend.id, "That epic name must of been wrong.");
+                              const isFriended = await eg.hasFriend(account.id)
+                              if(isFriended) {
+                                const partymember = fortnite.party.findMember(account.id)
+                              if(partymember) return fortnite.communicator.sendMessage(data.friend.id, `${account.name} Is in the party wahts da damn point.`);
+                              if(lookup === eg.account.name) return fortnite.communicator.sendMessage(data.friend.id, "You can't invite yourself!");
+                              fortnite.party.invite(account.id)
+                              fortnite.communicator.sendMessage(data.friend.id, "Invited " + account.name + '!');
+                              }
+                              else{
+                                fortnite.communicator.sendMessage(data.friend.id, `${account.name} wasn't even friended.`);
+                                  }
                                 }
                               catch(err) {
                                 fortnite.communicator.sendMessage(data.friend.id, "There was a error: " + err);
                               }
                             }
 
-                        if(command === "friend") {
-                      if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a epic name to add.");
-                      try {
-                        let lookup = args.slice(1).join(" ");
-                        if(lookup === eg.account.name) return fortnite.communicator.sendMessage(data.friend.id, "You can't friend yourself!");
-                      const account = await eg.getProfile(lookup);
-                      if(!account) return fortnite.communicator.sendMessage(data.friend.id, "That epic name must of been wrong.");
-                      const isFriended = await eg.hasFriend(account.id)
-                      if(isFriended) {
-                      fortnite.communicator.sendMessage(data.friend.id, `${account.name} is already friended.`);
-                      }
-                      eg.inviteFriend(account.id)
-                      fortnite.communicator.sendMessage(data.friend.id, "Friended! " + account.name + '!');
-                          }
-                        catch(err) {
-                          fortnite.communicator.sendMessage(data.friend.id, "There was a error: " + err);
-                        }
-                      }
 
-                      if(command === "privacy") {
-                        if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a vaild privacy name.");
-                        try {
-                          fortnite.party.setPrivacy(args[1])
-                          fortnite.communicator.sendMessage(data.friend.id, "Privacy set to " + args[1] + '.');
-                        } catch(err) {
-                            fortnite.communicator.sendMessage(data.friend.id, "There was a error: " + err);
-                          }
-                        }
+                            });
 
-                  if(command === "unfriend") {
-                    if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a epic name to unfriend.");
-                    try {
-                      let lookup = args.slice(1).join(" ");
-                      if(lookup === eg.account.name) return fortnite.communicator.sendMessage(data.friend.id, "You can't unfriend yourself!");
-                    const account = await eg.getProfile(lookup);
-                    if(!account) return fortnite.communicator.sendMessage(data.friend.id, "That epic name must of been wrong.");
-                    const isFriended = await eg.hasFriend(account.id)
-                    if(isFriended) {
-                    eg.removeFriend(account.id)
-                    fortnite.communicator.sendMessage(data.friend.id, "Unfriended! " + account.name + '!');
-                    }
-                    else{
-                      fortnite.communicator.sendMessage(data.friend.id, `${account.name} wasn't even friended.`);
-                        }
-                      }
-                    catch(err) {
-                      fortnite.communicator.sendMessage(data.friend.id, "There was a error: " + err);
-                    }
-                  }
-
-                    if(command === "invite") {
-                      if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a epic name to invite.");
-                      try {
-                        let lookup = args.slice(1).join(" ");
-                        
-                      const account = await eg.getProfile(lookup);
-                      if(!account) return fortnite.communicator.sendMessage(data.friend.id, "That epic name must of been wrong.");
-                      const isFriended = await eg.hasFriend(account.id)
-                      if(isFriended) {
-                        const partymember = fortnite.party.findMember(account.id)
-                      if(partymember) return fortnite.communicator.sendMessage(data.friend.id, `${account.name} Is in the party wahts da damn point.`);
-                      if(lookup === eg.account.name) return fortnite.communicator.sendMessage(data.friend.id, "You can't invite yourself!");
-                      fortnite.party.invite(account.id)
-                      fortnite.communicator.sendMessage(data.friend.id, "Invited " + account.name + '!');
-                      }
-                      else{
-                        fortnite.communicator.sendMessage(data.friend.id, `${account.name} wasn't even friended.`);
-                          }
-                        }
-                      catch(err) {
-                        fortnite.communicator.sendMessage(data.friend.id, "There was a error: " + err);
-                      }
-                    }
-
-
-                    });
-
-                    fortnite.communicator.updateStatus(config.status);
-
-                  });
-                });
+                            fortnite.communicator.updateStatus(config.status);
+                          });
+                        });
+                      
