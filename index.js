@@ -218,6 +218,7 @@
           var cargs = data.message.slice(prefix.length).split(/ +/);
           var command = cargs.shift().toLowerCase();
           var User = await eg.getProfile(data.friend.id);
+          var partymembers = current_party.members
 
                         async function setOutfit(member, asset, key, variants) {
                 await member.meta.setCosmeticLoadout({
