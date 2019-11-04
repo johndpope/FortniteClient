@@ -287,43 +287,28 @@
                                 }
                               }
           
-                                  if(command === 'purpleskull') {
-                          try {
+                        if(command === 'purpleskull') {
                             if(fortnite.party.members.length < 1) return fortnite.communicator.sendMessage(data.friend.id, 'Invite the bot!');
-                            partymembers.forEach(async member => {
                               try{
                               const variants = [{"item":"AthenaCharacter","channel":"Progressive","variant":"Stage3"},
                               {"item":"AthenaCharacter","channel":"ClothingColor","variant":"Mat1"}];
                   
-                              setOutfit(member, "/Game/Athena/Items/Cosmetics/Characters/cid_030_athena_commando_m_halloween.cid_030_athena_commando_m_halloween", undefined, variants)
-                              }
-                              catch(err) {
-                                console.log(err)
-                              }
-                            });
-                          }
-                      catch(err){
+                              setOutfit(fortnite.party.me, "/Game/Athena/Items/Cosmetics/Characters/cid_030_athena_commando_m_halloween.cid_030_athena_commando_m_halloween", undefined, variants)
+                               } catch(err){
                         console.log(err)
                       }
-                    } // Gives error btw
+                    } // This has been fixed!
           
-                                  if(command === 'oghoul') {
+                          if(command === 'ghoulog') {
                           try {
                             if(fortnite.party.members.length < 1) return fortnite.communicator.sendMessage(data.friend.id, 'Invite the bot!');
-                            partymembers.forEach(async member => {
-                              try{
                               const variants = [{"item":"AthenaCharacter","channel":"Material","variant":"Mat3"}];
-                              setOutfit(member, "/Game/Athena/Items/Cosmetics/Characters/cid_029_athena_commando_f_halloween.cid_029_athena_commando_f_halloween", undefined, variants)
+                              setOutfit(fortnite.party.me, "/Game/Athena/Items/Cosmetics/Characters/cid_029_athena_commando_f_halloween.cid_029_athena_commando_f_halloween", undefined, variants)
                               }
-                              catch(err) {
-                                console.log(err)
-                              }
-                            });
-                          }
                       catch(err){
                         console.log(err)
                       }
-                    } //same gives error
+                    } // This has been fixed!
                       
                               if(data.message.startsWith('Pickaxe_ID_')) {
                                 if(data.message === 'Pickaxe_ID_') return fortnite.communicator.sendMessage(data.friend.id, "Please mention a pickaxe id.");
