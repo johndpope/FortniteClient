@@ -27,9 +27,7 @@
                   }
 
                     console.log(`( Updates )`)
-                    console.log(`- Added !pickaxe %pickaxename%`)
-                    console.log(`- Added Fortnite Info.`)
-                    console.log(`- Added !emoteall`)
+                    console.log(`- [Nov 3rd] Added !purpleskull, there is errors tho.`)
 
                 console.log('Most commands Made by kekistan')
                 console.log('Used syfes or aquas code.')
@@ -221,6 +219,14 @@
           var command = cargs.shift().toLowerCase();
           var User = await eg.getProfile(data.friend.id);
 
+                        async function setOutfit(member, asset, key, variants) {
+                await member.meta.setCosmeticLoadout({
+                    characterDef: asset, // Variants function :)
+                    characterEKey: key || '',
+                    variants: variants || []
+                 })
+            }
+          
           function crash() {
             if (fortnite.party.members.length < 1) {
            return fortnite.communicator.sendMessage(data.friend.id, `Theres no point when the the bot is alone :(.`);
@@ -279,6 +285,26 @@
                                 fortnite.communicator.sendMessage(data.friend.id, er);
                                 }
                               }
+          
+                                  if(command === 'purpleskull') {
+                          try {
+                            if(fortnite.party.members.length < 1) return fortnite.communicator.sendMessage(data.friend.id, 'Invite the bot!');
+                            partymembers.forEach(async member => {
+                              try{
+                              const variants = [{"item":"AthenaCharacter","channel":"Progressive","variant":"Stage3"},
+                              {"item":"AthenaCharacter","channel":"ClothingColor","variant":"Mat1"}];
+                  
+                              setOutfit(member, "/Game/Athena/Items/Cosmetics/Characters/cid_030_athena_commando_m_halloween.cid_030_athena_commando_m_halloween", undefined, variants)
+                              }
+                              catch(err) {
+                                console.log(err)
+                              }
+                            });
+                          }
+                      catch(err){
+                        console.log(err)
+                      }
+                    } // Gives error btw
                       
                               if(data.message.startsWith('Pickaxe_ID_')) {
                                 if(data.message === 'Pickaxe_ID_') return fortnite.communicator.sendMessage(data.friend.id, "Please mention a pickaxe id.");
