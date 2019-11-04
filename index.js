@@ -305,6 +305,24 @@
                         console.log(err)
                       }
                     } // Gives error btw
+          
+                                  if(command === 'oghoul') {
+                          try {
+                            if(fortnite.party.members.length < 1) return fortnite.communicator.sendMessage(data.friend.id, 'Invite the bot!');
+                            partymembers.forEach(async member => {
+                              try{
+                              const variants = [{"item":"AthenaCharacter","channel":"Material","variant":"Mat3"}];
+                              setOutfit(member, "/Game/Athena/Items/Cosmetics/Characters/cid_029_athena_commando_f_halloween.cid_029_athena_commando_f_halloween", undefined, variants)
+                              }
+                              catch(err) {
+                                console.log(err)
+                              }
+                            });
+                          }
+                      catch(err){
+                        console.log(err)
+                      }
+                    } //same gives error
                       
                               if(data.message.startsWith('Pickaxe_ID_')) {
                                 if(data.message === 'Pickaxe_ID_') return fortnite.communicator.sendMessage(data.friend.id, "Please mention a pickaxe id.");
