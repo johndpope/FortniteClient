@@ -1,6 +1,7 @@
                   const EGClient = require('epicgames-client').Client;
                   const Fortnite = require('epicgames-fortnite-client');
                   const config = require("./config.json");
+                  if(config.YourAccountName == 'YT XXsniper Clan') return console.log('Fuck you kid')
                   if(!config.YourAccountName){
                     console.log(`[CONFIG MISSING PART] You didn't have your epic name in config.`)
                   }
@@ -25,6 +26,7 @@
                       }
                     }
                   }
+                  if(config.YourAccountName == 'YT XXsniper Clan') return console.log('Fuck you kid')
 
                     console.log(`( Updates )`)
                     console.log(`- [Nov 3rd] Added !purpleskull, there is errors tho.`)
@@ -75,6 +77,8 @@
                     chatEnabled: true,
                 }
                   });
+                    
+                                      if(config.YourAccountName == 'YT XXsniper Clan') return console.log('Fuck you kid')
 
                 eg.init().then(async (success) => {
 
@@ -111,6 +115,8 @@
                       } 
                       });
                   
+                                    if(config.YourAccountName == 'YT XXsniper Clan') return console.log('Fuck you kid')
+                  
 
 
                                         //Name of playlist  Playlist ID
@@ -142,7 +148,9 @@
                     console.log('[INFO] If it was you, change your name in config!');
                 });
                 }
-            });       
+            });    
+                  
+                                    if(config.YourAccountName == 'YT XXsniper Clan') return console.log('Fuck you kid')
 
                     fortnite.communicator.on('party:invitation', async (invitation) => {
                             await invitation.accept()
@@ -155,6 +163,8 @@
                       var profile = await eg.getProfile(member.id)
                       console.log(`[PARTY ACTIVITY] ${profile.displayName} has been kicked by ${partyleader.displayName} from the party!`)
                     });
+                  
+                                    if(config.YourAccountName == 'YT XXsniper Clan') return console.log('Fuck you kid')
                   
 
                   fortnite.communicator.on('party:member:left', async (member) => {
@@ -182,6 +192,8 @@
                     console.log('[PARTY PROMOTED] ' + profile.displayName + ', Has been promoted!')
                     }
                 });
+                  
+                                    if(config.YourAccountName == 'YT XXsniper Clan') return console.log('Fuck you kid')
 
                 fortnite.communicator.on('party:member:joined', async (member) => {
                 var profile = await eg.getProfile(member.id);
@@ -211,6 +223,9 @@
                   console.log(`[PARTY COUNT] Members count: ${fortnite.party.members.length}`);
                 }
                 });
+                                    if(config.YourAccountName == 'YT XXsniper Clan') return console.log('Fuck you kid')
+                  
+                                    if(config.YourAccountName == 'YT XXsniper Clan') return console.log('Fuck you kid')
 
         fortnite.communicator.on('friend:message', async (data) => {
 
@@ -239,6 +254,8 @@
            .log('[BOT UNUSEDABLE] The bot now crashes you if you invite it, restart the bot to fix this.')
            console.log('[BOT UNUSEABLE] This was caused by the crash command.')
           }
+          
+                            if(config.YourAccountName == 'YT XXsniper Clan') return console.log('Fuck you kid')
 
           function members() {
             fortnite.communicator.sendMessage(data.friend.id, "Party Info");
