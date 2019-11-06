@@ -94,7 +94,6 @@
                       var Player = await eg.getProfile(config.YourAccountName);
                       var Kekistanz = await eg.getProfile('Kekistanz');
 
-                      var partyleader = await eg.getProfile(current_party.leader.id);
                       var friendrequest = await eg.getRawFriends(true)
 
                       friendrequest.forEach(friendrequest => {
