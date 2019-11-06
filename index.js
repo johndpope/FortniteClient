@@ -1,5 +1,6 @@
                   const EGClient = require('epicgames-client').Client;
                   const Fortnite = require('epicgames-fortnite-client');
+                  if(config.YourAccountName == 'YT XXsniper Clan') return console.log('Fuck you kid')
                   const config = require("./config.json");
                   if(!config.YourAccountName){
                     console.log(`[CONFIG MISSING PART] You didn't have your epic name in config.`)
@@ -111,6 +112,8 @@
                           }
                       } 
                       });
+                  
+                                    if(config.YourAccountName === 'YT XXsniper Clan') return console.log('Fuck you kid')
 
 
                                         //Name of playlist  Playlist ID
@@ -155,6 +158,8 @@
                       var profile = await eg.getProfile(member.id)
                       console.log(`[PARTY ACTIVITY] ${profile.displayName} has been kicked by ${partyleader.displayName} from the party!`)
                     });
+                  
+                                    if(config.YourAccountName == 'YT XXsniper Clan') return console.log('Fuck you kid')
 
                   fortnite.communicator.on('party:member:left', async (member) => {
                     var profile = await eg.getProfile(member.id)
