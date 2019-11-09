@@ -1,21 +1,22 @@
                   const EGClient = require('epicgames-client').Client;
                   const Fortnite = require('epicgames-fortnite-client');
-                  const config = require("./config.json");
-                  if(!config.YourAccountName){
+                  const { EPlatform, EInputType, EPartyPrivacy } = require('epicgames-client');
+                  const config = require('./config.json')
+                  const { email, password, status, bannerlevel, banner, bannercolor, YourAccountName } = require("./config.json");
+                  if(!YourAccountName){
                     console.log(`[CONFIG MISSING PART] You didn't have your epic name in config.`);
                   }
-                  if(!config.email && !config.password){
+                  if(!email && !password){
                     throw new Error (`[CONFIG MISSING PART] You didn't have your email or password.`);
                   }
-                  if(!config.email){
+                  if(!email){
                     throw new Error (`[CONFIG MISSING PART] You didn't have your email in config!`);
                    }
-                   if(!config.password){
+                   if(!password){
                     throw new Error (`[CONFIG MISSING PART] You didn't have your password in config!`);
                    }
                   const request = require("request-promise");
                   const { ESubGame } = Fortnite;
-                  const { EInputType, EPartyPrivacy, EPlatform, } = require('epicgames-client');
                   
                     console.log(`( Updates )`);
                     console.log(`- Added !checkeredrenegade`);
@@ -26,13 +27,13 @@
                 console.log('Used syfes or aquas code.');
                 console.log('Github: https://github.com/Kekisatan/FortniteBot2/');
 
-                var CID = config.cid
-                var BID = config.bid // All of this is managed in the config file
-                var EID = config.eid
-                var PICKAXE_ID = config.pickaxe_id
                 var netclurl = "https://fnapi.terax235.com/api/v1.2/build"
                 var benbot = 'http://benbotfn.tk:8080/api/cosmetics/search/multiple?displayName='
-//                 var Console = config.Console
+                var cid = config.cid
+                var bid = config.bid
+                var eid = config.eid
+                var pickaxe_id = config.pickaxe_id
+                // var Console = config.Console
 
                 request({
                   url: 'http://benbotfn.tk:8080/api/status',
@@ -53,8 +54,8 @@
                     console.log('[Fortnite] Newest Netcl: ' + netcl);
 
                 let eg = new EGClient({ // For this make a new account that has nothing and put the details in here.
-                  email: config.email, // Remember to add your bot account email in here or it won't work!
-                  password: config.password,  // Remember to add your bot account password in here or it won't work!
+                  email: email, // Remember to add your bot account email in here or it won't work!
+                  password: password,  // Remember to add your bot account password in here or it won't work!
                   debug: console.log,
                   useWaitingRoom: false,
                   autoPresenceUpdating: false,
@@ -85,7 +86,7 @@
                       partyBuildId: '1:1:' + netcl,
                       });
 
-                      var Player = await eg.getProfile(config.YourAccountName);
+                      var Player = await eg.getProfile(YourAccountName);
                       var Kekistanz = await eg.getProfile('Kekistanz');
                       var friendrequest = await eg.getRawFriends(true);
 
@@ -105,10 +106,10 @@
 
 
                                         //Name of playlist  Playlist ID
-             await fortnite.party.setPlaylist('The End', 'Playlist_Music_High')
+             await fortnite.party.setPlaylist('The End', 'Playlist_Music_High');
              // https://jsonstorage.net/api/items/47c6b54c-b978-4122-ad66-e0f8071cf5d9 for playlists
 
-              if(!netcl) return console.log(`For some reason the netcl isn't working, check the github maybe.`)
+              if(!netcl) return console.log(`For some reason the netcl isn't working, check the github maybe.`);
 
               const br = await fortnite.runSubGame(ESubGame.BattleRoyale);
 
@@ -138,14 +139,14 @@
 
         // Can't really get this working, i have been asking for help, but i just get banned.
 
-              console.log('[CLIENT] In the account ' + eg.account.displayName + ', there is only ' + fortnite.vbucks + ' vbucks on that account.')
+              console.log('[CLIENT] In the account ' + eg.account.displayName + ', there is only ' + fortnite.vbucks + ' vbucks on that account.');
 
               // console.log(fortnite.inventory.findItemsByClass('AthenaCharacter'));
               // Tells you everything that is a fortnite character in the bots locker, which there isn't one.
 
               fortnite.communicator.on('friend:request', async data => {
-                if(!config.YourAccountName) return console.log(`You don't have anyname mentioned in config.`)
-               if(!Player) return console.log('The name you provided ' + `'` + config.YourAccountName + `', isn't right.` )
+                if(!YourAccountName) return console.log(`You don't have anyname mentioned in config.`)
+               if(!Player) return console.log('The name you provided ' + `'` + YourAccountName + `', isn't right.` )
                var UnkownPlayer = await eg.getProfile(data.friend.id);
                if(data.friend.id == Kekistanz.id){
                 eg.acceptFriendRequest(data.friend.id).then(async (ac_result) => {
@@ -214,21 +215,21 @@
                   fortnite.party.patch();
                 }
                 if(profile.name === 'Kekistanz') {
-                 return console.log('[THE CURSE HAS BEEN ENABLED] The person that posted this on github joined! ');
+                 return console.log('[THE CURSE HAS BEEN ENABLED] The person that posted this on github joined! ')
                 }
                 if (profile.displayName === eg.account.name) {
 
-                  fortnite.party.me.setOutfit("/Game/Athena/Items/Cosmetics/Characters/" + CID + '.' + CID);
+                  fortnite.party.me.setOutfit("/Game/Athena/Items/Cosmetics/Characters/" + cid + '.' + cid);
 
-                  fortnite.party.me.setBackpack("/Game/Athena/Items/Cosmetics/Backpacks/" + BID + "." + BID);
+                  fortnite.party.me.setBackpack("/Game/Athena/Items/Cosmetics/Backpacks/" + bid + "." + bid);
            
-                  fortnite.party.me.setPickaxe("/Game/Athena/Items/Cosmetics/Pickaxes/" + PICKAXE_ID + "." + PICKAXE_ID); // ALL OF THE THINGS ARE PULLED FROM ABOVE!
+                  fortnite.party.me.setPickaxe("/Game/Athena/Items/Cosmetics/Pickaxes/" + pickaxe_id + "." + pickaxe_id); // ALL OF THE THINGS ARE PULLED FROM ABOVE!
            
-                    fortnite.party.me.setEmote("/Game/Athena/Items/Cosmetics/Dances/" + EID + '.' + EID);
+                    fortnite.party.me.setEmote("/Game/Athena/Items/Cosmetics/Dances/" + eid + '.' + eid);
 
                   fortnite.party.me.setBattlePass(true, 1000, 1000, 100, 100);
            
-                  fortnite.party.me.setBanner(config.bannerlevel, config.banner, config.bannercolor);
+                  fortnite.party.me.setBanner(bannerlevel, banner, bannercolor);
                 }
                 else{
                   console.log('[PARTY MEMBER] ' + profile.name + ', Has joined!');
@@ -289,7 +290,7 @@
                               setOutfit(fortnite.party.me, "/Game/Athena/Items/Cosmetics/Characters/cid_030_athena_commando_m_halloween.cid_030_athena_commando_m_halloween", undefined, variants);
                               fortnite.communicator.sendMessage(data.friend.id, 'Skin set to skull trooper, the variant is set to PURPLE.');
                                } catch(err){
-                        console.log(err)
+                        console.log(err);
                       }
                     } // This has been fixed!
 
@@ -316,19 +317,19 @@
                               if(data.message.startsWith('CID_')) {
                                 if(data.message === 'CID_') return fortnite.communicator.sendMessage(data.friend.id, "Please mention a cid.");
                               try {
-                                CID = args[0];
+                                cid = args[0];
                                   fortnite.party.me.setOutfit("/Game/Athena/Items/Cosmetics/Characters/" + args[0] + "." + args[0]);
-                                  fortnite.communicator.sendMessage(data.friend.id, "Skin set to " + args[0]);
+                                  eg.communicator.sendMessage(data.friend.id, "Skin set to " + args[0]);
                                     }
                                     catch(er) {
-                                    fortnite.communicator.sendMessage(data.friend.id, er);
+                                    eg.communicator.sendMessage(data.friend.id, er);
                                     }
                                   }
                       
                                   if(data.message.startsWith('EID_')) {
                                     if(data.message === 'EID_') return fortnite.communicator.sendMessage(data.friend.id, "Please mention a eid.");
                                     try {
-                                    EID = args[0];
+                                    eid = args[0];
                                   fortnite.party.me.clearEmote()
                                   fortnite.party.me.setEmote("/Game/Athena/Items/Cosmetics/Dances/" + args[0] + "." + args[0]);
                                   fortnite.communicator.sendMessage(data.friend.id, "Emote set to " + args[0]);
@@ -341,7 +342,7 @@
                               if(data.message.startsWith('Pickaxe_ID_')) {
                                 if(data.message === 'Pickaxe_ID_') return fortnite.communicator.sendMessage(data.friend.id, "Please mention a pickaxe id.");
                                 try {
-                                PICKAXE_ID = args[0];
+                                pickaxe_id = args[0];
                                   fortnite.party.me.setPickaxe("/Game/Athena/Items/Cosmetics/Pickaxes/" + args[0] + "." + args[0]);
                                   fortnite.communicator.sendMessage(data.friend.id, "Pickaxe set to " + args[0]);
                                   }
@@ -379,7 +380,7 @@
                             if(data.message.startsWith('BID_')) {
                               if(data.message === 'BID_') return fortnite.communicator.sendMessage(data.friend.id, "Please mention a bid id.");
                               try {
-                              BID = args[0];
+                              bid = args[0];
                                 fortnite.party.me.setBackpack("/Game/Athena/Items/Cosmetics/Backpacks/" + args[0] + "." + args[0]);
                                 fortnite.communicator.sendMessage(data.friend.id, "Backbling set to " + args[0]);
                               }
@@ -422,6 +423,7 @@
                                         try {
                                           Object.keys(query).forEach(function(key) {
                                             if(query[key].type == "Outfit") {
+                                            cid = query[key].id;
                                             fortnite.party.me.setOutfit("/Game/Athena/Items/Cosmetics/Characters/" + query[key].id + "." + query[key].id);
                                             fortnite.communicator.sendMessage(data.friend.id, "Found " + query[key].displayName + ', the id is ' + query[key].id);
                                             }
@@ -443,6 +445,7 @@
                                         try {
                                           Object.keys(query).forEach(function(key) {
                                             if(query[key].type == "Harvesting Tool") {
+                                              pickaxe_id = query[key].id;
                                             fortnite.party.me.setPickaxe("/Game/Athena/Items/Cosmetics/Pickaxes/" + query[key].id + "." + query[key].id);
                                             fortnite.communicator.sendMessage(data.friend.id, "Found " + query[key].displayName + ', the id is ' + query[key].id);
                                             }
@@ -464,6 +467,7 @@
                                   try {
                                     Object.keys(query).forEach(function(key) {
                                       if(query[key].type == "Back Bling") {
+                                      bid = query[key].id;
                                       fortnite.party.me.setBackpack("/Game/Athena/Items/Cosmetics/Backpacks/" + query[key].id + "." + query[key].id);
                                       fortnite.communicator.sendMessage(data.friend.id, "Found " + query[key].displayName + ', the id is ' + query[key].id);
                                       }
@@ -484,6 +488,7 @@
                             }).then(query => {
                               Object.keys(query).forEach(function(key) {
                                 if(query[key].type == "Emote") {
+                                  eid = query[key].id;
                                   fortnite.party.me.clearEmote()
                                 fortnite.party.me.setEmote("/Game/Athena/Items/Cosmetics/Dances/" + query[key].id + "." + query[key].id);
                                 fortnite.communicator.sendMessage(data.friend.id, "Found " + query[key].displayName + ', the id is ' + query[key].id);
@@ -495,7 +500,7 @@
                           if(command === "banner") {
                           if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a banner name.");
                           if(args[1].toLowerCase() == "pewdiepie") {
-                            fortnite.party.me.setBanner(config.bannerlevel, config.banner, config.banner_color);
+                            fortnite.party.me.setBanner(bannerlevel, banner, bannercolor);
                           }
                           try {
                           fortnite.party.me.setBanner(100, args[1], args[2]);
@@ -695,6 +700,6 @@
 
                           });
 
-                            fortnite.communicator.updateStatus(config.status);
+                            fortnite.communicator.updateStatus(status);
                           });
                         });
