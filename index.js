@@ -2,29 +2,29 @@
                   const Fortnite = require('epicgames-fortnite-client');
                   const config = require("./config.json");
                   if(!config.YourAccountName){
-                    console.log(`[CONFIG MISSING PART] You didn't have your epic name in config.`)
+                    console.log(`[CONFIG MISSING PART] You didn't have your epic name in config.`);
                   }
                   if(!config.email && !config.password){
-                    throw new Error (`[CONFIG MISSING PART] You didn't have your email or password.`)
+                    throw new Error (`[CONFIG MISSING PART] You didn't have your email or password.`);
                   }
                   if(!config.email){
-                    throw new Error (`[CONFIG MISSING PART] You didn't have your email in config!`)
+                    throw new Error (`[CONFIG MISSING PART] You didn't have your email in config!`);
                    }
                    if(!config.password){
-                    throw new Error (`[CONFIG MISSING PART] You didn't have your password in config!`)
+                    throw new Error (`[CONFIG MISSING PART] You didn't have your password in config!`);
                    }
                   const request = require("request-promise");
                   const { ESubGame } = Fortnite;
                   const { EInputType, EPartyPrivacy, EPlatform, } = require('epicgames-client');
                   
-                    console.log(`( Updates )`)
-                    console.log(`- Added !checkeredrenegade`)
-                    console.log(`- Add ; to )`)
-                    console.log(`- Inprovements`)
+                    console.log(`( Updates )`);
+                    console.log(`- Added !checkeredrenegade`);
+                    console.log(`- Add ; to )`);
+                    console.log(`- Inprovements`);
 
-                console.log('Most commands Made by kekistan')
-                console.log('Used syfes or aquas code.')
-                console.log('Github: https://github.com/Kekisatan/FortniteBot2/')
+                console.log('Most commands Made by kekistan');
+                console.log('Used syfes or aquas code.');
+                console.log('Github: https://github.com/Kekisatan/FortniteBot2/');
 
                 var CID = config.cid
                 var BID = config.bid // All of this is managed in the config file
@@ -32,7 +32,7 @@
                 var PICKAXE_ID = config.pickaxe_id
                 var netclurl = "https://fnapi.terax235.com/api/v1.2/build"
                 var benbot = 'http://benbotfn.tk:8080/api/cosmetics/search/multiple?displayName='
-                var Console = config.Console
+//                 var Console = config.Console
 
                 request({
                   url: 'http://benbotfn.tk:8080/api/status',
