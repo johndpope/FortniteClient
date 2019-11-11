@@ -1,8 +1,16 @@
 {
   
-    "Features": {
+  "Features": {
+    "Title": "Features for the bot!",
+    "__comment": "To disable a feature replace true with false, to enable a feature replace false with true.",
     "randomiseskin": false,
     "copyemote": true
+  },
+  
+  "ApiDown": {
+    "Title": "If api is down.",
+    "__comment": "If the netcl below is false, leave it alone, if the api isn't working, manually replace it with the netcl.",
+    "netcl": false
   },
   
   "email"  : "", 
