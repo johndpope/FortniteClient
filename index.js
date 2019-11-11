@@ -264,7 +264,7 @@
                   else{
                     fortnite.party.me.setOutfit("/Game/Athena/Items/Cosmetics/Characters/" + cid + '.' + cid);
                   }
-                  
+
                   fortnite.party.me.setBackpack("/Game/Athena/Items/Cosmetics/Backpacks/" + bid + "." + bid);
            
                   fortnite.party.me.setPickaxe("/Game/Athena/Items/Cosmetics/Pickaxes/" + pickaxe_id + "." + pickaxe_id); // ALL OF THE THINGS ARE PULLED FROM ABOVE!
@@ -272,8 +272,38 @@
                     fortnite.party.me.setEmote("/Game/Athena/Items/Cosmetics/Dances/" + eid + '.' + eid);
 
                   fortnite.party.me.setBattlePass(true, 1000, 1000, 100, 100);
+
+                  if(config.Features.randomizebanner == true) {
+                  var banners = require('./features/banners.js').arr;
+
+                  var arrofbanners = banners[Math.floor(Math.random() * banners.length)];
+
+                  var randombanner = ''
+                  if(arrofbanners == "StandardBanner") {
+                    randombanner = arrofbanners + Math.floor(Math.random() * 31) + 1
+                  }
+                  if(arrofbanners == "InfluencerBanner") {
+                    randombanner = arrofbanners + Math.floor(Math.random() * 58) + 1
+                  }
+                  else{
+                    if(arrofbanners == "StandardBanner") {
+                      return;
+                    }
+                    randombanner = arrofbanners
+                  }
+
+                  randombannercolor = 'defaultcolor' + Math.floor(Math.random() * 43) + 1
+
+                  randombannerlevel = Math.floor(Math.random() * 100) + 1
            
-                  fortnite.party.me.setBanner(bannerlevel, banner, bannercolor);
+                  await fortnite.party.me.setBanner(randombannerlevel, randombanner, randombannercolor);
+
+                }
+                else{
+                  fortnite.party.me.setBanner(bannerlevel, banner, bannercolor);  
+                }
+                  fortnite.party.me.clearEmote()
+                  await fortnite.party.me.setEmote("/Game/Athena/Items/Cosmetics/Dances/" + eid + '.' + eid);
                 }
                 else{
                   console.log('[PARTY MEMBER] ' + profile.name + ', Has joined!');
