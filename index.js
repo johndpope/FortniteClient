@@ -2,7 +2,7 @@
                   const Fortnite = require('epicgames-fortnite-client');
                   const { EPlatform, EInputType, EPartyPrivacy } = require('epicgames-client');
                   const config = require('./config.json')
-                  const { email, password, status, bannerlevel, banner, bannercolor, YourAccountName } = require("./config.json");
+                  const { email, password, status, bannerlevel, banner, bannercolor, YourAccountName, Features } = require("./config.json");
                   if(!YourAccountName){
                     console.log(`[CONFIG MISSING PART] You didn't have your epic name in config.`);
                   }
@@ -33,6 +33,7 @@
                 var bid = config.bid
                 var eid = config.eid
                 var pickaxe_id = config.pickaxe_id
+                var Getanychanges = false
                 // var Console = config.Console
 
                 request({
@@ -44,6 +45,23 @@
                   console.log('( Fortnite Info )');
                   console.log('[Fortnite] Pak Ammount: ' + paks);
                   console.log('[Fortnite] Version: ' + version);
+                });
+
+                request({
+                  url: 'http://benbotfn.tk:8080/api/cosmetics/search/multiID?id=' + cid,
+                  json: true
+              }).then(res => {
+                  try {
+                    Object.keys(res).forEach(function(key) {
+                      if(res[key].type == "Outfit") {
+                        var query = res[key]
+                        console.log('[Fortnite] When a player invites the bot the client will put on ' + query.displayName + '.');
+                      }
+                    });
+                  }
+                  catch(err) {
+                    console.log(err);
+                  }
                 });
 
                   request({
@@ -109,36 +127,34 @@
              await fortnite.party.setPlaylist('The End', 'Playlist_Music_High');
              // https://jsonstorage.net/api/items/47c6b54c-b978-4122-ad66-e0f8071cf5d9 for playlists
 
-              if(!netcl) return console.log(`For some reason the netcl isn't working, check the github maybe.`);
+                              if(!netcl) return console.log(`For some reason the netcl isn't working, check the github maybe.`);
 
-              const br = await fortnite.runSubGame(ESubGame.BattleRoyale);
+                              const br = await fortnite.runSubGame(ESubGame.BattleRoyale);
 
-            async function setOutfit(member, asset, key, variants) {
-              await member.meta.setCosmeticLoadout({
-                  characterDef: asset,
-                  characterEKey: key || '',
-                  variants: variants || []
-              });
-        }
+                            async function setOutfit(member, asset, key, variants) {
+                              await member.meta.setCosmeticLoadout({
+                                  characterDef: asset,
+                                  characterEKey: key || '',
+                                  variants: variants || []
+                              });
+                        }
 
-        //     async function setPickaxe(member, asset, key, variants) {
-        //       await member.meta.setCosmeticLoadout({
-        //         pickaxeDef: asset,
-        //         pickaxeEKey: key || '',
-        //         variants: variants || []
-        //        })
-        //   }
+                        async function setPickaxe(member, asset, key, variants) {
+                          await member.meta.setCosmeticLoadout({
+                            pickaxeDef: asset,
+                            pickaxeEKey: key || '',
+                            variants: variants || []
+                          })
+                      }
 
-        //   async function setBackpack(member, asset, key, variants) {
-        //     await member.meta.setCosmeticLoadout({
-        //       backlingDef: asset,
-        //       backlingEKey: key || '',
-        //       variants: variants || []
-        //      })
-        // }
-
-        // Can't really get this working, i have been asking for help, but i just get banned.
-
+                      async function setBackpack(member, asset, key, variants) {
+                        await member.meta.setCosmeticLoadout({
+                          backpackDef: asset,
+                          backpackEKey: key || '',
+                          variants: variants || []
+                        })
+                    }
+                    
               console.log('[CLIENT] In the account ' + eg.account.displayName + ', there is only ' + fortnite.vbucks + ' vbucks on that account.');
 
               // console.log(fortnite.inventory.findItemsByClass('AthenaCharacter'));
@@ -158,13 +174,27 @@
                         console.log('[FRIEND REQUEST] You sent a friend request! Added!')
                     });
                 }
-                else{
+                 else{
                   eg.declineFriendRequest(data.friend.id).then(async (ac_result) => {
                     console.log(`[FRIEND REQUEST] ${UnkownPlayer.displayName} sent a friend request! The bot declined the friend request!`);
                     console.log('[INFO] If it was you, change your name in config!');
                 });
                 }
-            });       
+            });    
+
+                      fortnite.communicator.on('party:member:state:updated', async (member) => {
+                        var profile = await eg.getProfile(member.id);
+                        var EmoteProfile = JSON.parse(member.meta.schema.FrontendEmote_j);
+                        if(Features.copyemote == true) {
+                          if(profile.id != eg.account.id) {
+                            if(profile.id == Player.id){
+                          fortnite.party.me.clearEmote()
+                        fortnite.party.me.setEmote(EmoteProfile.FrontendEmote.emoteItemDef)
+                        eid = EmoteProfile.FrontendEmote.emoteItemDef
+                            }
+                          }
+                        }
+                      });
 
                     fortnite.communicator.on('party:invitation', async (invitation) => {
                       await invitation.accept()
@@ -175,7 +205,8 @@
                     });
 
                     fortnite.communicator.on('party:member:kicked', async (member) => {
-                      var profile = await eg.getProfile(member.id)
+                      var profile = await eg.getProfile(member.id);
+                      var partyleader = await eg.getProfile(current_party.leader.id);
                       console.log(`[PARTY ACTIVITY] ${profile.displayName} has been kicked by ${partyleader.displayName} from the party!`)
                     });
 
@@ -215,11 +246,20 @@
                   fortnite.party.patch();
                 }
                 if(profile.name === 'Kekistanz') {
-                 return console.log('[THE CURSE HAS BEEN ENABLED] The person that posted this on github joined! ')
+                 console.log('The person that posted this on github joined! ')
                 }
                 if (profile.displayName === eg.account.name) {
 
-                  fortnite.party.me.setOutfit("/Game/Athena/Items/Cosmetics/Characters/" + cid + '.' + cid);
+                  var e = require('./features/skins.js').arr;
+
+                  var arr = e[Math.floor(Math.random() * e.length)];
+
+                  if(Features.randomiseskin == true){
+                  fortnite.party.me.setOutfit("/Game/Athena/Items/Cosmetics/Characters/" + arr + '.' + arr);
+                  }
+                  else{
+                    fortnite.party.me.setOutfit("/Game/Athena/Items/Cosmetics/Characters/" + cid + '.' + cid);
+                  }
 
                   fortnite.party.me.setBackpack("/Game/Athena/Items/Cosmetics/Backpacks/" + bid + "." + bid);
            
@@ -233,6 +273,7 @@
                 }
                 else{
                   console.log('[PARTY MEMBER] ' + profile.name + ', Has joined!');
+                  var memberprofile = JSON.parse(member.meta.schema.AthenaCosmeticLoadout_j);
                   console.log('[PARTY MEMBER ID] ' + profile.name + ', id is ' + profile.id);
                   console.log(`[PARTY COUNT] Members count: ${fortnite.party.members.length}`);
                 }
@@ -312,7 +353,7 @@
                       catch(err){
                         console.log(err);
                       }
-                    } // This has been fixed!
+                    } // This has been fixed!  mm   n n  n n n nn b b b c
                     
                               if(data.message.startsWith('CID_')) {
                                 if(data.message === 'CID_') return fortnite.communicator.sendMessage(data.friend.id, "Please mention a cid.");
