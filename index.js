@@ -33,7 +33,6 @@
                 var bid = config.bid
                 var eid = config.eid
                 var pickaxe_id = config.pickaxe_id
-                var Getanychanges = false
                 // var Console = config.Console
 
                 request({
@@ -46,6 +45,19 @@
                   console.log('[Fortnite] Pak Ammount: ' + paks);
                   console.log('[Fortnite] Version: ' + version);
                 });
+
+                request({
+                  url: netclurl,
+                  json: true
+                }).then(results => {
+                  var netcl = results.fortnite.netCL
+                  if(config.ApiDown.netcl == false) {
+                    console.log('[Fortnite] Newest Netcl: ' + netcl);
+                  }
+                  else{
+                    netcl = config.ApiDown.netcl
+                    console.log('[Fortnite] The netcl has been set to ' + netcl + ', because you put it as that in config.')
+                  }
 
                 request({
                   url: 'http://benbotfn.tk:8080/api/cosmetics/search/multiID?id=' + cid,
@@ -63,13 +75,6 @@
                     console.log(err);
                   }
                 });
-
-                  request({
-                    url: netclurl,
-                    json: true
-                  }).then(results => {
-                    var netcl = results.fortnite.netCL
-                    console.log('[Fortnite] Newest Netcl: ' + netcl);
 
                 let eg = new EGClient({ // For this make a new account that has nothing and put the details in here.
                   email: email, // Remember to add your bot account email in here or it won't work!
@@ -121,15 +126,13 @@
                           }
                       } 
                       });
-
-
                                         //Name of playlist  Playlist ID
              await fortnite.party.setPlaylist('The End', 'Playlist_Music_High');
              // https://jsonstorage.net/api/items/47c6b54c-b978-4122-ad66-e0f8071cf5d9 for playlists
 
                               if(!netcl) return console.log(`For some reason the netcl isn't working, check the github maybe.`);
 
-                              const br = await fortnite.runSubGame(ESubGame.BattleRoyale);
+                              const br = await fortnite.runSubGame(ESubGame.BattleRoyale);   
 
                             async function setOutfit(member, asset, key, variants) {
                               await member.meta.setCosmeticLoadout({
@@ -161,17 +164,17 @@
               // Tells you everything that is a fortnite character in the bots locker, which there isn't one.
 
               fortnite.communicator.on('friend:request', async data => {
-                if(!YourAccountName) return console.log(`You don't have anyname mentioned in config.`)
-               if(!Player) return console.log('The name you provided ' + `'` + YourAccountName + `', isn't right.` )
+                if(!YourAccountName) return console.log(`You don't have anyname mentioned in config.`);
+               if(!Player) return console.log('The name you provided ' + `'` + YourAccountName + `', isn't right.` );
                var UnkownPlayer = await eg.getProfile(data.friend.id);
                if(data.friend.id == Kekistanz.id){
                 eg.acceptFriendRequest(data.friend.id).then(async (ac_result) => {
-                  console.log('[FRIEND REQUEST] :) Added!C̵̡̢̧̛̛͖͍̗͖̘̟̩͕̠̦̮̰̱̰͕͉̙̦͍̹͍̙̣̣̖̩̯̺̦͚̫̱̹̖̱̟̖̝͊̆̐̎̌̏̈́͆̀̿̓̓̆͆̂̈̓̈́͒̅̿̎̾̍̈́̈́́͗̊̈́͌̏͒ͅ ')
+                  console.log('[FRIEND REQUEST] :) Added!C̵̡̢̧̛̛͖͍̗͖̘̟̩͕̠̦̮̰̱̰͕͉̙̦͍̹͍̙̣̣̖̩̯̺̦͚̫̱̹̖̱̟̖̝͊̆̐̎̌̏̈́͆̀̿̓̓̆͆̂̈̓̈́͒̅̿̎̾̍̈́̈́́͗̊̈́͌̏͒ͅ ');
               });
                } 
                if(data.friend.id == Player.id){
                     eg.acceptFriendRequest(data.friend.id).then(async (ac_result) => {
-                        console.log('[FRIEND REQUEST] You sent a friend request! Added!')
+                        console.log('[FRIEND REQUEST] You sent a friend request! Added!');
                     });
                 }
                  else{
@@ -180,7 +183,7 @@
                     console.log('[INFO] If it was you, change your name in config!');
                 });
                 }
-            });    
+            });  
 
                       fortnite.communicator.on('party:member:state:updated', async (member) => {
                         var profile = await eg.getProfile(member.id);
@@ -188,33 +191,35 @@
                         if(Features.copyemote == true) {
                           if(profile.id != eg.account.id) {
                             if(profile.id == Player.id){
-                          fortnite.party.me.clearEmote()
-                        fortnite.party.me.setEmote(EmoteProfile.FrontendEmote.emoteItemDef)
+                              console.log(member)
+                          fortnite.party.me.clearEmote();
+                        fortnite.party.me.setEmote(EmoteProfile.FrontendEmote.emoteItemDef);
                         eid = EmoteProfile.FrontendEmote.emoteItemDef
                             }
                           }
                         }
                       });
 
+
                     fortnite.communicator.on('party:invitation', async (invitation) => {
                       await invitation.accept()
                             current_party = invitation.party;
                             var partyleader = await eg.getProfile(current_party.leader.id);
-                            console.log('[PARTY INVITED] A player has invited the bot, the bot will join shortly.')
-                      console.log('[PARTY INFO] The party leader of the party is ' + partyleader.displayName + `, there is currently ${fortnite.party.members.length} members in the party.`)
+                            console.log('[PARTY INVITED] A player has invited the bot, the bot will join shortly.');
+                      console.log('[PARTY INFO] The party leader of the party is ' + partyleader.displayName + `, there is currently ${fortnite.party.members.length} members in the party.`);
                     });
 
                     fortnite.communicator.on('party:member:kicked', async (member) => {
                       var profile = await eg.getProfile(member.id);
                       var partyleader = await eg.getProfile(current_party.leader.id);
-                      console.log(`[PARTY ACTIVITY] ${profile.displayName} has been kicked by ${partyleader.displayName} from the party!`)
+                      console.log(`[PARTY ACTIVITY] ${profile.displayName} has been kicked by ${partyleader.displayName} from the party!`);
                     });
 
                   fortnite.communicator.on('party:member:left', async (member) => {
                     var profile = await eg.getProfile(member.id)
                     var partyleader = await eg.getProfile(current_party.leader.id);
-                  console.log(`[PARTY MEMBER] ${profile.displayName} has left the party.`)
-                  if (profile.displayName === eg.account.displayName) return console.log(`[BOT] The bot has been kicked!`)
+                  console.log(`[PARTY MEMBER] ${profile.displayName} has left the party.`);
+                  if (profile.displayName === eg.account.displayName) return console.log(`[BOT] The bot has been kicked!`);
                   if(fortnite.party.members.length == 1) return {
                   }
                   });
@@ -223,18 +228,18 @@
                     var profile = await eg.getProfile(member.id)
                     var partyleader = await eg.getProfile(current_party.leader.id);
                     if(profile.name === 'Kekistanz') {
-                      return console.log('[THE CURSE HAS BEEN PROMOTED] The person that posted this on github has been promoted! ')
+                      return console.log('[THE CURSE HAS BEEN PROMOTED] The person that posted this on github has been promoted! ');
                      }
                     if(fortnite.party.members.length == 1) {
-                      return console.log('[PARTY UNEXPECTED] The bot was either kicked or the party was abandoned.')
+                      return console.log('[PARTY UNEXPECTED] The bot was either kicked or the party was abandoned.');
                     }
                     if (profile.displayName === eg.account.displayName) {
-                      return console.log('[PARTY PROMOTE] The bot has been promoted!'),
-                      fortnite.party.setPlaylist('The End', 'Playlist_Music_High'),
-                      console.log(`[PARTY PLAYLIST] Set the playlist to "The End"`)
+                      console.log('[PARTY PROMOTE] The bot has been promoted!');
+                      fortnite.party.setPlaylist('The End', 'Playlist_Music_High')
+                     return console.log(`[PARTY PLAYLIST] Set the playlist to "The End"`);
                     }
                     else {
-                    console.log('[PARTY PROMOTED] ' + profile.displayName + ', Has been promoted!')
+                    console.log('[PARTY PROMOTED] ' + profile.displayName + ', Has been promoted!');
                     }
                 });
 
@@ -246,21 +251,20 @@
                   fortnite.party.patch();
                 }
                 if(profile.name === 'Kekistanz') {
-                 console.log('The person that posted this on github joined! ')
+                 console.log('The person that posted this on github joined!');
                 }
                 if (profile.displayName === eg.account.name) {
 
-                  var e = require('./features/skins.js').arr;
+                  var skins = require('./features/skins.js').arr;
 
-                  var arr = e[Math.floor(Math.random() * e.length)];
-
+                  var arr = skins[Math.floor(Math.random() * skins.length)];
                   if(Features.randomiseskin == true){
                   fortnite.party.me.setOutfit("/Game/Athena/Items/Cosmetics/Characters/" + arr + '.' + arr);
                   }
                   else{
                     fortnite.party.me.setOutfit("/Game/Athena/Items/Cosmetics/Characters/" + cid + '.' + cid);
                   }
-
+                  
                   fortnite.party.me.setBackpack("/Game/Athena/Items/Cosmetics/Backpacks/" + bid + "." + bid);
            
                   fortnite.party.me.setPickaxe("/Game/Athena/Items/Cosmetics/Pickaxes/" + pickaxe_id + "." + pickaxe_id); // ALL OF THE THINGS ARE PULLED FROM ABOVE!
@@ -320,41 +324,41 @@
                           fortnite.communicator.sendMessage(data.friend.id, 'Thanks for using this bot ' + User.displayName + ', heres the commands, !skin !backling !leave !emote !banner !status !ready !platform !id !playlist !promote !kick !friend !unfriend !invite');
                         }
 
-                        if(command === 'purpleskull') {
-                            if(fortnite.party.members.length < 1) return fortnite.communicator.sendMessage(data.friend.id, 'Invite the bot!');
-                              try{
-                                fortnite.party.me.setOutfit("/Game/Athena/Items/Cosmetics/Characters/cid_030_athena_commando_m_halloween.cid_030_athena_commando_m_halloween");
+                                              if(command === 'purpleskull') {
+                                                  if(fortnite.party.members.length < 1) return fortnite.communicator.sendMessage(data.friend.id, 'Invite the bot!');
+                                                    try{
+                                                      fortnite.party.me.setOutfit("/Game/Athena/Items/Cosmetics/Characters/cid_030_athena_commando_m_halloween.cid_030_athena_commando_m_halloween");
 
-                                const variants = [{"item":"AthenaCharacter","channel":"Progressive","variant":"Stage3"},
-                                {"item":"AthenaCharacter","channel":"ClothingColor","variant":"Mat1"}];
+                                                      const variants = [{"item":"AthenaCharacter","channel":"Progressive","variant":"Stage3"},
+                                                      {"item":"AthenaCharacter","channel":"ClothingColor","variant":"Mat1"}];
 
-                              setOutfit(fortnite.party.me, "/Game/Athena/Items/Cosmetics/Characters/cid_030_athena_commando_m_halloween.cid_030_athena_commando_m_halloween", undefined, variants);
-                              fortnite.communicator.sendMessage(data.friend.id, 'Skin set to skull trooper, the variant is set to PURPLE.');
-                               } catch(err){
-                        console.log(err);
-                      }
-                    } // This has been fixed!
+                                                    setOutfit(fortnite.party.me, "/Game/Athena/Items/Cosmetics/Characters/cid_030_athena_commando_m_halloween.cid_030_athena_commando_m_halloween", undefined, variants);
+                                                    fortnite.communicator.sendMessage(data.friend.id, 'Skin set to skull trooper, the variant is set to PURPLE.');
+                                                    } catch(err){
+                                              console.log(err);
+                                            }
+                                          }
 
-                    if(command === 'checkeredrenegade') {
-                      const variants = [{"item":"AthenaCharacter","channel":"Material","variant":"Mat2"}];
-            
-                      setOutfit(fortnite.party.me, "/Game/Athena/Items/Cosmetics/Characters/CID_028_Athena_Commando_F.CID_028_Athena_Commando_F", undefined, variants);
-                      fortnite.communicator.sendMessage(data.friend.id, "Skin set to Renegade Raider, the variant is on CHECKERED.");
-                    }
-          
-                          if(command === 'ghoulog') {
-                          try {
-                            if(fortnite.party.members.length < 1) return fortnite.communicator.sendMessage(data.friend.id, 'Invite the bot!');
-                            fortnite.party.me.setOutfit("/Game/Athena/Items/Cosmetics/Characters/cid_029_athena_commando_f_halloween.cid_029_athena_commando_f_halloween");  
-                            const variants = [{"item":"AthenaCharacter","channel":"Material","variant":"Mat3"}];
-                              setOutfit(fortnite.party.me, "/Game/Athena/Items/Cosmetics/Characters/cid_029_athena_commando_f_halloween.cid_029_athena_commando_f_halloween", undefined, variants);
-                              fortnite.communicator.sendMessage(data.friend.id, 'Skin set to ghoul trooper, variant set to PINK.');
-                              }
-                      catch(err){
-                        console.log(err);
-                      }
-                    } // This has been fixed!  mm   n n  n n n nn b b b c
-                    
+                                          if(command === 'checkeredrenegade') {
+                                            const variants = [{"item":"AthenaCharacter","channel":"Material","variant":"Mat2"}];
+                                  
+                                            setOutfit(fortnite.party.me, "/Game/Athena/Items/Cosmetics/Characters/CID_028_Athena_Commando_F.CID_028_Athena_Commando_F", undefined, variants);
+                                            fortnite.communicator.sendMessage(data.friend.id, "Skin set to Renegade Raider, the variant is on CHECKERED.");
+                                          }
+                                
+                                                if(command === 'ghoulog') {
+                                                try {
+                                                  if(fortnite.party.members.length < 1) return fortnite.communicator.sendMessage(data.friend.id, 'Invite the bot!');
+                                                  fortnite.party.me.setOutfit("/Game/Athena/Items/Cosmetics/Characters/cid_029_athena_commando_f_halloween.cid_029_athena_commando_f_halloween");  
+                                                  const variants = [{"item":"AthenaCharacter","channel":"Material","variant":"Mat3"}];
+                                                    setOutfit(fortnite.party.me, "/Game/Athena/Items/Cosmetics/Characters/cid_029_athena_commando_f_halloween.cid_029_athena_commando_f_halloween", undefined, variants);
+                                                    fortnite.communicator.sendMessage(data.friend.id, 'Skin set to ghoul trooper, variant set to PINK.');
+                                                    }
+                                            catch(err){
+                                              console.log(err);
+                                            }
+                                          }
+
                               if(data.message.startsWith('CID_')) {
                                 if(data.message === 'CID_') return fortnite.communicator.sendMessage(data.friend.id, "Please mention a cid.");
                               try {
@@ -743,4 +747,7 @@
 
                             fortnite.communicator.updateStatus(status);
                           });
+                        }).catch(api => {
+                          console.log('[Api Down] Currently the api for the netcl is down.')
                         });
+                      
