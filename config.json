@@ -3,6 +3,7 @@
   "Features": {
     "Title": "Features for the bot!",
     "__comment": "To disable a feature replace true with false, to enable a feature replace false with true.",
+    "randomizebanner": true,
     "randomiseskin": false,
     "copyemote": true
   },
@@ -31,7 +32,7 @@
 
   "banner" : "otherbanner28",
 
-  "bannercolor" : "defaultcolor",
+  "bannercolor" : "defaultcolor1",
 
   "bannerlevel" : "100",
 
