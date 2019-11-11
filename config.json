@@ -1,4 +1,10 @@
 {
+  
+    "Features": {
+    "randomiseskin": false,
+    "copyemote": true
+  },
+  
   "email"  : "", 
 
   "password" : "",
