@@ -261,18 +261,18 @@
 
                   const arrofskins = skins[Math.floor(Math.random() * skins.length)];
 
-                  if(Features.randomizeskin == true){
+                  if(Features.randomize.skin == true){
                   fortnite.party.me.setOutfit("/Game/Athena/Items/Cosmetics/Characters/" + arrofskins + '.' + arrofskins);
                   }
                   else{
                     fortnite.party.me.setOutfit("/Game/Athena/Items/Cosmetics/Characters/" + Cosmetics.cid + '.' + Cosmetics.cid);
                   }
 
-                  fortnite.party.me.setBackpack("/Game/Athena/Items/Cosmetics/Backpacks/" + Cosmetics.bid + "." + Cosmetics.bid);
+                  fortnite.party.me.setBackpack("/Game/Athena/Items/Cosmetics/Backpacks/" + Cosmetics.bid + "." + bid);
            
                   fortnite.party.me.setPickaxe("/Game/Athena/Items/Cosmetics/Pickaxes/" + Cosmetics.pickaxe_id + "." + Cosmetics.pickaxe_id); // ALL OF THE THINGS ARE PULLED FROM ABOVE!
-
-                  if(config.Features.randomizebanner == true) {
+      
+                  if(Features.randomize.banner == true) {
 
                   const arrofbanners = banners[Math.floor(Math.random() * banners.length)];
 
@@ -302,8 +302,9 @@
                   fortnite.party.me.setBanner(Cosmetics.bannerlevel, Cosmetics.banner, Cosmetics.bannercolor);  
                   fortnite.party.me.setBattlePass(true, 100, 100, 100, 100);
                 }
-                  fortnite.party.me.clearEmote();
-                  await fortnite.party.me.setEmote("/Game/Athena/Items/Cosmetics/Dances/" + Cosmetics.eid + '.' + Cosmetics.eid);
+                
+                fortnite.party.me.setEmote("/Game/Athena/Items/Cosmetics/Dances/" + Cosmetics.eid + '.' + Cosmetics.eid);
+
                 }
                 else{
                   console.log('[PARTY MEMBER] ' + profile.name + ', Has joined!');
