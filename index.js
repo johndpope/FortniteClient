@@ -31,10 +31,10 @@
 
                 var netclurl = "https://fnapi.terax235.com/api/v1.2/build"
                 var benbot = 'http://benbotfn.tk:8080/api/cosmetics/search/multiple?displayName='
-                var cid = config.cid
-                var bid = config.bid
-                var eid = config.eid
-                var pickaxe_id = config.pickaxe_id
+                var cid = Cosmetics.cid
+                var bid = Cosmetics.bid
+                var eid = Cosmetics.eid
+                var pickaxe_id = Cosmetics.pickaxe_id
                 var randombanner;
                 // var Console = config.Console
 
@@ -277,12 +277,12 @@
                   fortnite.party.me.setOutfit("/Game/Athena/Items/Cosmetics/Characters/" + arrofskins + '.' + arrofskins);
                   }
                   else{
-                    fortnite.party.me.setOutfit("/Game/Athena/Items/Cosmetics/Characters/" + Cosmetics.cid + '.' + Cosmetics.cid);
+                    fortnite.party.me.setOutfit("/Game/Athena/Items/Cosmetics/Characters/" + cid + '.' + cid);
                   }
 
-                  fortnite.party.me.setBackpack("/Game/Athena/Items/Cosmetics/Backpacks/" + Cosmetics.bid + "." + Cosmetics.bid);
+                  fortnite.party.me.setBackpack("/Game/Athena/Items/Cosmetics/Backpacks/" + bid + "." + bid);
            
-                  fortnite.party.me.setPickaxe("/Game/Athena/Items/Cosmetics/Pickaxes/" + Cosmetics.pickaxe_id + "." + Cosmetics.pickaxe_id); // ALL OF THE THINGS ARE PULLED FROM ABOVE!
+                  fortnite.party.me.setPickaxe("/Game/Athena/Items/Cosmetics/Pickaxes/" + pickaxe_id + "." + pickaxe_id); // ALL OF THE THINGS ARE PULLED FROM ABOVE!
       
                   if(Features.randomize.banner == true) {
 
@@ -315,7 +315,7 @@
                   fortnite.party.me.setBattlePass(true, 100, 100, 100, 100);
                 }
                 
-                fortnite.party.me.setEmote("/Game/Athena/Items/Cosmetics/Dances/" + Cosmetics.eid + '.' + Cosmetics.eid);
+                fortnite.party.me.setEmote("/Game/Athena/Items/Cosmetics/Dances/" + eid + '.' + eid);
 
                 }
                 else{
