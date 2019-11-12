@@ -304,7 +304,7 @@
                   fortnite.party.me.setBanner(bannerlevel, banner, bannercolor);  
                   fortnite.party.me.setBattlePass(true, 100, 100, 100, 100);
                 }
-                  fortnite.party.me.clearEmote()
+                  fortnite.party.me.clearEmote();
                   await fortnite.party.me.setEmote("/Game/Athena/Items/Cosmetics/Dances/" + eid + '.' + eid);
                 }
                 else{
