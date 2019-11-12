@@ -1,42 +1,54 @@
 {
-  
-  "Features": {
-    "Title": "Features for the bot!",
-    "__comment": "To disable a feature replace true with false, to enable a feature replace false with true.",
-    "randomizebanner": true,
-    "randomizeskin": false,
-    "copyemote": true
-  },
-  
-  "ApiDown": {
-    "Title": "If api is down.",
-    "__comment": "If the netcl below is false, leave it alone, if the api isn't working, manually replace it with the netcl.",
-    "netcl": false
-  },
-  
+
   "email"  : "", 
 
   "password" : "",
 
-  "YourAccountName" : "",
+  "YourAccountName": "",
+
+  "Client": {
+  "Title": "Fortnite Client",
+  "__comment": "",
+  "status" : "Made by Syfe, Kekistan added commands."
+  },
+
+  "Features": {
+    "Title": "Features for the bot!",
+    "__comment": "To disable a feature replace true with false, to enable a feature replace false with true.",
+    "randomize": {
+      "__comment": "Randomizes the option you pick.",
+      "skin": true,
+      "banner": true
+    },
+    "copy": {
+      "__comment": "Puts on or does whatever you do, examples: doing a emote.",
+      "emote": true
+    }
+  },
+
+  "Cosmetics": {
+    "Title": "Cosmetics for the bot!",
+    "__comment": "Puts on the cid, bid, eid, pickaxe_id, and ect on the bot.",
+
+    "cid" : "CID_583_Athena_Commando_F_NoshHunter",
+
+    "bid" : "BID_389_GoatRobe",
   
-  "status" : "Made by Syfe, Kekistan added commands.",
+    "eid" : "EID_DarkFireLegends",
 
-  "cid" : "CID_583_Athena_Commando_F_NoshHunter",
+    "pickaxe_id" : "Pickaxe_Lockjaw",   
 
-  "bid" : "BID_389_GoatRobe",
+    "banner" : "otherbanner28",
 
-  "eid" : "EID_GoatDance_Sync",
+    "bannercolor" : "defaultcolor2",
 
-  "pickaxe_id" : "Pickaxe_Lockjaw",
+    "bannerlevel" : "100"
+  },
 
-  "banner" : "otherbanner28",
-
-  "bannercolor" : "defaultcolor1",
-
-  "bannerlevel" : "100",
-
-  "friendaccept" : "true"
+  "ApiDown": {
+    "Title": "If api is down.",
+    "__comment": "If the netcl below is false, leave it alone, if the api isn't working, manually replace it with the netcl.",
+    "netcl": false
+  }
 
 }
-
