@@ -1,8 +1,8 @@
                   const EGClient = require('epicgames-client').Client;
                   const Fortnite = require('epicgames-fortnite-client');
                   const { EPlatform, EInputType, EPartyPrivacy } = require('epicgames-client');
-                  const config = require('./config.json')
-                   const { email, password, YourAccountName, Features, Cosmetics } = require("./config.json");
+                  const config = require('../config.json')
+                   const { email, password, YourAccountName, Features, Cosmetics, Client, ApiDown } = require("../config.json");
                   if(!YourAccountName){
                     console.log(`[CONFIG MISSING PART] You didn't have your epic name in config.`);
                   }
@@ -49,16 +49,29 @@
                   console.log('[Fortnite] Version: ' + version);
                 });
 
+                async function testrequest() {
+                  request({
+                    url: netclurl,
+                    json: true
+                  }).then(results => {
+                    console.log('[Netcl Api Status] Working!');
+                  }).catch(err => {
+                    console.log(`[Netcl Api Status] The api isn't working change your netcl in config until the api goes back up.`)
+                      return process.exit();
+                  })
+                }
+
                 request({
                   url: netclurl,
                   json: true
                 }).then(results => {
                   var netcl = results.fortnite.netCL
-                  if(config.ApiDown.netcl == false) {
+                  if(ApiDown.netcl == false) {
                     console.log('[Fortnite] Newest Netcl: ' + netcl);
+                    testrequest();
                   }
                   else{
-                    netcl = config.ApiDown.netcl
+                    netcl = ApiDown.netcl
                     console.log('[Fortnite] The netcl has been set to ' + netcl + ', because you put it as that in config.')
                   }
 
@@ -194,7 +207,6 @@
                         if(Features.copy.emote == true) {
                           if(profile.id != eg.account.id) {
                             if(profile.id == Player.id){
-                              console.log(member)
                           fortnite.party.me.clearEmote();
                         fortnite.party.me.setEmote(EmoteProfile.FrontendEmote.emoteItemDef);
                         eid = EmoteProfile.FrontendEmote.emoteItemDef
@@ -268,7 +280,7 @@
                     fortnite.party.me.setOutfit("/Game/Athena/Items/Cosmetics/Characters/" + Cosmetics.cid + '.' + Cosmetics.cid);
                   }
 
-                  fortnite.party.me.setBackpack("/Game/Athena/Items/Cosmetics/Backpacks/" + Cosmetics.bid + "." + bid);
+                  fortnite.party.me.setBackpack("/Game/Athena/Items/Cosmetics/Backpacks/" + Cosmetics.bid + "." + Cosmetics.bid);
            
                   fortnite.party.me.setPickaxe("/Game/Athena/Items/Cosmetics/Pickaxes/" + Cosmetics.pickaxe_id + "." + Cosmetics.pickaxe_id); // ALL OF THE THINGS ARE PULLED FROM ABOVE!
       
@@ -776,9 +788,8 @@
 
                           });
 
-                            fortnite.communicator.updateStatus(status);
+                            fortnite.communicator.updateStatus(Client.status);
                           });
                         }).catch(api => {
                           console.log('[Api Down] Currently the api for the netcl is down.')
                         });
-                      
