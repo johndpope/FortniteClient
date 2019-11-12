@@ -17,6 +17,8 @@
                    }
                   const request = require("request-promise");
                   const { ESubGame } = Fortnite;
+                  const skins = require('./features/skins.js').arr;
+                  const banners = require('./features/banners.js').arr;
                   
                     console.log(`( Updates )`);
                     console.log(`- Added !checkeredrenegade`);
@@ -33,6 +35,7 @@
                 var bid = config.bid
                 var eid = config.eid
                 var pickaxe_id = config.pickaxe_id
+                var randombanner;
                 // var Console = config.Console
 
                 request({
@@ -243,6 +246,7 @@
                     }
                 });
 
+
                 fortnite.communicator.on('party:member:joined', async (member) => {
                 var profile = await eg.getProfile(member.id);
                 var partyleader = await eg.getProfile(current_party.leader.id);
@@ -255,11 +259,10 @@
                 }
                 if (profile.displayName === eg.account.name) {
 
-                  var skins = require('./features/skins.js').arr;
+                  const arrofskins = skins[Math.floor(Math.random() * skins.length)];
 
-                  var arr = skins[Math.floor(Math.random() * skins.length)];
-                  if(Features.randomiseskin == true){
-                  fortnite.party.me.setOutfit("/Game/Athena/Items/Cosmetics/Characters/" + arr + '.' + arr);
+                  if(Features.randomizeskin == true){
+                  fortnite.party.me.setOutfit("/Game/Athena/Items/Cosmetics/Characters/" + arrofskins + '.' + arrofskins);
                   }
                   else{
                     fortnite.party.me.setOutfit("/Game/Athena/Items/Cosmetics/Characters/" + cid + '.' + cid);
@@ -271,14 +274,10 @@
            
                     fortnite.party.me.setEmote("/Game/Athena/Items/Cosmetics/Dances/" + eid + '.' + eid);
 
-                  fortnite.party.me.setBattlePass(true, 1000, 1000, 100, 100);
-
                   if(config.Features.randomizebanner == true) {
-                  var banners = require('./features/banners.js').arr;
 
-                  var arrofbanners = banners[Math.floor(Math.random() * banners.length)];
+                  const arrofbanners = banners[Math.floor(Math.random() * banners.length)];
 
-                  var randombanner = ''
                   if(arrofbanners == "StandardBanner") {
                     randombanner = arrofbanners + Math.floor(Math.random() * 31) + 1
                   }
@@ -297,10 +296,13 @@
                   randombannerlevel = Math.floor(Math.random() * 100) + 1
            
                   await fortnite.party.me.setBanner(randombannerlevel, randombanner, randombannercolor);
+                  
+                  fortnite.party.me.setBattlePass(true, randombannerlevel, randombannerlevel, 100, 100);
 
                 }
                 else{
                   fortnite.party.me.setBanner(bannerlevel, banner, bannercolor);  
+                  fortnite.party.me.setBattlePass(true, 100, 100, 100, 100);
                 }
                   fortnite.party.me.clearEmote()
                   await fortnite.party.me.setEmote("/Game/Athena/Items/Cosmetics/Dances/" + eid + '.' + eid);
