@@ -2,7 +2,7 @@
                   const Fortnite = require('epicgames-fortnite-client');
                   const { EPlatform, EInputType, EPartyPrivacy } = require('epicgames-client');
                   const config = require('./config.json')
-                  const { email, password, status, bannerlevel, banner, bannercolor, YourAccountName, Features } = require("./config.json");
+                   const { email, password, YourAccountName, Features, Cosmetics } = require("./config.json");
                   if(!YourAccountName){
                     console.log(`[CONFIG MISSING PART] You didn't have your epic name in config.`);
                   }
@@ -191,7 +191,7 @@
                       fortnite.communicator.on('party:member:state:updated', async (member) => {
                         var profile = await eg.getProfile(member.id);
                         var EmoteProfile = JSON.parse(member.meta.schema.FrontendEmote_j);
-                        if(Features.copyemote == true) {
+                        if(Features.copy.emote == true) {
                           if(profile.id != eg.account.id) {
                             if(profile.id == Player.id){
                               console.log(member)
@@ -265,14 +265,12 @@
                   fortnite.party.me.setOutfit("/Game/Athena/Items/Cosmetics/Characters/" + arrofskins + '.' + arrofskins);
                   }
                   else{
-                    fortnite.party.me.setOutfit("/Game/Athena/Items/Cosmetics/Characters/" + cid + '.' + cid);
+                    fortnite.party.me.setOutfit("/Game/Athena/Items/Cosmetics/Characters/" + Cosmetics.cid + '.' + Cosmetics.cid);
                   }
 
-                  fortnite.party.me.setBackpack("/Game/Athena/Items/Cosmetics/Backpacks/" + bid + "." + bid);
+                  fortnite.party.me.setBackpack("/Game/Athena/Items/Cosmetics/Backpacks/" + Cosmetics.bid + "." + Cosmetics.bid);
            
-                  fortnite.party.me.setPickaxe("/Game/Athena/Items/Cosmetics/Pickaxes/" + pickaxe_id + "." + pickaxe_id); // ALL OF THE THINGS ARE PULLED FROM ABOVE!
-           
-                    fortnite.party.me.setEmote("/Game/Athena/Items/Cosmetics/Dances/" + eid + '.' + eid);
+                  fortnite.party.me.setPickaxe("/Game/Athena/Items/Cosmetics/Pickaxes/" + Cosmetics.pickaxe_id + "." + Cosmetics.pickaxe_id); // ALL OF THE THINGS ARE PULLED FROM ABOVE!
 
                   if(config.Features.randomizebanner == true) {
 
@@ -291,7 +289,7 @@
                     randombanner = arrofbanners
                   }
 
-                  randombannercolor = 'defaultcolor' + Math.floor(Math.random() * 43) + 1
+                  randombannercolor = 'defaultcolor' + Math.floor(Math.random() * 8) + 1
 
                   randombannerlevel = Math.floor(Math.random() * 100) + 1
            
@@ -301,11 +299,11 @@
 
                 }
                 else{
-                  fortnite.party.me.setBanner(bannerlevel, banner, bannercolor);  
+                  fortnite.party.me.setBanner(Cosmetics.bannerlevel, Cosmetics.banner, Cosmetics.bannercolor);  
                   fortnite.party.me.setBattlePass(true, 100, 100, 100, 100);
                 }
                   fortnite.party.me.clearEmote();
-                  await fortnite.party.me.setEmote("/Game/Athena/Items/Cosmetics/Dances/" + eid + '.' + eid);
+                  await fortnite.party.me.setEmote("/Game/Athena/Items/Cosmetics/Dances/" + Cosmetics.eid + '.' + Cosmetics.eid);
                 }
                 else{
                   console.log('[PARTY MEMBER] ' + profile.name + ', Has joined!');
@@ -577,7 +575,7 @@
                           if(command === "banner") {
                           if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a banner name.");
                           if(args[1].toLowerCase() == "pewdiepie") {
-                            fortnite.party.me.setBanner(bannerlevel, banner, bannercolor);
+                            fortnite.party.me.setBanner(Cosmetics.bannerlevel, Cosmetics.banner, Cosmetics.bannercolor);
                           }
                           try {
                           fortnite.party.me.setBanner(100, args[1], args[2]);
