@@ -1,8 +1,8 @@
                   const EGClient = require('epicgames-client').Client;
                   const Fortnite = require('epicgames-fortnite-client');
                   const { EPlatform, EInputType, EPartyPrivacy } = require('epicgames-client');
-                  const config = require('../config.json')
-                   const { email, password, YourAccountName, Features, Cosmetics, Client, ApiDown } = require("../config.json");
+                  const config = require('./config.json')
+                   const { email, password, YourAccountName, Features, Cosmetics, Client, ApiDown } = require("./config.json");
                   if(!YourAccountName){
                     console.log(`[CONFIG MISSING PART] You didn't have your epic name in config.`);
                   }
