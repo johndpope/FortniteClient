@@ -376,41 +376,52 @@
                           fortnite.communicator.sendMessage(data.friend.id, 'Thanks for using this bot ' + User.displayName + ', heres the commands, !skin !backling !leave !emote !banner !status !ready !platform !id !playlist !promote !kick !friend !unfriend !invite');
                         }
 
-                                              if(command === 'purpleskull') {
-                                                  if(fortnite.party.members.length < 1) return fortnite.communicator.sendMessage(data.friend.id, 'Invite the bot!');
-                                                    try{
-                                                      fortnite.party.me.setOutfit("/Game/Athena/Items/Cosmetics/Characters/cid_030_athena_commando_m_halloween.cid_030_athena_commando_m_halloween");
+                        if(command === 'style') {
+                          if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Pick one of the styles the bot has currently: skull ghoul renegade");
+                          if(args[1].toLowerCase() == "skull") {
+                            try{
+                              fortnite.party.me.setOutfit("/Game/Athena/Items/Cosmetics/Characters/cid_030_athena_commando_m_halloween.cid_030_athena_commando_m_halloween");
 
-                                                      const variants = [{"item":"AthenaCharacter","channel":"Progressive","variant":"Stage3"},
-                                                      {"item":"AthenaCharacter","channel":"ClothingColor","variant":"Mat1"}];
+                              const variants = [{"item":"AthenaCharacter","channel":"Progressive","variant":"Stage3"},
+                              {"item":"AthenaCharacter","channel":"ClothingColor","variant":"Mat1"}];
 
-                                                    setOutfit(fortnite.party.me, "/Game/Athena/Items/Cosmetics/Characters/cid_030_athena_commando_m_halloween.cid_030_athena_commando_m_halloween", undefined, variants);
-                                                    fortnite.communicator.sendMessage(data.friend.id, 'Skin set to skull trooper, the variant is set to PURPLE.');
-                                                    } catch(err){
-                                              console.log(err);
-                                            }
-                                          }
-
-                                          if(command === 'checkeredrenegade') {
-                                            const variants = [{"item":"AthenaCharacter","channel":"Material","variant":"Mat2"}];
+                            setOutfit(fortnite.party.me, "/Game/Athena/Items/Cosmetics/Characters/cid_030_athena_commando_m_halloween.cid_030_athena_commando_m_halloween", undefined, variants);
+                            fortnite.communicator.sendMessage(data.friend.id, 'Skin set to skull trooper, the variant is set to PURPLE.');
+                            } catch(err){
+                      console.log(err);
+                    }
+                          }
+                          if(args[1].toLowerCase() == "ghoul") {
+                            try {
+                              fortnite.party.me.setOutfit("/Game/Athena/Items/Cosmetics/Characters/cid_029_athena_commando_f_halloween.cid_029_athena_commando_f_halloween");  
+                              const variants = [{"item":"AthenaCharacter","channel":"Material","variant":"Mat3"}];
+                                setOutfit(fortnite.party.me, "/Game/Athena/Items/Cosmetics/Characters/cid_029_athena_commando_f_halloween.cid_029_athena_commando_f_halloween", undefined, variants);
+                                fortnite.communicator.sendMessage(data.friend.id, 'Skin set to ghoul trooper, variant set to PINK.');
+                                }
+                        catch(err){
+                          console.log(err);
+                        }
+                          }
+                          if(args[1].toLowerCase() == "renegade") {
+                            const variants = [{"item":"AthenaCharacter","channel":"Material","variant":"Mat2"}];
                                   
-                                            setOutfit(fortnite.party.me, "/Game/Athena/Items/Cosmetics/Characters/CID_028_Athena_Commando_F.CID_028_Athena_Commando_F", undefined, variants);
-                                            fortnite.communicator.sendMessage(data.friend.id, "Skin set to Renegade Raider, the variant is on CHECKERED.");
-                                          }
-                                
-                                                if(command === 'ghoulog') {
-                                                try {
-                                                  if(fortnite.party.members.length < 1) return fortnite.communicator.sendMessage(data.friend.id, 'Invite the bot!');
-                                                  fortnite.party.me.setOutfit("/Game/Athena/Items/Cosmetics/Characters/cid_029_athena_commando_f_halloween.cid_029_athena_commando_f_halloween");  
-                                                  const variants = [{"item":"AthenaCharacter","channel":"Material","variant":"Mat3"}];
-                                                    setOutfit(fortnite.party.me, "/Game/Athena/Items/Cosmetics/Characters/cid_029_athena_commando_f_halloween.cid_029_athena_commando_f_halloween", undefined, variants);
-                                                    fortnite.communicator.sendMessage(data.friend.id, 'Skin set to ghoul trooper, variant set to PINK.');
-                                                    }
-                                            catch(err){
-                                              console.log(err);
-                                            }
-                                          }
-
+                            setOutfit(fortnite.party.me, "/Game/Athena/Items/Cosmetics/Characters/CID_028_Athena_Commando_F.CID_028_Athena_Commando_F", undefined, variants);
+                            fortnite.communicator.sendMessage(data.friend.id, "Skin set to Renegade Raider, the variant is on CHECKERED.");
+                          }
+                          else{
+                            if(args[1].toLowerCase() == "renegade") {
+                              return;
+                            }
+                            if(args[1].toLowerCase() == "ghoul") {
+                              return;
+                            }
+                            if(args[1].toLowerCase() == "skull") {
+                              return;
+                            }
+                            return fortnite.communicator.sendMessage(data.friend.id, "Thats not a correct value!");
+                          }
+                        } // Merged commands into one command.
+          
                               if(data.message.startsWith('CID_')) {
                                 if(data.message === 'CID_') return fortnite.communicator.sendMessage(data.friend.id, "Please mention a cid.");
                               try {
