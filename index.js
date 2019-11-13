@@ -67,8 +67,17 @@
                 }).then(results => {
                   var netcl = results.fortnite.netCL
                   if(ApiDown.netcl == false) {
+                  var fs = require('fs');
+                  var fileName = './backup/netcl.json';
+                  var file = require(fileName);
+  
+                  file.netcl = netcl;
+  
+                  fs.writeFile(fileName, JSON.stringify(file, null, 5), function (err) {
+                    if (err) return console.log(err);
+                  });
+                   testrequest();
                     console.log('[Fortnite] Newest Netcl: ' + netcl);
-                    testrequest();
                   }
                   else{
                     netcl = ApiDown.netcl
@@ -791,5 +800,5 @@
                             fortnite.communicator.updateStatus(Client.status);
                           });
                         }).catch(api => {
-                          console.log('[Api Down] Currently the api for the netcl is down.')
+                          console.log('[Api Down] Currently the api for the netcl is down, go to the file called backup, and click netcl.json in the file, then copy the netcl, now put that in your config.')
                         });
