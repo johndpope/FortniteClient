@@ -19,6 +19,17 @@
                   const { ESubGame } = Fortnite;
                   const skins = require('./features/skins.js').arr;
                   const banners = require('./features/banners.js').arr;
+
+                          console.log(`
+                          ( What to do if api is down. )
+- Go to your backup file, and find your netcl in there,
+
+- Copy that netcl,
+
+- Go to your config, then scroll down untill you see 'netcl', then replace false with "%yournetcl%"
+
+Then restart your bot.
+                `);
                   
                     console.log(`( Updates )`);
                     console.log(`- Added !checkeredrenegade`);
@@ -811,5 +822,15 @@
                             fortnite.communicator.updateStatus(Client.status);
                           });
                         }).catch(api => {
-                          console.log('[Api Down] Currently the api for the netcl is down, go to the file called backup, and click netcl.json in the file, then copy the netcl, now put that in your config.')
+                          console.log('[Api Down] Currently the api for the netcl is down, go to the file called backup, and click netcl.json in the file, then copy the netcl, now put that in your config.');
+                                            console.log(`
+                          ( What to do if api is down. )
+- Go to your backup file, and find your netcl in there,
+
+- Copy that netcl,
+
+- Go to your config, then scroll down untill you see 'netcl', then replace false with "%yournetcl%"
+
+Then restart your bot.
+                `);
                         });
