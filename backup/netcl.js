@@ -250,10 +250,10 @@ const EGClient = require('epicgames-client').Client;
                   const arrofskins = skins[Math.floor(Math.random() * skins.length)];
 
                   if(Features.randomize.skin == true){
-                    fortnite.party.me.setBackpack("/Game/Athena/Items/Cosmetics/Backpacks/" + arrofskins + "." + arrofskins);
+                    fortnite.party.me.setOutfit("/Game/Athena/Items/Cosmetics/Characters/" + arrofskins + "." + arrofskins);
                   }
                   else{
-                    fortnite.party.me.setBackpack("/Game/Athena/Items/Cosmetics/Backpacks/" + cid + "." + cid);
+                    fortnite.party.me.setOutfit("/Game/Athena/Items/Cosmetics/Characters/" + cid + "." + cid);
                   }
 
                   fortnite.party.me.setBackpack("/Game/Athena/Items/Cosmetics/Backpacks/" + bid + "." + bid);
