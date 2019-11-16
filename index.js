@@ -2,7 +2,7 @@
                   const Fortnite = require('epicgames-fortnite-client');
                   const { EPlatform, EInputType, EPartyPrivacy } = require('epicgames-client');
                   const config = require('./config.json')
-                   const { email, password, YourAccountName, Features, Cosmetics, Client, ApiDown } = require("./config.json");
+                   const { email, password, YourAccountName, Features, Cosmetics, Client, ApiDown, Modes } = require("./config.json");
                   if(!YourAccountName){
                     console.log(`[CONFIG MISSING PART] You didn't have your epic name in config.`);
                   }
@@ -17,12 +17,13 @@
                    }
                   const request = require("request-promise");
                   const { ESubGame } = Fortnite;
-                  const skins = require('./features/skins.js').arr;
-                  const banners = require('./features/banners.js').arr;
+                  const skins = require('./resources/features/skins.js').arr;
+                  const banners = require('./resources/features/banners.js').arr;
 
-                    if(Modes.Crash == true) {
-                                    const checker = require('./checker/checker.js');
-                                    return checker.check()
+                    if(Modes.Crash === true) {
+                                    const checker = require('./resources/checker/checker.js');
+                                    let run = checker.check();
+                                    return;
                     }
                   
                     console.log(`( Updates )`);
@@ -73,7 +74,7 @@
                   var netcl = results.fortnite.netCL
                   if(ApiDown.netcl == false) {
                   var fs = require('fs');
-                  var fileName = './backup/netcl.json';
+                  var fileName = './resources/backup/netcl.json';
                   var file = require(fileName);
   
                   file.netcl = netcl;
@@ -817,6 +818,6 @@
                           });
                         }).catch(api => {
                           console.log('[Api Down] Currently the api for the netcl is down, Restarting and using backup netcl in, a few seconds'); 
-                          const iferror = require('./backup/netcl.js');
+                          const iferror = require('./resources/backup/netcl.js');
                           let run = iferror.run();
                         });
