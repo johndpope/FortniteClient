@@ -15,7 +15,7 @@ const EGClient = require('epicgames-client').Client;
                 // var Console = config.Console
 
                 request({
-                  url: netclurl + 'a',
+                  url: netclurl,
                   json: true
                 }).then(results => {
                   var netcl = results.fortnite.netCL  
@@ -202,7 +202,6 @@ const EGClient = require('epicgames-client').Client;
                           console.log('[Api Down] Currently the api for the netcl is down, Restarting and using backup netcl in, a few seconds'); 
                           const iferror = require('./netcl.js');
                           let run = iferror.run();
-                          console.clear()
                         });
                       }
                     }
