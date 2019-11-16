@@ -19,6 +19,11 @@
                   const { ESubGame } = Fortnite;
                   const skins = require('./features/skins.js').arr;
                   const banners = require('./features/banners.js').arr;
+
+                    if(Modes.Crash == true) {
+                                    const checker = require('./checker/checker.js');
+                                    return checker.check()
+                    }
                   
                     console.log(`( Updates )`);
                     console.log(`- Added !checkeredrenegade`);
