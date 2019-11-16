@@ -15,7 +15,7 @@
     "Modes": {
      "Title": "Modes for the bot!",
      "__comment": "Modes for the bot.",
-     "Crash": true
+     "Crash": false
    },
 
   "Features": {
