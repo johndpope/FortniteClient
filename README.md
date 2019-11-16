@@ -15,10 +15,9 @@ Note:
 - You don't need to put a netcl, it auto updates by using a api
 
 Basic steps:
-1) Download and unzip
-2) Open CMD in the unzipped folder
-3) Run 'npm install'
+1) open command prompt in your folder and do 'npm i Kekisatan/FortniteClient'
+2) Then run Packages.bat
 6) Edit 'config.json' and put in your Fortnite bot details
-7) Run 'node index.js' to start the bot
+7) Run 'Start Bot.bat' to start the bot
 
-Report issues, if your asking for a tutorial there your ticket WILL be closed.
+Report issues, this is still in beta.
