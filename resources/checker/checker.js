@@ -1,4 +1,4 @@
-const crash = require('../modes/crash.js');
+const crash = require('../modes/crash/crash.js');
 module.exports = {
   check: function() {
                   const { Modes, YourAccountName } = require('../../config.json');
