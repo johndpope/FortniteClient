@@ -238,10 +238,6 @@ const EGClient = require('epicgames-client').Client;
                 }
                 if (profile.displayName === eg.account.name) {
 
-                  fortnite.party.meta.refreshSquadAssignments();
-
-                  fortnite.party.patch();
-
                   const arrofskins = skins[Math.floor(Math.random() * skins.length)];
   
                   fortnite.party.me.setOutfit("/Game/Athena/Items/Cosmetics/Characters/" + arrofskins + '.' + arrofskins);
