@@ -1,4 +1,5 @@
 const crash = require('../modes/crash/crash.js');
+const fakeplayer = require('../modes/fakeplayer/player.js');
 module.exports = {
   check: function() {
                   const { Modes, YourAccountName } = require('../../config.json');
@@ -7,6 +8,9 @@ module.exports = {
     }
                   if(Modes.Crash == true) {
                     crash.run();
+                  }
+                      if(Modes.fakeplayer == true) {
+                    fakeplayer.run();
                   }
                       }
                     }
