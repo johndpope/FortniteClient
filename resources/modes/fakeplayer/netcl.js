@@ -4,9 +4,11 @@ const EGClient = require('epicgames-client').Client;
                   const Fortnite = require('epicgames-fortnite-client');
                   const { EPlatform, EInputType, EPartyPrivacy } = require('epicgames-client');
                   const config = require('../../../config.json');
-                  const { email, password, YourAccountName, Cosmetics, ApiDown } = require("../../../config.json");
+                  const { email, password, YourAccountName, Cosmetics, ApiDown, Features, Client } = require("../../../config.json");
                   const request = require("request-promise");
                   const { ESubGame } = Fortnite;
+                  const skins = require('../../Features/skins.js').arr;
+                  const banners = require('../../Features/banners.js').arr;
 
                 console.log('Fake player mode turned on, backup netcl used.');
 
@@ -224,10 +226,6 @@ const EGClient = require('epicgames-client').Client;
   
                   fortnite.party.me.setOutfit("/Game/Athena/Items/Cosmetics/Characters/" + arrofskins + '.' + arrofskins);
   
-                  fortnite.party.me.setBackpack("/Game/Athena/Items/Cosmetics/Backpacks/" + bid + "." + bid);
-           
-                  fortnite.party.me.setPickaxe("/Game/Athena/Items/Cosmetics/Pickaxes/" + pickaxe_id + "." + pickaxe_id); // ALL OF THE THINGS ARE PULLED FROM ABOVE!
-  
                   const arrofbanners = banners[Math.floor(Math.random() * banners.length)];
   
                   if(arrofbanners == "StandardBanner") {
@@ -428,7 +426,7 @@ const EGClient = require('epicgames-client').Client;
                         if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a playlist name.");
                         if(partyleader.displayName == eg.account.displayName) {
                         if(args[1].toLowerCase() == "50v50") {
-                              fortnite.party.setPlaylist("Playlist_50v50", '50v50').catch(err => console.log(err));
+                              fortnite.party.setPlaylist("50v50", "Playlist_50v50").catch(err => console.log(err));
                               eg.communicator.sendMessage(data.friend.id, "Set playlist to 50v50");
                             }
                             if(args[1].toLowerCase() == "chameleon") {
