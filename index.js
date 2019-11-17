@@ -12,7 +12,7 @@
                     throw new Error (`[CONFIG MISSING PART] You didn't have your password in config!`);
                    }
 
-                   if(Modes.Crash === true) {
+                   if(Modes.Crash || Modes.fakeplayer) {
                     const checker = require('./resources/checker/checker.js');
                     let run = checker.check();
       return;
