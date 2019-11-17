@@ -19,24 +19,22 @@ const EGClient = require('epicgames-client').Client;
                   json: true
                 }).then(results => {
                   var netcl = results.fortnite.netCL  
-                  
                 if(ApiDown.netcl == false) {
+                var fs = require('fs');
+                var file = require('../backup/netcl.js');
+                var filename = '../backup/netcl.json'
+
+                file.netcl = netcl;
+
+                fs.writeFile(filename, JSON.stringify(file, null, 5), function (err) {
+                  if (err) return console.log(err);
+                });
                   console.log('[Fortnite] Newest Netcl: ' + netcl);
                 }
                 else{
                   netcl = ApiDown.netcl
                   console.log('[Fortnite] The netcl has been set to ' + netcl + ', because you put it as that in config.')
                 }
-
-                var fs = require('fs');
-                var fileName = '../backup/netcl.json';
-                var file = require('../backup/netcl.json');
-
-                file.netcl = netcl;
-
-                fs.writeFile(fileName, JSON.stringify(file, null, 5), function (err) {
-                  if (err) return console.log(err);
-                });
                 
 
                 request({
