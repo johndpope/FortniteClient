@@ -294,6 +294,31 @@ const EGClient = require('epicgames-client').Client;
   
         
           // Fortnite commands start here
+          
+                                  if (command === 'variant') {
+                          let skinid = args.slice(2).join(" ");
+                          if (!skinid) return fortnite.communicator.sendMessage(data.friend.id, 'Mention a skin name or a cid!');
+                          if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, 'Mention a query! Examples: Mat1, Stage1');
+                          if (!skinid == 'CID_') return fortnite.communicator.sendMessage(data.friend.id, 'Yeahhh, well thats not a cid.');
+                          request({
+                            url: 'https://fnserver.terax235.com/api/v1.2/variants/search',
+                            json: true,
+                            headers: {
+                              'type': "skin",
+                              'item': skinid,
+                              'query': args[1]
+                          }
+                          }).then(query => {
+                          const variants = [{"item":"AthenaCharacter","channel":query.data.channel,"variant":query.data.tag}];
+              
+                          setOutfit(fortnite.party.me, "/Game/Athena/Items/Cosmetics/Characters/" + query.data.parent + '.' + query.data.parent, undefined, variants)
+                          fortnite.communicator.sendMessage(data.friend.id, 'Found style, ' + query.data.name.en)
+                       }).catch(query => {
+                        if(query.statusCode === 404){
+                        return fortnite.communicator.sendMessage(data.friend.id, `Rejection: It might be that your skin you put in doesn't have styles or ` + skinid + `, is wrong.`);
+                        }  
+                      });
+                      }
   
                         if(command === 'help') {
                           fortnite.communicator.sendMessage(data.friend.id, 'Thanks for using this bot ' + User.displayName + ', heres the commands, !skin !backling !leave !emote !banner !status !ready !platform !id !playlist !promote !kick !friend !unfriend !invite');
