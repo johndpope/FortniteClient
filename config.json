@@ -49,7 +49,9 @@
 
     "bannercolor" : "defaultcolor2",
 
-    "bannerlevel" : "100"
+    "bannerlevel" : "100",
+
+    "battlepass" : "100"
   },
 
   "ApiDown": {
