@@ -34,6 +34,7 @@ const EGClient = require('epicgames-client').Client;
                 var eid = Cosmetics.eid
                 var pickaxe_id = Cosmetics.pickaxe_id
                 var randombanner;
+                    var battlepasslevel = Cosmetics.battlepass
                 // var Console = config.Console
 
                 request({
@@ -288,7 +289,7 @@ const EGClient = require('epicgames-client').Client;
                 }
                 else{
                   fortnite.party.me.setBanner(Cosmetics.bannerlevel, Cosmetics.banner, Cosmetics.bannercolor);  
-                  fortnite.party.me.setBattlePass(true, 100, 100, 100, 100);
+                  fortnite.party.me.setBattlePass(true, battlepasslevel, battlepasslevel, ,battlepasslevel);
                 }
                 
               fortnite.party.me.setEmote("/Game/Athena/Items/Cosmetics/Dances/" + eid + '.' + eid);
