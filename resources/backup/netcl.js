@@ -289,7 +289,7 @@ const EGClient = require('epicgames-client').Client;
                 }
                 else{
                   fortnite.party.me.setBanner(Cosmetics.bannerlevel, Cosmetics.banner, Cosmetics.bannercolor);  
-                  fortnite.party.me.setBattlePass(true, battlepasslevel, battlepasslevel, ,battlepasslevel);
+                  fortnite.party.me.setBattlePass(true, battlepasslevel, battlepasslevel, battlepasslevel);
                 }
                 
               fortnite.party.me.setEmote("/Game/Athena/Items/Cosmetics/Dances/" + eid + '.' + eid);
