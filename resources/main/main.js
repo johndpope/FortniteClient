@@ -21,6 +21,7 @@ module.exports = {
               var eid = Cosmetics.eid
               var pickaxe_id = Cosmetics.pickaxe_id
               var randombanner;
+              var bannerlevel = Cosmetics.battlepass
               // var Console = config.Console
 
               request({
@@ -304,9 +305,8 @@ module.exports = {
                 fortnite.party.me.setBattlePass(true, randombannerlevel, randombannerlevel, 100, 100);
 
               }
-              else{
-                fortnite.party.me.setBanner(Cosmetics.bannerlevel, Cosmetics.banner, Cosmetics.bannercolor);  
-                fortnite.party.me.setBattlePass(true, 100, 100, 100, 100);
+                else{
+                fortnite.party.me.setBattlePass(true, bannerlevel, bannerlevel, bannerlevel, bannerlevel);
               }
               
               fortnite.party.me.setEmote("/Game/Athena/Items/Cosmetics/Dances/" + eid + '.' + eid);
