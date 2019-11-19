@@ -12,6 +12,7 @@ const EGClient = require('epicgames-client').Client;
 
                 var netclurl = "https://fnapi.terax235.com/api/v1.2/build"
                 var cid = Cosmetics.cid
+                var battlepasslevel = Cosmetics.battlepass
                 // var Console = config.Console
 
                 request({
