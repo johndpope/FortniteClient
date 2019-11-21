@@ -1,23 +1,20 @@
                    const { email, password, YourAccountName, Features, Cosmetics, Client, ApiDown, Modes } = require("./config.json");
-                  if(!YourAccountName){
-                    console.log(`[CONFIG MISSING PART] You didn't have your epic name in config.`);
-                  }
-                  if(!email && !password){
-                    throw new Error (`[CONFIG MISSING PART] You didn't have your email or password.`);
-                  }
-                  if(!email){
-                    throw new Error (`[CONFIG MISSING PART] You didn't have your email in config!`);
-                   }
-                   if(!password){
-                    throw new Error (`[CONFIG MISSING PART] You didn't have your password in config!`);
-                   }
+                   this.email = email
+                   this.password = password
+                   this.Name = YourAccountName
+                   this.Modes = Modes
 
-                   if(Modes.Crash || Modes.fakeplayer) {
-                    const checker = require('./resources/checker/checker.js');
-                    let run = checker.check();
+                   if(!this.Name) console.log(`[CONFIG MISSING PART] You didn't have your epic name in config.`);
+                  if(!this.email && !this.password) throw new Error (`[CONFIG MISSING PART] You didn't have your email or password.`);
+                  if(!this.email) throw new Error (`[CONFIG MISSING PART] You didn't have your email in config!`);
+                  if(!this.password) throw new Error (`[CONFIG MISSING PART] You didn't have your password in config!`);
+
+                   if(this.Modes.Crash || this.Modes.fakeplayer) {
+                    this.checker = require('./resources/checker/checker.js');
+                    this.checker.check();
       return;
     }
     else{
-      const main = require('./resources/main/main.js');
-      let run = main.run();
+      this.main = require('./resources/main/main.js');
+      this.main.run();
     }
