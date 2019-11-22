@@ -189,15 +189,81 @@ module.exports = {
                       var profile = await this.client.getProfile(member.id);
                       if(time == 1) {
                       var EmoteProfile = JSON.parse(member.meta.schema.FrontendEmote_j);
+                      if(Features.copy.everything == true) {
+                        if(!Features.copy.emote == false) {
+                          
+                  var memberprofile = JSON.parse(member.meta.schema.AthenaCosmeticLoadout_j);
+
+                  var CharacterDef = memberprofile.AthenaCosmeticLoadout.characterDef.slice(`'`);
+    
+                  if(cid == CharacterDef) {
+                    fortnite.party.me.clearEmote();
+                    return fortnite.party.me.setEmote(EmoteProfile.FrontendEmote.emoteItemDef);
+                  }
+    
+                  cid = CharacterDef
+    
+                  var AthenaBanner = JSON.parse(member.meta.schema.AthenaBannerInfo_j)
+    
+                  var BattlePass = JSON.parse(member.meta.schema.BattlePassInfo_j)
+    
+                  var Readiness = member.meta.schema.GameReadiness_s
+    
+                  var BannerIconId = AthenaBanner.AthenaBannerInfo.bannerIconId.slice(`'`);
+    
+                  var BannerColorId = AthenaBanner.AthenaBannerInfo.bannerColorId.slice(`'`);
+    
+                  var Ready = Readiness
+    
+                  if(Ready == "Ready") {
+                    fortnite.party.me.setReady(true);
+                  }
+                  else{
+                    fortnite.party.me.setReady(false);
+                  }
+    
+                  var SeasonLevel = AthenaBanner.AthenaBannerInfo.seasonLevel
+    
+                  var BattlePassLevel = BattlePass.BattlePassInfo.passLevel
+    
+                  var BattlePassHas = BattlePass.BattlePassInfo.bHasPurchasedPass
+    
+                  var BattlePassSelfBoost = BattlePass.BattlePassInfo.selfBoostXp
+    
+                  var BattlePassFriendBoost = BattlePass.BattlePassInfo.friendBoostXp
+    
+                  if(CharacterDef.includes('Default')) {
+                    return;
+                  }
+    
+                  var PickaxeDef = memberprofile.AthenaCosmeticLoadout.pickaxeDef.slice(`'`);
+    
+                  var BacklingDef = memberprofile.AthenaCosmeticLoadout.backpackDef.slice(`'`);
+    
+                  var Variants = memberprofile.AthenaCosmeticLoadout.variants.slice(`'`);
+    
+                  setOutfit(fortnite.party.me, CharacterDef, undefined, Variants); //Sets the outfit of the member
+    
+                  setPickaxe(fortnite.party.me, PickaxeDef, undefined, Variants)
+    
+                  setBackpack(fortnite.party.me, BacklingDef, undefined, Variants);
+    
+                  fortnite.party.me.setBattlePass(BattlePassHas, BattlePassLevel, BattlePassSelfBoost, BattlePassFriendBoost);
+               
+                  fortnite.party.me.setBanner(SeasonLevel, BannerIconId, BannerColorId);
+                        }
+                      }
                       if(Features.copy.emote == true) {
+                        if(!Features.copy.everything == false) {
                         if(profile.id != this.client.account.id) {
                           if(profile.id == Player.id){
                         fortnite.party.me.clearEmote();
-                      fortnite.party.me.setEmote(EmoteProfile.FrontendEmote.emoteItemDef);
+                        fortnite.party.me.setEmote(EmoteProfile.FrontendEmote.emoteItemDef);
                       eid = EmoteProfile.FrontendEmote.emoteItemDef
                           }
                         }
                       }
+                    }
                     }
                     });
 
