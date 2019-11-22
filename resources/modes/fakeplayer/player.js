@@ -23,15 +23,17 @@ const EGClient = require('epicgames-client').Client;
                   
                 if(ApiDown.netcl == false) {
                   
-                var fs = require('fs');
-                var fileName = '../backup/netcl.json';
-                var file = require('../backup/netcl.json');
+                  var fs = require('fs');
+                  const path = require('path');
+                  const file = require('../backup/netcl.json');
 
-                file.netcl = netcl;
-
-                fs.writeFile(fileName, JSON.stringify(file, null, 5), function (err) {
-                  if (err) return console.log(err);
-                });
+                  const fileName = path.join(__dirname, '..', 'backup', 'netcl.json');
+  
+                  file.netcl = netcl;
+  
+                  fs.writeFile(fileName, JSON.stringify(file, null, 5), function (err) {
+                    if (err) return console.log(err);
+                  });
                 
                   console.log('[Fortnite] Newest Netcl: ' + netcl);
                 }
