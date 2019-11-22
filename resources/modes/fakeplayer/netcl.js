@@ -89,6 +89,8 @@ const EGClient = require('epicgames-client').Client;
                           }
                       } 
                       });
+                  
+                  var time = 0
                                         //Name of playlist  Playlist ID
              await fortnite.party.setPlaylist('The End', 'Playlist_Music_High');
              // https://jsonstorage.net/api/items/47c6b54c-b978-4122-ad66-e0f8071cf5d9 for playlists
@@ -150,16 +152,85 @@ const EGClient = require('epicgames-client').Client;
   
                       fortnite.communicator.on('party:member:state:updated', async (member) => {
                         var profile = await eg.getProfile(member.id);
-                        var EmoteProfile = JSON.parse(member.meta.schema.FrontendEmote_j);
-                        if(Features.copy.emote == true) {
-                          if(profile.id != eg.account.id) {
-                            if(profile.id == Player.id){
-                          fortnite.party.me.clearEmote();
+
+                      if(time == 1) {
+                      var EmoteProfile = JSON.parse(member.meta.schema.FrontendEmote_j);
+                      if(Features.copy.everything == true) {
+                        if(!Features.copy.emote == false) {
+                          
+                  var memberprofile = JSON.parse(member.meta.schema.AthenaCosmeticLoadout_j);
+
+                  var CharacterDef = memberprofile.AthenaCosmeticLoadout.characterDef.slice(`'`);
+    
+                  if(cid == CharacterDef) {
+                    fortnite.party.me.clearEmote();
+                    return fortnite.party.me.setEmote(EmoteProfile.FrontendEmote.emoteItemDef);
+                  }
+    
+                  cid = CharacterDef
+    
+                  var AthenaBanner = JSON.parse(member.meta.schema.AthenaBannerInfo_j)
+    
+                  var BattlePass = JSON.parse(member.meta.schema.BattlePassInfo_j)
+    
+                  var Readiness = member.meta.schema.GameReadiness_s
+    
+                  var BannerIconId = AthenaBanner.AthenaBannerInfo.bannerIconId.slice(`'`);
+    
+                  var BannerColorId = AthenaBanner.AthenaBannerInfo.bannerColorId.slice(`'`);
+    
+                  var Ready = Readiness
+    
+                  if(Ready == "Ready") {
+                    fortnite.party.me.setReady(true);
+                  }
+                  else{
+                    fortnite.party.me.setReady(false);
+                  }
+    
+                  var SeasonLevel = AthenaBanner.AthenaBannerInfo.seasonLevel
+    
+                  var BattlePassLevel = BattlePass.BattlePassInfo.passLevel
+    
+                  var BattlePassHas = BattlePass.BattlePassInfo.bHasPurchasedPass
+    
+                  var BattlePassSelfBoost = BattlePass.BattlePassInfo.selfBoostXp
+    
+                  var BattlePassFriendBoost = BattlePass.BattlePassInfo.friendBoostXp
+    
+                  if(CharacterDef.includes('Default')) {
+                    return;
+                  }
+    
+                  var PickaxeDef = memberprofile.AthenaCosmeticLoadout.pickaxeDef.slice(`'`);
+    
+                  var BacklingDef = memberprofile.AthenaCosmeticLoadout.backpackDef.slice(`'`);
+    
+                  var Variants = memberprofile.AthenaCosmeticLoadout.variants.slice(`'`);
+    
+                  setOutfit(fortnite.party.me, CharacterDef, undefined, Variants); //Sets the outfit of the member
+    
+                  setPickaxe(fortnite.party.me, PickaxeDef, undefined, Variants)
+    
+                  setBackpack(fortnite.party.me, BacklingDef, undefined, Variants);
+    
+                  fortnite.party.me.setBattlePass(BattlePassHas, BattlePassLevel, BattlePassSelfBoost, BattlePassFriendBoost);
+               
+                  fortnite.party.me.setBanner(SeasonLevel, BannerIconId, BannerColorId);
+                        }
+                      }
+                      if(Features.copy.emote == true) {
+                        if(!Features.copy.everything == false) {
+                        if(profile.id != this.client.account.id) {
+                          if(profile.id == Player.id){
+                        fortnite.party.me.clearEmote();
                         fortnite.party.me.setEmote(EmoteProfile.FrontendEmote.emoteItemDef);
-                        eid = EmoteProfile.FrontendEmote.emoteItemDef
-                            }
+                      eid = EmoteProfile.FrontendEmote.emoteItemDef
                           }
                         }
+                      }
+                    }
+                    }
                       });
   
   
@@ -217,10 +288,7 @@ const EGClient = require('epicgames-client').Client;
                  console.log('The person that posted this on github joined!');
                 }
                 if (profile.displayName === eg.account.name) {
-
-                  fortnite.party.meta.refreshSquadAssignments();
-
-                  fortnite.party.patch();
+                    time = 0
 
                   const arrofskins = skins[Math.floor(Math.random() * skins.length)];
   
@@ -248,6 +316,8 @@ const EGClient = require('epicgames-client').Client;
                   await fortnite.party.me.setBanner(randombannerlevel, randombanner, randombannercolor);
                   
                   fortnite.party.me.setBattlePass(true, randombannerlevel, randombannerlevel, 100, 100);
+                  
+                  time = 1
   
                 }
                 else{
