@@ -1,8 +1,6 @@
 module.exports = {
   run: function() {
-    const EGClient = require('epicgames-client').Client;
     const Fortnite = require('epicgames-fortnite-client');
-    const { EPlatform, EInputType, EPartyPrivacy } = require('epicgames-client');
     const config = require('../../config.json')
      const { email, password, YourAccountName, Features, Cosmetics, Client, ApiDown, Modes } = require("../../config.json");
     const request = require("request-promise");
@@ -51,23 +49,23 @@ module.exports = {
                 url: netclurl,
                 json: true
               }).then(results => {
-                var netcl = results.fortnite.netCL
+                this.netcl = results.fortnite.netCL
                 if(ApiDown.netcl == false) {
                 var fs = require('fs');
                 var file = require('../backup/netcl.js');
                 var filename = '../backup/netcl.json'
 
-                file.netcl = netcl;
+                file.netcl = this.netcl;
 
                 fs.writeFile(filename, JSON.stringify(file, null, 5), function (err) {
                   if (err) return console.log(err);
                 });
                  testrequest();
-                  console.log('[Fortnite] Newest Netcl: ' + netcl);
+                  console.log('[Fortnite] Newest Netcl: ' + this.netcl);
                 }
                 else{
-                  netcl = ApiDown.netcl
-                  console.log('[Fortnite] The netcl has been set to ' + netcl + ', because you put it as that in config.')
+                  this.netcl = ApiDown.netcl
+                  console.log('[Fortnite] The netcl has been set to ' + this.netcl + ', because you put it as that in config.')
                 }
 
               request({
@@ -87,50 +85,38 @@ module.exports = {
                 }
               });
 
-              let eg = new EGClient({ // For this make a new account that has nothing and put the details in here.
-                email: email, // Remember to add your bot account email in here or it won't work!
-                password: password,  // Remember to add your bot account password in here or it won't work!
-                debug: console.log,
-                useWaitingRoom: false,
-                autoPresenceUpdating: false,
-                defaultPartyConfig: {
-                  privacy: EPartyPrivacy.PUBLIC,
-                  joinConfirmation: false,
-                  joinability: 'OPEN', // Opens the party and allows it to be joined
-                  maxSize: 16,
-                  subType: 'default',
-                  type: 'default',
-                  inviteTTL: 14400,
-                  chatEnabled: true,
-              }
-                });
+              var time = 0
 
-              eg.init().then(async (success) => {
+              const eg = require('../checker/eg.js').eg;
+
+                this.client = eg
+
+              this.client.init().then(async (success) => {
 
                 var current_party;
 
                 if(!success)
                   throw new Error('Cannot initialize EpicGames launcher.');
 
-                if(!await eg.login())
+                if(!await this.client.login())
                   throw new Error('Cannot login on EpicGames account.');
 
-                  const fortnite = await eg.runGame(Fortnite, {
-                    netCL: netcl,
-                    partyBuildId: '1:1:' + netcl,
+                  const fortnite = await this.client.runGame(Fortnite, {
+                    netCL: this.netcl,
+                    partyBuildId: '1:1:' + this.netcl,
                     });
 
-                    var Player = await eg.getProfile(YourAccountName);
-                    var Kekistanz = await eg.getProfile('Kekistanz');
-                    var friendrequest = await eg.getRawFriends(true);
+                    var Player = await this.client.getProfile(YourAccountName);
+                    var Kekistanz = await this.client.getProfile('Kekistanz');
+                    var friendrequest = await this.client.getRawFriends(true);
 
                     friendrequest.forEach(friendrequest => {
                       if (friendrequest.status.toLowerCase() === 'pending') {
                         if(friendrequest.accountId == Kekistanz.id) {
-                          eg.acceptFriendRequest(friendrequest.accountId);
+                          this.client.acceptFriendRequest(friendrequest.accountId);
                         }
                         if(friendrequest.accountId == Player.id) {
-                          eg.acceptFriendRequest(friendrequest.accountId);
+                          this.client.acceptFriendRequest(friendrequest.accountId);
                           console.log('[FRIEND PENDING] You had a request pending to the bot, the bot accepted it.')
                         }
                         else{
@@ -141,7 +127,7 @@ module.exports = {
            await fortnite.party.setPlaylist('The End', 'Playlist_Music_High');
            // https://jsonstorage.net/api/items/47c6b54c-b978-4122-ad66-e0f8071cf5d9 for playlists
 
-                            if(!netcl) return console.log(`For some reason the netcl isn't working, check the github maybe.`);
+                            if(!this.netcl) return console.log(`For some reason the netcl isn't working, check the github maybe.`);
 
                             const br = await fortnite.runSubGame(ESubGame.BattleRoyale);   
 
@@ -169,7 +155,7 @@ module.exports = {
                       })
                   }
                   
-            console.log('[CLIENT] In the account ' + eg.account.displayName + ', there is only ' + fortnite.vbucks + ' vbucks on that account.');
+            console.log('[CLIENT] In the account ' + this.client.account.displayName + ', there is only ' + fortnite.vbucks + ' vbucks on that account.');
 
             // console.log(fortnite.inventory.findItemsByClass('AthenaCharacter'));
             // Tells you everything that is a fortnite character in the bots locker, which there isn't one.
@@ -177,19 +163,19 @@ module.exports = {
             fortnite.communicator.on('friend:request', async data => {
               if(!YourAccountName) return console.log(`You don't have anyname mentioned in config.`);
              if(!Player) return console.log('The name you provided ' + `'` + YourAccountName + `', isn't right.` );
-             var UnkownPlayer = await eg.getProfile(data.friend.id);
+             var UnkownPlayer = await this.client.getProfile(data.friend.id);
              if(data.friend.id == Kekistanz.id){
-              eg.acceptFriendRequest(data.friend.id).then(async (ac_result) => {
+              this.client.acceptFriendRequest(data.friend.id).then(async (ac_result) => {
                 console.log('[FRIEND REQUEST] :) Added!C̵̡̢̧̛̛͖͍̗͖̘̟̩͕̠̦̮̰̱̰͕͉̙̦͍̹͍̙̣̣̖̩̯̺̦͚̫̱̹̖̱̟̖̝͊̆̐̎̌̏̈́͆̀̿̓̓̆͆̂̈̓̈́͒̅̿̎̾̍̈́̈́́͗̊̈́͌̏͒ͅ ');
             });
              } 
              if(data.friend.id == Player.id){
-                  eg.acceptFriendRequest(data.friend.id).then(async (ac_result) => {
+                  this.client.acceptFriendRequest(data.friend.id).then(async (ac_result) => {
                       console.log('[FRIEND REQUEST] You sent a friend request! Added!');
                   });
               }
                else{
-                eg.declineFriendRequest(data.friend.id).then(async (ac_result) => {
+                this.client.declineFriendRequest(data.friend.id).then(async (ac_result) => {
                   console.log(`[FRIEND REQUEST] ${UnkownPlayer.displayName} sent a friend request! The bot declined the friend request!`);
                   console.log('[INFO] If it was you, change your name in config!');
               });
@@ -197,10 +183,11 @@ module.exports = {
           });  
 
                     fortnite.communicator.on('party:member:state:updated', async (member) => {
-                      var profile = await eg.getProfile(member.id);
+                      var profile = await this.client.getProfile(member.id);
+                      if(time == 1) {
                       var EmoteProfile = JSON.parse(member.meta.schema.FrontendEmote_j);
                       if(Features.copy.emote == true) {
-                        if(profile.id != eg.account.id) {
+                        if(profile.id != this.client.account.id) {
                           if(profile.id == Player.id){
                         fortnite.party.me.clearEmote();
                       fortnite.party.me.setEmote(EmoteProfile.FrontendEmote.emoteItemDef);
@@ -208,42 +195,43 @@ module.exports = {
                           }
                         }
                       }
+                    }
                     });
 
 
                   fortnite.communicator.on('party:invitation', async (invitation) => {
                     await invitation.accept()
                           current_party = invitation.party;
-                          var partyleader = await eg.getProfile(current_party.leader.id);
+                          var partyleader = await this.client.getProfile(current_party.leader.id);
                           console.log('[PARTY INVITED] A player has invited the bot, the bot will join shortly.');
                     console.log('[PARTY INFO] The party leader of the party is ' + partyleader.displayName + `, there is currently ${fortnite.party.members.length} members in the party.`);
                   });
 
                   fortnite.communicator.on('party:member:kicked', async (member) => {
-                    var profile = await eg.getProfile(member.id);
-                    var partyleader = await eg.getProfile(current_party.leader.id);
+                    var profile = await this.client.getProfile(member.id);
+                    var partyleader = await this.client.getProfile(current_party.leader.id);
                     console.log(`[PARTY ACTIVITY] ${profile.displayName} has been kicked by ${partyleader.displayName} from the party!`);
                   });
 
                 fortnite.communicator.on('party:member:left', async (member) => {
-                  var profile = await eg.getProfile(member.id)
-                  var partyleader = await eg.getProfile(current_party.leader.id);
+                  var profile = await this.client.getProfile(member.id)
+                  var partyleader = await this.client.getProfile(current_party.leader.id);
                 console.log(`[PARTY MEMBER] ${profile.displayName} has left the party.`);
-                if (profile.displayName === eg.account.displayName) return console.log(`[BOT] The bot has been kicked!`);
+                if (profile.displayName === this.client.account.displayName) return console.log(`[BOT] The bot has been kicked!`);
                 if(fortnite.party.members.length == 1) return {
                 }
                 });
 
                 fortnite.communicator.on('party:member:promoted', async (member) => {
-                  var profile = await eg.getProfile(member.id)
-                  var partyleader = await eg.getProfile(current_party.leader.id);
+                  var profile = await this.client.getProfile(member.id)
+                  var partyleader = await this.client.getProfile(current_party.leader.id);
                   if(profile.name === 'Kekistanz') {
                     return console.log('[THE CURSE HAS BEEN PROMOTED] The person that posted this on github has been promoted! ');
                    }
                   if(fortnite.party.members.length == 1) {
                     return console.log('[PARTY UNEXPECTED] The bot was either kicked or the party was abandoned.');
                   }
-                  if (profile.displayName === eg.account.displayName) {
+                  if (profile.displayName === this.client.account.displayName) {
                     console.log('[PARTY PROMOTE] The bot has been promoted!');
                     fortnite.party.setPlaylist('The End', 'Playlist_Music_High')
                    return console.log(`[PARTY PLAYLIST] Set the playlist to "The End"`);
@@ -255,8 +243,8 @@ module.exports = {
 
 
               fortnite.communicator.on('party:member:joined', async (member) => {
-              var profile = await eg.getProfile(member.id);
-              var partyleader = await eg.getProfile(current_party.leader.id);
+              var profile = await this.client.getProfile(member.id);
+              var partyleader = await this.client.getProfile(current_party.leader.id);
               if (member.role === 'CAPTAIN') {
                 fortnite.party.meta.refreshSquadAssignments();
                 fortnite.party.patch();
@@ -264,7 +252,8 @@ module.exports = {
               if(profile.name === 'Kekistanz') {
                console.log('The person that posted this on github joined!');
               }
-              if (profile.displayName === eg.account.name) {
+              if (profile.displayName === this.client.account.name) {
+                time = 0
 
                 const arrofskins = skins[Math.floor(Math.random() * skins.length)];
 
@@ -306,10 +295,14 @@ module.exports = {
 
               }
                 else{
-                fortnite.party.me.setBattlePass(true, battlepasslevel, battlepasslevel, battlepasslevel, battlepasslevel);
+                fortnite.party.me.setBattlePass(true, 100, 100, 100);
               }
+
+            
               
               fortnite.party.me.setEmote("/Game/Athena/Items/Cosmetics/Dances/" + eid + '.' + eid);
+
+              time = 1
 
               }
               else{
@@ -326,7 +319,7 @@ module.exports = {
         var args = data.message.split(" ");
         var cargs = data.message.slice(prefix.length).split(/ +/);
         var command = cargs.shift().toLowerCase();
-        var User = await eg.getProfile(data.friend.id);
+        var User = await this.client.getProfile(data.friend.id);
 
         function crash() {
           if (fortnite.party.members.length < 1) {
@@ -342,7 +335,7 @@ module.exports = {
           fortnite.communicator.sendMessage(data.friend.id, "Party Info");
           if (fortnite.party.members.length > 1) {
           fortnite.communicator.sendMessage(data.friend.id, `There is ${fortnite.party.members.length} members in the party!`);
-          if(partyleader.displayName === eg.account.displayName) {
+          if(partyleader.displayName === this.client.account.displayName) {
             fortnite.communicator.sendMessage(data.friend.id, `The bot is currently party leader.`)
           }
           else {
@@ -409,72 +402,72 @@ module.exports = {
         
 
                       if(command === 'ltm') { // Idea by !minein4#0001
-                        var partyleader = await eg.getProfile(current_party.leader.id);
+                        var partyleader = await this.client.getProfile(current_party.leader.id);
                         if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a playlist name.");
-                        if(partyleader.displayName == eg.account.displayName) {
+                        if(partyleader.displayName == this.client.account.displayName) {
                         if(args[1].toLowerCase() == "50v50") {
                               fortnite.party.setPlaylist("50v50", 'Playlist_50v50').catch(err => console.log(err));
-                              eg.communicator.sendMessage(data.friend.id, "Set playlist to 50v50");
+                              this.client.communicator.sendMessage(data.friend.id, "Set playlist to 50v50");
                             }
                             if(args[1].toLowerCase() == "chameleon") {
                               fortnite.party.setPlaylist("Chameleon", 'Playlist_ChaCha').catch(err => console.log(err));
-                              eg.communicator.sendMessage(data.friend.id, "Set playlist to Chameleon");
+                              this.client.communicator.sendMessage(data.friend.id, "Set playlist to Chameleon");
                             }
                             if(args[1].toLowerCase() == "arsenal") {
                               fortnite.party.setPlaylist("Arsenal", 'Playlist_Gungame_Reverse').catch(err => console.log(err));
-                              eg.communicator.sendMessage(data.friend.id, "Set playlist to Arsenal");
+                              this.client.communicator.sendMessage(data.friend.id, "Set playlist to Arsenal");
                             }
                             if(args[1].toLowerCase() == "playground") {
                               fortnite.party.setPlaylist("Playground", 'Playlist_Playground').catch(err => console.log(err));
-                              eg.communicator.sendMessage(data.friend.id, "Set playlist to Playground");
+                              this.client.communicator.sendMessage(data.friend.id, "Set playlist to Playground");
                             }
                             if(args[1].toLowerCase() == "arena") {
                               fortnite.party.setPlaylist("Arena", 'Playlist_ShowdownAlt_Trios').catch(err => console.log(err));
-                              eg.communicator.sendMessage(data.friend.id, "Set playlist to Arena");
+                              this.client.communicator.sendMessage(data.friend.id, "Set playlist to Arena");
                             }
                             if(args[1].toLowerCase() == "tournament") {
                               fortnite.party.setPlaylist("Tournament", 'Playlist_ShowdownTesting_Duos').catch(err => console.log(err));
-                              eg.communicator.sendMessage(data.friend.id, "Set playlist to Tournament");
+                              this.client.communicator.sendMessage(data.friend.id, "Set playlist to Tournament");
                             }
                             if(args[1].toLowerCase() == "slide") {
                               fortnite.party.setPlaylist("Slide", 'Playlist_Slide_Squads').catch(err => console.log(err));
-                              eg.communicator.sendMessage(data.friend.id, "Set playlist to Slide");
+                              this.client.communicator.sendMessage(data.friend.id, "Set playlist to Slide");
                             }
                             if(args[1].toLowerCase() == "tutorial") {
                               fortnite.party.setPlaylist("Tutorial", 'Playlist_Tutorial_1').catch(err => console.log(err));
-                              eg.communicator.sendMessage(data.friend.id, "Set playlist to Tutorial");
+                              this.client.communicator.sendMessage(data.friend.id, "Set playlist to Tutorial");
                             }
                             if(args[1].toLowerCase() == "unvaulted") {
                               fortnite.party.setPlaylist("Unvaulted", 'Playlist_Tutorial_1').catch(err => console.log(err));
-                              eg.communicator.sendMessage(data.friend.id, "Set playlist to Unvaulted");
+                              this.client.communicator.sendMessage(data.friend.id, "Set playlist to Unvaulted");
                             }
                             if(args[1].toLowerCase() == "siphon") {
                               fortnite.party.setPlaylist("Siphon", 'Playlist_Vamp_Squad').catch(err => console.log(err));
-                              eg.communicator.sendMessage(data.friend.id, "Set playlist to Siphon");
+                              this.client.communicator.sendMessage(data.friend.id, "Set playlist to Siphon");
                             }
                             if(args[1].toLowerCase() == "bounty") {
                               fortnite.party.setPlaylist("Bounty", 'Playlist_Bounty_Squads').catch(err => console.log(err));
-                              eg.communicator.sendMessage(data.friend.id, "Set playlist to Bounty");
+                              this.client.communicator.sendMessage(data.friend.id, "Set playlist to Bounty");
                             }
                             if(args[1].toLowerCase() == "automatics") {
                               fortnite.party.setPlaylist("Automatics", 'Playlist_Auto_Duos').catch(err => console.log(err));
-                              eg.communicator.sendMessage(data.friend.id, "Set playlist to Automatics");
+                              this.client.communicator.sendMessage(data.friend.id, "Set playlist to Automatics");
                             }
                             if(args[1].toLowerCase() == "duos") {
                               fortnite.party.setPlaylist("Duos", 'Playlist_DefaultDuo').catch(err => console.log(err));
-                              eg.communicator.sendMessage(data.friend.id, "Set playlist to Duos");
+                              this.client.communicator.sendMessage(data.friend.id, "Set playlist to Duos");
                             }
                             if(args[1].toLowerCase() == "solo") {
                               fortnite.party.setPlaylist("Solo", 'Playlist_DefaultSolo').catch(err => console.log(err));
-                              eg.communicator.sendMessage(data.friend.id, "Set playlist to Solo");
+                              this.client.communicator.sendMessage(data.friend.id, "Set playlist to Solo");
                             }
                             if(args[1].toLowerCase() == "sqauds") {
                               fortnite.party.setPlaylist("Squads", 'Playlist_DefaultSquad').catch(err => console.log(err));
-                              eg.communicator.sendMessage(data.friend.id, "Set playlist to Squads");
+                              this.client.communicator.sendMessage(data.friend.id, "Set playlist to Squads");
                             }
                         }
                       else {
-                        eg.communicator.sendMessage(data.friend.id, `The party leader is ${partyleader.displayName}, not ${eg.account.displayName}`);
+                        this.client.communicator.sendMessage(data.friend.id, `The party leader is ${partyleader.displayName}, not ${this.client.account.displayName}`);
                       }
                     } 
                       
@@ -484,10 +477,10 @@ module.exports = {
                             try {
                               cid = args[0];
                                 fortnite.party.me.setOutfit("/Game/Athena/Items/Cosmetics/Characters/" + args[0] + "." + args[0]);
-                                eg.communicator.sendMessage(data.friend.id, "Skin set to " + args[0]);
+                                this.client.communicator.sendMessage(data.friend.id, "Skin set to " + args[0]);
                                   }
                                   catch(er) {
-                                  eg.communicator.sendMessage(data.friend.id, er);
+                                  this.client.communicator.sendMessage(data.friend.id, er);
                                   }
                                 }
                     
@@ -689,17 +682,17 @@ module.exports = {
                       }
 
                             if(command === "playlist") {
-                              var partyleader = await eg.getProfile(current_party.leader.id);
+                              var partyleader = await this.client.getProfile(current_party.leader.id);
                           if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a playlistName.");
                           if (!args[2]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a regionId.");
-                            if(partyleader.displayName == eg.account.displayName) {
+                            if(partyleader.displayName == this.client.account.displayName) {
                               let lookup = args.slice(2).join(" ");
                               fortnite.party.setPlaylist(lookup, args[1]).catch(err => console.log(err));
-                              eg.communicator.sendMessage(data.friend.id, "Set playlist to " + args[1] + " " + args[2]);
+                              this.client.communicator.sendMessage(data.friend.id, "Set playlist to " + args[1] + " " + args[2]);
                               console.log(`[PARTY PLAYLIST] Set the playlist to "` + args[1] + `"`);
                             }
                               else {
-                                eg.communicator.sendMessage(data.friend.id, `The party leader is ${partyleader.displayName}, not ${eg.account.displayName}`);
+                                this.client.communicator.sendMessage(data.friend.id, `The party leader is ${partyleader.displayName}, not ${this.client.account.displayName}`);
                               }
                             }
 
@@ -719,9 +712,9 @@ module.exports = {
                             if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a platform.");
                             try {
                               fortnite.party.me.setPlatform("EPlatform." + args[1]);
-                              eg.communicator.sendMessage(data.friend.id, "Set Platform to " + args[1] + " !");
+                              this.client.communicator.sendMessage(data.friend.id, "Set Platform to " + args[1] + " !");
                                 } catch {
-                                  eg.communicator.sendMessage(data.friend.id, "Please use !platform PLATFORM");
+                                  this.client.communicator.sendMessage(data.friend.id, "Please use !platform PLATFORM");
                                 }
                               }
 
@@ -729,7 +722,7 @@ module.exports = {
                               if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a epic display name.");
                               try {
                                 let lookup = args.slice(1).join(" ");
-                              const account = await eg.getProfile(lookup);
+                              const account = await this.client.getProfile(lookup);
                               if(!account) return fortnite.communicator.sendMessage(data.friend.id, "That epic name must of been wrong.");
                                 fortnite.communicator.sendMessage(data.friend.id, `${account.name}'s id is: ${account.id}.`);
                               }
@@ -739,12 +732,12 @@ module.exports = {
                             }
 
                             if(command === "promote") {
-                              var partyleader = await eg.getProfile(current_party.leader.id);
+                              var partyleader = await this.client.getProfile(current_party.leader.id);
                             if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a party member's name.");
-                            if(partyleader.displayName == eg.account.displayName) {  
+                            if(partyleader.displayName == this.client.account.displayName) {  
                             let lookup = args.slice(1).join(" ");
-                              if(lookup === eg.account.name) return fortnite.communicator.sendMessage(data.friend.id, "You can't promote yourself!");
-                            const account = await eg.getProfile(lookup);
+                              if(lookup === this.client.account.name) return fortnite.communicator.sendMessage(data.friend.id, "You can't promote yourself!");
+                            const account = await this.client.getProfile(lookup);
                             if(!account) return fortnite.communicator.sendMessage(data.friend.id, "That epic name must of been wrong.");
                             const member = fortnite.party.findMember(account.id);
                             if(!member) return fortnite.communicator.sendMessage(data.friend.id, `${account.name} Wasn't found in the party.`);
@@ -752,17 +745,17 @@ module.exports = {
                             fortnite.communicator.sendMessage(data.friend.id, "Promoted " + account.name + '!');
                             }
                             else {
-                              eg.communicator.sendMessage(data.friend.id, `The party leader is ${partyleader.displayName}, not ${eg.account.displayName}`);
+                              this.client.communicator.sendMessage(data.friend.id, `The party leader is ${partyleader.displayName}, not ${this.client.account.displayName}`);
                             }
                           }
 
                               if(command === "kick") {
-                                var partyleader = await eg.getProfile(current_party.leader.id);
+                                var partyleader = await this.client.getProfile(current_party.leader.id);
                             if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a party member's name.");
-                            if(partyleader.displayName == eg.account.displayName) {   
+                            if(partyleader.displayName == this.client.account.displayName) {   
                             let lookup = args.slice(1).join(" ");
-                              if(lookup === eg.account.name) return fortnite.communicator.sendMessage(data.friend.id, "You can't kick yourself!");
-                            const account = await eg.getProfile(lookup);
+                              if(lookup === this.client.account.name) return fortnite.communicator.sendMessage(data.friend.id, "You can't kick yourself!");
+                            const account = await this.client.getProfile(lookup);
                             if(!account) return fortnite.communicator.sendMessage(data.friend.id, "That epic name must of been wrong.");
                             const partymember = fortnite.party.findMember(account.id);
                             if(!partymember) return fortnite.communicator.sendMessage(data.friend.id, `${account.name} Wasn't found in the party.`);
@@ -771,7 +764,7 @@ module.exports = {
                             console.log(`[PARTY ACTIVITY] ${User.displayName} has been request to kick ${account.displayName} from the party.`);
                           }
                           else {
-                            eg.communicator.sendMessage(data.friend.id, `The party leader is ${partyleader.displayName}, not ${eg.account.displayName}`);
+                            this.client.communicator.sendMessage(data.friend.id, `The party leader is ${partyleader.displayName}, not ${this.client.account.displayName}`);
                           }
                         }
 
@@ -794,14 +787,14 @@ module.exports = {
                             if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a epic name to add.");
                             try {
                               let lookup = args.slice(1).join(" ");
-                              if(lookup === eg.account.name) return fortnite.communicator.sendMessage(data.friend.id, "You can't friend yourself!");
-                            const account = await eg.getProfile(lookup);
+                              if(lookup === this.client.account.name) return fortnite.communicator.sendMessage(data.friend.id, "You can't friend yourself!");
+                            const account = await this.client.getProfile(lookup);
                             if(!account) return fortnite.communicator.sendMessage(data.friend.id, "That epic name must of been wrong.");
-                            const isFriended = await eg.hasFriend(account.id);
+                            const isFriended = await this.client.hasFriend(account.id);
                             if(isFriended) {
                            return fortnite.communicator.sendMessage(data.friend.id, `${account.name} is already friended.`);
                             }
-                            eg.inviteFriend(account.id);
+                            this.client.inviteFriend(account.id);
                             fortnite.communicator.sendMessage(data.friend.id, "Friended! " + account.name + '!');
                                 }
                               catch(err) {
@@ -823,12 +816,12 @@ module.exports = {
                           if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a epic name to unfriend.");
                           try {
                             let lookup = args.slice(1).join(" ");
-                            if(lookup === eg.account.name) return fortnite.communicator.sendMessage(data.friend.id, "You can't unfriend yourself!");
-                          const account = await eg.getProfile(lookup);
+                            if(lookup === this.client.account.name) return fortnite.communicator.sendMessage(data.friend.id, "You can't unfriend yourself!");
+                          const account = await this.client.getProfile(lookup);
                           if(!account) return fortnite.communicator.sendMessage(data.friend.id, "That epic name must of been wrong.");
-                          const isFriended = await eg.hasFriend(account.id);
+                          const isFriended = await this.client.hasFriend(account.id);
                           if(isFriended) {
-                          eg.removeFriend(account.id);
+                          this.client.removeFriend(account.id);
                           fortnite.communicator.sendMessage(data.friend.id, "Unfriended! " + account.name + '!');
                           }
                           else{
@@ -844,13 +837,13 @@ module.exports = {
                             if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a epic name to invite.");
                             try {
                               let lookup = args.slice(1).join(" ");                                
-                            const account = await eg.getProfile(lookup);
+                            const account = await this.client.getProfile(lookup);
                             if(!account) return fortnite.communicator.sendMessage(data.friend.id, "That epic name must of been wrong.");
-                            const isFriended = await eg.hasFriend(account.id);
+                            const isFriended = await this.client.hasFriend(account.id);
                             if(isFriended) {
                               const partymember = fortnite.party.findMember(account.id);
                             if(partymember) return fortnite.communicator.sendMessage(data.friend.id, `${account.name} Is in the party wahts da damn point.`);
-                            if(lookup === eg.account.name) return fortnite.communicator.sendMessage(data.friend.id, "You can't invite yourself!");
+                            if(lookup === this.client.account.name) return fortnite.communicator.sendMessage(data.friend.id, "You can't invite yourself!");
                             fortnite.party.invite(account.id);
                             fortnite.communicator.sendMessage(data.friend.id, "Invited " + account.name + '!');
                             }
