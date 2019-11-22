@@ -29,7 +29,8 @@
     },
     "copy": {
       "__comment": "Puts on or does whatever you do, examples: doing a emote.",
-      "emote": true
+      "emote": true,
+      "everything": false
     }
   },
 
