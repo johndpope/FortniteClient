@@ -122,6 +122,8 @@ const EGClient = require('epicgames-client').Client;
                           }
                       } 
                       });
+                  
+                  var time = 0
                                         //Name of playlist  Playlist ID
              await fortnite.party.setPlaylist('The End', 'Playlist_Music_High');
              // https://jsonstorage.net/api/items/47c6b54c-b978-4122-ad66-e0f8071cf5d9 for playlists
@@ -315,6 +317,8 @@ const EGClient = require('epicgames-client').Client;
                  console.log('The person that posted this on github joined!');
                 }
                 if (profile.displayName === eg.account.name) {
+                  
+                  time = 0
 
                   const arrofskins = skins[Math.floor(Math.random() * skins.length)];
 
@@ -353,6 +357,8 @@ const EGClient = require('epicgames-client').Client;
                   await fortnite.party.me.setBanner(randombannerlevel, randombanner, randombannercolor);
                   
                   fortnite.party.me.setBattlePass(true, randombannerlevel, randombannerlevel, 100, 100);
+                    
+                    time = 1
 
                 }
                 else{
