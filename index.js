@@ -12,9 +12,9 @@
                    if(this.Modes.Crash || this.Modes.fakeplayer) {
                     this.checker = require('./resources/checker/checker.js');
                     this.checker.check();
-      return;
-    }
-    else{
-      this.main = require('./resources/main/main.js');
-      this.main.run();
-    }
+                      return;
+                    }
+                    else{
+                      this.main = require('./resources/main/main.js');
+                      this.main.run();
+                    }
