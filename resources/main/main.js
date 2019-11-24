@@ -587,21 +587,53 @@ module.exports = {
                           }
                         }
 
-                        // Unused _
 
-                      //   if(command === 'stats') {
-                      //     if(!args[1]) return fortnite.communicator.sendMessage(data.friend.id, 'Mention a username.');
-                      //     try {
-                      //       let stats = await br.getStatsForPlayer(args[1]);
-                      //     fortnite.communicator.sendMessage(data.friend.id, stats);
-                      //     }
-                      //     catch(err){
-                      //       fortnite.communicator.sendMessage(data.friend.id, stats);
-                      //     }
-                      // }
-                       //   Currently trying to find a way to show wins.
+                      /*
+                         if(command == 'clientid') {
+                           const { Cli } = await this.client.http.send(
+                           'POST',
+                           "https://account-public-service-prod03.ol.epicgames.com/account/api/oauth/token",
+                          'launcher', {
+                           grant_type: 'client_credentials',
+                           token_type: 'eg1',
+                         });
+    
+                         fortnite.communicator.sendMessage(data.friend.id, Cli.client_id);
+                       }
 
-                      // Not working currently.
+                       if(command == 'code') {
+                         var code = args[1]
+                         if(code.length > 23) {
+                           return fortnite.communicator.sendMessage(data.friend.id, "Your code has higher letters than a normal one.");
+                         }
+                         if(code.length < 20) {
+                           return fortnite.communicator.sendMessage(data.friend.id, "Your code has lower letters than a normal one.");
+                         } // Made by kekistanz
+                         if (!this.client.account) return false;
+                         await this.client.http.send(
+                           'GET',
+                           `https://www.epicgames.com/fortnite/ajax/redemption/validate-redemption-code?redeem-code=` + code,
+                           `${this.client.account.auth.tokenType} ${this.client.account.auth.accessToken}`,
+                             ).then(code => {
+                           if(code.data.isSuccess == false) {
+                            return fortnite.communicator.sendMessage(data.friend.id, "The code you provided wasn't correct sadly.");
+                           }
+                           fortnite.communicator.sendMessage(data.friend.id, "Found " + code.data.data.title + ', description "' + code.data.data.description + '", entitlement name is ' + code.data.data.entitlementName + '.');
+                         });
+
+                           if(command === 'stats') {
+                           if(!args[1]) return fortnite.communicator.sendMessage(data.friend.id, 'Mention a username.');
+                           try {
+                             let stats = await br.getStatsForPlayer(args[1]);
+                           fortnite.communicator.sendMessage(data.friend.id, stats);
+                           }
+                           catch(err){
+                             fortnite.communicator.sendMessage(data.friend.id, stats);
+                           }
+                       }
+
+                      \***/
+
 
     
                           if(data.message.startsWith('BID_')) {
