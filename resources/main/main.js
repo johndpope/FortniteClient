@@ -668,8 +668,6 @@ module.exports = {
                             fortnite.communicator.sendMessage(data.friend.id, err);
                           }
                         }
-<<<<<<< HEAD
-=======
 
 
                       /*
@@ -717,9 +715,6 @@ module.exports = {
                        }
 
                       \***/
-
-
->>>>>>> e0a28562403daa7e1847e471e28322bce72fc414
     
                           if(data.message.startsWith('BID_')) {
                             if(data.message === 'BID_') return fortnite.communicator.sendMessage(data.friend.id, "Please mention a bid id.");
