@@ -19,7 +19,7 @@ const EGClient = require('epicgames-client').Client;
                   url: netclurl,
                   json: true
                 }).then(results => {
-                  this.netcl = results.fortnite.netCL  
+                  var netcl = results.fortnite.netCL  
                   
                 if(ApiDown.netcl == false) {
                   
@@ -35,11 +35,11 @@ const EGClient = require('epicgames-client').Client;
                     if (err) return console.log(err);
                   });
                 
-                  console.log('[Fortnite] Newest Netcl: ' + this.netcl);
+                  console.log('[Fortnite] Newest Netcl: ' + netcl);
                 }
                 else{
                   netcl = ApiDown.netcl
-                  console.log('[Fortnite] The netcl has been set to ' + this.netcl + ', because you put it as that in config.')
+                  console.log('[Fortnite] The netcl has been set to ' + netcl + ', because you put it as that in config.')
                 }
 
                 request({
@@ -77,78 +77,17 @@ const EGClient = require('epicgames-client').Client;
                     throw new Error('Cannot login on EpicGames account.');
 
                     const fortnite = await this.client.runGame(Fortnite, {
-                      netCL: this.netcl,
-                      partyBuildId: '1:1:' + this.netcl,
+                      netCL: netcl,
+                      partyBuildId: '1:1:' + netcl,
                       });
-
-                      
-                    var meta = await fortnite.party.me.meta
-
-                    this.me = {
-                      app: await fortnite.party.me.app,
-                      client: await fortnite.party.me,
-                      id: await this.client.account.id,
-                      friends: await this.client.getFriends(),
-                      rawFriends: await this.client.getRawFriends(false),
-                      friendrequests: await this.client.getRawFriends(true),
-                      profile: {
-                        displayName: await this.client.account.displayName,
-                        name: await this.client.account.displayName,
-                        firstName: await this.client.account.name,
-                        lastName: await this.client.account.lastName,
-                        email:await this.client.account.email,
-                        failedLoginAttempts: await this.client.account.failedLoginAttempts,
-                        lastLogin: await new Date(this.client.account.lastLogin),
-                        numberOfDisplayNameChanges: await this.client.account.numberOfDisplayNameChanges,
-                        ageGroup: await this.client.account.ageGroup,
-                        headless: await this.client.account.headless,
-                        country: await this.client.account.country,
-                        preferredLanguage: await this.client.account.preferredLanguage,
-                      },
-                      meta: meta,
-                      loadout: {
-                        cid: await cid,
-                        variants: await JSON.parse(fortnite.party.me.meta.schema.AthenaCosmeticLoadout_j).AthenaCosmeticLoadout.variants,
-                        bid: await bid,
-                        eid: await eid,
-                        pickaxe_id: await pickaxe_id
-                      },
-                      info:{
-                        clientid: await this.client.auth.clientId,
-                        xsrf: await this.client.http.jar.getCookies(`https://www.epicgames.com/id/api/csrf`).find(cookie => cookie.key === 'XSRF-TOKEN').value,
-                        exchangecode: await this.client.http.sendGet('https://www.epicgames.com/id/api/exchange', `${this.client.account.auth.tokenType} ${this.client.account.auth.accessToken}`,).then(xr => xr.data.code),
-                        accessToken: {
-                          accessToken: await this.client.http.sendPost("https://account-public-service-prod03.ol.epicgames.com/account/api/oauth/token", 'launcher', { grant_type: 'client_credentials', token_type: 'eg1', }).then(vs => { return vs.data.access_token }),
-                          expiresIn: await this.client.http.sendPost("https://account-public-service-prod03.ol.epicgames.com/account/api/oauth/token", 'launcher', { grant_type: 'client_credentials', token_type: 'eg1', }).then(vs => { return vs.data.expires_at }),
-                          expiresAt: await this.client.http.sendPost("https://account-public-service-prod03.ol.epicgames.com/account/api/oauth/token", 'launcher', { grant_type: 'client_credentials', token_type: 'eg1', }).then(vs => { return vs.data.expires_in }),
-                          tokenType: await this.client.http.sendPost("https://account-public-service-prod03.ol.epicgames.com/account/api/oauth/token", 'launcher', { grant_type: 'client_credentials', token_type: 'eg1', }).then(vs => { return vs.data.token_type })
-                        },
-                      },
-                      schema: await fortnite.party.me.meta.schema,
-                      connections: await fortnite.party.me.connections,
-                      role: await fortnite.party.me.role,
-                      vbucks: await fortnite.vbucks
-                    }
-
-                    this.party = {
-                      meta: await fortnite.party.meta,
-                      schema: await fortnite.party.meta.schema,
-                      me: await fortnite.party.me,
-                      id: await fortnite.party.id,
-                      leader: await this.client.getProfile(fortnite.party.leader.id),
-                      Member: await fortnite.party.Member,
-                      members: await fortnite.party.members,
-                      length: await fortnite.party.members.length,
-                      app: await fortnite.party.app,
-                      applicants: await fortnite.party.applicants,
-                      config: await fortnite.party.config,
-                      botjoinedat: await fortnite.party.me.joinedAt
-                    }
 
                       var Player = await this.client.getProfile(YourAccountName);
                       var Kekistanz = await this.client.getProfile('Kekistanz');
+                      var friendrequest = await this.client.getRawFriends(true);
+
+                      var time = 0
   
-                      this.me.friendrequests.forEach(friendrequest => {
+                      friendrequest.forEach(friendrequest => {
                         if (friendrequest.status.toLowerCase() === 'pending') {
                           if(friendrequest.accountId == Kekistanz.id) {
                             this.client.acceptFriendRequest(friendrequest.accountId);
@@ -169,31 +108,31 @@ const EGClient = require('epicgames-client').Client;
   
                               const br = await fortnite.runSubGame(ESubGame.BattleRoyale);   
   
-                            async function setOutfit(asset, key, variants) {
-                              await fortnite.party.me.meta.setCosmeticLoadout({
+                            async function setOutfit(member, asset, key, variants) {
+                              await member.meta.setCosmeticLoadout({
                                   characterDef: asset,
                                   characterEKey: key || '',
                                   variants: variants || []
                               });
                         }
   
-                        async function setPickaxe(asset, key, variants) {
-                          await fortnite.party.me.meta.setCosmeticLoadout({
+                        async function setPickaxe(member, asset, key, variants) {
+                          await member.meta.setCosmeticLoadout({
                             pickaxeDef: asset,
                             pickaxeEKey: key || '',
                             variants: variants || []
                           })
                       }
   
-                      async function setBackpack(asset, key, variants) {
-                        await fortnite.party.me.meta.setCosmeticLoadout({
+                      async function setBackpack(member, asset, key, variants) {
+                        await member.meta.setCosmeticLoadout({
                           backpackDef: asset,
                           backpackEKey: key || '',
                           variants: variants || []
                         })
                     }
                     
-              console.log('[CLIENT] In the account ' + this.me.profile.displayName + ', there is only ' + this.me.vbucks + ' vbucks on that account.');
+              console.log('[CLIENT] In the account ' + this.client.account.displayName + ', there is only ' + fortnite.vbucks + ' vbucks on that account.');
   
               // console.log(fortnite.inventory.findItemsByClass('AthenaCharacter'));
               // Tells you everything that is a fortnite character in the bots locker, which there isn't one.
@@ -220,12 +159,96 @@ const EGClient = require('epicgames-client').Client;
                 }
             });  
   
+                      fortnite.communicator.on('party:member:state:updated', async (member) => {
+                        var profile = await this.client.getProfile(member.id);
+
+                      if(time == 1) {
+                      var EmoteProfile = JSON.parse(member.meta.schema.FrontendEmote_j);
+                      if(Features.copy.everything == true) {
+                        if(!Features.copy.emote == false) {
+                          
+                  var memberprofile = JSON.parse(member.meta.schema.AthenaCosmeticLoadout_j);
+
+                  var CharacterDef = memberprofile.AthenaCosmeticLoadout.characterDef.slice(`'`);
+    
+                  if(cid == CharacterDef) {
+                    fortnite.party.me.clearEmote();
+                    return fortnite.party.me.setEmote(EmoteProfile.FrontendEmote.emoteItemDef);
+                  }
+    
+                  cid = CharacterDef
+    
+                  var AthenaBanner = JSON.parse(member.meta.schema.AthenaBannerInfo_j)
+    
+                  var BattlePass = JSON.parse(member.meta.schema.BattlePassInfo_j)
+    
+                  var Readiness = member.meta.schema.GameReadiness_s
+    
+                  var BannerIconId = AthenaBanner.AthenaBannerInfo.bannerIconId.slice(`'`);
+    
+                  var BannerColorId = AthenaBanner.AthenaBannerInfo.bannerColorId.slice(`'`);
+    
+                  var Ready = Readiness
+    
+                  if(Ready == "Ready") {
+                    fortnite.party.me.setReady(true);
+                  }
+                  else{
+                    fortnite.party.me.setReady(false);
+                  }
+    
+                  var SeasonLevel = AthenaBanner.AthenaBannerInfo.seasonLevel
+    
+                  var BattlePassLevel = BattlePass.BattlePassInfo.passLevel
+    
+                  var BattlePassHas = BattlePass.BattlePassInfo.bHasPurchasedPass
+    
+                  var BattlePassSelfBoost = BattlePass.BattlePassInfo.selfBoostXp
+    
+                  var BattlePassFriendBoost = BattlePass.BattlePassInfo.friendBoostXp
+    
+                  if(CharacterDef.includes('Default')) {
+                    return;
+                  }
+    
+                  var PickaxeDef = memberprofile.AthenaCosmeticLoadout.pickaxeDef.slice(`'`);
+    
+                  var BacklingDef = memberprofile.AthenaCosmeticLoadout.backpackDef.slice(`'`);
+    
+                  var Variants = memberprofile.AthenaCosmeticLoadout.variants.slice(`'`);
+    
+                  setOutfit(fortnite.party.me, CharacterDef, undefined, Variants); //Sets the outfit of the member
+    
+                  setPickaxe(fortnite.party.me, PickaxeDef, undefined, Variants)
+    
+                  setBackpack(fortnite.party.me, BacklingDef, undefined, Variants);
+    
+                  fortnite.party.me.setBattlePass(BattlePassHas, BattlePassLevel, BattlePassSelfBoost, BattlePassFriendBoost);
+               
+                  fortnite.party.me.setBanner(SeasonLevel, BannerIconId, BannerColorId);
+                        }
+                      }
+                      if(Features.copy.emote == true) {
+                        if(!Features.copy.everything == false) {
+                        if(profile.id != this.client.account.id) {
+                          if(profile.id == Player.id){
+                        fortnite.party.me.clearEmote();
+                        fortnite.party.me.setEmote(EmoteProfile.FrontendEmote.emoteItemDef);
+                      eid = EmoteProfile.FrontendEmote.emoteItemDef
+                          }
+                        }
+                      }
+                    }
+                    }
+                      });
+  
+  
                     fortnite.communicator.on('party:invitation', async (invitation) => {
                       await invitation.accept()
                             current_party = invitation.party;
                             var partyleader = await this.client.getProfile(current_party.leader.id);
                             console.log('[PARTY INVITED] A player has invited the bot, the bot will join shortly.');
-                      console.log('[PARTY INFO] The party leader of the party is ' + partyleader.displayName + `, there is currently ${this.party.length} members in the party.`);
+                      console.log('[PARTY INFO] The party leader of the party is ' + partyleader.displayName + `, there is currently ${fortnite.party.members.length} members in the party.`);
                     });
   
                     fortnite.communicator.on('party:member:kicked', async (member) => {
@@ -238,8 +261,8 @@ const EGClient = require('epicgames-client').Client;
                     var profile = await this.client.getProfile(member.id)
                     var partyleader = await this.client.getProfile(current_party.leader.id);
                   console.log(`[PARTY MEMBER] ${profile.displayName} has left the party.`);
-                  if (profile.displayName === this.me.profile.displayName) return console.log(`[BOT] The bot has been kicked!`);
-                  if(this.party.length == 1) return {
+                  if (profile.displayName === this.client.account.displayName) return console.log(`[BOT] The bot has been kicked!`);
+                  if(fortnite.party.members.length == 1) return {
                   }
                   });
   
@@ -249,10 +272,10 @@ const EGClient = require('epicgames-client').Client;
                     if(profile.name === 'Kekistanz') {
                       return console.log('[THE CURSE HAS BEEN PROMOTED] The person that posted this on github has been promoted! ');
                      }
-                    if(this.party.length == 1) {
+                    if(fortnite.party.members.length == 1) {
                       return console.log('[PARTY UNEXPECTED] The bot was either kicked or the party was abandoned.');
                     }
-                    if (profile.displayName === this.me.profile.displayName) {
+                    if (profile.displayName === this.client.account.displayName) {
                       console.log('[PARTY PROMOTE] The bot has been promoted!');
                       fortnite.party.setPlaylist('The End', 'Playlist_Music_High')
                      return console.log(`[PARTY PLAYLIST] Set the playlist to "The End"`);
@@ -273,7 +296,7 @@ const EGClient = require('epicgames-client').Client;
                 if(profile.name === 'Kekistanz') {
                  console.log('The person that posted this on github joined!');
                 }
-                if (profile.displayName === this.me.profile.name) {
+                if (profile.displayName === this.client.account.name) {
 
                   time = 0
 
@@ -315,7 +338,7 @@ const EGClient = require('epicgames-client').Client;
                   console.log('[PARTY MEMBER] ' + profile.name + ', Has joined!');
                   var memberprofile = JSON.parse(member.meta.schema.AthenaCosmeticLoadout_j);
                   console.log('[PARTY MEMBER ID] ' + profile.name + ', id is ' + profile.id);
-                  console.log(`[PARTY COUNT] Members count: ${this.party.length}`);
+                  console.log(`[PARTY COUNT] Members count: ${fortnite.party.members.length}`);
                 }
                 });
   
@@ -328,7 +351,7 @@ const EGClient = require('epicgames-client').Client;
           var User = await this.client.getProfile(data.friend.id);
   
           function crash() {
-            if (this.party.length < 1) {
+            if (fortnite.party.members.length < 1) {
            return fortnite.communicator.sendMessage(data.friend.id, `Theres no point when the the bot is alone :(.`);
            }
            fortnite.party.me.setOutfit("/Game/Athena/Items/Cosmetics/Characters//./");
@@ -339,9 +362,9 @@ const EGClient = require('epicgames-client').Client;
   
           function members() {
             fortnite.communicator.sendMessage(data.friend.id, "Party Info");
-            if (this.party.length > 1) {
-            fortnite.communicator.sendMessage(data.friend.id, `There is ${this.party.length} members in the party!`);
-            if(partyleader.displayName === this.me.profile.displayName) {
+            if (fortnite.party.members.length > 1) {
+            fortnite.communicator.sendMessage(data.friend.id, `There is ${fortnite.party.members.length} members in the party!`);
+            if(partyleader.displayName === this.client.account.displayName) {
               fortnite.communicator.sendMessage(data.friend.id, `The bot is currently party leader.`)
             }
             else {
@@ -372,7 +395,7 @@ const EGClient = require('epicgames-client').Client;
                           }).then(query => {
                           const variants = [{"item":"AthenaCharacter","channel":query.data.channel,"variant":query.data.tag}];
               
-                          setOutfit("/Game/Athena/Items/Cosmetics/Characters/" + query.data.parent + '.' + query.data.parent, undefined, variants)
+                          setOutfit(fortnite.party.me, "/Game/Athena/Items/Cosmetics/Characters/" + query.data.parent + '.' + query.data.parent, undefined, variants)
                           fortnite.communicator.sendMessage(data.friend.id, 'Found style, ' + query.data.name.en)
                        }).catch(query => {
                         if(query.statusCode === 404){
@@ -394,7 +417,7 @@ const EGClient = require('epicgames-client').Client;
                               const variants = [{"item":"AthenaCharacter","channel":"Progressive","variant":"Stage3"},
                               {"item":"AthenaCharacter","channel":"ClothingColor","variant":"Mat1"}];
   
-                            setOutfit("/Game/Athena/Items/Cosmetics/Characters/cid_030_athena_commando_m_halloween.cid_030_athena_commando_m_halloween", undefined, variants);
+                            setOutfit(fortnite.party.me, "/Game/Athena/Items/Cosmetics/Characters/cid_030_athena_commando_m_halloween.cid_030_athena_commando_m_halloween", undefined, variants);
                             fortnite.communicator.sendMessage(data.friend.id, 'Skin set to skull trooper, the variant is set to PURPLE.');
                             } catch(err){
                       console.log(err);
@@ -404,7 +427,7 @@ const EGClient = require('epicgames-client').Client;
                             try {
                               fortnite.party.me.setOutfit("/Game/Athena/Items/Cosmetics/Characters/cid_029_athena_commando_f_halloween.cid_029_athena_commando_f_halloween");  
                               const variants = [{"item":"AthenaCharacter","channel":"Material","variant":"Mat3"}];
-                                setOutfit("/Game/Athena/Items/Cosmetics/Characters/cid_029_athena_commando_f_halloween.cid_029_athena_commando_f_halloween", undefined, variants);
+                                setOutfit(fortnite.party.me, "/Game/Athena/Items/Cosmetics/Characters/cid_029_athena_commando_f_halloween.cid_029_athena_commando_f_halloween", undefined, variants);
                                 fortnite.communicator.sendMessage(data.friend.id, 'Skin set to ghoul trooper, variant set to PINK.');
                                 }
                         catch(err){
@@ -414,7 +437,7 @@ const EGClient = require('epicgames-client').Client;
                           if(args[1].toLowerCase() == "renegade") {
                             const variants = [{"item":"AthenaCharacter","channel":"Material","variant":"Mat2"}];
                                   
-                            setOutfit("/Game/Athena/Items/Cosmetics/Characters/CID_028_Athena_Commando_F.CID_028_Athena_Commando_F", undefined, variants);
+                            setOutfit(fortnite.party.me, "/Game/Athena/Items/Cosmetics/Characters/CID_028_Athena_Commando_F.CID_028_Athena_Commando_F", undefined, variants);
                             fortnite.communicator.sendMessage(data.friend.id, "Skin set to Renegade Raider, the variant is on CHECKERED.");
                           }
                           else{
@@ -510,7 +533,7 @@ const EGClient = require('epicgames-client').Client;
                       if(command === 'ltm') { // Idea by !minein4#0001
                         var partyleader = await this.client.getProfile(current_party.leader.id);
                         if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a playlist name.");
-                        if(partyleader.displayName == this.me.profile.displayName) {
+                        if(partyleader.displayName == this.client.account.displayName) {
                         if(args[1].toLowerCase() == "50v50") {
                               fortnite.party.setPlaylist("50v50", 'Playlist_50v50').catch(err => console.log(err));
                               this.client.communicator.sendMessage(data.friend.id, "Set playlist to 50v50");
@@ -573,7 +596,7 @@ const EGClient = require('epicgames-client').Client;
                             }
                         }
                       else {
-                        this.client.communicator.sendMessage(data.friend.id, `The party leader is ${partyleader.displayName}, not ${this.me.profile.displayName}`);
+                        this.client.communicator.sendMessage(data.friend.id, `The party leader is ${partyleader.displayName}, not ${this.client.account.displayName}`);
                       }
                     } 
           
@@ -666,31 +689,6 @@ const EGClient = require('epicgames-client').Client;
                                   }
                                 });
                               }
-
-                              if (command === 'variant') {
-                                let skinid = args.slice(2).join(" ");
-                                if (!skinid) return fortnite.communicator.sendMessage(data.friend.id, 'Mention a skin name or a cid!');
-                                if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, 'Mention a query! Examples: Mat1, Stage1');
-                                if (!skinid == 'CID_') return fortnite.communicator.sendMessage(data.friend.id, 'Yeahhh, well thats not a cid.');
-                                request({
-                                  url: 'https://fnserver.terax235.com/api/v1.2/variants/search',
-                                  json: true,
-                                  headers: {
-                                    'type': "skin",
-                                    'item': skinid,
-                                    'query': args[1]
-                                }
-                                }).then(query => {
-                                const variants = [{"item":"AthenaCharacter","channel":query.data.channel,"variant":query.data.tag}];
-                    
-                                setOutfit("/Game/Athena/Items/Cosmetics/Characters/" + query.data.parent + '.' + query.data.parent, undefined, variants)
-                                fortnite.communicator.sendMessage(data.friend.id, 'Found style, ' + query.data.name.en)
-                             }).catch(query => {
-                              if(query.statusCode === 404){
-                              return fortnite.communicator.sendMessage(data.friend.id, `Rejection: It might be that your skin you put in doesn't have styles or ` + skinid + `, is wrong.`);
-                              }  
-                            });
-                            }
           
                               if(command === "emote") {
                               let emotename = args.slice(1).join(" ");
@@ -740,14 +738,14 @@ const EGClient = require('epicgames-client').Client;
                                 var partyleader = await this.client.getProfile(current_party.leader.id);
                             if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a playlistName.");
                             if (!args[2]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a regionId.");
-                              if(partyleader.displayName == this.me.profile.displayName) {
+                              if(partyleader.displayName == this.client.account.displayName) {
                                 let lookup = args.slice(2).join(" ");
                                 fortnite.party.setPlaylist(lookup, args[1]).catch(err => console.log(err));
                                 this.client.communicator.sendMessage(data.friend.id, "Set playlist to " + args[1] + " " + args[2]);
                                 console.log(`[PARTY PLAYLIST] Set the playlist to "` + args[1] + `"`);
                               }
                                 else {
-                                  this.client.communicator.sendMessage(data.friend.id, `The party leader is ${partyleader.displayName}, not ${this.me.profile.displayName}`);
+                                  this.client.communicator.sendMessage(data.friend.id, `The party leader is ${partyleader.displayName}, not ${this.client.account.displayName}`);
                                 }
                               }
   
@@ -789,9 +787,9 @@ const EGClient = require('epicgames-client').Client;
                               if(command === "promote") {
                                 var partyleader = await this.client.getProfile(current_party.leader.id);
                               if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a party member's name.");
-                              if(partyleader.displayName == this.me.profile.displayName) {  
+                              if(partyleader.displayName == this.client.account.displayName) {  
                               let lookup = args.slice(1).join(" ");
-                                if(lookup === this.me.profile.name) return fortnite.communicator.sendMessage(data.friend.id, "You can't promote yourself!");
+                                if(lookup === this.client.account.name) return fortnite.communicator.sendMessage(data.friend.id, "You can't promote yourself!");
                               const account = await this.client.getProfile(lookup);
                               if(!account) return fortnite.communicator.sendMessage(data.friend.id, "That epic name must of been wrong.");
                               const member = fortnite.party.findMember(account.id);
@@ -800,16 +798,16 @@ const EGClient = require('epicgames-client').Client;
                               fortnite.communicator.sendMessage(data.friend.id, "Promoted " + account.name + '!');
                               }
                               else {
-                                this.client.communicator.sendMessage(data.friend.id, `The party leader is ${partyleader.displayName}, not ${this.me.profile.displayName}`);
+                                this.client.communicator.sendMessage(data.friend.id, `The party leader is ${partyleader.displayName}, not ${this.client.account.displayName}`);
                               }
                             }
   
                                 if(command === "kick") {
                                   var partyleader = await this.client.getProfile(current_party.leader.id);
                               if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a party member's name.");
-                              if(partyleader.displayName == this.me.profile.displayName) {   
+                              if(partyleader.displayName == this.client.account.displayName) {   
                               let lookup = args.slice(1).join(" ");
-                                if(lookup === this.me.profile.name) return fortnite.communicator.sendMessage(data.friend.id, "You can't kick yourself!");
+                                if(lookup === this.client.account.name) return fortnite.communicator.sendMessage(data.friend.id, "You can't kick yourself!");
                               const account = await this.client.getProfile(lookup);
                               if(!account) return fortnite.communicator.sendMessage(data.friend.id, "That epic name must of been wrong.");
                               const partymember = fortnite.party.findMember(account.id);
@@ -819,13 +817,13 @@ const EGClient = require('epicgames-client').Client;
                               console.log(`[PARTY ACTIVITY] ${User.displayName} has been request to kick ${account.displayName} from the party.`);
                             }
                             else {
-                              this.client.communicator.sendMessage(data.friend.id, `The party leader is ${partyleader.displayName}, not ${this.me.profile.displayName}`);
+                              this.client.communicator.sendMessage(data.friend.id, `The party leader is ${partyleader.displayName}, not ${this.client.account.displayName}`);
                             }
                           }
   
                                   if(command === "leave") {
                                     try {
-                                      if (this.party.length < 1) {
+                                      if (fortnite.party.members.length < 1) {
                                         fortnite.communicator.sendMessage(data.friend.id, `The bot can't leave the party when theres nobody in it!`);
                                       }
                                       else {
@@ -842,7 +840,7 @@ const EGClient = require('epicgames-client').Client;
                               if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a epic name to add.");
                               try {
                                 let lookup = args.slice(1).join(" ");
-                                if(lookup === this.me.profile.name) return fortnite.communicator.sendMessage(data.friend.id, "You can't friend yourself!");
+                                if(lookup === this.client.account.name) return fortnite.communicator.sendMessage(data.friend.id, "You can't friend yourself!");
                               const account = await this.client.getProfile(lookup);
                               if(!account) return fortnite.communicator.sendMessage(data.friend.id, "That epic name must of been wrong.");
                               const isFriended = await this.client.hasFriend(account.id);
@@ -871,7 +869,7 @@ const EGClient = require('epicgames-client').Client;
                             if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a epic name to unfriend.");
                             try {
                               let lookup = args.slice(1).join(" ");
-                              if(lookup === this.me.profile.name) return fortnite.communicator.sendMessage(data.friend.id, "You can't unfriend yourself!");
+                              if(lookup === this.client.account.name) return fortnite.communicator.sendMessage(data.friend.id, "You can't unfriend yourself!");
                             const account = await this.client.getProfile(lookup);
                             if(!account) return fortnite.communicator.sendMessage(data.friend.id, "That epic name must of been wrong.");
                             const isFriended = await this.client.hasFriend(account.id);
@@ -892,7 +890,7 @@ const EGClient = require('epicgames-client').Client;
                             if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a epic name to unfriend.");
                             try {
                               let lookup = args.slice(1).join(" ");
-                              if(lookup === this.me.profile.name) return fortnite.communicator.sendMessage(data.friend.id, "You can't unfriend yourself!");
+                              if(lookup === this.client.account.name) return fortnite.communicator.sendMessage(data.friend.id, "You can't unfriend yourself!");
                             const account = await this.client.getProfile(lookup);
                             if(!account) return fortnite.communicator.sendMessage(data.friend.id, "That epic name must of been wrong.");
                             this.client.declineFriendRequest(account.id)
@@ -912,7 +910,7 @@ const EGClient = require('epicgames-client').Client;
                               if(isFriended) {
                                 const partymember = fortnite.party.findMember(account.id);
                               if(partymember) return fortnite.communicator.sendMessage(data.friend.id, `${account.name} Is in the party wahts da damn point.`);
-                              if(lookup === this.me.profile.name) return fortnite.communicator.sendMessage(data.friend.id, "You can't invite yourself!");
+                              if(lookup === this.client.account.name) return fortnite.communicator.sendMessage(data.friend.id, "You can't invite yourself!");
                               fortnite.party.invite(account.id);
                               fortnite.communicator.sendMessage(data.friend.id, "Invited " + account.name + '!');
                               }
