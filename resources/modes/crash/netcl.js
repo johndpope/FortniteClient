@@ -7,8 +7,8 @@ const EGClient = require('epicgames-client').Client;
                   const { email, password, YourAccountName, Cosmetics, ApiDown } = require("../../../config.json");
                   const request = require("request-promise");
                   const { ESubGame } = Fortnite;
-                
-                  console.log('Crash mode on with back netcl.')
+    
+    console.clear();
 
                 var cid = Cosmetics.cid
                 // var Console = config.Console
