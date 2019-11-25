@@ -9,9 +9,6 @@
                   if(!this.email) throw new Error (`[CONFIG MISSING PART] You didn't have your email in config!`);
                   if(!this.password) throw new Error (`[CONFIG MISSING PART] You didn't have your password in config!`);
 
-                  console.log('Used syfes or aquas code.');
-                  console.log('Github: https://github.com/Kekisatan/FortniteBot2/');
-
                    if(this.Modes.Crash || this.Modes.fakeplayer) {
                     this.checker = require('./resources/checker/checker.js');
                     this.checker.check();
@@ -19,6 +16,5 @@
                     }
                     else{
                       this.main = require('./resources/main/main.js');
-                      console.log('Main Bot on!');
                       this.main.run();
                     }

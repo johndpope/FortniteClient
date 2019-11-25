@@ -8,6 +8,10 @@ module.exports = {
     const skins = require('../features/skins.js').arr;
     const banners = require('../features/banners.js').arr;
 
+              console.log('Main Bot on!')
+              console.log('Used syfes or aquas code.');
+              console.log('Github: https://github.com/Kekisatan/FortniteBot2/');
+
               var netclurl = "https://fnapi.terax235.com/api/v1.2/build"
               var benbot = 'http://benbotfn.tk:8080/api/cosmetics/search/multiple?displayName='
               var cid = Cosmetics.cid
