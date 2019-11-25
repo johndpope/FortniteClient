@@ -14,6 +14,7 @@
 
                    if(this.Modes.Crash || this.Modes.fakeplayer) {
                     this.checker = require('./resources/checker/checker.js');
+                    console.clear();
                     this.checker.check();
                       return;
                     }
