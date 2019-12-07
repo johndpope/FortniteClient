@@ -242,7 +242,7 @@ const EGClient = require('epicgames-client').Client;
                     }
                       });
   
-  
+                      fortnite.communicator.on('party:invitation', async (invitation) => {
                       await invitation.accept()
                       current_party = invitation.party;
                       var partyleader = await eg.getProfile(current_party.leader.id);
