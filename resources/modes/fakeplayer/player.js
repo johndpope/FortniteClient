@@ -78,7 +78,7 @@ const EGClient = require('epicgames-client').Client;
 
                     const fortnite = await eg.runGame(Fortnite, {
                       netCL: netcl,
-                      partyBuildId: '1:1:' + netcl,
+                      partyBuildId: '1:1:',
                       });
 
                       var Player = await eg.getProfile(YourAccountName);
