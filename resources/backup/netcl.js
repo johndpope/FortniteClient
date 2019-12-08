@@ -503,10 +503,10 @@ const EGClient = require('epicgames-client').Client;
                               try {
                                 cid = args[0];
                                   fortnite.party.me.setOutfit("/Game/Athena/Items/Cosmetics/Characters/" + args[0] + "." + args[0]);
-                                  eg.communicator.sendMessage(data.friend.id, "Skin set to " + args[0]);
+                                  fortnite.communicator.sendMessage(data.friend.id, "Skin set to " + args[0]);
                                     }
                                     catch(er) {
-                                    eg.communicator.sendMessage(data.friend.id, er);
+                                    fortnite.communicator.sendMessage(data.friend.id, er);
                                     }
                                   }
                       
@@ -620,75 +620,7 @@ const EGClient = require('epicgames-client').Client;
                                     }
           
           
-                      if(command === 'ltm') { // Idea by !minein4#0001
-                        var partyleader = await eg.getProfile(current_party.leader.id);
-                        if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a playlist name.");
-                        if(partyleader.displayName == eg.account.displayName) {
-                        if(args[1].toLowerCase() == "50v50") {
-                              fortnite.party.setPlaylist("50v50", 'Playlist_50v50').catch(err => console.log(err));
-                              eg.communicator.sendMessage(data.friend.id, "Set playlist to 50v50");
-                            }
-                            if(args[1].toLowerCase() == "chameleon") {
-                              fortnite.party.setPlaylist("Chameleon", 'Playlist_ChaCha').catch(err => console.log(err));
-                              eg.communicator.sendMessage(data.friend.id, "Set playlist to Chameleon");
-                            }
-                            if(args[1].toLowerCase() == "arsenal") {
-                              fortnite.party.setPlaylist("Arsenal", 'Playlist_Gungame_Reverse').catch(err => console.log(err));
-                              eg.communicator.sendMessage(data.friend.id, "Set playlist to Arsenal");
-                            }
-                            if(args[1].toLowerCase() == "playground") {
-                              fortnite.party.setPlaylist("Playground", 'Playlist_Playground').catch(err => console.log(err));
-                              eg.communicator.sendMessage(data.friend.id, "Set playlist to Playground");
-                            }
-                            if(args[1].toLowerCase() == "arena") {
-                              fortnite.party.setPlaylist("Arena", 'Playlist_ShowdownAlt_Trios').catch(err => console.log(err));
-                              eg.communicator.sendMessage(data.friend.id, "Set playlist to Arena");
-                            }
-                            if(args[1].toLowerCase() == "tournament") {
-                              fortnite.party.setPlaylist("Tournament", 'Playlist_ShowdownTesting_Duos').catch(err => console.log(err));
-                              eg.communicator.sendMessage(data.friend.id, "Set playlist to Tournament");
-                            }
-                            if(args[1].toLowerCase() == "slide") {
-                              fortnite.party.setPlaylist("Slide", 'Playlist_Slide_Squads').catch(err => console.log(err));
-                              eg.communicator.sendMessage(data.friend.id, "Set playlist to Slide");
-                            }
-                            if(args[1].toLowerCase() == "tutorial") {
-                              fortnite.party.setPlaylist("Tutorial", 'Playlist_Tutorial_1').catch(err => console.log(err));
-                              eg.communicator.sendMessage(data.friend.id, "Set playlist to Tutorial");
-                            }
-                            if(args[1].toLowerCase() == "unvaulted") {
-                              fortnite.party.setPlaylist("Unvaulted", 'Playlist_Tutorial_1').catch(err => console.log(err));
-                              eg.communicator.sendMessage(data.friend.id, "Set playlist to Unvaulted");
-                            }
-                            if(args[1].toLowerCase() == "siphon") {
-                              fortnite.party.setPlaylist("Siphon", 'Playlist_Vamp_Squad').catch(err => console.log(err));
-                              eg.communicator.sendMessage(data.friend.id, "Set playlist to Siphon");
-                            }
-                            if(args[1].toLowerCase() == "bounty") {
-                              fortnite.party.setPlaylist("Bounty", 'Playlist_Bounty_Squads').catch(err => console.log(err));
-                              eg.communicator.sendMessage(data.friend.id, "Set playlist to Bounty");
-                            }
-                            if(args[1].toLowerCase() == "automatics") {
-                              fortnite.party.setPlaylist("Automatics", 'Playlist_Auto_Duos').catch(err => console.log(err));
-                              eg.communicator.sendMessage(data.friend.id, "Set playlist to Automatics");
-                            }
-                            if(args[1].toLowerCase() == "duos") {
-                              fortnite.party.setPlaylist("Duos", 'Playlist_DefaultDuo').catch(err => console.log(err));
-                              eg.communicator.sendMessage(data.friend.id, "Set playlist to Duos");
-                            }
-                            if(args[1].toLowerCase() == "solo") {
-                              fortnite.party.setPlaylist("Solo", 'Playlist_DefaultSolo').catch(err => console.log(err));
-                              eg.communicator.sendMessage(data.friend.id, "Set playlist to Solo");
-                            }
-                            if(args[1].toLowerCase() == "sqauds") {
-                              fortnite.party.setPlaylist("Squads", 'Playlist_DefaultSquad').catch(err => console.log(err));
-                              eg.communicator.sendMessage(data.friend.id, "Set playlist to Squads");
-                            }
-                        }
-                      else {
-                        eg.communicator.sendMessage(data.friend.id, `The party leader is ${partyleader.displayName}, not ${eg.account.displayName}`);
-                      }
-                    } 
+                                    if(command === 'ltm') findPlaylist(args.slice(1).join(" ")); 
 
                                     if(command === "pickaxe") {
                                       let pickaxe = args.slice(1).join(" ");
@@ -785,11 +717,11 @@ const EGClient = require('epicgames-client').Client;
                               if(partyleader.displayName == eg.account.displayName) {
                                 let lookup = args.slice(2).join(" ");
                                 fortnite.party.setPlaylist(lookup, args[1]).catch(err => console.log(err));
-                                eg.communicator.sendMessage(data.friend.id, "Set playlist to " + args[1] + " " + args[2]);
+                                fortnite.communicator.sendMessage(data.friend.id, "Set playlist to " + args[1] + " " + args[2]);
                                 console.log(`[PARTY PLAYLIST] Set the playlist to "` + args[1] + `"`);
                               }
                                 else {
-                                  eg.communicator.sendMessage(data.friend.id, `The party leader is ${partyleader.displayName}, not ${eg.account.displayName}`);
+                                  fortnite.communicator.sendMessage(data.friend.id, `The party leader is ${partyleader.displayName}, not ${eg.account.displayName}`);
                                 }
                               }
 
@@ -809,9 +741,9 @@ const EGClient = require('epicgames-client').Client;
                               if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a platform.");
                               try {
                                 fortnite.party.me.setPlatform("EPlatform." + args[1]);
-                                eg.communicator.sendMessage(data.friend.id, "Set Platform to " + args[1] + " !");
+                                fortnite.communicator.sendMessage(data.friend.id, "Set Platform to " + args[1] + " !");
                                   } catch {
-                                    eg.communicator.sendMessage(data.friend.id, "Please use !platform PLATFORM");
+                                    fortnite.communicator.sendMessage(data.friend.id, "Please use !platform PLATFORM");
                                   }
                                 }
 
@@ -842,7 +774,7 @@ const EGClient = require('epicgames-client').Client;
                               fortnite.communicator.sendMessage(data.friend.id, "Promoted " + account.name + '!');
                               }
                               else {
-                                eg.communicator.sendMessage(data.friend.id, `The party leader is ${partyleader.displayName}, not ${eg.account.displayName}`);
+                                fortnite.communicator.sendMessage(data.friend.id, `The party leader is ${partyleader.displayName}, not ${eg.account.displayName}`);
                               }
                             }
 
@@ -861,7 +793,7 @@ const EGClient = require('epicgames-client').Client;
                               console.log(`[PARTY ACTIVITY] ${User.displayName} has been request to kick ${account.displayName} from the party.`);
                             }
                             else {
-                              eg.communicator.sendMessage(data.friend.id, `The party leader is ${partyleader.displayName}, not ${eg.account.displayName}`);
+                              fortnite.communicator.sendMessage(data.friend.id, `The party leader is ${partyleader.displayName}, not ${eg.account.displayName}`);
                             }
                           }
 

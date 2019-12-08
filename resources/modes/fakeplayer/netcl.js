@@ -454,10 +454,10 @@ const EGClient = require('epicgames-client').Client;
                               try {
                                 cid = args[0];
                                   fortnite.party.me.setOutfit("/Game/Athena/Items/Cosmetics/Characters/" + args[0] + "." + args[0]);
-                                  eg.communicator.sendMessage(data.friend.id, "Skin set to " + args[0]);
+                                  fortnite.communicator.sendMessage(data.friend.id, "Skin set to " + args[0]);
                                     }
                                     catch(er) {
-                                    eg.communicator.sendMessage(data.friend.id, er);
+                                    fortnite.communicator.sendMessage(data.friend.id, er);
                                     }
                                   }
                       
@@ -665,11 +665,11 @@ const EGClient = require('epicgames-client').Client;
                               if(partyleader.displayName == eg.account.displayName) {
                                 let lookup = args.slice(2).join(" ");
                                 fortnite.party.setPlaylist(lookup, args[1]).catch(err => console.log(err));
-                                eg.communicator.sendMessage(data.friend.id, "Set playlist to " + args[1] + " " + args[2]);
+                                fortnite.communicator.sendMessage(data.friend.id, "Set playlist to " + args[1] + " " + args[2]);
                                 console.log(`[PARTY PLAYLIST] Set the playlist to "` + args[1] + `"`);
                               }
                                 else {
-                                  eg.communicator.sendMessage(data.friend.id, `The party leader is ${partyleader.displayName}, not ${eg.account.displayName}`);
+                                  fortnite.communicator.sendMessage(data.friend.id, `The party leader is ${partyleader.displayName}, not ${eg.account.displayName}`);
                                 }
                               }
   
@@ -689,9 +689,9 @@ const EGClient = require('epicgames-client').Client;
                               if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a platform.");
                               try {
                                 fortnite.party.me.setPlatform("EPlatform." + args[1]);
-                                eg.communicator.sendMessage(data.friend.id, "Set Platform to " + args[1] + " !");
+                                fortnite.communicator.sendMessage(data.friend.id, "Set Platform to " + args[1] + " !");
                                   } catch {
-                                    eg.communicator.sendMessage(data.friend.id, "Please use !platform PLATFORM");
+                                    fortnite.communicator.sendMessage(data.friend.id, "Please use !platform PLATFORM");
                                   }
                                 }
   
@@ -722,7 +722,7 @@ const EGClient = require('epicgames-client').Client;
                               fortnite.communicator.sendMessage(data.friend.id, "Promoted " + account.name + '!');
                               }
                               else {
-                                eg.communicator.sendMessage(data.friend.id, `The party leader is ${partyleader.displayName}, not ${eg.account.displayName}`);
+                                fortnite.communicator.sendMessage(data.friend.id, `The party leader is ${partyleader.displayName}, not ${eg.account.displayName}`);
                               }
                             }
   
@@ -741,7 +741,7 @@ const EGClient = require('epicgames-client').Client;
                               console.log(`[PARTY ACTIVITY] ${User.displayName} has been request to kick ${account.displayName} from the party.`);
                             }
                             else {
-                              eg.communicator.sendMessage(data.friend.id, `The party leader is ${partyleader.displayName}, not ${eg.account.displayName}`);
+                              fortnite.communicator.sendMessage(data.friend.id, `The party leader is ${partyleader.displayName}, not ${eg.account.displayName}`);
                             }
                           }
   

@@ -497,10 +497,10 @@ module.exports = {
                             try {
                               cid = args[0];
                                 fortnite.party.me.setOutfit("/Game/Athena/Items/Cosmetics/Characters/" + args[0] + "." + args[0]);
-                                eg.communicator.sendMessage(data.friend.id, "Skin set to " + args[0]);
+                                fortnite.communicator.sendMessage(data.friend.id, "Skin set to " + args[0]);
                                   }
                                   catch(er) {
-                                  eg.communicator.sendMessage(data.friend.id, er);
+                                  fortnite.communicator.sendMessage(data.friend.id, er);
                                   }
                                 }
                     
@@ -702,18 +702,21 @@ module.exports = {
                       }
 
                             if(command === "playlist") {
-                              var partyleader = await eg.getProfile(current_party.leader.id);
+
                           if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a playlistName.");
-                          if (!args[2]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a regionId.");
-                            if(partyleader.displayName == eg.account.displayName) {
+
+                          if (!args[2]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a tournamentid.");
+
+                          if(fortnite.party.me.role != 'CAPTAIN')
+                          return fortnite.communicator.sendMessage(data.friend.id, `The partyleader isn't ${eg.account.displayName}.`);
+
                               let lookup = args.slice(2).join(" ");
-                              fortnite.party.setPlaylist(lookup, args[1]).catch(err => console.log(err));
-                              eg.communicator.sendMessage(data.friend.id, "Set playlist to " + args[1] + " " + args[2]);
+
+                              fortnite.party.setPlaylist(lookup, args[1]);
+
+                              fortnite.communicator.sendMessage(data.friend.id, "Set playlist to " + args[1] + " " + args[2]);
+
                               console.log(`[PARTY PLAYLIST] Set the playlist to "` + args[1] + `"`);
-                            }
-                              else {
-                                eg.communicator.sendMessage(data.friend.id, `The party leader is ${partyleader.displayName}, not ${eg.account.displayName}`);
-                              }
                             }
 
                             if(command === "ready") {
@@ -732,9 +735,9 @@ module.exports = {
                             if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a platform.");
                             try {
                               fortnite.party.me.setPlatform("EPlatform." + args[1]);
-                              eg.communicator.sendMessage(data.friend.id, "Set Platform to " + args[1] + " !");
+                              fortnite.communicator.sendMessage(data.friend.id, "Set Platform to " + args[1] + " !");
                                 } catch {
-                                  eg.communicator.sendMessage(data.friend.id, "Please use !platform PLATFORM");
+                                  fortnite.communicator.sendMessage(data.friend.id, "Please use !platform PLATFORM");
                                 }
                               }
 
@@ -752,40 +755,51 @@ module.exports = {
                             }
 
                             if(command === "promote") {
-                              var partyleader = await eg.getProfile(current_party.leader.id);
                             if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a party member's name.");
-                            if(partyleader.displayName == eg.account.displayName) {  
+
+                          if(fortnite.party.me.role != 'CAPTAIN')
+                          return fortnite.communicator.sendMessage(data.friend.id, `The partyleader isn't ${eg.account.displayName}.`);
+
                             let lookup = args.slice(1).join(" ");
+
                               if(lookup === eg.account.name) return fortnite.communicator.sendMessage(data.friend.id, "You can't promote yourself!");
+
                             const account = await eg.getProfile(lookup);
+
                             if(!account) return fortnite.communicator.sendMessage(data.friend.id, "That epic name must of been wrong.");
+
                             const member = fortnite.party.findMember(account.id);
+
                             if(!member) return fortnite.communicator.sendMessage(data.friend.id, `${account.name} Wasn't found in the party.`);
+
                             fortnite.party.promote(account.id);
+
                             fortnite.communicator.sendMessage(data.friend.id, "Promoted " + account.name + '!');
-                            }
-                            else {
-                              eg.communicator.sendMessage(data.friend.id, `The party leader is ${partyleader.displayName}, not ${eg.account.displayName}`);
-                            }
                           }
 
                               if(command === "kick") {
-                                var partyleader = await eg.getProfile(current_party.leader.id);
                             if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a party member's name.");
-                            if(partyleader.displayName == eg.account.displayName) {   
+
+                            if(fortnite.party.me.role != 'CAPTAIN')
+                            return fortnite.communicator.sendMessage(data.friend.id, `The partyleader isn't ${eg.account.displayName}.`);
+    
                             let lookup = args.slice(1).join(" ");
+
                               if(lookup === eg.account.name) return fortnite.communicator.sendMessage(data.friend.id, "You can't kick yourself!");
+
                             const account = await eg.getProfile(lookup);
+
                             if(!account) return fortnite.communicator.sendMessage(data.friend.id, "That epic name must of been wrong.");
+
                             const partymember = fortnite.party.findMember(account.id);
+
                             if(!partymember) return fortnite.communicator.sendMessage(data.friend.id, `${account.name} Wasn't found in the party.`);
+
                             fortnite.party.kick(account.id);
+
                             fortnite.communicator.sendMessage(data.friend.id, "Kicked " + account.name + '!');
+
                             console.log(`[PARTY ACTIVITY] ${User.displayName} has been request to kick ${account.displayName} from the party.`);
-                          }
-                          else {
-                            eg.communicator.sendMessage(data.friend.id, `The party leader is ${partyleader.displayName}, not ${eg.account.displayName}`);
-                          }
                         }
 
                                 if(command === "leave") {
@@ -825,7 +839,10 @@ module.exports = {
                             if(command === "privacy") {
                               if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a vaild privacy name.");
                               try {
-                                fortnite.party.setPrivacy(args[1])
+                                if(fortnite.party.me.role != 'CAPTAIN')
+                                return fortnite.communicator.sendMessage(data.friend.id, `The partyleader isn't ${eg.account.displayName}.`);
+        
+                                fortnite.party.setPrivacy(args[1]);
                                 fortnite.communicator.sendMessage(data.friend.id, "Privacy set to " + args[1] + '.');
                               } catch(err) {
                                   fortnite.communicator.sendMessage(data.friend.id, "There was a error: " + err);
