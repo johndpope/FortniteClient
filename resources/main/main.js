@@ -104,7 +104,7 @@ module.exports = {
 
                   const fortnite = await eg.runGame(Fortnite, {
                     netCL: this.netcl,
-                    partyBuildId: '1:1:' + this.netcl,
+                    partyBuildId: '1:1:',
                     });
 
                     var Player = await eg.getProfile(YourAccountName);
