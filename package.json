@@ -1,5 +1,5 @@
 {
-  "name": "HTTP-Fortnite-Bot",
+  "name": "FortniteClient",
   "version": "1.0.0",
   "description": "Uses JavaScript to emulate a Fortnite client and can join parties through HTTP and change skins / emotes visually.",
   "main": "index.js",
@@ -8,22 +8,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ItsSyfe/HTTP-Fortnite-Bot.git"
+    "url": "git+https://github.com/Kekisatan/FortniteClient.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ItsSyfe/HTTP-Fortnite-Bot/issues"
+    "url": "https://github.com/Kekisatan/FortniteClient/issues"
   },
-  "homepage": "https://github.com/ItsSyfe/HTTP-Fortnite-Bot#readme",
+  "homepage": "https://github.com/Kekisatan/FortniteClient#readme",
   "dependencies": {
-    "canvas": "^2.6.0",
-    "discord-anti-spam": "^2.0.1",
-    "discord.js": "^11.5.1",
     "enmap": "^5.1.2",
-    "epicgames-client": "^2.0.17",
-    "epicgames-fortnite-client": "^2.0.16",
+    "epicgames-client": "git+https://github.com/Kekisatan/node-epicgames-client.git",
+    "epicgames-fortnite-client": "git+https://github.com/Kekisatan/node-epicgames-fortnite-client.git",
     "moment": "^2.24.0",
     "request": "^2.88.0",
     "request-promise": "^4.2.4"
