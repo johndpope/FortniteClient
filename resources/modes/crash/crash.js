@@ -4,41 +4,14 @@ const EGClient = require('epicgames-client').Client;
                   const Fortnite = require('epicgames-fortnite-client');
                   const { EPlatform, EInputType, EPartyPrivacy } = require('epicgames-client');
                   const config = require('../../../config.json');
-                  const { email, password, YourAccountName, Cosmetics, ApiDown } = require("../../../config.json");
+                  const { email, password, YourAccountName, Cosmetics } = require("../../../config.json");
                   const request = require("request-promise");
                   const { ESubGame } = Fortnite;
 
                 console.log('Crash mode turned on.');
 
-                var netclurl = "https://fnapi.terax235.com/api/v1.2/build"
                 var cid = Cosmetics.cid
                 // var Console = config.Console
-
-                request({
-                  url: netclurl,
-                  json: true
-                }).then(results => {
-                  var netcl = results.fortnite.netCL  
-                if(ApiDown.netcl == false) {
-                  var fs = require('fs');
-                  const path = require('path');
-                  const file = require('../backup/netcl.json');
-
-                  const fileName = path.join(__dirname, '..', 'backup', 'netcl.json');
-  
-                  file.netcl = netcl;
-  
-                  fs.writeFile(fileName, JSON.stringify(file, null, 5), function (err) {
-                    if (err) return console.log(err);
-                  });
-
-                  console.log('[Fortnite] Newest Netcl: ' + netcl);
-                }
-                else{
-                  netcl = ApiDown.netcl
-                  console.log('[Fortnite] The netcl has been set to ' + netcl + ', because you put it as that in config.')
-                }
-                
 
                 request({
                   url: 'http://benbotfn.tk:8080/api/cosmetics/search/multiID?id=' + cid,
@@ -89,8 +62,7 @@ const EGClient = require('epicgames-client').Client;
                     throw new Error('Cannot login on EpicGames account.');
 
                     const fortnite = await eg.runGame(Fortnite, {
-                      netCL: netcl,
-                      partyBuildId: '1:1:' + netcl,
+                      netCL: 696969696
                       });
 
                       var Player = await eg.getProfile(YourAccountName);
@@ -116,30 +88,6 @@ const EGClient = require('epicgames-client').Client;
              // https://jsonstorage.net/api/items/47c6b54c-b978-4122-ad66-e0f8071cf5d9 for playlists
 
                               const br = await fortnite.runSubGame(ESubGame.BattleRoyale);   
-
-                            async function setOutfit(member, asset, key, variants) {
-                              await member.meta.setCosmeticLoadout({
-                                  characterDef: asset,
-                                  characterEKey: key || '',
-                                  variants: variants || []
-                              });
-                        }
-
-                        async function setPickaxe(member, asset, key, variants) {
-                          await member.meta.setCosmeticLoadout({
-                            pickaxeDef: asset,
-                            pickaxeEKey: key || '',
-                            variants: variants || []
-                          })
-                      }
-
-                      async function setBackpack(member, asset, key, variants) {
-                        await member.meta.setCosmeticLoadout({
-                          backpackDef: asset,
-                          backpackEKey: key || '',
-                          variants: variants || []
-                        })
-                    }
                     
               console.log('[CLIENT] In the account ' + eg.account.displayName + ', there is only ' + fortnite.vbucks + ' vbucks on that account.');
 
@@ -199,10 +147,5 @@ const EGClient = require('epicgames-client').Client;
 
                             fortnite.communicator.updateStatus(config.Client.status);
                           });
-                        }).catch(api => {
-                          console.log('[Api Down] Currently the api for the netcl is down, Restarting and using backup netcl in, a few seconds'); 
-                          const iferror = require('./netcl.js');
-                          let run = iferror.run();
-                        });
                       }
                     }

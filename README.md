@@ -7,20 +7,20 @@ Requirements:
 
       **Updates**
       
-      - Added copy everything feature
+      - Removed copy everything feature
+      - No more netcls lol
 
 Code By:
 - Syfe
 - Aqua Plays
-- Some by
-- Kekistan
+- Alot By Kekistanz..
 
 Note:
-- You don't need to put a netcl, it auto updates by using a api
+- You don't need to put a netcl, its pointless now :)
 
 Basic steps:
-1) open command prompt in your folder and do 'npm i Kekisatan/FortniteClient'
-2) Then run Packages.bat
+1) open command prompt in your folder and do 'npm i Kekisatan/FortniteClient' (if you haven't installed this.)
+2) Then run Install Packages.bat
 6) Edit 'config.json' and put in your Fortnite bot details
 7) Run 'Start Bot.bat' to start the bot
 

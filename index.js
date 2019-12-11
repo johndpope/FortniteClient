@@ -1,4 +1,4 @@
-                   const { email, password, YourAccountName, Features, Cosmetics, Client, ApiDown, Modes } = require("./config.json");
+                   const { email, password, YourAccountName, Modes } = require("./config.json");
                    this.email = email
                    this.password = password
                    this.Name = YourAccountName

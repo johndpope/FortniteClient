@@ -9,12 +9,11 @@
   "Client": {
   "Title": "Fortnite Client",
   "__comment": "",
-  "status" : "Made by Syfe, Kekistan added commands."
+  "status" : "Made by Syfe, Kekistan added commands, and many many other things :)"
   },
   
     "Modes": {
      "Title": "Modes for the bot!",
-     "__comment": "Modes for the bot.",
      "Crash": false,
      "fakeplayer": false
    },
@@ -29,8 +28,7 @@
     },
     "copy": {
       "__comment": "Puts on or does whatever you do, examples: doing a emote.",
-      "emote": true,
-      "everything": false
+      "emote": true
     }
   },
 
@@ -50,15 +48,7 @@
 
     "bannercolor" : "defaultcolor2",
 
-    "bannerlevel" : "100",
-
-    "battlepass" : "100"
-  },
-
-  "ApiDown": {
-    "Title": "If api is down.",
-    "__comment": "If the netcl below is false, leave it alone, if the api isn't working, manually replace it with the netcl.",
-    "netcl": false
+    "battlepass" : 100
   }
 
 }
