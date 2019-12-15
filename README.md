@@ -13,7 +13,7 @@ Currenly there is a issue with partys with the bot.
 # Example
 ```js
     const Fortnite = require('epicgames-fortnite-client');
-     const { email, password } = require("./config.json");
+     const { email, password, netcl } = require("./config.json");
     const request = require("request-promise");
     const { ESubGame } = Fortnite;
     const { EPlatform, EInputType, EPartyPrivacy } = require('epicgames-client');
@@ -47,10 +47,78 @@ Currenly there is a issue with partys with the bot.
                 if(!await eg.login())
                   throw new Error('Cannot login on EpicGames account.');
 
-                  const fortnite = await eg.runGame(Fortnite);
+                  const fortnite = await eg.runGame(Fortnite, {
+                    netCL: netcl,
+                    partyBuildId: '1:1:'
+                  });
                   
                   const br = await fortnite.runSubGame(ESubGame.BattleRoyale);   
                   
+                                      fortnite.communicator.on('party:invitation', async (invitation) => {
+                      await invitation.accept()
+                            current_party = invitation.party;
+                            console.log(`[PARTY INVITED] ${invitation.meta["urn:epic:member:dn_s"]} has invited, the client will join shortly.`);
+                      console.log(`[PARTY INFO] There is currently ${fortnite.party.members.length} members in the party.`);
+                    });
+                    
+                    fortnite.communicator.on('friend:message', async (data) => {
+
+                    var prefix = '!'
+                    var args = data.message.split(" ");
+                    var cargs = data.message.slice(prefix.length).split(/ +/);
+                    var command = cargs.shift().toLowerCase();
+                    var User = await eg.getProfile(data.friend.id);
+                    
+                          if(data.message.startsWith('CID_')) {
+                              if(data.message === 'CID_') return fortnite.communicator.sendMessage(data.friend.id, "Please mention a cid.");
+                            try {
+                              cid = args[0];
+                                this.fortnite.party.me.setOutfit("/Game/Athena/Items/Cosmetics/Characters/" + args[0] + "." + args[0]);
+                                communicator.sendMessage(data.friend.id, "Skin set to " + args[0]);
+                                  }
+                                  catch(er) {
+                                  fortnite.communicator.sendMessage(data.friend.id, er);
+                                  }
+                                }
+                    
+                                if(data.message.startsWith('EID_')) {
+                                  if(data.message === 'EID_') return fortnite.communicator.sendMessage(data.friend.id, "Please mention a eid.");
+                                  try {
+                                  eid = args[0];
+                                fortnite.party.me.clearEmote()
+                                fortnite.party.me.setEmote("/Game/Athena/Items/Cosmetics/Dances/" + args[0] + "." + args[0]);
+                                fortnite.communicator.sendMessage(data.friend.id, "Emote set to " + args[0]);
+                              }
+                              catch(er) {
+                              fortnite.communicator.sendMessage(data.friend.id, er);
+                              }
+                            }
+                    
+                            if(data.message.startsWith('Pickaxe_ID_')) {
+                              if(data.message === 'Pickaxe_ID_') return fortnite.communicator.sendMessage(data.friend.id, "Please mention a pickaxe id.");
+                              try {
+                              pickaxe_id = args[0];
+                                fortnite.party.me.setPickaxe("/Game/Athena/Items/Cosmetics/Pickaxes/" + args[0] + "." + args[0]);
+                                fortnite.communicator.sendMessage(data.friend.id, "Pickaxe set to " + args[0]);
+                                }
+                              catch(err) {
+                              fortnite.communicator.sendMessage(data.friend.id, err);
+                            }
+                          }
+                          
+                                                    if(data.message.startsWith('BID_')) {
+                            if(data.message === 'BID_') return fortnite.communicator.sendMessage(data.friend.id, "Please mention a bid id.");
+                            try {
+                            bid = args[0];
+                              fortnite.party.me.setBackpack("/Game/Athena/Items/Cosmetics/Backpacks/" + args[0] + "." + args[0]);
+                              fortnite.communicator.sendMessage(data.friend.id, "Backbling set to " + args[0]);
+                            }
+                            catch(err) {
+                            fortnite.communicator.sendMessage(data.friend.id, err);
+                          }
+                        }
+                          
+                    });
                   
                   fortnite.communicator.updateStatus("Example.");
                   });
