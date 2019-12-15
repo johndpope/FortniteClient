@@ -5,7 +5,7 @@ Uses JavaScript to emulate a Fortnite client and can join parties through HTTP a
 # Problem
 Currenly there is a issue with partys with the bot.
 
-# Skidder
+# Skidders
 
 - scum Lawin
 
@@ -61,16 +61,14 @@ Currenly there is a issue with partys with the bot.
 # Requirements
 - Node.JS
 - Common Sense
-      **Updates**
-      
-      - Removed copy everything feature
-      - No more netcls lol
-      
 
 # Code
 - Syfe
 - Aqua Plays
-- Alot By Kekistanz..
+- Alot By Kekistanz.. (I mean alot)
+- Terbau (for netcl thingy)
+- MagmaReef
+- SzymonLisowiec (For lib)
 
 # Basic steps
 1) open command prompt in your folder and do 'npm i Kekisatan/FortniteClient' (if you haven't installed this.)
