@@ -57,7 +57,6 @@ Uses JavaScript to emulate a Fortnite client and can join parties through HTTP a
 # Requirements
 - Node.JS
 - Common Sense
-
       **Updates**
       
       - Removed copy everything feature
