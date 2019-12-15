@@ -1,6 +1,10 @@
 # Fortnite Bot 2.0
 Uses JavaScript to emulate a Fortnite client and can join parties through HTTP and change skins / emotes visually.
 
+
+# Problem
+Currenly there is a issue with partys with the bot.
+
 # Skidder
 
 - scum Lawin
