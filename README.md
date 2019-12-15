@@ -46,6 +46,10 @@ Uses JavaScript to emulate a Fortnite client and can join parties through HTTP a
                   const fortnite = await eg.runGame(Fortnite);
                   
                   const br = await fortnite.runSubGame(ESubGame.BattleRoyale);   
+                  
+                  
+                  fortnite.communicator.updateStatus("Example.");
+                  });
   
 ```
   
