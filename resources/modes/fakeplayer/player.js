@@ -268,7 +268,7 @@ const EGClient = require('epicgames-client').Client;
                                   if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Pick one of the styles the bot has currently: skull ghoul renegade");
                                   if(args[1].toLowerCase() == "skull") {
                                     try{
-                                      fortnite.party.me.setOutfit("cid_030_athena_commando_m_halloween", [{"item":"AthenaCharacter","channel":"Progressive","variant":"Stage3"},{"item":"AthenaCharacter","channel":"ClothingColor","variant":"Mat1"}]);
+                                      fortnite.party.me.setVariant("cid_030_athena_commando_m_halloween", [{"item":"AthenaCharacter","channel":"Progressive","variant":"Stage3"},{"item":"AthenaCharacter","channel":"ClothingColor","variant":"Mat1"}]);
             
                                     fortnite.communicator.sendMessage(data.friend.id, 'Skin set to skull trooper, the variant is set to PURPLE.');
                                     } catch(err){
@@ -277,7 +277,7 @@ const EGClient = require('epicgames-client').Client;
                                   }
                                   if(args[1].toLowerCase() == "ghoul") {
                                     try {
-                                      fortnite.party.me.setOutfit("cid_029_athena_commando_f_halloween", [{"item":"AthenaCharacter","channel":"Material","variant":"Mat3"}]);
+                                      fortnite.party.me.setVariant("cid_029_athena_commando_f_halloween", [{"item":"AthenaCharacter","channel":"Material","variant":"Mat3"}]);
             
                                         fortnite.communicator.sendMessage(data.friend.id, 'Skin set to ghoul trooper, variant set to PINK.');
                                         }
@@ -287,7 +287,7 @@ const EGClient = require('epicgames-client').Client;
                                   }
                                   if(args[1].toLowerCase() == "renegade") {
                                           
-                                    fortnite.party.me.setOutfit("CID_028_Athena_Commando_F", [{"item":"AthenaCharacter","channel":"Material","variant":"Mat2"}]);
+                                    fortnite.party.me.setVariant("CID_028_Athena_Commando_F", [{"item":"AthenaCharacter","channel":"Material","variant":"Mat2"}]);
                                     fortnite.communicator.sendMessage(data.friend.id, "Skin set to Renegade Raider, the variant is on CHECKERED.");
                                   }
                                   else{
