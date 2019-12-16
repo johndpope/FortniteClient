@@ -157,6 +157,8 @@ const EGClient = require('epicgames-client').Client;
                 }
                 if (profile.displayName === eg.account.name) {
 
+                  fortnite.party.me.setState("SittingOut");
+
                   time = 0
 
                   const arrofskins = skins[Math.floor(Math.random() * skins.length)];
