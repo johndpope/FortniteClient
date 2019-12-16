@@ -534,17 +534,11 @@ const EGClient = require('epicgames-client').Client;
                                         console.log(`[PARTY PLAYLIST] Set the playlist to "` + args[1] + `"`);
                                       }
             
-                                      if(command === "ready") {
-                                      if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention true/false.");
-                                      if(args[1].toLowerCase() == "true") {
-                                        fortnite.party.me.setReady(true);
-                                        fortnite.communicator.sendMessage(data.friend.id, "Ready!");
+                                      if(command === "state") {
+                                        if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a state.");
+                                        fortnite.party.me.setState(args[1]);
+                                        fortnite.communicator.sendMessage(data.friend.id, "Set state to " + args[1]);
                                       }
-                                      if(args[1].toLowerCase() == "false") {
-                                        fortnite.party.me.setReady(false);
-                                        fortnite.communicator.sendMessage(data.friend.id, "Unready!");
-                                      }
-                                    }
             
                                     if(command === "platform") {
                                       if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a platform.");
