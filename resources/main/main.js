@@ -133,7 +133,6 @@ module.exports = {
           var EmoteProfile = frotendDefEID.replace(`'`, ``);
           
           if(Features.copy.emote == true && profile.id != eg.account.id && profile.id == Player.id && EmoteProfile != 'None') {
-            fortnite.party.me.clearEmote();
             fortnite.party.me.setEmote(EmoteProfile);
           eid = EmoteProfile
         }
@@ -379,7 +378,6 @@ module.exports = {
                                 if(data.message === 'EID_') return fortnite.communicator.sendMessage(data.friend.id, "Please mention a eid.");
                                 try {
                                 eid = args[0];
-                              fortnite.party.me.clearEmote()
                               fortnite.party.me.setEmote(args[0]);
                               fortnite.communicator.sendMessage(data.friend.id, "Emote set to " + args[0]);
                             }
@@ -538,7 +536,6 @@ module.exports = {
                           Object.keys(query).forEach(function(key) {
                             if(query[key].type == "Emote") {
                               eid = query[key].id;
-                              fortnite.party.me.clearEmote()
                             fortnite.party.me.setEmote(query[key].id);
                             fortnite.communicator.sendMessage(data.friend.id, "Found " + query[key].displayName + ', the id is ' + query[key].id);
                             }

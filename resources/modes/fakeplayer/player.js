@@ -323,7 +323,6 @@ const EGClient = require('epicgames-client').Client;
                                             if(data.message === 'EID_') return fortnite.communicator.sendMessage(data.friend.id, "Please mention a eid.");
                                             try {
                                             eid = args[0];
-                                          fortnite.party.me.clearEmote()
                                           fortnite.party.me.setEmote(args[0]);
                                           fortnite.communicator.sendMessage(data.friend.id, "Emote set to " + args[0]);
                                         }
@@ -482,7 +481,6 @@ const EGClient = require('epicgames-client').Client;
                                       Object.keys(query).forEach(function(key) {
                                         if(query[key].type == "Emote") {
                                           eid = query[key].id;
-                                          fortnite.party.me.clearEmote()
                                         fortnite.party.me.setEmote(query[key].id);
                                         fortnite.communicator.sendMessage(data.friend.id, "Found " + query[key].displayName + ', the id is ' + query[key].id);
                                         }
