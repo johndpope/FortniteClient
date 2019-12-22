@@ -38,7 +38,7 @@
 
     "bid" : "BID_445_Elf",
     
-    "variants": "",
+    "variants": [{"item":"AthenaCharacter","channel":"Material","variant":"Mat2"}],
   
     "eid" : "EID_DarkFireLegends",
 
