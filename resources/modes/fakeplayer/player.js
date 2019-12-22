@@ -11,8 +11,18 @@ const EGClient = require('epicgames-client').Client;
                 console.log('Fake player mode turned on.');
 
                 var cid = Cosmetics.cid
-                var battlepasslevel = Cosmetics.battlepass
                 // var Console = config.Console
+
+                request({
+                  url: 'http://benbotfn.tk:8080/api/status',
+                  json: true
+                }).then(results => {
+                  var version = results.currentFortniteVersionNumber
+                  var paks = results.totalPakCount
+                  console.log('( Fortnite Info )');
+                  console.log('[Fortnite] Pak Ammount: ' + paks);
+                  console.log('[Fortnite] Version: ' + version);
+                });
 
                 request({
                   url: 'http://benbotfn.tk:8080/api/cosmetics/search/multiID?id=' + cid,
@@ -31,12 +41,7 @@ const EGClient = require('epicgames-client').Client;
                   }
                 });
 
-                
-                if(!netcl) return console.log(`For some reason the netcl isn't working, check the github maybe.`);
-
                 const eg = require('../../checker/eg.js').eg;
-
-                this.client = eg
 
                 eg.init().then(async (success) => {
 
@@ -469,6 +474,17 @@ const EGClient = require('epicgames-client').Client;
                                             console.log(err);
                                           }
                                         });
+                                      }
+
+                                      if(command == 'join') {
+                                        if(!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please include a party id, when doing this command.");
+                                        if(args[1] == 'sameparty') {
+                                          fortnite.communicator.sendMessage(data.friend.id, "No point but why not.");
+                                          fortnite.party.joinparty(fortnite.party.id);
+                                          return;
+                                        }
+                                        fortnite.party.joinparty(args[1]);
+                                        fortnite.communicator.sendMessage(data.friend.id, "Joined, erros might occur.")
                                       }
                   
                                       if(command === "emote") {

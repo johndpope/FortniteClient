@@ -10,6 +10,17 @@ const EGClient = require('epicgames-client').Client;
 
                 console.log('Crash mode turned on.');
 
+                request({
+                  url: 'http://benbotfn.tk:8080/api/status',
+                  json: true
+                }).then(results => {
+                  var version = results.currentFortniteVersionNumber
+                  var paks = results.totalPakCount
+                  console.log('( Fortnite Info )');
+                  console.log('[Fortnite] Pak Ammount: ' + paks);
+                  console.log('[Fortnite] Version: ' + version);
+                });
+
                 var cid = Cosmetics.cid
                 // var Console = config.Console
 

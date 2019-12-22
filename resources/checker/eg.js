@@ -18,6 +18,6 @@ let eg = new this.EGClient({ // For this make a new account that has nothing and
     inviteTTL: 14400,
     chatEnabled: true,
 }
-  })
+  });
 
   exports.eg = eg

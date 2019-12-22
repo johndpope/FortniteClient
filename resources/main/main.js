@@ -8,10 +8,6 @@ module.exports = {
     const skins = require('../features/skins.js').arr;
     const banners = require('../features/banners.js').arr;
 
-              console.log('Main Bot on!')
-              console.log('Used syfes or aquas code.');
-              console.log('Github: https://github.com/Kekisatan/FortniteBot2/');
-
               var benbot = 'http://benbotfn.tk:8080/api/cosmetics/search/multiple?displayName='
               var cid = Cosmetics.cid
               var bid = Cosmetics.bid
@@ -361,6 +357,17 @@ module.exports = {
       
 
                     if(command === 'ltm') findPlaylist(args.slice(1).join(" ")); 
+
+                    if(command == 'join') {
+                      if(!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please include a party id, when doing this command.");
+                      if(args[1] == 'sameparty') {
+                        fortnite.communicator.sendMessage(data.friend.id, "No point but why not.");
+                        fortnite.party.joinparty(fortnite.party.id);
+                        return;
+                      }
+                      fortnite.party.joinparty(args[1]);
+                      fortnite.communicator.sendMessage(data.friend.id, "Joined, erros might occur.")
+                    }
       
                           if(data.message.startsWith('CID_')) {
                             if(data.message === 'CID_') return fortnite.communicator.sendMessage(data.friend.id, "Please mention a cid.");
