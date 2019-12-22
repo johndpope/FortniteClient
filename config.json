@@ -48,6 +48,8 @@
 
     "bannercolor" : "defaultcolor2",
 
+    "variants": [{"item":"AthenaCharacter","channel":"Material","variant":"Mat2"}],
+
     "battlepass" : 100
   }
 

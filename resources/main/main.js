@@ -2,7 +2,7 @@ module.exports = {
   run: function() {
     const Fortnite = require('epicgames-fortnite-client');
     const config = require('../../config.json')
-     const { YourAccountName, Features, Cosmetics, Client } = require("../../config.json");
+     const { YourAccountName, Features, Cosmetics, Client, cvariants } = require("../../config.json");
     const request = require("request-promise");
     const { ESubGame } = Fortnite;
     const skins = require('../features/skins.js').arr;
@@ -200,7 +200,7 @@ module.exports = {
               fortnite.party.me.setOutfit(arrofskins);
               }
               else{
-                fortnite.party.me.setOutfit(cid);
+                fortnite.party.me.setVariants(cid, cvariants);
               }
 
               fortnite.party.me.setBackpack(bid);
