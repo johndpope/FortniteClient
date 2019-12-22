@@ -4,12 +4,10 @@
 
   "password" : "",
 
-  "YourAccountName": "",
+  "YourAccountName": "Put your epic name here (NOT YOUR BOT'S)",
 
   "Client": {
-  "Title": "Fortnite Client",
-  "__comment": "",
-  "status" : "Made by Syfe, Kekistan added commands, and many many other things :)"
+  "status" : "Made by Syfe, Kekistan added commands, and a ton other things :)"
   },
   
     "Modes": {
@@ -36,9 +34,11 @@
     "Title": "Cosmetics for the bot!",
     "__comment": "Puts on the cid, bid, eid, pickaxe_id, and ect on the bot.",
 
-    "cid" : "CID_583_Athena_Commando_F_NoshHunter",
+    "cid" : "CID_051_Athena_Commando_M_HolidayElf",
 
-    "bid" : "BID_389_GoatRobe",
+    "bid" : "BID_445_Elf",
+    
+    "variants": [{"item":"AthenaCharacter","channel":"Material","variant":"Mat2"}],
   
     "eid" : "EID_DarkFireLegends",
 

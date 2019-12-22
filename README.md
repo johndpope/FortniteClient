@@ -13,7 +13,7 @@ Currenly there is a issue with partys with the bot.
 # Example
 ```js
     const Fortnite = require('epicgames-fortnite-client');
-     const { email, password, netcl } = require("./config.json");
+     const { email, password } = require("./config.json");
     const request = require("request-promise");
     const { ESubGame } = Fortnite;
     const { EPlatform, EInputType, EPartyPrivacy } = require('epicgames-client');
@@ -47,10 +47,7 @@ Currenly there is a issue with partys with the bot.
                 if(!await eg.login())
                   throw new Error('Cannot login on EpicGames account.');
 
-                  const fortnite = await eg.runGame(Fortnite, {
-                    netCL: netcl,
-                    partyBuildId: '1:1:'
-                  });
+                  const fortnite = await eg.runGame(Fortnite); // Netcl isn't needed.
                   
                   const br = await fortnite.runSubGame(ESubGame.BattleRoyale);   
                   
