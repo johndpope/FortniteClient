@@ -2,7 +2,7 @@ module.exports = {
   run: function() {
     const Fortnite = require('epicgames-fortnite-client');
     const config = require('../../config.json')
-     const { YourAccountName, Features, Cosmetics, Client, cvariants } = require("../../config.json");
+     const { YourAccountName, Features, Cosmetics, Client } = require("../../config.json");
     const request = require("request-promise");
     const { ESubGame } = Fortnite;
     const skins = require('../features/skins.js').arr;
@@ -200,7 +200,12 @@ module.exports = {
               fortnite.party.me.setOutfit(arrofskins);
               }
               else{
-                fortnite.party.me.setVariants(cid, cvariants);
+                if(cid == "CID_051_Athena_Commando_M_HolidayElf" && bid == "BID_445_Elf"){
+                  fortnite.party.me.setVariant(cid, Cosmetics.variants);
+                  }
+                  else{
+                    fortnite.party.me.setOutfit(cid);
+                  }
               }
 
               fortnite.party.me.setBackpack(bid);
