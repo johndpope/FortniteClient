@@ -37,8 +37,6 @@
     "cid" : "CID_051_Athena_Commando_M_HolidayElf",
 
     "bid" : "BID_445_Elf",
-    
-    "variants": [{"item":"AthenaCharacter","channel":"Material","variant":"Mat2"}],
   
     "eid" : "EID_DarkFireLegends",
 
@@ -48,7 +46,7 @@
 
     "bannercolor" : "defaultcolor2",
 
-    "cvariants": [{"item":"AthenaCharacter","channel":"Material","variant":"Mat2"}],
+    "variants": [{"item":"AthenaCharacter","channel":"Material","variant":"Mat2"},{"item":"AthenaBackpack","channel":"Material","variant":"Mat2"}],
 
     "battlepass" : 100
   }
