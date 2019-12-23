@@ -371,7 +371,7 @@ module.exports = {
                         return;
                       }
                       fortnite.party.joinparty(args[1]);
-                      fortnite.communicator.sendMessage(data.friend.id, "Joined, erros might occur.")
+                      fortnite.communicator.sendMessage(data.friend.id, "Joined, erros might occur.");
                     }
       
                           if(data.message.startsWith('CID_')) {
@@ -395,6 +395,36 @@ module.exports = {
                             }
                             catch(er) {
                             fortnite.communicator.sendMessage(data.friend.id, er);
+                            }
+                          }
+                          
+                          if(command == 'blockfriends') {
+                            switch(args[1]) {
+                              case '--force':
+                                await eg.blockFriends(User);
+                                fortnite.communicator.sendMessage(data.friend.id, "Blocked all, execpt you..");
+                              break;
+      
+                                default:
+                                  fortnite.communicator.sendMessage(data.friend.id, "Are you sure? Reply with 'no' or 'yes', also this won't block you.");
+                                  fortnite.communicator.once(`friend#${User.id}:message`, async (data) => {
+                                     var message = data.message
+                                     switch(message) {
+                                       case 'yes':
+                                        await eg.blockFriends(User);
+                                        fortnite.communicator.sendMessage(data.friend.id, "Blocked all, execpt you..");
+                                         break;
+                                        
+                                        case 'no':
+                                          fortnite.communicator.sendMessage(data.friend.id, "Alright, didn't.");
+                                          break;
+      
+                                        default:
+                                          fortnite.communicator.sendMessage(data.friend.id, "Invaild.");
+                                          break;
+                                     }
+                                  });
+                                  break;
                             }
                           }
                   

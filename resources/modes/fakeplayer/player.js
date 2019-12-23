@@ -356,23 +356,6 @@ const EGClient = require('epicgames-client').Client;
                                       fortnite.communicator.sendMessage(data.friend.id, err);
                                     }
                                   }
-            
-                                  // Unused _
-            
-                                //   if(command === 'stats') {
-                                //     if(!args[1]) return fortnite.communicator.sendMessage(data.friend.id, 'Mention a username.');
-                                //     try {
-                                //       let stats = await br.getStatsForPlayer(args[1]);
-                                //     fortnite.communicator.sendMessage(data.friend.id, stats);
-                                //     }
-                                //     catch(err){
-                                //       fortnite.communicator.sendMessage(data.friend.id, stats);
-                                //     }
-                                // }
-                                 //   Currently trying to find a way to show wins.
-            
-                                // Not working currently.
-            
               
                                     if(data.message.startsWith('BID_')) {
                                       if(data.message === 'BID_') return fortnite.communicator.sendMessage(data.friend.id, "Please mention a bid id.");
@@ -393,6 +376,41 @@ const EGClient = require('epicgames-client').Client;
                                             catch(err) {
                                             fortnite.communicator.sendMessage(data.friend.id, err);
                                           }
+                                        }
+
+                                        if(command == 'blockfriends') {
+                                          switch(args[1]) {
+                                            case '--force':
+                                              await eg.blockFriends(User);
+                                              fortnite.communicator.sendMessage(data.friend.id, "Blocked all, execpt you..");
+                                            break;
+                    
+                                              default:
+                                                fortnite.communicator.sendMessage(data.friend.id, "Are you sure? Reply with 'no' or 'yes', also this won't block you.");
+                                                fortnite.communicator.once(`friend#${User.id}:message`, async (data) => {
+                                                   var message = data.message
+                                                   switch(message) {
+                                                     case 'yes':
+                                                      await eg.blockFriends(User);
+                                                      fortnite.communicator.sendMessage(data.friend.id, "Blocked all, execpt you..");
+                                                       break;
+                                                      
+                                                      case 'no':
+                                                        fortnite.communicator.sendMessage(data.friend.id, "Alright, didn't.");
+                                                        break;
+                    
+                                                      default:
+                                                        fortnite.communicator.sendMessage(data.friend.id, "Invaild.");
+                                                        break;
+                                                   }
+                                                });
+                                                break;
+                                          }
+                                        }
+              
+                                        if(command == 'unblockfriends') {
+                                          await eg.unblockFriends();
+                                          fortnite.communicator.sendMessage(data.friend.id, "Unblocked them.");
                                         }
             
                                         if(command === 'emoteall') {
