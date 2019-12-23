@@ -715,7 +715,6 @@ module.exports = {
                             try {
                               if(fortnite.party.me.role != 'CAPTAIN')
                               return fortnite.communicator.sendMessage(data.friend.id, `The partyleader isn't ${eg.account.displayName}.`);
-      
                               fortnite.party.setPrivacy(args[1]);
                               fortnite.communicator.sendMessage(data.friend.id, "Privacy set to " + args[1] + '.');
                             } catch(err) {
@@ -732,7 +731,7 @@ module.exports = {
                         if(!account) return fortnite.communicator.sendMessage(data.friend.id, "That epic name must of been wrong.");
                         const isFriended = await eg.hasFriend(account.id);
                         if(isFriended) {
-                        eg.removeFriend(account.id);
+                        await eg.removeFriend(account.id);
                         fortnite.communicator.sendMessage(data.friend.id, "Unfriended! " + account.name + '!');
                         }
                         else{
@@ -744,11 +743,52 @@ module.exports = {
                         }
                       }
 
+                      if(command === "block") {
+                        if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a epic name to block.");
+                        try {
+                          let user = args.slice(1).join(" ");
+                          if(user === eg.account.name) return fortnite.communicator.sendMessage(data.friend.id, "You can't block yourself!");
+                        const account = await eg.getProfile(user);
+                        if(!account) return fortnite.communicator.sendMessage(data.friend.id, "That epic name must of been wrong.");
+                        await eg.blockFriend(account.id);
+                        fortnite.communicator.sendMessage(data.friend.id, "Blocked" + account.name + '!');
+                          }
+                        catch(err) {
+                          fortnite.communicator.sendMessage(data.friend.id, "There was a error: " + err);
+                        }
+                      }
+
+                      if(command === "partyhubicon") {
+                        if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a cid to set.");
+                        try {
+                          await eg.partyhub.setUserIcon(args[1]);
+                          fortnite.communicator.sendMessage(data.friend.id, "Set!")
+                          }
+                        catch(err) {
+                          fortnite.communicator.sendMessage(data.friend.id, "There was a error: " + err);
+                        }
+                      }
+
+                      if(command === "unblock") {
+                        if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a epic name to unblocked.");
+                        try {
+                          let user = args.slice(1).join(" ");
+                          if(user === eg.account.name) return fortnite.communicator.sendMessage(data.friend.id, "You can't unblocked yourself!");
+                        const account = await eg.getProfile(user);
+                        if(!account) return fortnite.communicator.sendMessage(data.friend.id, "That epic name must of been wrong.");
+                        await eg.unblock(account.id);
+                        fortnite.communicator.sendMessage(data.friend.id, "Unblocked" + account.name + '!');
+                          }
+                        catch(err) {
+                          fortnite.communicator.sendMessage(data.friend.id, "There was a error: " + err);
+                        }
+                      }
+
                         if(command === "invite") {
                           if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a epic name to invite.");
                           try {
-                            let lookup = args.slice(1).join(" ");                                
-                          const account = await eg.getProfile(lookup);
+                            let user = args.slice(1).join(" ");                                
+                          const account = await eg.getProfile(user);
                           if(!account) return fortnite.communicator.sendMessage(data.friend.id, "That epic name must of been wrong.");
                           const isFriended = await eg.hasFriend(account.id);
                           if(isFriended) {
