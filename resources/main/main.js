@@ -427,6 +427,11 @@ module.exports = {
                                   break;
                             }
                           }
+
+                          if(command == 'unblockfriends') {
+                            await eg.unblockFriends();
+                            fortnite.communicator.sendMessage(data.friend.id, "Unblocked them.");
+                          }
                   
                           if(data.message.startsWith('Pickaxe_ID_')) {
                             if(data.message === 'Pickaxe_ID_') return fortnite.communicator.sendMessage(data.friend.id, "Please mention a pickaxe id.");
@@ -791,7 +796,7 @@ module.exports = {
                       if(command === "partyhubicon") {
                         if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a cid to set.");
                         try {
-                          await eg.partyhub.setUserIcon(args[1]);
+                          await eg.setUserIcon(args[1]);
                           fortnite.communicator.sendMessage(data.friend.id, "Set!")
                           }
                         catch(err) {
