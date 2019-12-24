@@ -1,6 +1,5 @@
-const crash = require('../modes/crash/index.js');
-const fakeplayer = require('../modes/fakeplayer/index.js');
-const fakeplayer = require('../modes/annyoingmode/index.js');
+const crash = require('../modes/crash/crash.js');
+const fakeplayer = require('../modes/fakeplayer/player.js');
 module.exports = {
   check: function() {
                   const { Modes, YourAccountName } = require('../../config.json');
@@ -12,9 +11,6 @@ module.exports = {
                   }
                       if(Modes.fakeplayer == true) {
                     fakeplayer.run();
-                  }
-                  if(Modes.annyoing) {
-
                   }
                       }
                     }
