@@ -13,7 +13,8 @@
     "Modes": {
      "Title": "Modes for the bot!",
      "Crash": false,
-     "fakeplayer": false
+     "fakeplayer": false,
+     "annoying": true
    },
 
   "Features": {
