@@ -181,7 +181,13 @@ module.exports = {
                 switch(profile.displayName) {
 
                   case eg.account.displayName:
-                    console.log(`[BOT] The bot has been kicked!`);
+                    switch(fortnite.party.members.length) {
+
+                      case 1:
+                        console.log(`[BOT] The bot has been kicked!`);
+                      break;
+
+                    }
                   break;
 
                   default:
