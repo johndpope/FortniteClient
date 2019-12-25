@@ -12,12 +12,11 @@
                   console.log(`Used syfes or aquas code, lmao added a ton of things tho.\nGithub: https://github.com/Kekisatan/FortniteBot2/\n Please don't fork this and claim it as yours.`);
 
                    if(this.Modes.Crash || this.Modes.fakeplayer) {
-                    this.checker = require('./resources/checker/checker.js');
+                    this.checker = require('./resources/checker/index.js');
                     this.checker.check();
                       return;
                     }
                     else{
-                      this.main = require('./resources/main/main.js');
+                      this.main = require('./resources/main/index.js');
                       this.main.run();
-                      console.log('Main Bot on!');
                     }
