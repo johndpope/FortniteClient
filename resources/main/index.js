@@ -66,7 +66,6 @@ module.exports = {
                   var Kekistanz = await eg.getProfile('Kekistanz');
                   var friendrequest = await eg.getRawFriends(true);
 
-
                   friendrequest.forEach(async friendrequest => {
                     switch(friendrequest.status.toLowerCase()) {
 
@@ -175,27 +174,27 @@ module.exports = {
                   console.log(`[PARTY ACTIVITY] ${profile.displayName} has been kicked by ${partyleader.displayName} from the party!`);
                 });
 
-              fortnite.communicator.on('party:member:left', async (member) => {
-                var profile = await eg.getProfile(member.id)
-                var partyleader = await eg.getProfile(current_party.leader.id);
-                switch(profile.displayName) {
+                      fortnite.communicator.on('party:member:left', async (member) => {
+                        var profile = await eg.getProfile(member.id)
+                        var partyleader = await eg.getProfile(current_party.leader.id);
+                        switch(profile.displayName) {
 
-                  case eg.account.displayName:
-                    switch(fortnite.party.members.length) {
+                          case eg.account.displayName:
+                            switch(fortnite.party.members.length) {
 
-                      case 1:
-                        console.log(`[BOT] The bot has been kicked!`);
-                      break;
+                              case 1:
+                                console.log(`[BOT] The bot has been kicked!`);
+                              break;
 
-                    }
-                  break;
+                            }
+                          break;
 
-                  default:
-                    console.log(`[PARTY MEMBER] ${profile.displayName} has left the party.`);
-                  break;
+                          default:
+                            console.log(`[PARTY MEMBER] ${profile.displayName} has left the party.`);
+                          break;
 
-                }
-              });
+                        }
+                      });
 
               fortnite.communicator.on('party:member:promoted', async (member) => {
                 var profile = await eg.getProfile(member.id);
