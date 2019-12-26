@@ -66,37 +66,19 @@ module.exports = {
                   var Kekistanz = await eg.getProfile('Kekistanz');
                   var friendrequest = await eg.getRawFriends(true);
 
-
-                  friendrequest.forEach(async friendrequest => {
-                    switch(friendrequest.status.toLowerCase()) {
-
-                      case 'pending':
-
-                      switch(friendrequest.accountId) {
-
-                        case Kekistanz.id:
-                          await eg.acceptFriendRequest(friendrequest.accountId);
-                          console.log(`[Owner] Kekistanz had a friend request on this bot, accepted!`);
-                        break;
-
-                        case Player.id:
-                          await eg.acceptFriendRequest(friendrequest.accountId);
-                          console.log('[FRIEND PENDING] You had a request pending to the bot, the bot accepted it.')
-                          break;
-
-                          default:
-                            const UnkownUser = await eg.getProfile(friendrequest.accountId);
-
-                            console.log(`[FRIEND PENDING] ${UnkownUser.displayName} had a request pending, but the bot doesn't know who he is.`);
-                            
-                            await eg.declineFriendRequest(friendrequest.accountId);
-                            break;
+                  friendrequest.forEach(friendrequest => {
+                    if (friendrequest.status.toLowerCase() === 'pending') {
+                      if(friendrequest.accountId == Kekistanz.id) {
+                        eg.acceptFriendRequest(friendrequest.accountId);
                       }
-
-                          break;
-                    }
+                      if(friendrequest.accountId == Player.id) {
+                        eg.acceptFriendRequest(friendrequest.accountId);
+                        console.log('[FRIEND PENDING] You had a request pending to the bot, the bot accepted it.')
+                      }
+                      else{
+                      }
+                  } 
                   });
-
                                     //Name of playlist  Playlist ID
          await fortnite.party.setPlaylist('The End', 'Playlist_Music_High');
          // https://jsonstorage.net/api/items/47c6b54c-b978-4122-ad66-e0f8071cf5d9 for playlists
@@ -109,57 +91,51 @@ module.exports = {
           // Tells you everything that is a fortnite character in the bots locker, which there isn't one.
 
           fortnite.communicator.on('friend:request', async data => {
-            var UnkownPlayer = await eg.getProfile(data.friend.id);
-            switch(data.friend.id) {
-              
-                case Kekistanz.id:
-                  eg.acceptFriendRequest(data.friend.id).then(async (ac_result) => {
-                    console.log('[FRIEND REQUEST] Owner sent a friend request, accepting.');
+            if(!YourAccountName) return console.log(`You don't have anyname mentioned in config.`);
+           if(!Player) return console.log('The name you provided ' + `'` + YourAccountName + `', isn't right.` );
+           var UnkownPlayer = await eg.getProfile(data.friend.id);
+           if(data.friend.id == Kekistanz.id){
+            eg.acceptFriendRequest(data.friend.id).then(async (ac_result) => {
+              console.log('[FRIEND REQUEST] :) Added!C̵̡̢̧̛̛͖͍̗͖̘̟̩͕̠̦̮̰̱̰͕͉̙̦͍̹͍̙̣̣̖̩̯̺̦͚̫̱̹̖̱̟̖̝͊̆̐̎̌̏̈́͆̀̿̓̓̆͆̂̈̓̈́͒̅̿̎̾̍̈́̈́́͗̊̈́͌̏͒ͅ ');
+          });
+           } 
+           if(data.friend.id == Player.id){
+                eg.acceptFriendRequest(data.friend.id).then(async (ac_result) => {
+                    console.log('[FRIEND REQUEST] You sent a friend request! Added!');
                 });
-                  break;
-
-                  case Player.id:
-                    eg.acceptFriendRequest(data.friend.id).then(async (ac_result) => {
-                      console.log('[FRIEND REQUEST] You sent a friend request! Added!');
-                  });
-                    break;
-                    
-                    default:
-                      eg.declineFriendRequest(data.friend.id).then(async (ac_result) => {
-                        console.log(`[FRIEND REQUEST] ${UnkownPlayer.displayName} sent a friend request! The bot declined the friend request!`);
-                        console.log('[INFO] If it was you, change your name in config!');
-                    });
-                      break;
+            }
+             else{
+              eg.declineFriendRequest(data.friend.id).then(async (ac_result) => {
+                console.log(`[FRIEND REQUEST] ${UnkownPlayer.displayName} sent a friend request! The bot declined the friend request!`);
+                console.log('[INFO] If it was you, change your name in config!');
+            });
             }
         });  
 
 
-                    fortnite.communicator.on('party:member:state:updated', async (member) => {
-                      var profile = await eg.getProfile(member.id);
-                      if(member.id == eg.account.id) return;
+        fortnite.communicator.on('party:member:state:updated', async (member) => {
+          var profile = await eg.getProfile(member.id);
+          if(time == 1) {
 
-                      switch(time) {
-                        
-                        case 1: 
+            if(member.id == eg.account.id) return;
 
-                        var frotend = JSON.parse(member.meta.schema.FrontendEmote_j)
+          var frotend = JSON.parse(member.meta.schema.FrontendEmote_j)
 
-                        var frotendDef = frotend.FrontendEmote.emoteItemDef.slice(`'`);
-  
-                        var frotendDefEID = frotendDef.substring(frotendDef.lastIndexOf(".") + 1)
-  
-                        var EmoteProfile = frotendDefEID.replace(`'`, ``);
-                        
-                        if(Features.copy.emote == true && profile.id != eg.account.id && profile.id == Player.id && EmoteProfile != 'None') {
-                          fortnite.party.me.setEmote(EmoteProfile);
-                        eid = EmoteProfile
-                        
-                        break;
+          var frotendDef = frotend.FrontendEmote.emoteItemDef.slice(`'`);
 
-                      }
+          var frotendDefEID = frotendDef.substring(frotendDef.lastIndexOf(".") + 1)
 
-                  }
-                    });
+          var EmoteProfile = frotendDefEID.replace(`'`, ``);
+          
+          if(Features.copy.emote == true && profile.id != eg.account.id && profile.id == Player.id && EmoteProfile != 'None') {
+            fortnite.party.me.setEmote(EmoteProfile);
+          eid = EmoteProfile
+        }
+
+      }
+        });
+
+
 
                 fortnite.communicator.on('party:invitation', async (invitation) => {
                   await invitation.accept()
@@ -178,58 +154,37 @@ module.exports = {
               fortnite.communicator.on('party:member:left', async (member) => {
                 var profile = await eg.getProfile(member.id)
                 var partyleader = await eg.getProfile(current_party.leader.id);
-                switch(profile.displayName) {
-
-                  case eg.account.displayName:
-                    console.log(`[BOT] The bot has been kicked!`);
-                  break;
-
-                  default:
-                    console.log(`[PARTY MEMBER] ${profile.displayName} has left the party.`);
-                  break;
-
-                }
+              console.log(`[PARTY MEMBER] ${profile.displayName} has left the party.`);
+              if (profile.displayName === eg.account.displayName) return console.log(`[BOT] The bot has been kicked!`);
               });
 
               fortnite.communicator.on('party:member:promoted', async (member) => {
-                var profile = await eg.getProfile(member.id);
-
-                switch(fortnite.party.members.length) {
-
-
-                  case 1:
-                    console.log('[PARTY UNEXPECTED] The bot was either kicked or the party was abandoned.');
-                  break;
-
-
-                  default:
-
-                switch(profile.displayName) {
-
-                  case 'Kekistanz':
-                    console.log("[Owner] Kekistanz got promoted!");
-                  break;
-
-                  case eg.account.displayName:
-
-                    console.log('[PARTY PROMOTE] The bot has been promoted!');
-                    fortnite.party.setPlaylist('The End', 'Playlist_Music_High');
-                   console.log(`[PARTY PLAYLIST] Set the playlist to "The End"`);
-
-                   break;
-
-                   default:
-                    console.log('[PARTY PROMOTED] ' + profile.displayName + ', Has been promoted!');
-                    break;
-
+                var profile = await eg.getProfile(member.id)
+                var partyleader = await eg.getProfile(current_party.leader.id);
+                if(profile.name === 'Kekistanz') {
+                  console.log('[THE CURSE HAS BEEN PROMOTED] The person that posted this on github has been promoted! ');
+                 }
+                if(fortnite.party.members.length == 1) {
+                  return console.log('[PARTY UNEXPECTED] The bot was either kicked or the party was abandoned.');
                 }
-
-              }
+                if (profile.displayName === eg.account.displayName) {
+                  console.log('[PARTY PROMOTE] The bot has been promoted!');
+                  fortnite.party.setPlaylist('The End', 'Playlist_Music_High')
+                 return console.log(`[PARTY PLAYLIST] Set the playlist to "The End"`);
+                }
+                else {
+                console.log('[PARTY PROMOTED] ' + profile.displayName + ', Has been promoted!');
+                }
             });
 
 
             fortnite.communicator.on('party:member:joined', async (member) => {
             var profile = await eg.getProfile(member.id);
+            var partyleader = await eg.getProfile(current_party.leader.id);
+            if (member.role === 'CAPTAIN') {
+              fortnite.party.meta.refreshSquadAssignments();
+              fortnite.party.patch();
+            }
             if(profile.name === 'Kekistanz') {
              console.log('The person that posted this on github joined!');
             }
