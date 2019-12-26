@@ -791,8 +791,8 @@ module.exports = {
                       if(command === "partyhubicon") {
                         if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a cid to set.");
                         try {
-                          await eg.setUserIcon(args[1]);
-                          fortnite.communicator.sendMessage(data.friend.id, "Set!")
+                          await eg.graphql('icon', args[1]);
+                          fortnite.communicator.sendMessage(data.friend.id, "Set!");
                           }
                         catch(err) {
                           fortnite.communicator.sendMessage(data.friend.id, "There was a error: " + err);
