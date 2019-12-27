@@ -728,11 +728,18 @@ const EGClient = require('epicgames-client').Client;
                           if(command === "partyhubicon") {
                             if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a cid to set.");
                             try {
-                              await eg.partyhub.setUserIcon(args[1]);
-                              fortnite.communicator.sendMessage(data.friend.id, "Set!")
+                              const d = await eg.graphql('icon', args.slice(1).join(" "));
+                              var dataU = JSON.parse(d);
+                              if(dataU.data.UserSettings.updateSetting.success == true) {
+                              fortnite.communicator.sendMessage(data.friend.id, `Successfully set the icon to ${args.slice(1).join(" ")}.`);
+                              }
+                              if(dataU.data.UserSettings.updateSetting.success == false) {
+                                fortnite.communicator.sendMessage(data.friend.id, `Either the bot doesn't own it or ${args.slice(1).join(" ")} isn't vaild.`); 
+                              }
                               }
                             catch(err) {
                               fortnite.communicator.sendMessage(data.friend.id, "There was a error: " + err);
+                              console.log(err)
                             }
                           }
     
