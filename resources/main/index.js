@@ -79,6 +79,8 @@ module.exports = {
                       }
                   } 
                   });
+
+                  var time = 0
                                     //Name of playlist  Playlist ID
          await fortnite.party.setPlaylist('The End', 'Playlist_Music_High');
          // https://jsonstorage.net/api/items/47c6b54c-b978-4122-ad66-e0f8071cf5d9 for playlists
