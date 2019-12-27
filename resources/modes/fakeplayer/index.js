@@ -4,7 +4,7 @@ const EGClient = require('epicgames-client').Client;
                   const Fortnite = require('epicgames-fortnite-client');
                   const { EPlatform, EInputType, EPartyPrivacy } = require('epicgames-client');
                   const config = require('../../../config.json');
-                  const { email, password, YourAccountName, Cosmetics, ApiDown } = require("../../../config.json");
+                  const { YourAccountName, Cosmetics, Client } = require("../../../config.json");
                   const request = require("request-promise");
                   const { ESubGame } = Fortnite;
 
@@ -87,6 +87,41 @@ const EGClient = require('epicgames-client').Client;
               // console.log(fortnite.inventory.findItemsByClass('AthenaCharacter'));
               // Tells you everything that is a fortnite character in the bots locker, which there isn't one.
   
+              if(Client.joinparty == true) {
+              try {
+
+                if(!Player) return console.log(`[Player] Seems like the object for your account is missing.`);
+    
+              const PlayerStatus = await eg.getFriendStatus(Player.id);
+    
+                if(!PlayerStatus.status.includes("Battle Royale Lobby")) return;
+    
+                const party = await fortnite.Party.lookup(fortnite, PlayerStatus.properties["party.joininfodata.286331153_j"].partyId);
+    
+                fortnite.party.joinparty(PlayerStatus.properties["party.joininfodata.286331153_j"].partyId);
+    
+                console.log(`[JOINED] Joined ${Player.displayName}'s Party!`);
+    
+                fortnite.party = party
+    
+                current_party = party
+    
+              }
+    
+              catch(err) {
+    
+                if(err == 'Could not retrieve status, error: Error: Waiting for communicator event timeout exceeded: 5000 ms') {
+                  console.log(`[Party] Cannot join party because status wasn't found.`);
+                }
+    
+                else {
+                  console.log(err)
+                }
+    
+              }    
+
+            }
+
               fortnite.communicator.on('friend:request', async data => {
                 if(!YourAccountName) return console.log(`You don't have anyname mentioned in config.`);
                if(!Player) return console.log('The name you provided ' + `'` + YourAccountName + `', isn't right.` );
@@ -108,6 +143,7 @@ const EGClient = require('epicgames-client').Client;
                 });
                 }
             });  
+
             fortnite.communicator.on('party:invitation', async (invitation) => {
               await invitation.accept()
                     current_party = invitation.party;
