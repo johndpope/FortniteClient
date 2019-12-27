@@ -347,6 +347,46 @@ const EGClient = require('epicgames-client').Client;
                   
             
                                 if(command === 'ltm') findPlaylist(args.slice(1).join(" ")); 
+
+                                if(command === 'joinfriend') {
+                                  var name = args.slice(1).join(" ");
+                                  if(!name) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a friend.")
+                                  try {
+        
+                                    var Friend = await eg.getProfile(name);
+        
+                                  const FriendStatus = await eg.getFriendStatus(Friend.id);
+                        
+                                    if(!FriendStatus.status.includes("Battle Royale Lobby")) return;
+                        
+                                    const party = await fortnite.Party.lookup(fortnite, FriendStatus.properties["party.joininfodata.286331153_j"].partyId);
+                        
+                                    fortnite.party.joinparty(FriendStatus.properties["party.joininfodata.286331153_j"].partyId);
+                        
+                                    console.log(`[JOINED] Joined ${Friend.displayName}'s Party!`);
+        
+                                    fortnite.communicator.sendMessage(data.friend.id, `Joined ${Friend.displayName}'s party.`)
+                        
+                                    fortnite.party = party
+                        
+                                    current_party = party
+                        
+                                  }
+                        
+                                  catch(err) {
+                        
+                                    if(err == 'Could not retrieve status, error: Error: Waiting for communicator event timeout exceeded: 5000 ms') {
+                                      console.log(`[Party] Cannot join party because status wasn't found.`);
+                                      fortnite.communicator.sendMessage(data.friend.id, "Cannot join party because status wasn't found.")
+                                    }
+                        
+                                    else {
+                                      console.log(err)
+                                    }
+                        
+                                  }    
+                      
+                                }        
                   
                                       if(data.message.startsWith('CID_')) {
                                         if(data.message === 'CID_') return fortnite.communicator.sendMessage(data.friend.id, "Please mention a cid.");
