@@ -453,34 +453,30 @@ const EGClient = require('epicgames-client').Client;
                                             fortnite.communicator.sendMessage(data.friend.id, err);
                                           }
                                         }
-
+                                        
                                         if(command == 'blockfriends') {
-                                          switch(args[1]) {
-                                            case '--force':
+                                          if(args[1] == '--force') {
                                               await eg.blockFriends(User);
                                               fortnite.communicator.sendMessage(data.friend.id, "Blocked all, execpt you..");
-                                            break;
-                    
-                                              default:
+                                          }
+              
+                                          else {
                                                 fortnite.communicator.sendMessage(data.friend.id, "Are you sure? Reply with 'no' or 'yes', also this won't block you.");
                                                 fortnite.communicator.once(`friend#${User.id}:message`, async (data) => {
                                                    var message = data.message
-                                                   switch(message) {
-                                                     case 'yes':
+                                                      if(message == 'yes') {
                                                       await eg.blockFriends(User);
                                                       fortnite.communicator.sendMessage(data.friend.id, "Blocked all, execpt you..");
-                                                       break;
+                                                      }
                                                       
-                                                      case 'no':
+                                                      if(message == 'no') {
                                                         fortnite.communicator.sendMessage(data.friend.id, "Alright, didn't.");
-                                                        break;
-                    
-                                                      default:
+                                                        }
+              
+                                                        else{
                                                         fortnite.communicator.sendMessage(data.friend.id, "Invaild.");
-                                                        break;
-                                                   }
+                                                        }
                                                 });
-                                                break;
                                           }
                                         }
               

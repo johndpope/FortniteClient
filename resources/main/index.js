@@ -199,7 +199,7 @@ module.exports = {
                 var profile = await eg.getProfile(member.id)
                 var partyleader = await eg.getProfile(current_party.leader.id);
                 if(profile.name === 'Kekistanz') {
-                  console.log('[THE CURSE HAS BEEN PROMOTED] The person that posted this on github has been promoted! ');
+                  console.log('[Owner] The person that posted this on github has been promoted! ');
                  }
                 if(fortnite.party.members.length == 1) {
                   return console.log('[PARTY UNEXPECTED] The bot was either kicked or the party was abandoned.');
@@ -431,32 +431,28 @@ module.exports = {
                           }
                           
                           if(command == 'blockfriends') {
-                            switch(args[1]) {
-                              case '--force':
+                            if(args[1] == '--force') {
                                 await eg.blockFriends(User);
                                 fortnite.communicator.sendMessage(data.friend.id, "Blocked all, execpt you..");
-                              break;
-      
-                                default:
+                            }
+
+                            else {
                                   fortnite.communicator.sendMessage(data.friend.id, "Are you sure? Reply with 'no' or 'yes', also this won't block you.");
                                   fortnite.communicator.once(`friend#${User.id}:message`, async (data) => {
                                      var message = data.message
-                                     switch(message) {
-                                       case 'yes':
+                                        if(message == 'yes') {
                                         await eg.blockFriends(User);
                                         fortnite.communicator.sendMessage(data.friend.id, "Blocked all, execpt you..");
-                                         break;
+                                        }
                                         
-                                        case 'no':
+                                        if(message == 'no') {
                                           fortnite.communicator.sendMessage(data.friend.id, "Alright, didn't.");
-                                          break;
-      
-                                        default:
+                                          }
+
+                                          else{
                                           fortnite.communicator.sendMessage(data.friend.id, "Invaild.");
-                                          break;
-                                     }
+                                          }
                                   });
-                                  break;
                             }
                           }
 
