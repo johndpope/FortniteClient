@@ -411,6 +411,18 @@ const EGClient = require('epicgames-client').Client;
                                         fortnite.communicator.sendMessage(data.friend.id, er);
                                         }
                                       }
+
+                                      if(data.message.startsWith('Emoji_')) {
+                                        if(data.message === 'Emoji_') return fortnite.communicator.sendMessage(data.friend.id, "Please mention a Emoji id.");
+                                           try {
+                                        eid = args[0];  
+                                        fortnite.party.me.setEmoji(args[0]); 
+                                        fortnite.communicator.sendMessage(data.friend.id, "Emoji set to " + args[0]);
+                                        }
+                                        catch(err) {
+                                          fortnite.communicator.sendMessage(data.friend.id, err);
+                                        }
+                                      }
                               
                                       if(data.message.startsWith('Pickaxe_ID_')) {
                                         if(data.message === 'Pickaxe_ID_') return fortnite.communicator.sendMessage(data.friend.id, "Please mention a pickaxe id.");
@@ -453,7 +465,7 @@ const EGClient = require('epicgames-client').Client;
                                             fortnite.communicator.sendMessage(data.friend.id, err);
                                           }
                                         }
-                                        
+
                                         if(command == 'blockfriends') {
                                           if(args[1] == '--force') {
                                               await eg.blockFriends(User);
