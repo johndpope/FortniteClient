@@ -1,6 +1,7 @@
 module.exports = {
   run: function() {
     const Fortnite = require('epicgames-fortnite-client');
+    const EpicGames = require('epicgames-client');
     const config = require('../../config.json')
      const { YourAccountName, Features, Cosmetics, Client } = require("../../config.json");
     const request = require("request-promise");
@@ -349,7 +350,7 @@ module.exports = {
       // Fortnite commands start here
 
                     if(command === 'help') {
-                      fortnite.communicator.sendMessage(data.friend.id, 'Thanks for using this bot ' + User.displayName + ', heres the commands, !skin !backling !leave !emote !banner !status !ready !platform !id !playlist !promote !kick !friend !unfriend !invite');
+                      fortnite.communicator.sendMessage(data.friend.id, '\nThanks for using this bot ' + User.displayName + ', heres the commands, \n!skin %skinName% - Sets the skin name you provide \n !backling %backlingName% - Sets the backbling you provide \n !leave - Leaves the party that its currently in \n !emote - Does the emote you provide \n !banner %banner% %ect..% !status !ready !platform !id !playlist !promote !kick !friend !unfriend !invite');
                     }
 
                     if(command === 'style') {
@@ -533,23 +534,6 @@ module.exports = {
                           fortnite.communicator.sendMessage(data.friend.id, err);
                         }
                       }
-
-                      // Unused _
-
-                    //   if(command === 'stats') {
-                    //     if(!args[1]) return fortnite.communicator.sendMessage(data.friend.id, 'Mention a username.');
-                    //     try {
-                    //       let stats = await br.getStatsForPlayer(args[1]);
-                    //     fortnite.communicator.sendMessage(data.friend.id, stats);
-                    //     }
-                    //     catch(err){
-                    //       fortnite.communicator.sendMessage(data.friend.id, stats);
-                    //     }
-                    // }
-                     //   Currently trying to find a way to show wins.
-
-                    // Not working currently.
-
   
                         if(data.message.startsWith('BID_')) {
                           if(data.message === 'BID_') return fortnite.communicator.sendMessage(data.friend.id, "Please mention a bid id.");
@@ -571,21 +555,6 @@ module.exports = {
                                 fortnite.communicator.sendMessage(data.friend.id, err);
                               }
                             }
-
-                            if(command === 'emoteall') {
-                              let emoteid = args.slice(5).join(" ");
-                              request({
-                                url: 'http://benbotfn.tk:8080/api/cosmetics/search/multiple?displayName=' + emoteid,
-                                json: true
-                            }).then(query => {
-                              Object.keys(query).forEach(function(key) {
-                                if(query[key].type == "Emote") {
-                                fortnite.party.me.setEmote(query[key].id);
-                                }
-                              });
-                            });
-                            }
-                       
 
                                 if(command === "skin") {
                                   let skinname = args.slice(1).join(" ");
@@ -873,21 +842,39 @@ module.exports = {
                         }
                       }
 
-                      if(command === "partyhubicon") {
-                        if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a cid to set.");
-                        try {
-                          const d = await eg.graphql('icon', args.slice(1).join(" "));
-                          var dataU = JSON.parse(d);
-                          if(dataU.data.UserSettings.updateSetting.success == true) {
-                          fortnite.communicator.sendMessage(data.friend.id, `Successfully set the icon to ${args.slice(1).join(" ")}.`);
+                      if(command === "graphql") {
+                        if (!args[1]) return fortnite.communicator.sendMessage(data.friend.id, "Please mention a action to do."); 
+                        if(args[1] == 'icon') {
+                          try {
+                            const d = await eg.graphql('icon', args.slice(2).join(" "));
+                            var dataU = JSON.parse(d);
+                            if(dataU.data.UserSettings.updateSetting.success == true) {
+                            fortnite.communicator.sendMessage(data.friend.id, `\nSuccessfully set the icon to ${args.slice(2).join(" ")}, also would you like a color, there are three colors,\n green, blue, pink, purple, gray, yellow, ect..\n If no respond no.`);
+                            fortnite.communicator.once(`friend#${User.id}:message`, async (data) => {
+                              const Colors = require('epicgames-client/enums/Kairos Profile Colors');
+                                var Color = Colors[data.message] || Colors["gray"];
+                                if(data.message == 'stop') return;
+                                const Data = await eg.graphql('icon', args.slice(2).join(" "), Color);
+                                if(Data.data.UserSettings.updateSetting.success == true) {
+                                  fortnite.communicator.sendMessage(data.friend.id, `Successfully set the color to ${Color}.`);
+                                }
+                                else {
+                                  fortnite.communicator.sendMessage(data.friend.id, `That was werid, success was false...`); 
+                                }
+                            });
+                            }
+                            if(dataU.data.UserSettings.updateSetting.success == false) {
+                              fortnite.communicator.sendMessage(data.friend.id, `Either the bot doesn't own it or ${args.slice(1).join(" ")} isn't vaild.`); 
+                            }
+                            }
+                          catch(err) {
+                            fortnite.communicator.sendMessage(data.friend.id, "There was a error: " + err);
+                            console.log(err)
                           }
-                          if(dataU.data.UserSettings.updateSetting.success == false) {
-                            fortnite.communicator.sendMessage(data.friend.id, `Either the bot doesn't own it or ${args.slice(1).join(" ")} isn't vaild.`); 
-                          }
-                          }
-                        catch(err) {
-                          fortnite.communicator.sendMessage(data.friend.id, "There was a error: " + err);
-                          console.log(err)
+                        }
+                        if(args[1] == 'currentprofile') {
+                          const a = await eg.graphql('currenticon');
+                          return fortnite.communicator.send(data.friend.id, `${a}`);
                         }
                       }
 
